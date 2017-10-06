@@ -1,0 +1,86 @@
+Racionalna "stevila so kvocienti celih "stevil. Bolj natan"cno: kvoceinti celih in naravnih "stevil.
+
+Dva ulomka \(\frac{m}{n}, \frac{k}{l} \) predstavljata isto racionalno "stevilo "ce: \(ml = nk \)\\
+lahko naredimo:
+\[\mathbb{Z} \times \mathbb{N} = \{(m, n), m \in \mathbb{Z}, n \in \mathbb{N} \}\]
+
+Mno"zico \(\mathbb{Z} \times \mathbb{N} \) razdelimo na razrede: urejena para \((m, n)\) in \((k, l)\) sta v istem razredu, "ce velja \(ml = nk\).
+
+Racionalno "stevilo je razred urejenih parov in ga ozna"cimo z \(\frac{m}{n}\).
+\[\mathbb{Q} = \{\frac{m}{n}, m \in \mathbb{Z}, n \in \mathbb{N}\} \]
+
+\subsubsection*{Se"stevanje v \(\mathbb{Q}\):}
+\[\frac{m}{n} + \frac{k}{l} = \frac{ml + kn}{nl}, m, k \in \mathbb{Z}, n, l \in \mathbb{N} \]
+
+Se"stevanje ulomkov je \underline{dobro definirano:}\\
+"ce je: \(\frac{m'}{n'} = \frac{m}{n}, \frac{k'}{l'} = \frac{k}{l}\)\\
+potem je: \(\frac{m'}{n'} + \frac{k'}{l'} = \frac{m}{n} + \frac{k}{l}\)
+
+vemo: \(m'n = mn'\) in \(k'l = kl'\)\\
+\underline{Dokaz:}
+\[\frac{m'}{n'} + \frac{k'}{l'} =^{(def)} \frac{m'l' + n'k'}{n'l'} \frac{\cdot mk}{\cdot mk}=\]
+\[= \frac{m'l'mk + n'k'mk}{n'ml'k} = \]
+\[= \frac{m'mk'l + m'nk'k}{m'nk'l} = \frac{ml + nk}{nl} =^{(def)} = \frac{m}{n} + \frac{k}{l}\]
+
+\subsubsection*{Mno"zenje v \(\mathbb{Q}\):}
+\[\frac{m}{n} \cdot \frac{k}{l} = \frac{mk}{nl}, m, k \in \mathbb{Z}, n, l, \in, \mathbb{N}\]
+Mno"zenje je dobro definirano (izpeljava doma).
+
+\subsubsection*{Deljenje v \(\mathbb{Q}\):}
+\[\frac{m}{n} : \frac{k}{l} = \frac{ml}{nk}, m, k \in \mathbb{Z}, n, l \in \mathbb{N}, k \neq 0 \]
+
+Naj bo \(A\) ("stevilska) mno"zica z operacijama \(+\) in \(\cdot\).
+
+Osnovne lastnosti ra"cunskih operacij bomo imenovali \textbf{aksiomi}. Druge lastnosti izpeljemo iz aksiomov.
+\begin{itemize}
+	\item[\textbf{A1}] \textbf{asociativnost se"stevanja}
+
+	Za vse \(a, b, c \in A\) velja \((a + b) + c = a + (b + c)\)
+	\item[\textbf{A2}] \textbf{komutativnost se"stevanja}
+	
+	Za vse \(a, b \in A\) velja da \(a + b = b + a\)
+	
+	\item[\textbf{A3}] \textbf{obstoj enote za se"stevanje}
+	
+	Obstaja za element \(0 \in A\) za katerega velja da: \(0 + a = a\) za vse \(a \in A\)
+	
+	\item[\textbf{A4}] \textbf{obstoj nasprotnega "stevila}
+	
+	Za vsak \(a \in A\) obstaja nasprotno "stevilo \(-a \in A\) za katerega velja: \((-a) + a = 0\)
+\end{itemize}
+
+\underline{Opomba:} Mno"zica \(A\) za operacijo \(+\), ki ustreza aksiomom od A1 do A4 je \textbf{Abelova grupa} za \(+\).
+
+\underline{Trditev:} Naj \((A, +)\) ustreza aksiomom od A1 do A4.
+\begin{itemize}
+	\item[(1)] \(\forall a \in A \) ima eno samo nasprotno "stevilo
+	\item[(2)] \textbf{Pravilo kraj"sanja:} za vse \(a, x, y \in A\) velja: \(a + x = a + y \Rightarrow x = y\)
+	\item[(3)] \(-0 = 0\)
+\end{itemize}
+
+\underline{Dokaz:}
+\begin{itemize}
+	\item[(1)] izberemo poljubno "stevilo \(a \in A\). Dokazujemo da ima \(a\) natanko 1 nasprotni element.
+	
+	Po A4 nasprotno "stevilo obstaja. Denimo, da sta \(b, c \in A\) nasprotni "stevili od a.
+	\[b + a = 0\text{ in }c + a = 0 \]
+	\[(a + b) + c \stackrel{\text{A2}}{=} (b + a) + c \stackrel{\text{predp.}}{=} 0 + c \stackrel{\text{A2}}{=} c\]
+	\[(a + b) + c\stackrel{\text{A2}}{=} (b + a) + c \stackrel{\text{A1}}{=} b + (a + c) \stackrel{\text{A2}}{=} b + (c + a) \stackrel{\text{predp.}}{=} b + 0 \stackrel{\text{A2}}{=} 0 + b \stackrel{\text{A3}}{=} b \]
+	\[c = b\]
+	
+	\item[(2)]
+	\[a + x = a + y \stackrel{\text{A4}}{\Rightarrow}\]
+	\[\Rightarrow (-a) + (a + x) = (-a) + (a + y) \stackrel{\text{A1}}{\Rightarrow}\]
+	\[\Rightarrow ((-a) + a) + x = ((-a) + a) + y \stackrel{\text{A4}}{\Rightarrow}\]
+	\[\Rightarrow 0 + x = 0 + y \stackrel{\text{A3}}{\Rightarrow}\]
+	\[\Rightarrow x = y\]
+	
+	\item[(3)] \(-0 = 0\)
+	\[0 \stackrel{\text{A4}}{=} (-0) + 0 \stackrel{\text{A2}}{=} 0 + (-0) \stackrel{\text{A3}}{=} -0\]
+\end{itemize}
+
+\underline{Od"stevanje v \(A\):} razlika "stevil \(a\) in \(b\) je vsota \(a\) in nasprotnega elementa od \(b\).
+\[a - b := a + (-b)\]
+\(b-a\) je re"sitev ena"cbe \(a + x = b\)
+
+\underline{Pozor:} od"stevanje ne ustreza aksiomom od A1 do A4.

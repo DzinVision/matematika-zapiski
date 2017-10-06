@@ -1,0 +1,52 @@
+\subsection{Kartezi"cni produkt ali zmno"zek}
+\(A\) in \(B\) mno"zici\\
+\(A \times B\) zmno"zek
+
+Elementi \(A \times B\) so urejeni pari \((a, b)\), kjer sta \(a \in A\) in \(b \in B\).
+
+\underline{Projekciji:}
+\[\pi_1: A \times B \rightarrow A\]
+\[\pi_2: A\times B \rightarrow B \]
+
+\underline{Ena"cbe:}
+
+Za vse \(a \in A\) in \(b \in B\) velja:
+\[\pi_1(a, b) = a\]
+\[\pi_2(a, b) = b\]
+
+\subsubsection*{Ekstanzionalnost za zmno"zke:} Za vse \(p, q \in A \times B\), "ce \(\pi_1(p) = \pi_1(q)\) in \(\pi_2(p) = \pi_2(q)\),  potem \(p = q\)
+
+\[f: A \times B \rightarrow C\]
+\[f: p \mapsto ...\]
+\[f: (x, y) \mapsto ... x ... y ...\]
+
+\[g: A \rightarrow B \times C\]
+\[g: a \mapsto (...a..., ...a...)\]
+
+Kaj je \(\varnothing \times A\)? \(\varnothing \times A = \varnothing\)
+
+
+\subsection{Eksponentna mno"zica}
+"Ce sta \(A\) in \(B\) mno"zici, je \(B^A\) mno"zica vseh preslikav z domeno \(A\) in kodomeno \(B\).
+
+\subsection{Vsota mno"zic}
+"Ce sta \(A\) in \(B\) mno"zici je vsota \(A + B\) mno"zica.
+
+Za vsak \(a \in A\) je \(\iota_1(a) \in A + B\)
+
+Za vsak \(b \in B \) je \(\iota_2(b) \in A + B\)
+
+Elementa \(u\) in \(v\) iz \(A + B\) sta enaka, "ce bodisi obstaja \(a \in A\) da je \(u = \iota_1(a)\) in \(v = \iota_1(a)\), bodisi obstaja \(b \in B\) da je \(u = \iota_2(b)\) in \(v = \iota_2(b)\).
+
+\[\{1, 2\} + \{1, 2\} = \{\iota_1(1), \iota_1(2), \iota_2(1), \iota_2(2)\}\]
+
+\subsection{Izomorfni mno"zici}
+\underline{Def.:} Izomorfizem je preslikava \(f: A \rightarrow B\), za katero obstaja preslikava \(g: B \rightarrow A\), da je:
+\begin{itemize}
+	\item za vsak \(x \in A\) je \(g(f(x)) = x\) in
+	\item za vsak \(y \in B\) je \(f(g(y)) = y\)
+\end{itemize}
+
+Pravimo da je \(g\) inverz \(f\).
+
+"Ce obstaja izomorfizem \(X \rightarrow Y\), pravimo, da sta \(X\) in \(Y\) \textbf{izomorfni}, pi"semo \(X \cong Y\)

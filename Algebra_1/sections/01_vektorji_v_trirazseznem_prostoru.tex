@@ -1,0 +1,116 @@
+\(\mathcal{P}\) - prostor\\
+\(T \in \mathcal{P}\) - to"cka
+
+\(A, B \in \mathcal{P}\)\\
+\(\overrightarrow{AB}\) - usmerjena daljica
+
+\underline{Formalno:} \(\overrightarrow{AB} = (A, B) \in \mathcal{P} \times \mathcal{P}\) (urejen par)
+
+\subsubsection*{Ekvivalentnost usmerjenih daljic:}
+
+\(\overrightarrow{CD} \sim \overrightarrow{AB}\), kadar je \(\overrightarrow{AB}\) z vzporednim premikom mogo"ce premakniti v \(\overrightarrow{CD}\).
+\begin{itemize}
+	\item \(|AB| = |CD|\) (dol"zini daljic sta enaki)
+	\item ista smer ("ce potegnemo premico "cez izhodi"sca daljic (\(AC\)), morata biti to"cki \(B\) in \(D\) na istem ``bregu'' te premice)
+	\item \(AB \parallel CD\)
+\end{itemize}
+\[\overrightarrow{CD} \sim \overrightarrow{AB} \Rightarrow \overrightarrow{AB} \sim \overrightarrow{CD}\]
+
+\underline{Def:} Vektor \(\vec{AB}\) je mno"zica \(\vec{AB} = \{\overrightarrow{XY}: \overrightarrow{XY} \sim \overrightarrow{AB}\}\) (usmerjene daljice ekvivalentne daljici \(\overrightarrow{AB}\))
+
+\begin{itemize}
+	\item \underline{ni"celni vektor:} \(\vec{AA} = \vec{0}\)
+	\item \underline{nasprotni vektor} vektorja \(\vec{AB}\) je \(\vec{BA}\) (\(\vec{BA} = -\vec{AB}\))
+\end{itemize}
+
+Dodatna oznaka: \(\vec{a}\), \(-\vec{a}\) nasprotni vektor
+
+\(V = \{\vec{v}: \vec{v} \text{ vektor} \}\) - \underline{vektorski prostor}.
+
+\(O \in \mathcal{P}\); \(O\) fiksiramo
+
+\[f: \mathcal{P} \rightarrow V\]
+\[f(T) = \vec{OT}\]
+\(f\) je bijekcija (vsaki to"cki priredi natanko en vektor).\\
+\(\vec{a} = \vec{OT}\)
+
+\subsection{Operacije z vektorji}
+\subsubsection*{Se"stevanje:}
+\[\vec{a}, \vec{b} \in V\]
+\[\vec{a} = \vec{AB}, \vec{b} = \vec{BC}\]
+\[\vec{a} + \vec{b} = \vec{AC}\]
+\[\vec{AB} + \vec{BC} = \vec{AC}\]
+
+\underline{Lastnosti:}\footnote{Dokaz lastnosti (1) in (2) s skico.}
+\begin{itemize}
+	\item[(1)] \((\vec{a} + \vec{b}) + \vec{c} = \vec{a} + (\vec{b} + \vec{c})\) asociativnost
+	\item[(2)] \(\vec{a} + \vec{b} = \vec{b} + \vec{a}\) komutativnost
+	\item[(3)] \(\vec{a} + \vec{0} = \vec{a}\)
+	\item[(4)] \(\vec{a} + (-\vec{a}) = \vec{0}\)
+\end{itemize}
+
+Za lastnosti od (1) do (4) = \((V, +)\) \textbf{Abelova grupa}.
+
+\[\vec{a} - \vec{b} := \vec{a} + (-\vec{b})\]
+
+\subsubsection*{Mno"zenje s skalarjem}
+Skalar je realno "stevilo.
+\[\vec{a}, \alpha \in \mathbb{R}\]
+\(\alpha \vec{a}\) je vektor.
+\begin{itemize}
+	\item ima isto smer kot \(\vec{a}\) za \(\alpha > 0\)
+	\item ima nasprotno smer kot \(\vec{a}\) za \(\alpha < 0\)
+	\item \(|\alpha \vec{a}| = |\alpha| |\vec{a}|\)
+\end{itemize}
+
+\[\vec{a} = \vec{OA} \neq \vec{0}\]
+\[\alpha \vec{a} = \vec{OT}, O, A, T \text{ so na isti premici} \]
+
+S tem uvedemo koordinatni sistem na premici \(OA\).
+
+\underline{Lastnosti:}
+\begin{itemize}
+	\item[(5)] \(\alpha (\beta \vec{a}) = (\alpha \beta) \vec{a}\)
+	\item[(6)] \((\alpha + \beta) \vec{a} = \alpha \vec{a} + \beta \vec{a} \)
+	\item[(7)] \(\alpha(\vec{a} \vec{b}) = \alpha \vec{a} + \alpha \vec{b}\)
+	\item[(8)] \(1\vec{a} = \vec{a}\)
+\end{itemize}
+
+\(V, +\) in mno"zenje s skalaji je \textbf{vektorski prostor}: veljajo lastnosti od (1) do (8).
+
+\subsection{Linearna neodvisnost}
+\[\vec{a}, \vec{b} \in V\]
+\(\vec{a}, \vec{b}\) sta linearno odvisna kadar je:\\
+\hspace*{10pt} bodisi \(\vec{b} = \alpha \vec{a}\) za ustrezen \(\alpha \in \mathbb{R}\),\\
+\hspace*{10pt} bodisi \(\vec{a}  = \beta \vec{b}\) za ustrezen \(\beta \in \mathbb{R}\).
+
+V nasprotnem primeru sta \(\vec{a}\) in \(\vec{b}\) linearno neodvisna.
+
+\[\vec{a} = \vec{OA}, \vec{b} = \vec{OB}\]
+
+\begin{enumerate}
+	\item \(\vec{OA}\) in \(\vec{OB}\) sta linearno odvisna \(\Leftrightarrow O, A, B\) kolinearne (li"zijo na isti premici).
+	\item \(\vec{a}, \vec{b}\) sta linearno neodvisna \(\Leftrightarrow (\alpha \vec{a} + \beta \vec{b} = \vec{0} \Rightarrow \alpha = \beta = 0)\)
+\end{enumerate}
+
+Privzamemo da sta \(\vec{a}, \vec{b}\) linearno neodvisna:
+\[\{T: \vec{OT} = \alpha \vec{a} + \beta \vec{b}, \alpha, \beta \in \mathbb{R}\} = \mathcal{R}\]
+\( \alpha \vec{a} + \beta \vec{b}\) - linearna kombinacija\\
+\(\mathcal{R}\) - ravnina dolo"cena z \(O, A, B\) (z vektorji \(\vec{a}, \vec{b}\)) in to"cko \(O\).
+
+\[\vec{r} = \vec{OT}, T \in \mathcal{R}\]
+\[\exists \alpha, \beta \in \mathbb{R}: \vec{r} = \alpha \vec{a} + \beta \vec{b} \]
+Pri tem sta \(\alpha\) in \(\beta\) enoli"cna dolo"cena skalarja.
+
+V \(\mathcal{R}\) smo z vektorjema \(\vec{a}, \vec{b}\) vpeljali koordinatni sistem.
+
+\(\vec{a}, \vec{b}, \vec{c} \in V\) so linearno odvisni, kadar je vsaj eden od njih linearna kombinacija drugih dveh.\\
+npr: \(\vec{c} = \alpha \vec{a} + \beta \vec{b}\)
+
+V nasprotnem primeru so \(\vec{a}, \vec{b}, \vec{c}\) linearno neodvisni.
+
+\begin{enumerate}
+	\item \(\vec{a} = \vec{OA}, \vec{b} = \vec{OB}, \vec{c} = \vec{OC}\) so linearno odvisni \(\Leftrightarrow O, A, B, C\) koplanarne (le"zijo na isti ravnini)
+	\item \(\vec{a}, \vec{b}, \vec{c}\) so linearno neodvisni \(\Leftrightarrow (\alpha \vec{a} + \beta \vec{b} + \gamma \vec{c} = \vec{0} \Rightarrow \alpha = \beta = \gamma = 0)\)
+\end{enumerate}
+

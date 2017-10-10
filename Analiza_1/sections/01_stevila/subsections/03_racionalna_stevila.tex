@@ -29,6 +29,8 @@ Mno"zenje je dobro definirano (izpeljava doma).
 \subsubsection*{Deljenje v \(\mathbb{Q}\):}
 \[\frac{m}{n} : \frac{k}{l} = \frac{ml}{nk}, m, k \in \mathbb{Z}, n, l \in \mathbb{N}, k \neq 0 \]
 
+\subsubsection*{Lastnosti se"stevanja}
+
 Naj bo \(A\) ("stevilska) mno"zica z operacijama \(+\) in \(\cdot\).
 
 Osnovne lastnosti ra"cunskih operacij bomo imenovali \textbf{aksiomi}. Druge lastnosti izpeljemo iz aksiomov.
@@ -44,7 +46,7 @@ Osnovne lastnosti ra"cunskih operacij bomo imenovali \textbf{aksiomi}. Druge las
 	
 	Obstaja za element \(0 \in A\) za katerega velja da: \(0 + a = a\) za vse \(a \in A\)
 	
-	\item[\textbf{A4}] \textbf{obstoj nasprotnega "stevila}
+	\item[\textbf{A4}] \textbf{obstoj nasprotnega "stevila (elementa)}
 	
 	Za vsak \(a \in A\) obstaja nasprotno "stevilo \(-a \in A\) za katerega velja: \((-a) + a = 0\)
 \end{itemize}
@@ -84,3 +86,166 @@ Osnovne lastnosti ra"cunskih operacij bomo imenovali \textbf{aksiomi}. Druge las
 \(b-a\) je re"sitev ena"cbe \(a + x = b\)
 
 \underline{Pozor:} od"stevanje ne ustreza aksiomom od A1 do A4.
+
+\subsubsection*{Lastnosti mno"zenja}
+\begin{itemize}
+	\item[\textbf{A5}] \textbf{asociativnost mno"zenja}
+	
+	Za vse \(a, b, c, \in A\) velja: \((ab)c = a(bc)\)
+	\item[\textbf{A6}] \textbf{komutativnost mno"zenja}
+	
+	Za vse \(a, b, c \in A\) velja: \(ab = ba\)
+	\item[\textbf{A7}] \textbf{obstoj enote za mno"zenje}
+	
+	\(\exists 1 \in A: 1 \cdot a = a\), za \(\forall a \in A\)
+	\item[\textbf{A8}] \textbf{obstoj obratnega "stevila (elementa)}
+	
+	Vsak \(a \in A, a \neq 0\), ima obratni element, tj.: \(a^{-1} \in A: a^{-1} \cdot a = 1\)
+\end{itemize}
+
+Mno"zici \(A\) z operacijo \(+\), ki ustreza A1-A4, re"cemo \textbf{grupa za se"stevanje} (Abelova grupa).
+
+Mno"zica \(A \setminus \{0\}\) z operacijo \(\cdot\), ki ustreza A5-A8 je \textbf{grupa za mno"zenje.}
+
+Podobno kot za se"stevanje lahko izpeljemo:\\
+\underline{Trditev:} veljajo:
+\begin{itemize}
+	\item[(1)] Vsak \(a \in A \setminus \{0\}\) ima eno samo obratno "stevilo
+	\item[(2)] (pravilo kraj"sanja za mno"zenje)
+
+	Za vsak \(a, x, y \in A\) velja: \(ax = ay \Rightarrow x = y\)
+	\item[(3)] \(1^{-1} = 1\)
+\end{itemize}
+
+\begin{itemize}
+	\item[\textbf{A9}] \textbf{"Stevili \(0\) in \(1\) sta razli"cni \(0 \neq 1\)}
+	\item[\textbf{A10}] \textbf{Distributivnost}
+	
+	Za vsake \(a, b, c \in A\) velja:
+	\[(a + b)c = ac + bc\]
+\end{itemize}
+
+\underline{Def:} Mno"zico \(A\) z operacijama \(+\) in \(\cdot\), ki ustreza aksiomom A1-A10, imenujemo \textbf{komutativen\footnote{komutativnost se nana"sa na komutativnost mno"zenja} obseg} ali \textbf{polje}.\\
+\underline{Primer:} \((\mathbb{Q}, +, \cdot)\) so polje.
+
+V \(A\) vpeljemo urejenost z dvema aksiomoma:
+\begin{itemize}
+	\item[\textbf{A11:}] Za  vsak \(a \in A \setminus \{0\}\) velja, da je natanko eno od "stevil \(a\), \(-a\) pozitivno. "Stevilo \(0\) ni niti pozitivno niti negativno. ("Stevilo \(a\) je negativno, "ce je "stevilo \(-a\) pozitivno).
+	\item[\textbf{A12:}] Za vsaka \(a, b \in A\) velja: "ce sta \(a\) in \(b\) pozitivni "stevili, potem sta tudi \(a + b\) in \(a \cdot b\) pozitivni "stevili.
+\end{itemize}
+
+\underline{Def:} "Ce ima obseg \((A, +, \cdot)\) urejenost, ki izpolnjuje A11 in A12, \(A\) imenujemo \textbf{urejen obseg} (urejeno polje).\\
+\underline{Primer:} \((\mathbb{Q}, +, \cdot)\) z obi"cajno urejenostjo je urejen obseg.
+
+\(\frac{m}{n}\) je pozitiven, "ce \(m \cdot n > 0\)
+
+\underline{Def:} Naj bo \(A\) urejen obseg. Za poljubna \(a, b \in A\) definiramo:
+
+\hspace*{12pt}Pi"semo \(a > b\) natanko tedaj, kadar je \(a - b\) pozitivno "stevilo.
+
+\hspace*{12pt}V tem primeru pi"semo tudi \(b < a\)
+
+\hspace*{12pt}V posebnem primeru pi"semo \(a > 0\), kadar je \(a\) pozitivno "stevilo.
+
+\underline{Def:} Naj bo \(A\) urejen obseg. Za poljubna \(a, b \in A\)
+
+\hspace*{12pt}\(a \leq b\) natanko takrat, kadar \(a < b\) ali \(a = b\)
+
+\underline{Trditev:} V urejenem obsegu \(A\) velja:
+\begin{enumerate}
+	\item[(1)] Za poljubni "stevili \(a, b \in A\) velja natanko ena od mo"znosti:
+	\[a < b \text{, } a = b \text{, } a > b\]
+	Sledi iz A11 uporabljen za \(a - b\).
+	
+	\item[(2)] Za poljubne \(a, b, c \in A\) velja:
+	
+	"ce je \(a > b \land b > c\), potem \(a > c\) (tranzitivnost)
+	\item[(3)] Za poljubne \(a, b, c \in A\) velja:
+	
+	"ce je \(a > b\), potem \(a + c > b + c\)
+	\item[(4)] Za poljubne \(a, b, c, \in A, c > 0\):
+	
+	"ce je \(a > b\), potem je \(ac > bc\)
+	\item[5] Za poljubne \(a, b, c, d, \in A\):
+	
+	"ce je \(a > b > 0\) in \(c > d > 0\), potem je \(ac > bd\)
+\end{enumerate}
+
+\underline{Dokaz:}
+\begin{enumerate}
+	\item[(2)] \(a > b \land b > c \Rightarrow a > c\)
+	
+	Po definiciji: \(a - b > 0\) in \(b - c > 0\)
+	
+	Zato po A12:
+	\begin{align*}
+		(a -b) + (b -c) &> 0\\
+		a + (-b) + b + (-c) &> 0\\
+		a + 0 + (-c) &> 0 \\
+		a - c &> 0
+	\end{align*}
+	zato \(a > c\)
+	
+	\item[(3)] denimo, da je \(a > b\)
+	
+	dokazujemo, da je \(a + b > b + c\), tj: \((a + c) - (b + c) > 0\)
+	\begin{align*}
+		(a + c) - (b + c) = &a + c + (-(b + c)) =\\
+		&a + c + (-b) + (-c) = \\
+		&(a + (-b)) + (c + (-c)) =\\
+		&a + (-b) = a - b
+	\end{align*}
+	\begin{adjustwidth}{24pt}{0pt}
+		Dokaz da \(-(b + c) = (-b) + (-c)\):\\
+		\hspace*{12pt}\(-(b + c)\) je nasprotni element od \(b + c\), kar pomeni da je njuna vsota enaka \(0\). "Ce velja \(-(b + c) = (-b) + (-c)\), mora biti tudi \(b + c + (-b) + (-c) = 0\):
+	\end{adjustwidth}
+	\[b + c + (-b) + (-c) \stackrel{A2, A1}{=} (b + (-b)) + (c + (-c)) \stackrel{A4}{=} 0 + 0 \stackrel{A3}{=} 0\]
+	
+	"Ce \(a > b\) je \(a - b > 0\), zato je \((a + c) - (b + c) > 0\), kar pomni \(a + c > b + c\).
+	
+	\item[(5)] \(a > b > 0\) in \(c > d > 0\)
+	
+	Dokazujemo \(ac > bd\):
+	
+	\(a > b \stackrel{4}{\Rightarrow} ac > bc\) (\(c > 0\))\\
+	\(c > d \stackrel{4}{\Rightarrow} bc > bd\) (\(b > 0\))
+	
+	Z upo"stevanjem tranzitivnosti (2) dobimo: \(ac > bd \square \)
+\end{enumerate}
+
+Racionalna "stevila predstavimo na "stevilski premici.
+
+Racionalna "stevila so na "stevilski premici \textbf{povsod gosta} tj: na vsakem nepraznem odprtem intervalu le"zi racionalno "stevilo.
+
+Racionalna "stevila ne pokrijejo "stevilske premice
+
+\underline{Trditev:} re"sitev ena"cbe \(x^2 = 2, x > 0\) ni racionalno "stevilo. (\(\sqrt{2} \notin \mathbb{Q}\))\\
+\underline{Dokaz:} Dokazujemo da \(x\) ni ulomek.
+
+Dokazujemo s protislovjem.
+\begin{itemize}
+	\item privzamemo, da tisto kar dokazujemo ni res. (predpostavimo, da \(x\) je ulomek)
+	\item sklepamo
+	\item skepi nas privedejo v protislovje s predpostavko
+\end{itemize}
+\[x = \frac{m}{n}, m, n \in \mathbb{N}\]\\
+"Ce je \(x\) ulomek, ga lahko zapi"semo kot okraj"san ulomek, zato sta \(m\) in \(n\) tuji si "stevili.
+\begin{align*}
+	x^2 = 2 &\Rightarrow (\frac{m}{n})^2 = 2\\
+	\frac{m^2}{n^2} &= 2\\
+	m^2 &= 2n^2\\
+	2 | m^2 &\Rightarrow 2 | m\\
+	\exists l \in \mathbb{N}: m &= 2l\\
+	4l^2 &= 2n^2\\
+	2l^2 &= n^2\\
+	2 | n^2 &\Rightarrow 2 | n\\
+	\rightarrow&\leftarrow
+\end{align*}
+
+Dokaz da \(2 | m^2 \Rightarrow 2 | m\):\\
+"Ce je \(m\) liho, potem \(k \in \mathbb{N}_0\)
+\begin{align*}
+	m &= 2k+ + 1\\
+	m^2 &= 4k^2 + 4k + 1\\
+	m^2 &\text{ je lih}
+\end{align*}

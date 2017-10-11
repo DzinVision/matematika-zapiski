@@ -1,3 +1,95 @@
 Radi bi skonstruirali "stevilsko mno"zico, ki bo vsaj urejen obseg in, ki zapolni "stevilsko premico.
 
-\underline{Dedekindov pristop}
+\subsubsection*{Dedekindov pristop}
+\underline{Def:} \textbf{Rez} je podmono"zica \(A \subset \mathbb{Q}\), za katero velja:
+\begin{enumerate}
+	\item[(i)] \(A \neq \varnothing, A \neq \mathbb{Q}\)
+	\item[(ii)] "Ce je \(p \in A\), potem za vsak \(q \in \mathbb{Q}\) in \(q < p\), velja \(q \in A\)
+	\item[(iii)] za vsak \(p \in A\) obstaja \(q \in A, q > p\) (\(A\) nima najve"cjega elementa)
+\end{enumerate}
+
+\underline{Def:} Mno"zica realnih "stevil je mno"zica vseh rezov, ozna"cimo jo s \(\mathbb{R}\)\\
+\underline{Primer:} 16 ustreza rez: \(\{p \in \mathbb{Q}; p < 16\} = B\)
+
+\underline{Trditev:} Preslikava \(\mathbb{Q} \rightarrow \mathbb{R}\) in je definirana s predpisom:
+\[q \mapsto \{p \in \mathbb{Q}; p < q\} = p^*\]
+\hspace*{48pt}vlo"zi mno"zico racionalnih "stevil v mno"zico realnih "stevil.
+
+Vpeljimo ra"cunski operaciji v \(\mathbb{R}\).
+
+\underline{Def:} Naj bosta \(A\) in \(B\) reza. Vsota rezov \(A\) in \(B\) je
+\[A + B = \{a + b, a \in A, b \in B\}\]
+\hspace*{24pt}\underline{Opomba:} \((p + q)^* = p* + q*\)
+
+\underline{Trditev:} "Ce sta \(A\) in \(B\) reza, potem je tudi \(A + B\) rez.\\
+\underline{Dokaz(trditev)}: Denimo da sta \(A\) in \(B\) reza.
+
+Dokazujemo da je \(A + B\) rez:
+\begin{enumerate}
+	\item[(i)] \dashuline{\(A + B \neq \varnothing\)}
+	
+	Ker sta \(A\) in \(B\) reza, po lastnosti (i) obstaja \(a \in A\) in \(b \in B\). Potem je \(a + b \in A + B\). Sledi \(A + B \neq \varnothing \ \ \square\)
+	
+	\dashuline{\(A + B \neq \mathbb{Q}\)}
+	
+	Obstaja \(c \in \mathbb{Q}, c \notin A\) in obstaja \(d \in \mathbb{Q}, d \notin B\).
+	\[c + d \notin A + B\]
+	Denimo, da je \(c + d\ \in A + B\).
+	
+	Potem velja, da je \(c + d = a + b\) za \(a \in A, b \in B\).
+	
+	Iz (ii) sledi: \(c > a\) in \(d > b \Rightarrow a + b < c + d \ \ \rightarrow\leftarrow\)
+	
+	\item[(ii)] Denimo: \(p \in A + B\), dokazujemo da za \(q \in \mathbb{Q}, q < p\) velja \dashuline{\(q \in A + B\)}
+	
+	Obstajata \(a \in A\) in \(b \in B\), da \(p = a + b\)
+	\[q = a + q - a\]
+	"Ce je \(q - a < b\), potem \(q - a \in B\)
+	\begin{align*}
+		q &< a + b\\
+		q &< p\\
+		&\square
+	\end{align*}
+
+	\item[(iii)] \dashuline{\(A + B\) nima najve"cjega elementa.}
+	
+	izberimo \(p \in A + B\)\\
+	i"s"cemo \(q \in A + B, q > p\)
+	
+	Obstajata \(a \in A, b \in B\), da je \(p = a _ b\)\\
+	Obstaja \(a' \in A, a' > a\)
+	\begin{align*}
+		q &:= a' + b \in A + B\\
+		q &> p\\
+		&\square
+	\end{align*}
+\end{enumerate}
+
+Ni te"zko preveriti, da za \((\mathbb{R}, +)\) veljajo A1-A4.\\
+\hspace*{12pt}Asociativnost in komutatiovnost se doka"ze z operacijami na elementih reza.\\
+\hspace*{12pt}\(0^*\) je enota za se"stevanje.
+
+Nasprotni rez od \(A\):
+\[-A = \{\text{treba bo dopolniti kej je prfoksa pozabila}\}\]
+\begin{enumerate}
+	\item[(i)] \(-A \neq \varnothing\)
+	
+	\dashuline{\(-A \neq \mathbb{Q}\)}
+	\begin{align*}
+		q + a &< 0 \text{ za vse } q \in \mathbb{Q}\\
+		q &= -a
+	\end{align*}
+	
+	\item[(ii)] \(q \in -A: r < q\)
+	
+	\(q + a < 0\) za vse \(a \in A\)
+	
+	\(r + a < q + a\) za vse \(a \in A\) po tranzitivnosti: \(r + a < 0\)
+	
+	\item[(iii)] \(q \in -A\): i"s"cemo \(q' \in -A, q' > q\)
+	
+	\(q + a < 0\) za vse \(a \in A\).
+\end{enumerate}
+
+\underline{Def:} Pravimo da je \(A\) pozitiven, "ce je \(0^* \subset A, A \neq 0^*\). Denimo da sta \(A\) in \(B\) pozitivna reza:
+\[A \cdot B = \{q \in \mathbb{Q}, \text{ obstajata } a \in A, a > 0 \text{ in } b \in B, b > 0 \text{, da je } q < ab\}\]

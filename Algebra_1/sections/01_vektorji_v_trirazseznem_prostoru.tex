@@ -114,3 +114,152 @@ V nasprotnem primeru so \(\vec{a}, \vec{b}, \vec{c}\) linearno neodvisni.
 	\item \(\vec{a}, \vec{b}, \vec{c}\) so linearno neodvisni \(\Leftrightarrow (\alpha \vec{a} + \beta \vec{b} + \gamma \vec{c} = \vec{0} \Rightarrow \alpha = \beta = \gamma = 0)\)
 \end{enumerate}
 
+\(\vec{a}, \vec{b}, \vec{c}\) linearno neodvisni
+
+\(\vec{a} = \vec{OA}\)\\
+\(\vec{b} = \vec{OB}\)\\
+\(\vec{c} = \vec{OC}\)
+
+\[V = \{\alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}: \alpha, \beta, \gamma \in \mathbb{R}\}\]
+\(\alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\) je linearna kombinacija vektorjev \(\vec{a}, \vec{b}, \vec{c}\).
+
+\(V\) - mno"zica vseh vektorjev prostora \(\mathcal{P}\)
+\[\mathcal{P} = \{R \in \mathcal{P}: \vec{OR} = \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}, \alpha, \beta, \gamma \in \mathbb{R}\}\]
+
+\underline{Dodatek:} V zapisu vektorja \(\vec{r} \in V\): \(\vec{r} = \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\), so koeficienti \(\alpha, \beta, \gamma\) enoli"cno dolo"ceni.
+
+\underline{Dokaz:}
+\begin{align*}
+	\vec{r} &= \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\\
+	\vec{r} &= \alpha_1 \vec{a} + \beta_1 \vec{b} + \gamma_1 \vec{c}\\
+	\Rightarrow \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c} &= \alpha_1 \vec{a} + \beta_1 \vec{b} + \gamma_1 \vec{c}\\
+	(\alpha - \alpha_1)\vec{a} + (\beta - \beta_1)\vec{b} + (\gamma - \gamma_1)\vec{c} &= \vec{0}\\
+	\vec{a}, \vec{b}, \vec{c} \text{ linearno neodvisni } &\Rightarrow \alpha - \alpha_1 = \beta - \beta_1 = \gamma - \gamma_1 = 0\\
+	\alpha = \alpha_1, \beta &= \beta_1, \gamma = \gamma_1
+\end{align*}
+
+\(\{\vec{a}, \vec{b}, \vec{c}\}\) je \textbf{baza} vektorskega prostora \(V\). \(\vec{a}, \vec{b}, \vec{c}\) so linearno neodvisni.
+
+\(R \in \mathcal{P}\) (\(O\) - fiksirana to"cka)
+\(\vec{OR} = \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\)
+\[R \mapsto (\alpha, \beta, \gamma) \in \mathbb{R}^3 = \{(x, y, z): x, y, x \in \mathbb{R}\}\]
+
+\(\alpha, \beta, \gamma\) je z \(R\) enoli"cno dolo"cena.\\
+\(\alpha, \beta, \gamma\) so koordinate to"cke \(R\) glede na koordinaten sistem, ki je dolo"cen z bazo \(\{\vec{a}, \vec{b}, \vec{c}\}\) in to"cko \(O\) (izhodi"s"ce koordinatnega sistema).
+
+Imena koordinat: dfabscisa, ordinata, aplikata
+
+\[\varphi: V \rightarrow \mathbb{R}\]
+\[\vec{r} \mapsto (\alpha, \beta, \gamma); \vec{r} = \vbase\]
+
+\(\varphi\) je bijekcija.
+
+S \(\varphi\) prenesemo operaciji se"stevanja vektorjev in mno"zenja vektorjev s skalarji iz \(V\) v \(\mathbb{R}^3\).
+\begin{align*}
+	\vec{r_1}, \vec{r_2} &\in V\\
+	\vec{r_1} &= \alpha_1 \vec{a} + \beta_1 \vec{b} + \gamma_1 \vec{c}\\
+	\vec{r_2} &= \alpha_2 \vec{a} + \beta_2 \vec{b} + \gamma_2 \vec{c}\\
+	\varphi(\vec{r_1}) &= (\alpha_1, \beta_1, \gamma_1)\\
+	\varphi(\vec{r_2}) &= (\alpha_2, \beta_2, \gamma_2)
+\end{align*}
+\[\vec{r_1} + \vec{r_2} = (\alpha_1 + \alpha_2) \vec{a} + (\beta_1 + \beta_2)\vec{b} + (\gamma_1 + \gamma_2)\vec{c}\]
+\[\varphi(\vec{r_1} + \vec{r_2}) = (\alpha_1 + \alpha_2, \beta_1 + \beta_2, \gamma_1 + \gamma_2)\]
+
+Torej velja:
+\[(\alpha_1, \beta_1, \gamma_1) + (\alpha_2, \beta_2, \gamma_2) = (\alpha_1 + \alpha_2, \beta_1 + \beta_2, \gamma_1 + \gamma_2)\]
+se"stevanje je definirano po komponentah.
+
+Podobno velja za mno"zenje s skalarji:
+\[\lambda(\alpha, \beta, \gamma) = (\lambda \alpha, \lambda \beta, \lambda \gamma)\]
+
+\(\mathbb{R}^3\) je za te operaciji \textbf{vektorski prostor} (zado"s"ca A1-A8).
+\begin{align*}
+	\varphi(\vec{a}) &= (1, 0, 0)\\
+	\varphi(\vec{b}) &= (0, 1, 0)\\
+	\varphi(\vec{c}) &= (0, 0, 1)
+\end{align*}
+
+\[\{(1, 0, 0), (0, 1, 0), (0, 0, 1)\}\] je \textbf{standardna baza} vektorskega prostora \(\mathbb{R}^3\).
+\[(\alpha, \beta, \gamma) = \alpha(1, 0, 0) + \beta(0, 1, 0) + \gamma(0, 0, 1)\]
+
+\underline{Oznake:}
+\begin{align*}
+	\vec{i} &= (1, 0, 0)\\
+	\vec{j} &= (0, 1, 0)\\
+	\vec{k} &= (0, 0, 1)
+\end{align*}
+
+Dodatna zahteva za standardno bazo vektorskega prostora \(\mathbb{R}^3\):
+\hspace*{12pt}baza je \textbf{ortonormirana}, torej:
+\begin{itemize}
+	\item \(|\vec{i}| = |\vec{j}| = |\vec{k}| = 1\)
+	\item \(\vec{i}, \vec{j}, \vec{k}\) so paroma pravokotni.
+\end{itemize}
+
+\subsection{Skalarni produkt}
+\(\vec{a}, \vec{b} \in V\)\\
+Kot med njima je \(\varphi, 0 \leq \varphi \leq \pi\)
+
+\underline{Def:} \(\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cos\varphi\)
+
+\(V\) \textbf{identificiramo} z \(\mathbb{R}^3\) (glede na standardno bazo in dano izhodi"s"ce \(O\)).
+\begin{align*}
+	O &= (0, 0, 0)\\
+	\vec{i} &= (1, 0, 0)\\
+	\vec{j} &= (0, 1, 0)\\
+	\vec{k} &= (0, 0, 1)
+\end{align*}
+
+\begin{align*}
+	\vec{a} &= (a_1, a_2, a_3) \in \mathbb{R}^3\\
+	\vec{b} &= (b_1, b_2, b_3) \in \mathbb{R}^3
+\end{align*}
+
+\[\vec{a} \cdot \vec{b} = ?\]
+\[\vec{a} = (a_1, a_2, a_3) = \vec{OA}\]
+\[|\vec{a}| = |OA| = \sqrt{a_1^2 + a_2^2 + a_3^2}\]
+\[d(A, B) = \sqrt{(a_1 - b_1)^2 + (a_2 - b_2)^2 + (a_3 - b_3)^2}\]
+
+Kosinusni izrek:
+\[(\vec{a} - \vec{b})^2 = |\vec{a}|^2 + |\vec{b}|^2 - 2|\vec{a}||\vec{b}|\cos\varphi\]
+\begin{align*}
+	(a_1 - b_1)^2 + (a_2 - b_2)^2 + (a_3 - b_3)^2 &= a_1^2 + a_2^2 + a_3^2 + b_1^2 + b_2^2 + b_3^2 - 2|\vec{a}||\vec{b}|\cos\varphi\\
+	\Rightarrow |\vec{a}||\vec{b}|\cos\varphi &= a_1b_1 + a_2b_2 + a_3b_3
+\end{align*}
+\[\vec{a} \cdot \vec{b} = a_1b_1 + a_2b_2 + a_3b_3\]
+
+\underline{Lastnosti:}
+\begin{enumerate}
+	\item[(1)] \(\vec{a} \vec{a} = |\vec{a}|^2 \geq 0\) (ena"caj le za \(\vec{a} = \vec{0}\))
+	\item[(2)] \((\vec{a} + \vec{b})\vec{c} = \vec{a}\vec{c} + \vec{b}\vec{c}\)
+	\item[(3)] \((\alpha\vec{a})\vec{b} = \alpha(\vec{a}\vec{b})\)
+	\item[(4)] \(\vec{a}\vec{b} = \vec{b}\vec{a}\)
+\end{enumerate}
+
+\begin{align*}
+	\vec{a} \bot \vec{b} &\Leftrightarrow \varphi \frac{\pi}{2}, \vec{a} \neq \vec{0}, \vec{b} \neq \vec{0}\\
+	\varphi = \frac{\pi}{2} &\Leftrightarrow \cos\varphi = 0 (0 \leq \varphi \leq \pi)\\
+	\vec{a} \bot \vec{b} &\Leftrightarrow \vec{a} \cdot \vec{b} = 0
+\end{align*}
+
+\underline{Primer:}
+\begin{align*}
+	\mathbb{R}^3 &\equiv \mathbb{R}^2 \times \{0\}\\
+	\vec{a} &= (a_1, a_2, 0)\\
+	\vec{a} \text{ v } \mathbb{R}^2: \vec{a} &= (a_1, a_2)\\
+	\vec{a} \vec{b} &= a_1b_1 + a_2b_2
+\end{align*}
+\(p\) - plo"s"cina paralelograma\\
+\(p\) izraziti z \(a_1, a_2, b_1, b_2\)
+\[p = |\vec{a}||\vec{b}|\sin\varphi\]
+\begin{align*}
+	\vec{a'} &\bot \vec{a}\\
+	|\vec{a'}| &= |\vec{a}|
+\end{align*}
+\(\vec{a}, \vec{a'}\) pozitivno orientirana\\
+\(\vec{a'} = (-a_2, a_1)\)\\
+\(\psi = \frac{\pi}{2} - \varphi\) ali \(\varphi - \frac{\pi}{2}\) "ce je orienacija \((\vec{a}, \vec{b})\) pozitivna.
+
+\[|\vec{a}||\vec{b}| \sin\varphi = |\vec{a}||\vec{b}|\cos\theta = \vec{a'}\vec{b} = (-a2, a_1) \cdot (b_1, b_2) = a_1b_2 - a_2b_1\]
+
+\(p = a_1b_2 - a_2b_1\), "ce je orientacija \(\vec{a}, \vec{b}\) pozitivna, "ce pa je negativna velja: \(p = -(a_1b_2 - a_2b_1)\)

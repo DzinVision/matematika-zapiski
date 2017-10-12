@@ -50,3 +50,99 @@ Elementa \(u\) in \(v\) iz \(A + B\) sta enaka, "ce bodisi obstaja \(a \in A\) d
 Pravimo da je \(g\) inverz \(f\).
 
 "Ce obstaja izomorfizem \(X \rightarrow Y\), pravimo, da sta \(X\) in \(Y\) \textbf{izomorfni}, pi"semo \(X \cong Y\)
+
+\subsection{Kompozitum}
+\(B^A\) je mno"zica preslikav iz \(A\) v \(B\).
+
+Kompozicija preslikav \(g \circ f\).
+\[A \stackrel{f}{\rightarrow} B \stackrel{g}{\rightarrow} C\]
+\begin{align*}
+	\circ&: C^B \times B^A \rightarrow C^A\\
+	\circ&: (g, f) \mapsto (x \mapsto g(f(x))) \text{ (ugnezden funkcijski prepis)}
+\end{align*}
+
+Pi"semo \(g \circ f\)
+
+\underline{Zakaj ne raje \(f\) \textbullet \(\ g\)?}
+
+Npr, da imamo:
+\begin{align*}
+	\text{\textbullet}&: B^A \times C^B \rightarrow C^A\\
+	\text{\textbullet}&: (f, g) \mapsto (x \mapsto g(f(x)))
+\end{align*}
+
+Ra"cunsko pravilo za \(\circ\):
+
+\((g \circ f)(a) = g(f(a))\) \checkmark izberemo, ker se ohrani vrstni red.\\
+\((f \text{ \textbullet }\ g)(a) = g(f(a))\)
+
+Imamo dve preslikavi:
+\begin{multicols}{2}
+	\[\mathbb{R} \rightarrow \mathbb{R}\]
+	\[x \mapsto 4 - x^2\]
+	
+	\columnbreak
+	\[\mathbb{R} \rightarrow \mathbb{R}\]
+	\[x \mapsto 2 - x\]
+\end{multicols}
+
+\[(x \mapsto 4 - x^2)\circ(x \mapsto 2 - x)  = (x \mapsto (x\mapsto4-x^2)((x \mapsto 2-x)x))\]
+Zaradi dvoumnosti preimenujemo vezane spremenljivke:
+\begin{multicols}{2}
+	\[x \mapsto 4 - x^2 \Rightarrow y \mapsto 4-y^2\]
+	
+	\columnbreak
+	\[x \mapsto 2 - x \Rightarrow z \mapsto 2 - z\]
+\end{multicols}
+\[(y \mapsto 4 - y^2)\circ(z \mapsto 2 - z)  = (x \mapsto (y\mapsto4-y^2)((z \mapsto 2-z)x))\]
+
+\textbf{Identiteta} na mno"zici \(A\) je preslikava:
+\begin{align*}
+	id_A&: A \rightarrow A\\
+	id_A&: x \mapsto x
+\end{align*}
+
+\underline{Def:} \(f: A \rightarrow B, g: B \rightarrow A\) re"cemo, da je \(g\) \textbf{inverz} \(f\), ko velja:
+\[f \circ g = id_B \land g \circ f = id_A\]
+
+"Ce ime \(f\) inverz, pravimo, da je \(izomorfizem.\)
+
+"Ce obstaja izomorfizem \(A \rightarrow B\), pravimo, da sta \(A\) in \(B\) \textbf{izomorfni} mno"zici. Pi"semo \(A \cong B\)       
+
+\underline{Primeri:}
+\begin{itemize}
+	\item[(a)] 
+	\(A \times \varnothing \cong \varnothing\)\\
+	\(f: A \times \varnothing \rightarrow \varnothing\)\\
+	\hspace*{24pt}Predpis ni potreben, ker ni nobenih elementov.\\
+	\(g: \varnothing \rightarrow A \times \varnothing\)\\
+	\hspace*{24pt}Iz prazne mno"zice obstaja ena sama preslikava.
+	
+	\item[(b)]
+	\(1 = \{()\}\)\\
+	\(A \times 1 \cong A\)
+	\begin{multicols}{2}
+		\begin{align*}
+			f:& A \times 1 \rightarrow A\\
+			&(x, y) \mapsto x
+		\end{align*}
+		
+		\columnbreak
+		\begin{align*}
+			g:& A \rightarrow A \times 1\\
+			& x \mapsto (x, ())
+		\end{align*}
+	\end{multicols}
+	\[A \times 1 \rightarrow A \rightarrow A \times 1\]
+	\[(x, y) \stackrel{f}{\mapsto} x \stackrel{g}{\mapsto} (x, ())\]
+	
+	\item[(c)] \(A^{B \times C} \cong (A^B)^C\)
+	\begin{align*}
+		\theta:& A^{B \times C} \rightarrow (A^B)^C\\
+		\theta:& \sun \mapsto (c \mapsto (b \mapsto \sun(b, c)))
+	\end{align*}
+	\begin{align*}
+		\phi:& (A^B)^C \rightarrow A^{B \times C}\\
+		\phi:& \leftmoon \mapsto ((\beta, \gamma) \mapsto (\leftmoon(\gamma))(\beta))
+	\end{align*}
+\end{itemize}

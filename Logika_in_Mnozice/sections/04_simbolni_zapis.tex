@@ -1,0 +1,67 @@
+\subsection{Izjavni ra"cun:}
+\begin{itemize}
+	\item konstanti
+	\begin{itemize}
+		\item \(\bot\) - neresnica
+		\item \(\top\) - resnica
+	\end{itemize}
+
+	\item  logi"cni vezniki:
+	\begin{itemize}
+		\item \(p \land q \) - \(p\) in \(q\) (\(p, q\) sta izjavi)
+		\item \(p \lor q\) - \(p\) ali \(q\)
+		\begin{multicols}{2}
+			\item \(p \Rightarrow q\) 
+			
+			\columnbreak
+			"ce \(p\) potem \(q\)\\
+			iz \(p\) sledi \(q\)\\
+			\(p\) je zadosten (pogoj) za \(q\)\\
+			\(q\) je potreben (pogoj) za \(p\)
+		\end{multicols}
+	\begin{multicols}{2}
+		\item \(p \Leftrightarrow q\) 
+		
+		\columnbreak
+		\(p\) "ce in samo "ce \(q\)\\
+		\(p\) "cee \(q\)\\
+		\(p\) iff \(q\) (if and only if)
+		\(p\) in \(q\) sta enakovredna ali ekvivalentna
+	\end{multicols}
+	\item \(\neg p\) - ne p
+	\end{itemize}
+\end{itemize}
+
+\subsection{Predikatni ra"cun:}
+
+Izjavni + \textbf{kvantifikatorja}
+\begin{itemize}
+	\item univerzalni kvantifikator:
+	\begin{multicols}{2}
+		\(\forall x \in B . p\)\\
+		\((\forall x \in B)p\)\\
+		\(\forall x \in B: p\)\\
+		\(\forall x \in B (p)\)
+		
+		\columnbreak
+		``za vsak \(x\) iz \(B\) velja \(p\)''
+		
+		``vsi \(x\)-i iz \(B\) zado"s"cajo \(p\)''
+	\end{multicols}
+
+	\item eksisten"cni kvalifikator
+	\begin{multicols}{2}
+		\(\exists x \in B . p\)
+		
+		\columnbreak
+		``obstaja \(x\) iz \(B\), da velja \(p\)''
+		
+		``obstaja \(x\) iz \(B\), za katerega \(p\)''
+		
+		``za neki \(x\) iz \(B\) velja \(p\)''
+	\end{multicols}
+\end{itemize}
+
+\subsection{Prednosti veznikov:}
+Vezniki si po prednosti sledijo od tistega z najve"cjo, do tistega z najmanj"so v naslednjem vrstnem redu:
+\[\neg, \land, \lor, (\Rightarrow, \Leftrightarrow), (\forall, \exists) \]

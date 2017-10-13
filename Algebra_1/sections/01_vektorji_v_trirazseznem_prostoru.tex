@@ -263,3 +263,112 @@ Kosinusni izrek:
 \[|\vec{a}||\vec{b}| \sin\varphi = |\vec{a}||\vec{b}|\cos\theta = \vec{a'}\vec{b} = (-a2, a_1) \cdot (b_1, b_2) = a_1b_2 - a_2b_1\]
 
 \(p = a_1b_2 - a_2b_1\), "ce je orientacija \(\vec{a}, \vec{b}\) pozitivna, "ce pa je negativna velja: \(p = -(a_1b_2 - a_2b_1)\)
+
+\subsection{Vektorski produkt}
+$$\vec{a}, \vec{b}$$
+$$\vec{a} \times \vec{b}$$
+\begin{enumerate}
+	\item[(1)] $\vec{a} \times \vec{b}$ je pravokoten na $\vec{a}$ in $\vec{b}$.
+	\item[(2)] $|\vec{a} \times \vec{b}|$ je enaka plo"s"cini paralelograma, ki ga dolo"cata $\vec{a}$ in $\vec{b}$. ($=0$, kadar sta $\vec{a}$ in $\vec{b}$ linearno odvisna)
+	\item[(3)] Urejena trojica $\vec{a}, \vec{b}, \vec{a} \times \vec{b}$ je pozitivno orientirana.
+\end{enumerate}
+
+\begin{align*}
+	\vec{a} &= (a_1, a_2, a_3)\\
+	\vec{b} &= (b_1, b_2, b_3)\\
+	\vec{a} \times \vec{b} &= (x, y, z)	\\\\
+	%
+	\vec{k} &= (0, 0, 1)\\
+	z &= (\vec{a} \times \vec{b}) \cdot \vec{k} =\\
+	&=|\vec{a}\times \vec{b}| |\vec{k}| \cos \delta =\\
+	&=p \cos \delta	
+\end{align*}
+$p$ - plo"s"cina paralelograma.\\
+$\delta$ - kot med ravninama, ki ju dolo"cata osi (1),(2) in vektorja $\vec{a}, \vec{b}$.
+
+\begin{align*}
+	\vec{a'} = (a_1, a_2, 0)\\
+	\vec{b'} = (b_1, b_2, 0)\\
+	p' = \pm (a_1b_2 - a_2b_1)
+\end{align*}
+$p'$ ima predznak $+$, kadar sta $\vec{a'}$ in $\vec{b'}$ pozitivno orientirana, ter $-$, kadar sta negativno orientirana.
+
+$$p' = \pm p \cos \delta$$
+$+$ kadar: $0 \leq \delta \leq \frac{\pi}{2}$\\
+$-$ kadar: $\frac{\pi}{2} \leq \delta \leq \pi$
+
+$$z = \pm p' = a_1b_2 - a_2b_1$$
+$\pm$ se izni"ci, ker se predznak, ki nastane zaradi $\cos$ in predznak, ki nastane pri izra"cunu plo"s"cine paralelograma z vektorjema ujemata.
+
+\begin{align*}
+	x &= a_2b_3 - a_3b_2\\
+	y &= a_3b_1 - a_1b_3
+\end{align*}
+
+$$\vec{a} \times \vec{b} = (a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1)$$
+
+\[
+\begin{vmatrix}
+\alpha & \beta\\
+\gamma & \delta
+\end{vmatrix}
+= \alpha \delta - \beta \gamma
+\]
+determinanta (reda 2)
+
+\[
+\vec{a} \times \vec{b} = \left(
+\begin{vmatrix}
+a_2 & a_3\\
+b_2 & b_3
+\end{vmatrix}
+,
+\begin{vmatrix}
+a_3 & a_1\\
+b_3 & b_1
+\end{vmatrix}
+,
+\begin{vmatrix}
+a_1 & a_2 \\
+b_1 & b_2
+\end{vmatrix}
+\right)
+\]
+
+\[
+\begin{vmatrix}
+a_3 & a_1\\
+b_3 & b_1
+\end{vmatrix}
+= -
+\begin{vmatrix}
+a_1 & a_3 \\
+b_1 & b_3
+\end{vmatrix}
+\]
+
+\begin{align*}
+	\vec{a} \times \vec{b} &= 
+	\begin{vmatrix}
+	a_2 & a_3\\
+	b_2 & b_3
+	\end{vmatrix}
+	\vec{i} +
+	\begin{vmatrix}
+	a_3 & a_1 \\
+	b_3 & b_1
+	\end{vmatrix}
+	\vec{j} +
+	\begin{vmatrix}
+	a_1 & a_2 \\
+	b_1 & b_2
+	\end{vmatrix}
+	\vec{k}\\
+	%
+	\vec{a} \times \vec{b} &=
+	\begin{vmatrix}
+	\vec{i} & \vec{j} & \vec{k}\\
+	a_1 & a_2 & a_3 \\
+	b_1 & b_2 & b_3
+	\end{vmatrix}
+\end{align*}

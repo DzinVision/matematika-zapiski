@@ -186,6 +186,94 @@ Natan"cno zgornjo mejo mno"zice $A$ imenujemo tudi \textbf{supremum} mno"zice $A
 			c^2 &= (\frac{2q + 2}{q + 2}^2 = \frac{4(q^2 + 2q + 1)}{q^2 + 4q + 4}\\
 			c^2 - 2 &=\frac{4q^2 + 8q + 4 - 2q^2 - 8q - 8}{(q + 2)^2} = \frac{2q^2 - 4}{(q+2)^2} = \frac{2(q^2 - 2 > 0)}{(q+2)^2} > 0
 		\end{align*}
-		\[q^2 < 0\]
+		\[q^2 < 2\]
 	\end{enumerate}
 \end{enumerate}
+
+Podobno kot zgornjo mejo, navzgor omejeno mno"zico, supremum in maskimum, definiramo spodnjo mejo, navzdol omejeno mno"zico, infimum in minimum.
+
+\textbf{A13 (Dedekindov aksiom):} Vsaka neprazna navzgor omejena podmno"zica v mno"zici $A$ ima supremum (v mno"zici $A$).
+
+\textbf{Def:} "Ce mno"zica $(A, +, \cdot, <)$ izpolnjuje aksiome A1-A13 jo imenujem \emph{poln urejen obseg} (poln se nana"sa na A13).
+
+\textbf{Trditev:} $(\mathbb{Q}, +, \cdot, <)$ je urejen obseg, ki ne izpolnjuje A13.
+
+\textbf{Izrek:} vsaka nerpazna navzgor omejena podmno"zica v $\mathbb{R}$ ima natan"cno dolo"ceno zgornjo mejo. ($\mathbb{R}$ izpolnjuje A13)
+
+\textbf{Posledica:} $(\mathbb{R}, +, \cdot, <)$ je poln urejen obseg.
+
+\textbf{Posledica:} Vsaka neprazna navzdol omejena podmno"zica $\mathbb{R}$ ima natan"cno spodnjo mejo.
+
+$A$ neprazna navzdol omejena.
+\[-A = \{x; -x \in A\}\]
+$-A$ je neprazna, navzgor omejena ("ce $m$ spodnja meja od $A$, je $-m$ zgornja meja od $-A$). $\Rightarrow$ $-A$ ima supremum in velja: $-\sup A = \inf A$
+
+\textbf{Dokaz (izrek):} Izberemo poljubno neprazno navzgor omejeno podmno"zico $\mathcal{A}$ v $\mathbb{R}$.
+\[C = \cup A, A \in \mathcal{A}\]
+Dokazati je treba:
+\begin{enumerate}
+	\item $C$ je rez
+	\item $C = \sup \mathcal{A}$
+\end{enumerate}
+
+\begin{enumerate}
+	\item
+	\begin{itemize}
+		\item[(i)] \dashuline{$C \neq \varnothing$}
+		
+		Ker $\mathcal{A}$ ni prazna $\exists A \in \mathcal{A}$. Torej velja $A \subset C$, torej $C \neq \varnothing$.
+		
+		\dashuline{$C \neq \mathbb{Q}$}
+		
+		Ker je $\mathcal{A}$ omejena, obstaja zgornja meja $M$ mno"zice $\mathcal{A}$, velja:
+		\begin{align*}
+			\forall A \in \mathcal{A}&: A \leq M\\
+			\forall A \in \mathcal{A}&: A \subset M
+		\end{align*}
+		Sledi: $C \subset M$, zato $C \neq \mathbb{Q}$ (ker $M \neq \mathbb{Q}$/$M$ je rez).
+		
+		\item[(ii)] \dashuline{$p \in C, q \in \mathbb{Q}, q < p \Rightarrow q\in C$}
+		
+		$p \in C \Rightarrow \exists A \in \mathcal{A}$, da je $p \in A$. Ker je $A$ rez, za $q \in \mathbb{Q}, q < p$ velja $q \in A$.
+		
+		Sledi: $q \in C$.
+		
+		\item[(iii)] $p \in C \Rightarrow \exists q \in \mathbb{Q}, q > p: q \in C$
+		$p \in C \Rightarrow \exists A \in \mathcal{A}$, da je $p \in A$. Ker je $A$ rez, $\exists q \in A, q > p$.
+		
+		Sledi: $q \in C$.
+	\end{itemize}
+
+	\item
+	\begin{itemize}
+		\item[(i)] \dashuline{$C$ je zgornja meja $\mathcal{A}$}
+		
+		Ker je $A \subset C$ za vse $A \in \mathcal{A}$, velja $A \leq C$ za vse $A \in \mathcal{A}$. 
+		t.j.: $C$ je zgornja meja.
+		
+		\item[(ii)] \dashuline{$C$ je natan"cna} zgornja meja $\mathcal{A}$
+		
+		Izberimo poljuben $D < C$. Dokazujemo, da $D$ ni zgornja meja $\mathcal{A}$.
+		
+		Ker je $D < C, D \subset C$ in $D \neq C$, obstaja $p \in \mathbb{Q}, p \in C$ in $p \notin D$.
+		
+		Ker je $p \in C$, obstaja $A \in \mathcal{A}$, da je $p \in A$.
+		
+		Velja: $A > D$ in $A \in \mathcal{A}$ (vemo da sta vsaka reza primerljiva po velikosti.)
+		
+		Sledi: $D$ ni zgornja meja.
+		$\square$
+	\end{itemize}
+\end{enumerate}
+
+\emph{Za radovedne}: Poleg Dedekinda je realna "stevila definiral tudi Cantor. Ta je to naredil s Cauchyjevimi zaporedji.
+
+\emph{Opomba:} Med obsegoma $\mathbb{Q}$ in $\mathbb{R}$ je "se veliko obsegov.
+
+\textbf{Definicija:} Pravimo, da je $x$ iracionalno "stevilo, "ce $x \notin \mathbb{Q}$.
+
+Re"sitvam polinomskih ena"cb s celimi koeficienti re"cemo \emph{algebrai"cna "stevila}.
+
+\emph{Primer:} $\sqrt{2}: x^2 -2 =0$\\
+
+Niso vsa iracionalna "stevila algebrai"cna: $\pi, e$. Tem pravimo \emph{transcendentna "stevila}.

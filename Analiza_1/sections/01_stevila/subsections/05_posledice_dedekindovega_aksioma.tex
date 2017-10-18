@@ -1,0 +1,39 @@
+\begin{itemize}
+	\item Mno"zica $\mathbb{Z}$ ni navzgor omejena v $\mathbb{R}$.
+	
+	\emph{Dokaz:} Denimo, da je $\mathbb{Z}$ navzgor omejena v $\mathbb{R}$. Potem obstaja $M \in \mathbb{R}$, da $M = \sup \mathbb{Z}$. Torej $M - 1$ ni zgornja meja $\mathbb{Z}$.
+	\begin{align*}
+		\exists a \in \mathbb{Z}, a &> M-1\\
+		a + 1 &> M, a + 1 \in \mathbb{Z} \rightarrow \leftarrow
+	\end{align*}
+
+	\item $\forall a \in \mathbb{R} \exists b \in \mathbb{Z}: a < b$
+	
+	\emph{Dokaz:} "ce to ne bi bilo res, bi bilo "stevilo $a$ zgornja meja $\mathbb{Z}$. To pa ni res (prej"snja posledica).
+	
+	\item \emph{Arhimedska lastnost:} Naj bosta $a, b \in \mathbb{R}^+$. Potem obstaja $n \in \mathbb{N}: na > b$.
+	
+	\emph{Dokaz:} Obstajati mora $n \in \mathbb{N}: n > \frac{b}{a}$:. Po prej"snji posledici tak $n$ obstaja. $\square$
+	
+	\item Naj bo $a \in \mathbb{R}^+$. Potem obstaja $n \in \mathbb{N}$, da $\frac{1}{n} < a$.
+	
+	\emph{Dokaz:} uporabimo arhimedsko lastnost za $n = 1$.
+	
+	\item Naj bosta $a, b$ poljubni $\mathbb{R}, a < b$. Obstaja $q \in \mathbb{Q}$, da velja $a < q < b$.
+	
+	\emph{Dokaz:}\dashuline{"ce je $b - a > 1$, potem obstaja $m \in \mathbb{Z}, a < m < b$}
+	
+	$\{n \in \mathbb{Z}, n \leq a\}$ je navzdol omejena neprazna.
+	\begin{align*}
+		\sup \{n \in \mathbb{Z}, n \leq a\} &= x, x \in \mathbb{Z}\\
+		m := x + 1
+	\end{align*}
+	\[b > m > 0\]
+	
+	\[b - a > 0\]
+	\[\exists n \in \mathbb{N}: n(b-a) > 1\]
+	Obstaja $m \in \mathbb{Z}: an < m < nb$.
+	\[a < \frac{m}{n} < b\ \square\]
+	
+	Re"cemo tudi: $\mathbb{Q}$ so v $\mathbb{R}$ \emph{povsod gosta}.
+\end{itemize}

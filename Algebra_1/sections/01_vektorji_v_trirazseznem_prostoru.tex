@@ -372,3 +372,112 @@ b_1 & b_3
 	b_1 & b_2 & b_3
 	\end{vmatrix}
 \end{align*}
+
+\textbf{Lastnosti:}
+\begin{itemize}
+	\item $(\alpha \vec{a}) \times \vec{b} = \alpha (\vec{a} \times \vec{b}), \forall a \in \mathbb{R}$
+	\item $(\vec{a} + \vec{b}) \times \vec{c} = \vec{a} \times \vec{c} + \vec{b} \times \vec{c}$
+	\item $\vec{c} \times (\vec{a} + \vec{b}) = \vec{c} \times \vec{a} + \vec{c} \times \vec{b}$
+	\item $\vec{a} \times \vec{b} = - \vec{b} \times \vec{a}$
+\end{itemize}
+
+$\vec{a}, \vec{b}$ linearno neodvisna $\Rightarrow \{\vec{a}, \vec{b}, \vec{a} \times \vec{b}\}$ je baza.
+\[\vec{r} = \alpha \vec{a} + \beta \vec{b} + \gamma(\vec{a} \times \vec{b})\]
+Poseben primer:
+\[|\vec{a}| = |\vec{b}| = 1, \vec{a} \cdot \vec{b} = 0 (\vec{a} \perp \vec{b})\]
+$\Rightarrow \{\vec{a}, \vec{b}, \vec{a} \times \vec{b}\}$ je ortonormirana baza.
+%
+\[\vec{r} = \alpha \vec{a} + \beta \vec{b} + \gamma (\vec{a} \times \vec{b}) / \cdot \vec{a}\ (\text{ali } \vec{b}, \vec{c})\]
+\begin{align*}
+	\vec{r} \cdot \vec{a} &= \alpha\\
+	\vec{r} \cdot \vec{b} &= \beta\\
+	\vec{r} \cdot (\vec{a} \times \vec{b}) &= \gamma
+\end{align*}
+
+\begin{align*}
+	(|\vec{a} \times \vec{b}|)^2 &= (|\vec{a}| |\vec{b}| \sin \varphi)^2\\
+	(\vec{a} \cdot \vec{b})^2 &= (|\vec{a}| |\vec{b}| \cos \varphi)^2\\
+	\Rightarrow |\vec{a} \times \vec{b}|^2 + (\vec{a} \cdot \vec{b})^2 &= |\vec{a}|^2 \cdot |\vec{b}|^2
+\end{align*}
+
+
+\subsection{Me"sani produkt}
+$(\vec{a} \times \vec{b}) \cdot \vec{c}$
+
+\emph{Paralelepiped} je prizma, ki ima za osnovno ploskev paralelogram.
+$V$ - prostornina pralelepipeda\\
+\begin{align*}
+	P &= |\vec{a} \times \vec{b}|\\
+	V &= |\vec{a} \times \vec{b}| \cdot v\\
+	v &= \pm |\vec{c}| \cos \delta\\
+	V &= \pm |\vec{a} \times \vec{b}| |\vec{c}| \cos \delta =\\
+	&= \pm (\vec{a} \times \vec{b}) \cdot \vec{c}
+\end{align*}
+
+\[(\vec{a} \times \vec{b}) \cdot \vec{c} = \pm V\]
+$+$: $(\vec{a}, \vec{b}, \vec{c})$ pozitivno orienirani\\
+$-$: $(\vec{a}, \vec{b}, \vec{c})$ negativno orientirani
+
+$\vec{a}, \vec{b}, \vec{c}$ linearno odvisni $\Leftrightarrow (\vec{a} \times \vec{b})\vec{c} = 0$.
+
+Orientacija se pri cikli"cnih zamenjavah ohrani:
+\[(\vec{a} \times \vec{b}) \vec{c} = (\vec{b} \times \vec{c})\vec{a} = \vec{a}(\vec{b} \times \vec{c})\]
+
+\[(\vec{a} \times \vec{b})\vec{c} = \vec{a}(\vec{b} \times \vec{c}) = [\vec{a}, \vec{b}, \vec{c}]\]
+
+\begin{align*}
+	\vec{a} &= (a_1, a_2, a_3)\\
+	\vec{b} &= (b_1, b_2, b_3)\\
+	\vec{c} &= (c_1, c_2, c_3)
+\end{align*}
+
+\begin{align*}
+	[\vec{a}, \vec{b}, \vec{c}] = \vec{a} (\vec{b} \times \vec{c}) = a_1e_1 + a_2e_2 + a_3e_3 =\\
+	\begin{vmatrix}
+	a_1 & a_2 & a_3 \\
+	b_1 & b_2 & b_3 \\
+	c_1 & c_2 & c_3
+	\end{vmatrix} \equiv
+	a_1 \begin{vmatrix}
+	b_2 & b_3\\
+	c_2 & c_3
+	\end{vmatrix} - a_2
+	\begin{vmatrix}
+	b_1 & b_3 \\
+	c_1 & c_3
+	\end{vmatrix} + a_3
+	\begin{vmatrix}
+	b_1 & b_2\\
+	c_1 & c_2
+	\end{vmatrix}
+\end{align*}
+
+\[[\vec{a}, \vec{b}, \vec{c}] = \begin{vmatrix}
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+c_1 & c_2 & c_3
+\end{vmatrix}\]
+
+\subsection{Dvojni vektorski produkt}
+\[(\vec{a} \times \vec{b}) \times \vec{c} = \vec{e} = ?\]
+\begin{align*}
+	\vec{e} &\perp \vec{a} \times \vec{b} \\
+	\vec{e} &\perp \vec{c}
+\end{align*}
+
+$\vec{a}, \vec{b}$ linearno neodvisna $\Rightarrow \vec{e} = \alpha \vec{a} + \beta \vec{b}$.\\
+$\vec{e} \cdot \vec{c} = 0$
+
+\[\alpha (\vec{a} \vec{c}) + \beta (\vec{b} \vec{c}) = 0\]
+\begin{align*}
+	\beta &= \lambda \vec{a} \vec{c}\\
+	\alpha &= - \lambda \vec{b} \vec{c}
+\end{align*}
+
+\begin{align*}
+	\vec{e} = \lambda(\vec{b} \vec{c}) \vec{a} + \lambda (\vec{a} \vec{c}) \vec{b}\\
+	\vec{e} = \lambda(-(\vec{b} \vec{c}) \vec{a} + (\vec{a}\vec{c}) \vec{b})
+\end{align*}
+"Ce razpi"semo po komponentah dobimo $\lambda = 1$.
+
+\[(\vec{a} \times \vec{b}) \times \vec{c} = -(\vec{b} \vec{c}) \vec{a} + (\vec{a} \vec{c}) \vec{b}\]

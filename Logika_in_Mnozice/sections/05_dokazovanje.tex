@@ -1,0 +1,38 @@
+Dokaz ima drevesno strukturo in more biti kon"cen.
+
+Vedeti moramo:
+\begin{enumerate}
+	\item Kaj trenutno dokazujemo
+	\item Katere \emph{spremenljivke} in \emph{predpostavke} imamo na voljo (kontekst).
+\end{enumerate}
+
+\subsection{Oblika dokaza}
+Za obliko glej zvezek. "Zal se mi ne da prepisovati vseh razli"cnih dokazov in skic kako naj izgledajo.
+
+\subsection{Pravila sklepanja}
+\subsubsection{Pravila upeljave}
+\begin{enumerate}
+	\item \emph{Resnica $\top$:} je res
+	\item \emph{Neresnica $\bot$:} ni pravila
+	\item \emph{Konjunkcija:} da doka"zemo $p \land q$ moramo dokazati $p$, nato pa "se $q$.
+	\item \emph{Disjunkcija:} da doka"zemo $p \lor q$ lahko doka"zemo $p$, ali pa $q$.
+	\item \emph{Implikacija:} da doka"zemo $p \Rightarrow q$, predpostavimo $p$ in nato doka"zemo $q$.
+	\item \emph{Ekvivalenca:} ker je $p \Leftrightarrow q$ okraj"sava za $(p \Rightarrow q) \land (q \Rightarrow p)$, to doka"zemo tako, da po pravilu 5. najprej doka"zemo $p \Rightarrow q$, nato pa "se $q \Rightarrow p$.
+	\item \emph{Negacija:} za dokaz $\lnot p$ predpostavimo $p$ in nato doka"zemo $\bot$. Druga"ce povedano: ``i"s"cemo protislovje''.
+	\item \emph{Zakon o izklju"ceni tretji mo"znosti:}\footnote{posebno, osnovno pravilo} vemo da je $q$ ali pa $\lnot q$. Ne more biti oboje.
+	\item \emph{Univerzalni kvalifikator:} za dokaz $\forall x \in A: p(x)$, najprej izberemo poljubni $x$ s trditvijo: ``Naj bo $x \in A$''\footnote{$x$ mora bit ``sve"z'', t.j: trenutno "se ne uporabljen.}, nato pa doka"zemo $p(x)$.
+	\item \emph{Eksisten"cni kvalifikator:} da doka"zemo $\exists x \in A: p(x)$, si izberemo $x$ s trditvijo: ``Vzemimo $x := a$''. Nato najprej doka"zemo $a \in A$ in potem "se $p(a)$.
+\end{enumerate}
+
+\subsubsection{Pravila uporabe}
+\begin{enumerate}
+	\item \emph{Resnica $\top$:} ni uporabno.
+	\item \emph{Neresnica $\bot$:} "ce vemo neresnico, lahko doka"zemo katerokli izjavo tako, da uporabimo neresnico.
+	\item \emph{Konjunkcija:} "ce vemo $p \land q$, lahko re"cemo da vemo $p$, ali pa da vemo $q$.
+	\item \emph{Disjunkcija:} "ce vemo $p \lor q$, lahko doka"zemo izjavo tako da ``Obravnavamo primera $p, q$ zaradi $p \lor q$''. Nato imamo dva primera. V enem predpostavimo $p$, v drugem pa $q$.
+	\item \emph{Implikacija:} "ce vemo $p \Rightarrow q$ in vemo $p$, potem vemo $q$.
+	\item \emph{Ekvivalenca:} "ce vemo $p \Leftarrow q$ vemo $p \Rightarrow q$ in $q \Rightarrow p$. Prav tako imamo tudi \emph{pravilo zamenjave}, ki pravi, da lahko $p$ nadomestimo s $q$ in obratno.
+	\item \emph{Negacija:} "ce vemo $q$ in vemo $\lnot q$, velja $\bot$.
+	\item \emph{Univerzalni kvantifikator:} "ce vemo $\forall a \in A: p(a)$ in vemo $a \in A$, potem vemo $p(a)$.
+	\item \emph{Eksisten"cni kvantifikator:} "ce vemo $\exists x \in A: p(x)$. lahko re"cemo da imamo $x \in A$. Potem vemo $p(x)$.
+\end{enumerate}

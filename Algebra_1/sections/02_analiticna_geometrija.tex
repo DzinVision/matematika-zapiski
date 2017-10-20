@@ -32,3 +32,78 @@ $\vec{R_0R}, \vec{e}$ linearno odvisna $\Leftrightarrow R \in p$
 
 To je kadar: $\vec{R_0R} \times \vec{e} = \vec{0} \Leftrightarrow (\vec{r} - \vec{r_0}) \times \vec{e} = \vec{e} \times (\vec{r} - \vec{r_0}) = \vec{0}$\\
 (vektorska ena"cba premice)
+
+"Ce imamo to"cko $R_1$ izven premice, je razdalja med premico $p$ in to to"cko enaka:
+\[
+\Delta = |\vec{r_1} - \vec{r_0}| \sin \varphi
+\]
+To ena"cbo lahko preoblikujemo da dobimo:
+\[
+\Delta = \frac{|\vec{e} \times (\vec{r_1} - \vec{r_0})|}{|\vec{e}|}
+\]
+To je posebej ugodno, kadar $|\vec{e}| = 1$, saj iz tega sledi $\Delta = |\vec{e} \times (\vec{r_1} - \vec{r_0})|$.
+
+Razdaljo med to"cko in premico lahko zapi"semo tudi kot: $\Delta = d(R_1, p)$.
+
+\subsection{Ravnina}
+Da dolo"cimo ravnino $\Sigma$, potrebujemo to"cko $R_0 \in \Sigma$ in vektor normale $\vec{n}$, kjer $\vec{n} \perp \Sigma$ in $\vec{n} \neq \vec{0}$.
+
+Da dolo"cimo kdaj to"cka le"zi na ravnini zapi"semo:
+\[
+R \in \Sigma \Leftrightarrow \vec{r} - \vec{r_0} \perp \vec{n} \Leftrightarrow \vec{n} \cdot (\vec{r} - \vec{r_0}) = 0
+\]
+
+To pomeni da nam ravnino $\Sigma$ dolo"ca ena"cba:
+\[
+\vec{n} \cdot (\vec{r} - \vec{r_0}) = 0
+\]
+
+"Ce zapi"semo vektorje $\vec{r_0}, \vec{r}$ in $\vec{n}$ kot:
+\begin{align*}
+	\vec{r_0} &= (x_0, y_0, z_0)\\
+	\vec{r} &= (x, y, z)\\
+	\vec{n} &= (a, b, c)
+\end{align*}
+lahko zapi"semo ena"cbo ravnine kot:
+\[
+a(x - x_0) + b(y - y_0) + c(z - z_0) = 0
+\]
+To ena"cbo lahko naprej pretvorimo v \emph{implicitno obliko}:
+\[
+ax + by + cz + d = 0
+\]
+kjer je $d = -ax_0 - by_0 - cz_0$.
+
+"Ce imamo podane to"cke $R_0, R_1$ in $R_2$, lahko izra"cunamo vektor normale kot:
+\[
+\vec{n} =  (\vec{r_1} - \vec{r_0}) \times (\vec{r_2} - \vec{r_0})
+\]
+"ce to vstavimo v en"acbo ravnine, dobimo da lahko ravnino $\Sigma$ zapi"semo kot:
+\[
+((\vec{r_1} - \vec{r_0}) \times (\vec{r_2} - \vec{r_0})) \cdot (\vec{r} - \vec{r_0}) = 0
+\]
+Opazimo, da nam ta ena"cba predstavlja me"sani produkt kar lahko zapi"semo z determinanto reda 3:
+\[
+\begin{vmatrix}
+x-x_0 & y-y_0 & z-z_0 \\
+x_1 - x_0 & y_1 - y_0 & z_1 - z_0\\
+x_2 - x_0 & y_2 - y_0 & z_2 - z_0
+\end{vmatrix} = 0
+\]
+kjer je vektor $\vec{r_n}$ zapisan kot: $\vec{r_n} = (x_n, y_n, z_n)$.
+
+"Ce imamo to"cko $R_1$, ki ni na ravnini, lahko zapi"semo razdaljo te to"cke do ravnine kot:
+\begin{equation}
+	\label{eq:razdalja_tocka_ravnina}
+	\Delta = \pm |\vec{r_1} - \vec{r_0}| \cos \varphi
+\end{equation}
+To ena"cbo lahko s pomo"cjo ena"cbe ravnine preoblikujemo v:
+\[
+\Delta = \dfrac{|\vec{n} \cdot (\vec{r_1} - \vec{r_0})|}{|\vec{n}|}
+\]
+v "stevcu lahko uprabimo absolutno vrednost s katero se znebimo predznaka, ki se pojavi v \eqref{eq:razdalja_tocka_ravnina}, ker je razdalja vedno pozitivna.
+
+Razdaljo med ravnino $\Sigma$ in to"cko $R_1$ lahko zapi"semu tudi kot:
+\begin{equation*}
+\Delta = d(R_1, \Sigma)
+\end{equation*}

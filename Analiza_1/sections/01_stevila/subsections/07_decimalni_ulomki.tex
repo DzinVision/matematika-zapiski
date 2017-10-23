@@ -1,0 +1,127 @@
+Vsako $\RR$ "stevilo lahko zapi"semo kot \emph{decimalni ulomek}.
+
+Naj bo $x \in \RR^+$ in naj bo $n \in \NN_0$ najve"cje "stevliko, ki ne presega $x$:
+\begin{equation*}
+n \leq x < n + 1
+\end{equation*}
+
+Interval $[n, n+1]$ razdelimo na 10 enakih delov. Nato poi"s"cemo $n_1 \in \{0, 1, 2, \ldots, 9\}$, da velja:
+\begin{equation*}
+n + \frac{n_1}{10} \leq x <  n + \frac{n_1 + 1}{10}
+\end{equation*}
+
+Postopek nadaljujemo in na ta na"cin sestavimo zaporedje decimalnih pribli"zkov za $x$.
+\begin{equation*}
+\mathcal{A} = \{n, n + \frac{n_1}{10}, n + \frac{n_1}{10} + \frac{n_2}{100}, \ldots\}
+\end{equation*}
+
+\emph{Trditev:} $x = \sup \mathcal{A}$\\
+\emph{Dokaz:}
+\begin{enumerate}
+	\item[(i)] \dashuline{$x$ je zgornja meja mno"zice $\mathcal{A}$}
+	
+	Velja po konstrukciji: $\forall a \in \mathcal{A}: a \leq x$.
+	
+	\item[(ii)] \dashuline{$x$ je najmanj"sa zgornja meja}
+	
+	Denimo da to ni res:
+	\begin{align*}
+	y &:= \sup \mathcal{A} < x\\
+	\exists n \in \NN&: \frac{1}{n} \leq x - y\\
+	\exists p \in \NN&: \frac{1}{10^p} < \dfrac{1}{n} < x - y
+	\end{align*}
+	\begin{equation*}
+	y + \frac{1}{10^p} < x
+	\end{equation*}
+	\begin{align*}
+		n + \dfrac{n_1}{10} + \dfrac{n_2}{100} + \ldots + \dfrac{n_p}{10^p} &\leq y\\
+		n + \dfrac{n_1}{10} + \dfrac{n_2}{100} + \ldots + \dfrac{n_p+1}{10^p} &\leq y + \dfrac{1}{10^p} < x \rightarrow \leftarrow
+	\end{align*}
+\end{enumerate}
+Trditev utemelji, da $x$ lahko zapi"semo, kot neskon"cni decimalni ulomek.
+\begin{equation*}
+x = n_0 + \dfrac{n_1}{10} + \ldots + \dfrac{n_p}{10^p} + \ldots = n_0,n_1n_2\ldots n_p\ldots
+\end{equation*}
+
+\emph{Trditev:} Naj bosta $x, y \in \RR^+$
+\begin{enumerate}
+	\item[(1)] Denimo, da obstaja $k \in \NN_0$, za katerega velja:
+	\begin{align*}
+		x &= n_0,n_1n_2\ldots n_{k-1}n_k99\ldots\\
+		y &= n_0,n_1n_2\ldots n_{k-1}(n_k + 1)00\ldots
+	\end{align*}
+	in $n_k \neq 9$, potem $x = y$.
+	
+	\item[(2)] Za dva razli"cna decimalna zapisa $x \in \RR^+$ velja (1).
+\end{enumerate}
+
+\emph{Dokaz:} Naj bo $\mathcal{A}$ mno"zica decimalnih preslikav za $x$.
+\begin{itemize}
+	\item[(1)] 
+	\begin{equation*}
+	\forall a \in \mathcal{A}: y \geq a \text{ ($y$ je zgornja meja)}
+	\end{equation*}
+	Zato $y \geq x$ ($x$ je $\sup \mathcal{A}$)
+	
+	\dashuline{Dokzujemo $y$ je natan"cna zgornja meja od $\mathcal{A}$}
+	
+	Naj bo $l > k$ in $a_l$ $l$-ti decimalni pribli"zek za $x$.
+	\begin{align*}
+	y - a_l &= \dfrac{1}{10^l}\\
+	y - \dfrac{1}{10^l} &= a_l\\
+	y - \dfrac{1}{10^l} &\leq a_l < a_{l+1}	
+	\end{align*}
+	$\Rightarrow y - \dfrac{1}{10^l}$ ni zgornja meja za noben $l$, torej je $y$ natan"cna zgornja meja.
+	
+	\item[(2)]
+	$x$ naj ima dva decimalna zapisa:
+	\begin{align*}
+		x &= n_0,n_1n_2\ldots\\
+		x &= m_0,m_1m_2\ldots
+	\end{align*}
+	Obstaja najmanj"si indeks $k \in \NN: n_k \neq m_k$.
+	
+	Predpostavimo, da je $m_k > n_k$
+	
+	$m_0,m_1m_2\ldots m_k$ je zgornja meja mno"zice decimalnih pribli"zkov za $x$.
+	\begin{equation*}
+		m_0,m_1m_2\ldots m_k > m_0,m_1m_2\ldots m_{k-1}n_kn_{k+1}n_{k+2}\ldots
+	\end{equation*}
+	
+	"Ce bi veljajo $n_k < m_k - 1$ (dokazujemo, da je razlika lahko najve"c 1, t.j: morajo se ponavljati 9-ke)
+	\begin{equation*}
+		x \leq n_0,n_1n_2\ldots n_{k-1}(n_k+1) < m_0,m_1\ldots m_{k-1}m_k \leq x \rightarrow \leftarrow
+	\end{equation*}
+	($x < x$ ni mo"zno)
+	
+	"Ce bi bil $m_{k+1} \neq 0$ (ali za indeks $l > k$):
+	\begin{equation*}
+		x \leq m_0,m_1m_2\ldots m_k < m_0,m_1 \ldots m_km_{k+1} \leq x \rightarrow \leftarrow
+	\end{equation*}
+	
+	Na podoben na"cin doka"zemo, da velja:
+	\begin{equation*}
+	\forall l \in \NN: n_{k+l} = 9
+	\end{equation*}
+\end{itemize}
+
+Podobno velja tudi za druge osnove. Primer v dvoji"skem bi bil:
+\begin{equation*}
+1101,011 = 1101,010\overline{11}
+\end{equation*}
+
+\emph{Trditev:} Naj bo $x \in \RR$. $x$ ima periodi"cen decimalni zapis natanko tedaj, kadar $x \in \mathbb{Q}$ (tudi kon"cen decimalni zapis je periodi"cen).
+
+\emph{Dokaz:} denimo, da je $x \in \QQ^+$.
+\begin{equation*}
+x = \dfrac{m}{n}, m, n \in \NN
+\end{equation*}
+$m$ delimo z $n$ pisno. To pomeni da podpisujemo ostanke. Ker imamo na voljo $n$ razli"cnih ostankov: $o_j \in \{0, 1, \ldots, n-1\}$, se bo med $n+1$ zaporednimi ostanki vsaj eden zagotovo ponovil. Ko se ostanek ponovi, se ponovi tudi cel zapis, kar je perioda.
+
+Denimo, da ima $x$ periodi"cen decimalni zapis:
+\begin{align*}
+x &= d,d_1d_2\ldots d_n \overline{d_{n+1} d_{n+2}\ldots d_{n+k}}\\
+10^k x &= d \cdot 10^k + d_1d_2\ldots d_k, d_{k+1}\ldots d_n \ldots d_{n+k} \overline{d_{n+1} \ldots d_{n+k}}\\
+10^kx-x &\text{ ima kon"cen decimalni zapis} = p \in \QQ\\
+x &= \dfrac{p}{10^k-1} \in \QQ \qed
+\end{align*}

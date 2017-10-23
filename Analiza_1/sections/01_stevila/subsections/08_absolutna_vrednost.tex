@@ -1,0 +1,67 @@
+\emph{Def:} "ce je $x \in \RR$, potem
+\begin{equation*}
+|x| = \begin{cases}
+x & \text{"ce $x \geq 0$}\\
+-x & \text{"ce $x < 0$}
+\end{cases}
+\end{equation*}
+"Stevilo $|x|$ imenujemo \emph{absolutna vrednost realnega "stevila $x$}.
+
+\emph{Trditev:} Naj bo $x \in \RR$. Veljajo:
+\begin{enumerate}[(i)]
+	\item $|x| \geq 0$
+	\item $|x| = 0 \Leftrightarrow x = 0$
+	\item $|x| = |-x|$
+	\item $-|x| \leq x \leq |x|$
+	\item $|x|$ je razdalja $x$ do 0 na "stevilski premici
+	\item \emph{Trikotni"ska neenakost:} $|x + y| \leq |x| + |y|$ za vse $x, y \in \RR$
+	\item $|xy| = |x| \cdot |y|$ za vse $x, y \in \RR$
+\end{enumerate}
+
+\emph{Dokaz:}
+\begin{itemize}
+	\item[(vi)] pregledamo vse mo"znosti glede na predznak
+	\begin{enumerate}[(1)]
+		\item $x \geq 0, y \geq 0$
+		\begin{equation*}
+			|x + y| = x + y = |x| + |y|
+		\end{equation*}
+		
+		\item $x < 0, y < 0$
+		\begin{equation*}
+			|x + y| = -(x + y) = -x - y = |x| + |y|
+		\end{equation*}
+		
+		\item $x \geq 0, y < 0$
+		\begin{align*}
+			|x| = x,& |y| = -y\\
+			x + y &= |x| - |y|\\
+			|x + y| &= \begin{cases}
+				|x| - |y| & \text{"ce }|x| \geq |y|,\\
+				|y| - |x| & \text{"ce }|x| < |y|
+			\end{cases}\\
+			|x + y| &\leq |x| + |y|
+		\end{align*}
+		
+		\item simetri"cna (3)
+	\end{enumerate}
+\end{itemize}
+
+\emph{Posledica:}
+\begin{enumerate}[1)]
+	\item $ \left||x| - |y|\right| \leq |x \pm y| \leq |x| + |y|$ za vse $x, y \in \RR$
+	\item $|x_1 + \ldots + x_n| \leq |x_1| + \ldots + |x_n|$ za vse $x_1, \ldots x_n \in \RR$
+\end{enumerate}
+\emph{Dokaz:}
+\begin{enumerate}[1)]
+	\item Za + je disna neenakost trikotni"ska neenakost.
+	
+	Leva neenakost:
+	\begin{align*}
+	|x| = |(x + y) - y| &\leq |x + y| + |y|\\
+	|x| - |y| &\leq |x + y|
+	\end{align*}
+	Podobno velja: $|y| - |x| \leq |x + y|$
+	
+	Iz tega sledi: $||x| - |y|| \leq |x + y| \qed$
+\end{enumerate}

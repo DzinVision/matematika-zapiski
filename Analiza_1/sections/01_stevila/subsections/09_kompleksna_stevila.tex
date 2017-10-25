@@ -1,0 +1,157 @@
+Motivacija za kompleksna "stevila je, da bi lahko re"sili ena"cbo:
+\begin{equation*}
+x^2 = -a, a \in \RR^+
+\end{equation*}
+
+\emph{Definicija:} Kompleksno "stevilo je urejeni par realnih "stevil: mno"zica vseh kompleknih "stevil je mno"zica vseh urejenih parov realnih "stevil, t.j.: $\RR \times \RR$ in jo ozna"cimo s $\CC$.
+\begin{equation*}
+\CC = \{(a, b); a, b \in \RR \}
+\end{equation*}
+
+Opomba:
+\begin{equation*}
+\alpha, \beta \in \CC, \alpha = (a, b), \beta = (c, d): \alpha = \beta \iff a = c \land b = d
+\end{equation*}
+
+V mno"zico kompleksnih "stevil vpeljemo ra"cunski operaciji:
+\begin{equation*}
+\alpha, \beta \in \CC, \alpha = (a, b), \beta = (c, d) \text{ kjer } a, b, c, d \in \RR
+\end{equation*}
+\begin{align*}
+\alpha + \beta &= (a + c, b + d)\\
+\alpha \cdot \beta &= (ac - bd, ad + bc)
+\end{align*}
+
+\emph{Izrek:} $(\CC, +, \cdot)$ je komutativen obseg. Enota za se"stevanje je $(0, 0)$, enota za mno"zenja pa $(1, 0)$. V $\CC$ se ne da vpeljati urejenosti, da bi bil urejen obseg. Druga"ce povedano: izraz kot npr. $z > 0$ je nesmiselen.
+
+\emph{Dokaz:} (veljavnosti nekaterih aksiomov)
+\begin{itemize}
+	\item[(A3)] $\alpha + (0, 0) = (a, b) + (0, 0) = (a + 0, b + 0) = (a, b) = \alpha \qed$
+	\item[(A4)] $\alpha = (a, b) \in \CC \quad -\alpha = (-a, -b)$
+	\begin{equation*}
+	(a, b) + (-a, -b) = (a + (-a), b + (-b)) = (0, 0) = 0 \qed
+	\end{equation*}
+	
+	\item[(A7)] $(a, b) \cdot (1, 0) = (1a - 0b, 0a + 1b) = (a, b) \qed$
+	\item[(A8)] $\alpha \in \CC, \alpha \neq 0 \qquad \alpha = (a, b)$
+	\begin{align*}
+	\alpha^{-1} &= (\dfrac{a}{a^2 + b^2}, \dfrac{-b}{a^2 + b^2})\\
+	\alpha \alpha^{-1} &= (\dfrac{a^2 + b^2}{a^2 + b^2}, \dfrac{-ab + ab}{a^2 + b^2}) = (1, 0) = 1 \qed
+	\end{align*}
+\end{itemize}
+
+\emph{Opomba:} Preslikava $\RR \rightarrow \CC$ definirana s predpisom $a \mapsto (a, 0)$ inducira vlo"zitev realnih "stevil v kompleksnem in je usklajena z ra"cunskima operacijama.
+\begin{align*}
+(a, 0) + (b, 0) &= (a + b, 0)\\
+(a, 0) \cdot (b, 0) &= (ab - 0\cdot 0, 0a + 0b) = (ab, 0)
+\end{align*}
+
+Poleg te vlo"zitve, bi si lahko zmislili tudi kak"sno drugo, vendar ne bi bila dobra. Npr: $a \mapsto (a, 1)$ ni dobra vlo"zitev, ker "ze pri se"stevanju ``pademo ven'' iz realnih vrednosti ($(a, 1) + (b, 1) + (a+b, 2)$).
+
+Torej lahko kompleksna "stevila $(a, 0)$ \emph{identificiramo} z realnimi: $(a, 0) = a$.
+
+\emph{Definicija:} Kompleksno "stevilo $(0, 1)$ ozna"cimo z $i$ in ga imenujemo \emph{imaginarna enota}.
+\begin{gather*}
+	i^2 = (0, 1)(0, 1) = (0-1, 0\cdot 1 + 1\cdot 0) = (-1, 0) = -1\\
+	(a, b) = (a, 0) + (0, b) = (a, 0) + (b, 0) (0, 1) = a + bi
+\end{gather*}
+Od tu naprej bomo kompleksna "stevila obravnavali kot
+\begin{equation*}
+\CC = \{a + bi, a, b \in \RR\}
+\end{equation*}
+
+Definirani ra"unski operaciji inducirata obi"cajno ra"cunanje s kompleksnimi "stevili
+
+\emph{Definicija:} Naj bo $\alpha \in \CC, \alpha = a+bi, a, b \in \RR$
+\begin{itemize}
+	\item "stevilo $a$ je realni del kompleksnega "stevila $\alpha$ in ga ozna"cimo: $a = \Re \alpha$
+	\item "stevilo $b$ je imaginarni del kompleksnega "stevila $\alpha$ in ga ozna"cimo: $b = \Im \alpha$. Opomba: $\Im \alpha \in \RR$.
+	\item "stevilu $a - bi$ re"cemo \emph{konjugirano "stevilo} "stevilu $\alpha$ in ga ozna"cimo z $\overline{\alpha}$
+	\item "steilo $\sqrt{\alpha \overline{\alpha}}$ imenujemo \emph{absolutna vrednost} kompleksnega "stevila $\alpha$ in ozna"cimo $|\alpha|$
+	
+	\emph{Opomba:} $\alpha = a + bi, a, b \in \RR$
+	\begin{equation*}
+	\sqrt{\alpha \overline{\alpha}} = \sqrt{(a + bi)(a-bi)} = \sqrt{(a^2 - abi + abi + b^2)} = \sqrt{a^2 + b^2} \in \RR \geq 0
+	\end{equation*}
+	$\alpha \in \RR \Rightarrow \sqrt{\alpha \overline{\alpha}} = \sqrt{\alpha^2} = |\alpha|$
+	
+	To pojasni, zakaj lahko uporabljamo enako oznako za absolutno vrednost kompleksnega "stevila, kot za absolutno vrednost realnega 'stevila.
+\end{itemize}
+
+\emph{Trditev:} Za $\alpha, \beta \in \CC$ velja:
+\begin{enumerate}[(i)]
+	\item $\overline{\alpha + \beta} = \overline{\alpha} + \overline{\beta}$
+	\item $\overline{\alpha \beta} = \overline{\alpha} \overline{\beta}$
+	\item \begin{align*}
+	\Re \alpha  &= \dfrac{1}{2} (\alpha + \overline{\alpha})\\
+	\Im \alpha &= \dfrac{1}{2i} (\alpha - \overline{\alpha})
+	\end{align*}
+	
+	\item $\alpha \overline{\alpha} = (\Re \alpha)^2 + (\Im \alpha)^2$
+	\item $\overline{\overline{\alpha}} = \alpha$
+\end{enumerate}
+
+\emph{Dokaz:}(ii) $\alpha = a + bi, \qquad \beta = c + di, a, b, c, d \in \RR$
+\begin{multline*}
+\overline{\alpha \beta}	 = \overline{(a + bi)(c + di)} = \overline{(ac - bd + (ad + bc)i)} = \\
+= ac - bd - (ad + bc)i
+\end{multline*}
+\begin{multline*}
+	\overline{\alpha} \cdot \overline{\beta} = \overline{(a + bi)} \overline{(c + di)} = (a-bi)(c-di) =\\
+	= ac-bd-(ad+bc)i \qed
+\end{multline*}
+
+\subsubsection{Lastnosti} 
+Za vse $\alpha, \beta \in \CC$ velja:
+\begin{enumerate}[(i)]
+	\item $|\alpha| \geq 0$
+	\item $|\alpha| = 0 \iff \alpha = 0$
+	\item $|\alpha| = |\overline{\alpha}|$
+	\item $|\alpha \beta| = |\alpha| |\beta|$
+	\item $|\Re \alpha| \leq |\alpha|$\\
+	$|\Im \alpha| \leq |\alpha|$
+	
+	\item $|\alpha + \beta| \leq |\alpha| + |\beta|$\\
+	$||\alpha| - |\beta|| \leq |\alpha \pm \beta| \leq |\alpha| + |\beta|$
+\end{enumerate}
+
+\emph{Dokaz}
+\begin{itemize}
+	\item[(iv)]
+	\begin{equation*}
+		|\alpha \beta|^2 = (\alpha \beta)(\overline{\alpha \beta}) = \alpha \beta \overline{\alpha} \overline{\beta} = |\alpha|^2 |\beta|^2
+	\end{equation*}
+	Ker je $|\alpha| \geq 0$, enakost sledi.
+	
+	\item[(vi)]
+	\begin{multline*}
+		|\alpha + \beta|^2 = (\alpha + \beta)(\overline{\alpha + \beta}) = (\alpha + \beta)(\overline{\alpha} + \overline{\beta}) = \\
+		= \alpha \overline{\alpha} + \alpha \overline{\beta} + \beta \overline{\alpha} + \beta \overline{\beta} = \\
+		= |\alpha|^2 + \alpha \overline{\beta} + \beta \overline{\alpha} + |\beta|^2
+	\end{multline*}
+	
+	\begin{equation*}
+		(|\alpha| + |\beta|)^2 = |\alpha|^2 + 2|\alpha||\beta| + |\beta|^2
+	\end{equation*}
+	Dovolj je dokazati $\alpha \overline{\beta} + \beta \overline{\alpha} \leq 2|\alpha||\beta|$
+	\begin{equation*}
+	\alpha \overline{\beta} + \beta \overline{\alpha} = \alpha \overline{\beta} + \overline{\overline{\overline{\alpha}\beta}} =
+	\alpha \overline{\beta} + \overline{\alpha \overline{\beta}} = 2\Re (\alpha \overline{\beta})
+	\end{equation*}
+	
+	\begin{gather*}
+	2\Re(\alpha \overline{\beta}) \leq 2 |\alpha||\beta|\\
+	|\alpha \overline{\beta}| = |\alpha||\overline{\beta}| = |\alpha||\beta|
+	\end{gather*}
+	Neenakost velja zaradi (v).
+\end{itemize}
+
+
+\subsubsection{Geometrijska interpretacija}
+Pri u"cenju geometrijske interpretacije toplo priporo"cam zvezek s skicami. Kot pi"se v datoteki README.md, skic v teh zapiskih ni in jih verjetno tudi ne bo. "Ce misli"s, da ima"s dovolj dobro domi"sljijo in se znajde"s samo iz tekstovnega opisa, potem pa kar pogumno, "ceprou te pogum ne bo pripeljal do znanja.
+
+Kompleksno "stevilo $\alpha \in \CC, \alpha = a + bi, a, b \in \RR$ predstavimo s to"cko $(a, b)$ v izbranem koordinatnem sistemu. Te to"cki nam lahko predstavljata tudi krajevna vektorja in ker kompleksna "stevila se"stevamo po komponentah, se to ujema s se"stevanjem vektorjev.
+
+Tako kot nam absolutna vrednost realnega "stevila predstavlja oddaljenost "stevila od 0, nam tudi tu absolutna vrednost kompleksnega "stevila predstavlja oddaljenost "stevila od izhodi"s"ca koordinatnega sistema. Druga"ce povedano: predstavlja nam ``dol"zino'' tega "stevila. To lahko vidimo tudi iz ena"be $|\alpha| = \sqrt{(\Re\alpha)^2 + (\Im \alpha)^2}$, ki nam pravzaprav predstavlja pitagorov izrek.
+
+"Ce si nari"semo dve "stevili $\alpha$ in $\beta$ v koordinatni sistem in nato vanj vri"semo "se njuno vsoto $\alpha + \beta$ po paralelogramskem pravilu za se"stevanje vekotjev, opazimo, da dobimo trikotnik s stranicami $\alpha, \beta$ in $\alpha + \beta$. Za trikotnik pa vemo, da je vsota dol"zin dveh stranic v trikotniku ve"cja od dol"zine tretje stranice. Iz tu izhaja ime trikotni"ska neenakost.

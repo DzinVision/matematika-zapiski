@@ -107,3 +107,43 @@ Razdaljo med ravnino $\Sigma$ in to"cko $R_1$ lahko zapi"semu tudi kot:
 \begin{equation*}
 \Delta = d(R_1, \Sigma)
 \end{equation*}
+
+"Ce si pomagamo z "ze izpeljano implicitno ena"cbo ravnine, se lahko znebimo vektorjev in dobimo naslednjo ena"bo:
+\begin{equation*}
+d(R_1, \Sigma) = \dfrac{|ax_1 + by_1 + cz_1 + d|}{\sqrt{a^2 + b^2 + c^2}}
+\end{equation*}
+kjer $\vec{OR_1} = \vec{r_1} = (x_1, y_1, z_1)$.
+
+\subsection{Razdalja med mimobe"znima premicama}
+$p_1$: $e_1$ je smerni vektor; $R_1 \in p_1, r_1$\\
+$p_2$: $e_2$ je smerni vektor; $R_2 \in p_2, r_2$
+
+Da sta premici mimobe"zni imamo dva pogoja:
+\begin{itemize}
+	\item $\vec{e_1} \times \vec{e_2} \neq \vec{0} (p_1 \nparallel p_2)$
+	\item $p_1 \cap p_2 = \varnothing$ (ne sekata se)
+\end{itemize}
+
+\begin{equation*}
+d(p_1, p_2) = \min \{d(T_1, T_2): T_1 \in p_1, T_2 \in p_2\}
+\end{equation*}
+
+Z pomo"cjo skice in premisleka opazimo, da je najmanj"sa razdalja takrat, ko $S_1S_2 \perp p_1, p_2$. To pomeni:
+\begin{align*}
+\vec{S_1S_2} & \perp \vec{e_1}, \vec{e_2}\\
+\vec{S_1S_2} &= \lambda \vec{e_1} \times \vec{e_2}, \lambda \in \RR
+\end{align*}
+
+Tu je spet v veliko pomo"c skica. Ideja je, da z vzporednim premikom premaknemo vektor $\vec{e_2}$ v izhodi"s"ce vektorja $\vec{e_1}$. S tem lahko naredimo ravnino $\Sigma_1$, ki jo tvorita ta dva vektorja. Nato naredimo ravnino $\Sigma_2$ na podoben na"cin -- z vzporednim premikom premaknemo vektor $\vec{e_1}$ v izho"s"ce vektorja $\vec{e_2}$. Velja $\Sigma_1 \parallel \Sigma_2$. Ker sta si ravnini vzporedni lahko premico $p_1$ z vzporednim premikom premaknemo iz $\Sigma_1$ v $\Sigma_2$ in dobimo premico $p_1^*$, ki se seka s premico $p_2$ v to"cko $S_2$. Podobno lahko premaknemo premico $p_2$ v ranino $\Sigma_1$ in dobimo to"cko $S_1$ kjer se sekata $p_1$ in $p_2^*$. Opazimo, da je daljica $S_1S_2$ pravokotna na premici $p_1$ in $p_2$ in je tudi najkraj"sa razdalja med tema premicama. To pomeni, da je dol"zina daljice $S_1S_2$ razdalja med premicama $p_1$ in $p_2$.
+
+Z nadaljnim premislekom in zelo natan"cno narisano skico opazimo, da vektorji $\vec{e_1}, \vec{e_2}$ in $\vec{r_1} - \vec{r_2}$ tvorijo paralelepiped, katerega vi"sina je enaka daljici $S_1S_2$. To pomeni, da lahko uporabimo na"se znanje o me"sanem produktu in naredimo naslednje:
+\begin{align*}
+V &= |[\vec{r_1} - \vec{r_2}, \vec{e_1}, \vec{e_2}]\\
+V &= |\vec{e_1} \times \vec{e_2}| \cdot \Delta\\
+\end{align*}
+kjer je $\Delta = |S_1S_2|$.
+
+To lahko izena"cimo in dobimo:
+\begin{equation*}
+\Delta = \dfrac{|[\vec{r_1} - \vec{r_2}, \vec{e_1}, \vec{e_2}]|}{|\vec{e_1} \times \vec{e_2}|}
+\end{equation*}

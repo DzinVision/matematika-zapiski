@@ -1,0 +1,40 @@
+\subsection{Preslikave in relacije}
+$A, B$ sta neprazni mno"zici.
+
+Preslikavo, ki slika iz $A$ v $B$ lahko zapi"semo kot $f: A \rightarrow B$ ali $A \stackrel{f}{\rightarrow} B$.
+
+$\forall x \in A$ predpis $f$ dolo"ci natanko en element, ki je iz mno"zice $B$. Mno"zici $A$ re"cemo domena (v"casih tudi definicijsko obmo"cje), mno"zici $B$ pa re"cemo kodomena. $f(x)$ pravimo slika elementa $x$. ($x \mapsto f(x)$)
+
+Zaloga (vrednosti) preslikave $f: A \rightarrow B$ je mno"zica $\{f(x): x \in A\} \subseteq B$.
+
+$f: A \rightarrow B$ je \emph{surjektivna} (surjekcija), kadar je njena zaloga $B$.
+\begin{equation*}
+\forall y \in B \exists x \in A: y = f(x)
+\end{equation*}
+
+$f: A \rightarrow B$ je \emph{injektivna} (injekcija), kadar velja sklep:
+\begin{equation*}
+x_1, x_2 \in A, x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)
+\end{equation*}
+Za preverjanje uporabimo:
+\begin{equation*}
+f(x_1) = f(x_2) \Rightarrow x_1 = x_2, x_1, x_2 \in A
+\end{equation*}
+
+$f: A \rightarrow B$ je \emph{bijektivna} (bijekcija), kadar je injektivna in hkrati surjektivna. "Ce je $f: A \rightarrow B$ bijekcija, obstaja to"cno dolo"cena preslikava $g: B \rightarrow A$, da velja:
+\begin{equation*}
+(\forall x \in A: g(f(x)) = x) \land (\forall y \in B: f(g(y)) = y)
+\end{equation*}
+
+Preslikavo $g: B \rightarrow A$ imenujemo \emph{inverz} preslikave $f: A \rightarrow B$ in jo ozna"cimo z:
+\begin{equation*}
+g = f^{-1}
+\end{equation*}
+
+\emph{Kompozitum} preslikav $f: A \rightarrow B$ in $g: B \rightarrow C$ je:
+\begin{align*}
+g \circ f &\text{ ali } gf\\
+g \circ f &: A \rightarrow C\\
+(g \circ f)(x) &= g(f(x))
+\end{align*}
+za vsak $x \in A$.

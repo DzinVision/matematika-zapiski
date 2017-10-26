@@ -1,0 +1,133 @@
+Izjava $p$ ima \emph{pomen} in \emph{resni"cnostno vrednost} ($\bot$ ali $\top$).
+
+V izjavi $\lnot p \lor q$ sta $p$ in $q$ \emph{izjavna simbola}.
+
+Mno"zica $2 = \{\bot, \top\}$ je \emph{mno"zica resni"cnostnih vrednosti}.
+
+\emph{$n$-"cleni Boolova preslikava} je
+\begin{equation*}
+\underbrace{2\times 2 \times \cdots \times 2}_{n} \rightarrow 2
+\end{equation*}
+Primer:
+\begin{align*}
+2\times 2 &\rightarrow 2\\
+(p, q) &\mapsto \lnot p \lor q
+\end{align*}
+
+\emph{Tavtologija} je izjava, ki je resni"cna ne glede na vrednosti parametrov.
+
+\subsubsection*{Zakon o zamenjavi ekvivalentnih izjav}
+"Ce $p \iff q$ potem lahko $p$ nadomestimo s $q$, "ce gledamo le na resni"cnostno vrednost izjav.
+
+\subsection{Zakoni Boolove algebre}
+Operacije:
+\begin{itemize}
+	\item Konstanti: $\top, \bot$
+	\item Negacija: $\lneq$
+	\item Konjunkcija: $\land$
+	\item Disjunkcija: $\lor$
+\end{itemize}
+
+Konjunkcija:
+\begin{itemize}
+	\item $p \land q = q \land p$
+	\item $p \land (q \land r) = (p \land q) \land r$
+	\item $p \land \top = p$
+	\item $p \land p = p$
+\end{itemize}
+
+Disjunkcija:
+\begin{itemize}
+	\item $p \lor q = q \lor p$
+	\item $p \lor (q \lor r) = (p \lor q) \lor r$
+	\item $p \lor \bot = p$
+	\item $p \lor p = p$
+\end{itemize}
+
+Distributivnost:
+\begin{itemize}
+	\item $(p \land q) \lor r = (p \lor r) \land (q \lor r)$
+	\item $(p \lor q) \land r = (p \land r) \lor (q \land r)$
+\end{itemize}
+
+Absorpcija:
+\begin{itemize}
+	\item $(q \land p) \lor p = p$
+	\item $(q \lor q) \land p = p$
+\end{itemize}
+
+Negacija:
+\begin{itemize}
+	\item $p \land \neg p = \bot$
+	\item $p \lor \lnot p = \top$
+\end{itemize}
+
+\emph{Izrek:} (za izjavo $p$ v kateri nastopajo samo izjavni simboli $q_1 \ldots q_n$)
+\begin{enumerate}
+	\item "Ce ima izjava dokaz je tavtologija.
+	\item "Ce je izjava tavtologija ima dokaz.
+\end{enumerate}
+Izrek ne velja za izjave, ki vsebujejo parametre iz mno"zic.
+
+\subsection{Polni nabori}
+Nabor operacij je \emph{poln}, "ce lahko z njim dobimo poljubno resni"cnostno tabelo.
+
+Primeri:
+\begin{itemize}
+	\item $\top, \bot, \land, \lor, \lnot$ je poln
+	\item $\top, \lnot, \land$ je poln
+	\item $\bot, \uparrow \text{(nand)}$ je poln
+\end{itemize}
+
+\subsection{Ra"cunska pravila}
+Pravila za $\top$:
+\begin{itemize}
+	\item $p \lor \top = \top$
+	\item $p \land \top = p$
+	\item $\lnot \top = \bot$
+\end{itemize}
+
+Pravila za $\bot$:
+\begin{itemize}
+	\item $p \lor \bot = p$
+	\item $p \land \bot = \bot$
+	\item $\lnot \bot = \top$
+\end{itemize}
+
+Pravila za negacijo:
+\begin{itemize}
+	\item $\lnot \lnot p = p$
+	\item de Morganova pravila:
+	\begin{itemize}
+		\item $\lnot (p \land q) = \lnot p \lor \lnot q$
+		\item $\lnot (p \lor q) = \lnot p \land \lnot q$
+	\end{itemize}
+\end{itemize}
+
+Ostalo (\emph{kontrapozitivna oblika}):
+\begin{itemize}
+	\item $(p \Rightarrow q) = (\lnot q \Rightarrow \lnot p)$
+	\item $(p \lor q) = (\lnot p \Rightarrow q)$
+	\item $(p \Rightarrow q) = (\lnot p \lor q)$
+\end{itemize}
+
+Izjava ima lahko dve obliki:
+\begin{itemize}
+	\item \emph{konjunktivna} oblika: $(\lnot p \lor q) \land r \land (r \lor \lnot p)$
+	\item \emph{disjunktivna} oblika: $(u \land \lnot v) \lor (u \land w \land \lnot u)$
+\end{itemize}
+
+\subsection{Pravila za kvantifikatorje}
+\begin{itemize}
+	\item $(\lnot \exists x \in A. p(x)) \iff (\forall x \in A . \lnot p(x))$
+	\item $(\lnot \forall x \in A . p(x)) \iff (\exists x \in A . \lnot p(x))$
+	\item $(\forall x \in \varnothing . p(x)) \iff \top$
+	\item $(\exists x \in \varnothing . p(x)) \iff \bot$
+	\item $(p \Rightarrow \forall x \in A . q(x)) \iff (\forall x \in A . p \Rightarrow q(x))$
+	\item $(\forall u \in A \times B . p(u)) \iff (\forall x \in A \forall y \in B . p(x, y))$
+	\item $(\exists u \in A \times B . p(u)) \iff (\exists x \in A \exists y \in B . p(x, y))$
+	\item $(\forall u \in A + B . p(u)) \iff (\forall x \in A . p(\iota_1(x))) \land (\forall y \in B . p (\iota_2(y)))$
+	\item $(\forall u \in A \cup B . p(u)) \iff (\forall a \in A. p(a)) \land (\forall b \in B . p(b))$
+	\item $(\forall x \in \{a\} . p(x)) \iff p(a)$
+	\item $(\exists x \in \{a\} . p(x)) \iff p(a)$
+\end{itemize}

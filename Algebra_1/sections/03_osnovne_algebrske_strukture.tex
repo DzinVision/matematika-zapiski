@@ -38,3 +38,74 @@ g \circ f &: A \rightarrow C\\
 (g \circ f)(x) &= g(f(x))
 \end{align*}
 za vsak $x \in A$.
+
+Preslikavo $A \rightarrow A$ imenujemo \emph{identi"cna preslikava} ali \emph{identiteta}:
+\begin{align*}
+id_A&: A \rightarrow A\\
+\forall x \in A&: id_A(x) = x
+\end{align*}
+
+\begin{align*}
+f&: A \rightarrow B \text{ bijekcija}\\
+g&: B \rightarrow A\\
+g \circ f &= id_A\\
+f \circ g &= id_B
+\end{align*}
+
+$f: A\rightarrow B$ je bijekcija in $g: B\rightarrow A$ je inverzana preslikava $f \iff (g \circ f = id_A \land f \circ g = id_B)$
+
+Graf preslikave $f: A \rightarrow B$ je mno"zica:
+\begin{align*}
+G(f) &= \{(x, f(x)): x \in A\}\\
+G(f) &\subseteq A \times B
+\end{align*}
+
+\emph{Relacija} med elementi mno"zice $A$ in elementi mno"zice $B$ je podmno"zica mno"zice $A \times B$.
+
+$R \subseteq A\times B$ ($R$ je relacija)\\
+$(x, y) \in R \equiv x R y$
+
+\emph{Primeri} kjer $A = B$ (relacija $R \subseteq A \times A$ je \emph{binarjna relacija} na mno"zici $A$).
+\begin{enumerate}[(1)]
+	\item $A = \RR$
+	
+	$R$ relacija na $\RR$: $\leq$
+	\begin{gather*}
+	(x, y) \in R \subseteq \RR \times \RR \iff x \leq y\\
+	R = \leq\\
+	R = \{(x, y) \in \RR^2: x \leq y\}
+	\end{gather*}
+	
+	\item $A = \{p: \text{$p$ - premica v prostoru}\}$
+	
+	$R$ relacija vzporednosti
+	\begin{equation*}
+	p, q \in A \qquad p R q \equiv p \parallel q
+	\end{equation*}
+	
+	\item $M \neq \varnothing, \qquad A = \mathcal{P}M$
+	$R$ relacija \emph{inkluzije} $\subseteq$
+	\begin{gather*}
+		x, y \in A \qquad (x \subseteq A, y \subseteq A)\\
+		x R y \equiv x \subseteq y
+	\end{gather*}
+\end{enumerate}
+
+\emph{Definicije:}
+\begin{enumerate}[(1)]
+	\item Relacija $R$ nad $A$ je \emph{refleksivna}, kadar velja $x R x$ za vsak $x \in A$.
+	\item Relacija $R$ nad $A$ je \emph{tranzitivna}, kadar velja sklep:
+	\begin{equation*}
+	(x R y \land y R z) \Rightarrow x R z
+	\end{equation*}
+	
+	\item Relacija $R$ nad $A$ je \emph{antisimetri"cna}, kadar velja sklep:
+	\begin{equation*}
+	(x R y \land y R x) \Rightarrow x = y
+	\end{equation*}
+	
+	\item Relacija $R$ nad $A$ je \emph{simetri"cna}, kadar velja sklep:
+	\begin{equation*}
+	x R y \Rightarrow y R x
+	\end{equation*}
+\end{enumerate}

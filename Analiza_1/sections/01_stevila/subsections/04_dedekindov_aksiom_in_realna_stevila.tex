@@ -19,7 +19,7 @@ Vpeljimo ra"cunski operaciji v \(\mathbb{R}\).
 
 \emph{Def:} Naj bosta \(A\) in \(B\) reza. Vsota rezov \(A\) in \(B\) je
 \[A + B = \{a + b, a \in A, b \in B\}\]
-\hspace*{24pt}\emph{Opomba:} \((p + q)^* = p* + q*\)
+\hspace*{24pt}\emph{Opomba:} "Zelimo si, da velja \((p + q)^* = p^* + q^*\)
 
 \emph{Trditev:} "Ce sta \(A\) in \(B\) reza, potem je tudi \(A + B\) rez.\\
 \emph{Dokaz(trditev)}: Denimo da sta \(A\) in \(B\) reza.
@@ -122,7 +122,7 @@ Aksioma A13 obseg $\mathbb{Q}$ ne izpolnjuje.
 
 \emph{Def:} Naj bo $B$ urejen obseg in $A \subset B$. Pravimo, da je $A$ navzgor omejena, "ce obstaja $M \in B$, da velja:
 \[\forall a \in A: a \leq M\]
-$\forall M$ s to lastnostjo pravimo zgornja meja mno"zice $A$. "Ce je $A \subset \mathbb{Q} (\text{ali } \mathbb{R})$ in je mno"zica navzgor omejena, potem ima $A$ neskon"cno zgornjih mej.
+$\forall M$ s to lastnostjo pravimo zgornja meja mno"zice $A$. "Ce je $A \subset \mathbb{Q} \text{ (ali } \mathbb{R})$ in je mno"zica navzgor omejena, potem ima $A$ neskon"cno zgornjih mej.
 
 \emph{Def:} Naj bo $A$ navzgor omejena mno"zica. "Ce obstaja najmanj"sa od vseh zgornjih mej mno"zice $A$ v $B$, jo imenuje natan"cna zgornja meja mno"zice $A$.
 
@@ -131,19 +131,19 @@ Torej je $\alpha \in B$ natan"cna zgornja meja mno"zice $A$, "ce velja:
 	\item[(i)] $\alpha$ je zgornja meja $\forall a \in A: a \leq \alpha$
 	\item[(ii)] "Ce $b \in B, b < \alpha$, potem $b$ ni zgornja meja mno"zice $A$, t.j.: $\exists a \in A: a > b$
 \end{itemize}
-Natan"cno zgornjo mejo mno"zice $A$ imenujemo tudi \textbf{supremum} mno"zice $A$ in jo ozna"cimo z $\sup A$
+Natan"cno zgornjo mejo mno"zice $A$ imenujemo tudi \textbf{supremum} mno"zice $A$ in jo ozna"cimo z $\sup A$.
 
 \emph{Def:} "Ce obstaja najve"cji element mno"zice $A$, ga imenujemo \textbf{maksimum} mno"zice $A$ in ozna"cimo z $\max A$.
 
 "Ce ima $A$ maksimum, potem velja:
 \[\max A \in A \land \forall a \in A: a \leq \max A\]
 
-"Ce ima $A$ maksumum, potem $\max A = \sup A$. (Za $a$ v (2) lastnosti definicije supremuma vzamemo $\max A$)
+"Ce ima $A$ maksimum, potem $\max A = \sup A$. (Za $a$ v (2) lastnosti definicije supremuma vzamemo $\max A$)
+
 \emph{Dokaz:}
 \begin{itemize}
 	\item[(1)] $\max A$ je zgornja meja $A$ (po definiciji maksimuma).
-	\item[(2)] "ce $b < \max A$, potem $b$ ni zgornja meja.
-	\[\exists \max A, \text{ ki je ve"cji}\]
+	\item[(2)] "ce $b < \max A$, potem $b$ ni zgornja meja (ker je $\max A \in A$, $b$ pa je manjši, velja da $b$ ni zgornja meja od $A$, ker obstaja nek element is $A$, ki je večji od $b$).
 \end{itemize}
 
 \emph{Primeri:}

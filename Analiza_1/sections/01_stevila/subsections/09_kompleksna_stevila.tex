@@ -157,3 +157,96 @@ Kompleksno "stevilo $\alpha \in \CC, \alpha = a + bi, a, b \in \RR$ predstavimo 
 Tako kot nam absolutna vrednost realnega "stevila predstavlja oddaljenost "stevila od 0, nam tudi tu absolutna vrednost kompleksnega "stevila predstavlja oddaljenost "stevila od izhodi"s"ca koordinatnega sistema. Druga"ce povedano: predstavlja nam ``dol"zino'' tega "stevila. To lahko vidimo tudi iz ena"cbe $|\alpha| = \sqrt{(\Re\alpha)^2 + (\Im \alpha)^2}$, ki nam pravzaprav predstavlja pitagorov izrek.
 
 "Ce si nari"semo dve "stevili $\alpha$ in $\beta$ v koordinatni sistem in nato vanj vri"semo "se njuno vsoto $\alpha + \beta$ po paralelogramskem pravilu za se"stevanje vekotjev, opazimo, da dobimo trikotnik s stranicami $\alpha, \beta$ in $\alpha + \beta$. Za trikotnik pa vemo, da je vsota dol"zin dveh stranic v trikotniku ve"cja od dol"zine tretje stranice. Iz tu izhaja ime trikotni"ska neenakost.
+
+\subsubsection{Polarni zapis}
+Lego to"cke v koordinatnem sistemu lahko podamo s poltrakom skozi izhodi"s"ce, na katerem le"zi to"cka in z razdaljo od izhodi"s"ca.
+
+Poltrak je dolo"cen s kotom od pozitivnega poltraka abscisne osi do danega poltraka, meren v pozitivni smeri.
+
+Kota $\varphi$ in $\varphi + 2k\pi$ dolo"cata isti poltrak.
+
+"Ce $\varphi \in [0, 2\pi]$, potem $\varphi$ imenujemo \emph{argument} kompleksnega "stevila.
+
+"Ce zapi"semo $z = x + iy, x, y \in \RR$
+\begin{align*}
+x &= |z| \cos \varphi && |z| = \sqrt{x^2 + y^2}\\
+y & = |z| \sin \varphi && \tan \varphi = \dfrac{x}{y} \Rightarrow \varphi = \arctan \dfrac{x}{y} + k\pi, k \in \{0, 1\}
+\end{align*}
+$k = 1$ za kompleksna "stevila v II in III  kvadrantu, sicer $k = 0$.
+
+\emph{Polarni zapis:} $z = x + iy = |z|\cos \varphi + i|z|\sin \varphi = |z|(\cos \varphi + i\sin \varphi)$
+\begin{equation*}
+|\cos \varphi + i\sin \varphi| = 1
+\end{equation*}
+$\cos \varphi + i\sin \varphi$ le"zi na \emph{enotski kro"znici} (kro"znica s polmerom 1 in sredi"s"cem v izhodi"s"cu).
+
+\subsubsection*{Mno"zenje v polarnem:}
+\begin{align*}
+z &= |z|(\cos \varphi + i \sin \varphi)\\
+w &= |w|(\cos \psi + i \sin \psi)
+\end{align*}
+%
+\begin{multline*}
+zw = |z||w|(\cos \varphi + i \sin \varphi)(\cos \psi + i \sin \psi) =\\
+= |z||w|(\cos \varphi \cos \psi - \sin \varphi \sin \psi + i\sin \varphi \cos \psi + i \sin \psi \cos \varphi) =\\
+= |z||w|(\cos (\varphi + \psi) + i \sin (\varphi + \psi))
+\end{multline*}
+
+Pri mno"zenju z kompleksnimi "stevili se abolutni vrednosti zmni"zita, kota pa se"stejeta
+
+\subsubsection*{Konjugirana vrednost}
+\begin{equation*}
+\overline{z} = |z|(\cos\varphi - i \sin \varphi) = |z|(\cos (-\varphi) + i \sin (- \varphi))
+\end{equation*}
+
+\subsubsection*{Potenciranje}
+\begin{align*}
+z &= |z|(\cos \varphi + i \sin \varphi)\\
+z^n = |z|^n(\cos n \varphi + i \sin n \varphi)
+\end{align*}
+Formuli pravimo \emph{Moivreova formula} (beremo ``moavrova'') in jo doka"zemo z indukcijo.
+
+\subsubsection*{Korenjenje}
+Korenjenje nam predstavlja re"sevanje ena"cbe $w^n = z$, kjer $z \in \CC, n \in \NN$. Re"sitvam te en"acbe pravimo $n$-ti koreni kompleksnega "stevila $z$.
+
+Za re"sevanje najprej "stevilo $z$ zapi"semo v polarni obliki: $z = |z|(\cos \varphi + i \sin \varphi)$. To storimo tudi s "stevilo $w$: $w = r (\cos \psi + i \sin \psi)$.
+
+To vstavimo v za"cetno ena"cbo:
+\begin{equation*}
+r^n = (\cos n \psi + i \sin n \psi) = |z|(\cos \varphi + i \sin \varphi)
+\end{equation*}
+
+Kompleksni "stevili sta enaki, "ce sta enako oddaljena od izhodi"s"ca:
+\begin{equation*}
+r^n = |z|
+\end{equation*}
+in le"zita na istem poltraku. Ustrezna kota se razlikujeta kve"cjemu za ve"ckratnik $2\pi$:
+\begin{align*}
+n\psi &= \varphi + 2k\pi, k \in \ZZ\\
+\psi &= \dfrac{\varphi}{n} + \dfrac{2k\pi}{n}, k \in \ZZ
+\end{align*}
+To pomeni, da dobimo:
+\begin{equation*}
+|w| = \sqrt[n]{z}\left(\cos \left(\dfrac{\varphi}{n} + \dfrac{2k\pi}{n}\right) + i \sin \left(\dfrac{\varphi}{n} + \dfrac{2k\pi}{n}\right)\right), k \in \ZZ
+\end{equation*}
+
+$\dfrac{2k\pi}{n} \in [0, 2\pi]$ za $k \in {0, 1, \ldots ,n}$.
+
+\emph{Dokaz:}\\
+\begin{gather*}
+k \geq n \Rightarrow k = ln + o, l, o \in \NN_0\\
+\dfrac{2k\pi}{n} = \dfrac{2\pi ln}{n} + \dfrac{2\pi o}{n} = 2l\pi + \dfrac{2\pi o}{n}
+\end{gather*}
+
+To pomeni, da so razli"cni $n$-ti koreni: $w_0, w_1, \ldots, w_{n-1}$, "ce je $z \neq 0$.
+
+\emph{Opomba:} Oznake za koren ni, ker ni enoli"cne re"sitve.
+
+Geometrijsko nam re"sitve predstavljajo oglji"s"ca pravilnega $n$-kotnika, ki je v"crtan kro"znici s polmerom $\sqrt[n]{|z|}$.
+
+Re"sitvam ena"cbe $w^n = 1$ re"cemo $n$-ti koreni enote in le"zijo na enotski kro"znici.
+
+\emph{Osnovni izrek algebre:} Vsak nekonstanten polinom s kompleksnimi koeficienti ima kompleksno ni"clo.
+\begin{equation*}
+p(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n, a_j \in \CC
+\end{equation*}

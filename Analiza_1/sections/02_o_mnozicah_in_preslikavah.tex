@@ -1,0 +1,87 @@
+\emph{Definicija:} Naj bosta $A$ in $B$ mno"zici.\\
+Preslikava $f$ iz mno"zice $A$ v mno"zico $B$ je predpis, ki vsakemu elementu iz mno"zice $A$ priredi natanko en element iz mno"zice $B$.
+
+Pi"semo $f: A \rightarrow B$\\
+\begin{equation*}
+a \in A: a \mapsto f(a) \in B
+\end{equation*}
+
+$A$ imenujemo \emph{domena} ali \emph{definicijsko obmo"cje}, $B$ pa imenujemo \emph{kodomena}.
+
+Zaloga vrednosti je mno"zica $\{f(a); a \in A\} = Z_f$.
+
+\emph{Definicija:} Naj bosta $A$ in $B$ mno"zici in $f: A \rightarrow B$ preslikava.
+
+Pravimo, da je $f$ \emph{surjektivna}, "ce je $B = Z_f$.
+
+Pravimo, da je $f$ \emph{injektivna}, "ce velja:
+\begin{equation*}
+\forall x, y \in A: x \neq y \Rightarrow f(x) \neq f(y)
+\end{equation*}
+Ro lahko zapi"semo tudi kot:
+\begin{equation*}
+\forall x, y \in A: f(x) = f(y) \Rightarrow x = y
+\end{equation*}
+
+Pravimo, da je $f$ \emph{bijektivna (povratno enoli"cna)}, kadar je surjektivna in injektivna.
+
+\emph{Definicija:} Naj bosta $A$ in $B$ mno"zici, $f: A \rightarrow B$ bijektivna preslikava.
+
+\emph{Inverzna} preslikava $f^{-1}: B \rightarrow A$ vsakemu elementu $b \in B$ priredi tisti element $a \in A$, za katerega velja $f(a) = b$.
+
+\dashuline{$f^{-1}$ je dobro definirana}
+
+$\forall b \in B \exists a \in A: f(a) = b$, ker je $f$ surjektivna. Ta $a$ je enoli"cno dolo"cen, ker je $f$ injektivna; $f(a_1) = f(a) \Rightarrow a_1 = a$.
+
+\emph{Definicija:} Naj bosta $A$ in $B$ mno"zici.
+
+Pravim, da sta mno"zici \emph{ekvipolentni} ali enako mo"cni, kadar obstaja bijektivna preslikava $f: A \rightarrow B$.
+
+\emph{Opomba:} "ce je $f: A \rightarrow B$ bijektivna, potem je $f^{-1}: B \rightarrow A$ bijekcija.
+
+\emph{Opomba:} kon"cni mno"zici imata enako mo"c, kadar imata enako "stevilo elementov.
+
+\emph{Definicija:} "Ce ima mno"zica $A$ enako mo"c kot $\NN$, pravimo, da je $A$ \emph{"stevno neskon"cna}.
+
+"Ce je $A$ "stevno neskon"cna, potem obstaja $\NN \rightarrow A; n \mapsto f(n) = a_n$.
+\begin{equation*}
+A = \{a_1, a_2, \ldots a_n\} = \{a_n; n \in \NN\}
+\end{equation*}
+pri "cemer velja: $j \neq k: a_j \neq a_k$.
+
+\emph{Trditev:} $\NN, \ZZ, \QQ$ so "stevno neskon"cna.
+
+Dokaz za $\ZZ$: $\{0, 1, -1, 2, -2, \ldots\}$
+
+Pri $\QQ$ je dovolj, da doka"zemo za nenegativna "stevila, nato sledi podobno kot za $\ZZ$. Za pozitivna "stevilo naredimo tabelo~\ref{tab:rac-dokaz}.
+
+\begin{table}[htp]
+	\centering
+	\begin{tabular}{c|ccccc}
+		 & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\ \hline
+		\textbf{1} & $\frac{1}{1}$ & $\frac{2}{1}$ & $\frac{3}{1}$ & $\frac{4}{1}$ & $\frac{5}{1}$\\
+		\textbf{2} & $\frac{1}{2}$ & $\frac{2}{2}$ & $\frac{3}{2}$ & $\frac{4}{2}$ & $\frac{5}{2}$
+	\end{tabular}
+	\caption{Dokaz da so $\QQ$ "stevno neskno"cna}
+	\label{tab:rac-dokaz}
+\end{table}
+
+Nato "stevila pove"zemo po diagonalah ($\frac{1}{1}$, $\frac{2}{1}$, $\frac{1}{2}$, $\frac{3}{1}$, $\frac{2}{2}$) in izlo"cimo "stevila ko so se "ze ponovila (npr: $\frac{2}{2} = \frac{1}{1}$).
+
+\emph{Izrek:} $\RR$ ni "stevno neskon"cna
+
+\emph{Dokaz:} Denimo da je. Potem $\{a_1, a_2, a_3, \ldots\} = \RR$.
+
+$a_j$ zapi"semo kot decimalni ulomek:
+\begin{align*}
+a_1 &= d_1'd_{11}d_{12}d{13}\ldots\\
+a_2 &= d_2'd_{21}d_{22}d{23}\ldots\\
+a_3 &= d_3'd_{31}d_{32}d{33}\ldots
+\end{align*}
+%
+\begin{align*}
+x &:= 0'x_1x_2x_3\ldots \in \RR\\
+x_1 &= 1, \text{"ce je $d_{11} = 0$, sicer $x_1 = 0$}
+x_2 &= 1, \text{"ce je $d_{22} = 0$, sicer $x_2 = 0$}
+\end{align*}
+Skonstruirali smo $x \notin \{a_1, a_2, a_3, \ldots\} \rightarrow \leftarrow$.

@@ -11,10 +11,10 @@
 \(\overrightarrow{CD} \sim \overrightarrow{AB}\), kadar je \(\overrightarrow{AB}\) z vzporednim premikom mogo"ce premakniti v \(\overrightarrow{CD}\).
 \begin{itemize}
 	\item \(|AB| = |CD|\) (dol"zini daljic sta enaki)
-	\item ista smer ("ce potegnemo premico "cez izhodi"sca daljic (\(AC\)), morata biti to"cki \(B\) in \(D\) na istem ``bregu'' te premice)
-	\item \(AB \parallel CD\)
+	\item imata isto smer ("ce potegnemo premico "cez izhodi"sca daljic (\(AC\)), morata biti to"cki \(B\) in \(D\) na istem ``bregu'' te premice)
+	\item \(AB \parallel CD\) (premici skozi to"cke sta vzporedni)
 \end{itemize}
-\[\overrightarrow{CD} \sim \overrightarrow{AB} \Rightarrow \overrightarrow{AB} \sim \overrightarrow{CD}\]
+\[\overrightarrow{CD} \sim \overrightarrow{AB} \iff \overrightarrow{AB} \sim \overrightarrow{CD}\]
 
 \underline{Def:} Vektor \(\vec{AB}\) je mno"zica \(\vec{AB} = \{\overrightarrow{XY}: \overrightarrow{XY} \sim \overrightarrow{AB}\}\) (usmerjene daljice ekvivalentne daljici \(\overrightarrow{AB}\))
 
@@ -27,7 +27,7 @@ Dodatna oznaka: \(\vec{a}\), \(-\vec{a}\) nasprotni vektor
 
 \(V = \{\vec{v}: \vec{v} \text{ vektor} \}\) - \underline{vektorski prostor}.
 
-\(O \in \mathcal{P}\); \(O\) fiksiramo
+\(O \in \mathcal{P}\); \(O\) fiksiramo (izberemo si neko to"cko v prostoru, ki jo fiksiramo)
 
 \[f: \mathcal{P} \rightarrow V\]
 \[f(T) = \vec{OT}\]
@@ -51,6 +51,7 @@ Dodatna oznaka: \(\vec{a}\), \(-\vec{a}\) nasprotni vektor
 
 Za lastnosti od (1) do (4) = \((V, +)\) \textbf{Abelova grupa}.
 
+Razliko dveh vektorjev definiramo tako:
 \[\vec{a} - \vec{b} := \vec{a} + (-\vec{b})\]
 
 \subsubsection*{Mno"zenje s skalarjem}
@@ -73,7 +74,7 @@ S tem uvedemo koordinatni sistem na premici \(OA\).
 	\item[(5)] \(\alpha (\beta \vec{a}) = (\alpha \beta) \vec{a}\)
 	\item[(6)] \((\alpha + \beta) \vec{a} = \alpha \vec{a} + \beta \vec{a} \)
 	\item[(7)] \(\alpha(\vec{a} \vec{b}) = \alpha \vec{a} + \alpha \vec{b}\)
-	\item[(8)] \(1\vec{a} = \vec{a}\)
+	\item[(8)] \(1\cdot \vec{a} = \vec{a}\)
 \end{itemize}
 
 \(V, +\) in mno"zenje s skalaji je \textbf{vektorski prostor}: veljajo lastnosti od (1) do (8).
@@ -89,7 +90,7 @@ V nasprotnem primeru sta \(\vec{a}\) in \(\vec{b}\) linearno neodvisna.
 \[\vec{a} = \vec{OA}, \vec{b} = \vec{OB}\]
 
 \begin{enumerate}
-	\item \(\vec{OA}\) in \(\vec{OB}\) sta linearno odvisna \(\Leftrightarrow O, A, B\) kolinearne (li"zijo na isti premici).
+	\item \(\vec{OA}\) in \(\vec{OB}\) sta linearno odvisna \(\Leftrightarrow O, A, B\) kolinearne (le"zijo na isti premici).
 	\item \(\vec{a}, \vec{b}\) sta linearno neodvisna \(\Leftrightarrow (\alpha \vec{a} + \beta \vec{b} = \vec{0} \Rightarrow \alpha = \beta = 0)\)
 \end{enumerate}
 
@@ -100,7 +101,7 @@ Privzamemo da sta \(\vec{a}, \vec{b}\) linearno neodvisna:
 
 \[\vec{r} = \vec{OT}, T \in \mathcal{R}\]
 \[\exists \alpha, \beta \in \mathbb{R}: \vec{r} = \alpha \vec{a} + \beta \vec{b} \]
-Pri tem sta \(\alpha\) in \(\beta\) enoli"cna dolo"cena skalarja.
+Pri tem sta \(\alpha\) in \(\beta\) enoli"cno dolo"cena skalarja.
 
 V \(\mathcal{R}\) smo z vektorjema \(\vec{a}, \vec{b}\) vpeljali koordinatni sistem.
 
@@ -129,6 +130,7 @@ V nasprotnem primeru so \(\vec{a}, \vec{b}, \vec{c}\) linearno neodvisni.
 \underline{Dodatek:} V zapisu vektorja \(\vec{r} \in V\): \(\vec{r} = \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\), so koeficienti \(\alpha, \beta, \gamma\) enoli"cno dolo"ceni.
 
 \underline{Dokaz:}
+Recimo, da lahko vektor $\vec{r}$ izrazimo na 2 razli"cna na"cina:
 \begin{align*}
 	\vec{r} &= \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\\
 	\vec{r} &= \alpha_1 \vec{a} + \beta_1 \vec{b} + \gamma_1 \vec{c}\\
@@ -144,12 +146,12 @@ V nasprotnem primeru so \(\vec{a}, \vec{b}, \vec{c}\) linearno neodvisni.
 \(\vec{OR} = \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c}\)
 \[R \mapsto (\alpha, \beta, \gamma) \in \mathbb{R}^3 = \{(x, y, z): x, y, x \in \mathbb{R}\}\]
 
-\(\alpha, \beta, \gamma\) je z \(R\) enoli"cno dolo"cena.\\
+Urejena trojica \((\alpha, \beta, \gamma)\) je s to"cko \(R\) enoli"cno dolo"cena.\\
 \(\alpha, \beta, \gamma\) so koordinate to"cke \(R\) glede na koordinaten sistem, ki je dolo"cen z bazo \(\{\vec{a}, \vec{b}, \vec{c}\}\) in to"cko \(O\) (izhodi"s"ce koordinatnega sistema).
 
-Imena koordinat: dfabscisa, ordinata, aplikata
+Imena koordinat: abscisa, ordinata, aplikata
 
-\[\varphi: V \rightarrow \mathbb{R}\]
+\[\varphi: V \rightarrow \mathbb{R}^3\]
 \[\vec{r} \mapsto (\alpha, \beta, \gamma); \vec{r} = \vbase\]
 
 \(\varphi\) je bijekcija.
@@ -195,6 +197,7 @@ Dodatna zahteva za standardno bazo vektorskega prostora \(\mathbb{R}^3\):
 	\item \(|\vec{i}| = |\vec{j}| = |\vec{k}| = 1\)
 	\item \(\vec{i}, \vec{j}, \vec{k}\) so paroma pravokotni.
 \end{itemize}
+\emph{Opomba:} Po dogovoru je trojica $(\vec{i}, \vec{j}, \vec{k})$ pozitivno orientirana (pri določanju orientacije si v 3D koordinatnem sistemu pomagamo z pravilom desnega vijaka).
 
 \subsection{Skalarni produkt}
 \(\vec{a}, \vec{b} \in V\)\\
@@ -202,19 +205,17 @@ Kot med njima je \(\varphi, 0 \leq \varphi \leq \pi\)
 
 \underline{Def:} \(\vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cos\varphi\)
 
-\(V\) \textbf{identificiramo} z \(\mathbb{R}^3\) (glede na standardno bazo in dano izhodi"s"ce \(O\)).
+\(V\) \textbf{identificiramo}\footnote{Prej smo vse izpeljevali za splo"sen vektorski prostor, sedaj pa za $V$ vzamemo $\RR^3$.} z \(\mathbb{R}^3\) (glede na standardno bazo in dano izhodi"s"ce \(O\)).
 \begin{align*}
 	O &= (0, 0, 0)\\
 	\vec{i} &= (1, 0, 0)\\
 	\vec{j} &= (0, 1, 0)\\
 	\vec{k} &= (0, 0, 1)
 \end{align*}
-
 \begin{align*}
 	\vec{a} &= (a_1, a_2, a_3) \in \mathbb{R}^3\\
 	\vec{b} &= (b_1, b_2, b_3) \in \mathbb{R}^3
 \end{align*}
-
 \[\vec{a} \cdot \vec{b} = ?\]
 \[\vec{a} = (a_1, a_2, a_3) = \vec{OA}\]
 \[|\vec{a}| = |OA| = \sqrt{a_1^2 + a_2^2 + a_3^2}\]
@@ -227,7 +228,6 @@ Kosinusni izrek:
 	\Rightarrow |\vec{a}||\vec{b}|\cos\varphi &= a_1b_1 + a_2b_2 + a_3b_3
 \end{align*}
 \[\vec{a} \cdot \vec{b} = a_1b_1 + a_2b_2 + a_3b_3\]
-
 \underline{Lastnosti:}
 \begin{enumerate}
 	\item[(1)] \(\vec{a} \vec{a} = |\vec{a}|^2 \geq 0\) (ena"caj le za \(\vec{a} = \vec{0}\))
@@ -235,13 +235,11 @@ Kosinusni izrek:
 	\item[(3)] \((\alpha\vec{a})\vec{b} = \alpha(\vec{a}\vec{b})\)
 	\item[(4)] \(\vec{a}\vec{b} = \vec{b}\vec{a}\)
 \end{enumerate}
-
 \begin{align*}
 	\vec{a} \bot \vec{b} &\Leftrightarrow \varphi \frac{\pi}{2}, \vec{a} \neq \vec{0}, \vec{b} \neq \vec{0}\\
 	\varphi = \frac{\pi}{2} &\Leftrightarrow \cos\varphi = 0 (0 \leq \varphi \leq \pi)\\
 	\vec{a} \bot \vec{b} &\Leftrightarrow \vec{a} \cdot \vec{b} = 0
 \end{align*}
-
 \underline{Primer:}
 \begin{align*}
 	\mathbb{R}^3 &\equiv \mathbb{R}^2 \times \{0\}\\
@@ -250,7 +248,7 @@ Kosinusni izrek:
 	\vec{a} \vec{b} &= a_1b_1 + a_2b_2
 \end{align*}
 \(p\) - plo"s"cina paralelograma\\
-\(p\) izraziti z \(a_1, a_2, b_1, b_2\)
+\(p\) si "zelimo izraziti z \(a_1, a_2, b_1, b_2\)
 \[p = |\vec{a}||\vec{b}|\sin\varphi\]
 \begin{align*}
 	\vec{a'} &\bot \vec{a}\\
@@ -265,14 +263,13 @@ Kosinusni izrek:
 \(p = a_1b_2 - a_2b_1\), "ce je orientacija \(\vec{a}, \vec{b}\) pozitivna, "ce pa je negativna velja: \(p = -(a_1b_2 - a_2b_1)\)
 
 \subsection{Vektorski produkt}
-$$\vec{a}, \vec{b}$$
+Vzamemo vektorja $\vec{a}, \vec{b}$ iz prostora. Njun vektorski produkt ozna"cimo:
 $$\vec{a} \times \vec{b}$$
 \begin{enumerate}
 	\item[(1)] $\vec{a} \times \vec{b}$ je pravokoten na $\vec{a}$ in $\vec{b}$.
 	\item[(2)] $|\vec{a} \times \vec{b}|$ je enaka plo"s"cini paralelograma, ki ga dolo"cata $\vec{a}$ in $\vec{b}$. ($=0$, kadar sta $\vec{a}$ in $\vec{b}$ linearno odvisna)
-	\item[(3)] Urejena trojica $\vec{a}, \vec{b}, \vec{a} \times \vec{b}$ je pozitivno orientirana.
+	\item[(3)] Urejena trojica $(\vec{a}, \vec{b}, \vec{a} \times \vec{b})$ je pozitivno orientirana.
 \end{enumerate}
-
 \begin{align*}
 	\vec{a} &= (a_1, a_2, a_3)\\
 	\vec{b} &= (b_1, b_2, b_3)\\
@@ -283,30 +280,31 @@ $$\vec{a} \times \vec{b}$$
 	&=|\vec{a}\times \vec{b}| |\vec{k}| \cos \delta =\\
 	&=p \cos \delta	
 \end{align*}
-$p$ - plo"s"cina paralelograma.\\
+$p$ - plo"s"cina paralelograma, ki ga dolo"cata vektorja $\vec{a}$ in $\vec{b}$\\
 $\delta$ - kot med ravninama, ki ju dolo"cata osi (1),(2) in vektorja $\vec{a}, \vec{b}$.
-
 \begin{align*}
 	\vec{a'} = (a_1, a_2, 0)\\
 	\vec{b'} = (b_1, b_2, 0)\\
 	p' = \pm (a_1b_2 - a_2b_1)
 \end{align*}
-$p'$ ima predznak $+$, kadar sta $\vec{a'}$ in $\vec{b'}$ pozitivno orientirana, ter $-$, kadar sta negativno orientirana.
+$p'$ je ploščina paralelograma, ki ga določata pravokotni projekciji vektorjev $\vec{a}$ in $\vec{b}$ na ravnino $(\vec{i}, \vec{j})$, tj. plo"s"cina paralelograma, ki ga dolo"cata vektorja $\vec{a'}$ in $\vec{b'}$.
 
+$p'$ ima predznak $+$, kadar sta $\vec{a'}$ in $\vec{b'}$ pozitivno orientirana, ter $-$, kadar sta negativno orientirana.
+%
 $$p' = \pm p \cos \delta$$
 $+$ kadar: $0 \leq \delta \leq \frac{\pi}{2}$\\
 $-$ kadar: $\frac{\pi}{2} \leq \delta \leq \pi$
-
+%
 $$z = \pm p' = a_1b_2 - a_2b_1$$
 $\pm$ se izni"ci, ker se predznak, ki nastane zaradi $\cos$ in predznak, ki nastane pri izra"cunu plo"s"cine paralelograma z vektorjema ujemata.
-
+%
 \begin{align*}
 	x &= a_2b_3 - a_3b_2\\
 	y &= a_3b_1 - a_1b_3
 \end{align*}
-
+%
 $$\vec{a} \times \vec{b} = (a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1)$$
-
+%
 \[
 \begin{vmatrix}
 \alpha & \beta\\
@@ -315,7 +313,7 @@ $$\vec{a} \times \vec{b} = (a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1)$$
 = \alpha \delta - \beta \gamma
 \]
 determinanta (reda 2)
-
+%
 \[
 \vec{a} \times \vec{b} = \left(
 \begin{vmatrix}
@@ -334,7 +332,7 @@ b_1 & b_2
 \end{vmatrix}
 \right)
 \]
-
+%
 \[
 \begin{vmatrix}
 a_3 & a_1\\
@@ -346,7 +344,7 @@ a_1 & a_3 \\
 b_1 & b_3
 \end{vmatrix}
 \]
-
+%
 \begin{align*}
 	\vec{a} \times \vec{b} &= 
 	\begin{vmatrix}
@@ -372,10 +370,10 @@ b_1 & b_3
 	b_1 & b_2 & b_3
 	\end{vmatrix}
 \end{align*}
-
+%
 \textbf{Lastnosti:}
 \begin{itemize}
-	\item $(\alpha \vec{a}) \times \vec{b} = \alpha (\vec{a} \times \vec{b}), \forall a \in \mathbb{R}$
+	\item $(\alpha \vec{a}) \times \vec{b} = \alpha (\vec{a} \times \vec{b}), \forall \alpha \in \mathbb{R}$
 	\item $(\vec{a} + \vec{b}) \times \vec{c} = \vec{a} \times \vec{c} + \vec{b} \times \vec{c}$
 	\item $\vec{c} \times (\vec{a} + \vec{b}) = \vec{c} \times \vec{a} + \vec{c} \times \vec{b}$
 	\item $\vec{a} \times \vec{b} = - \vec{b} \times \vec{a}$
@@ -393,14 +391,13 @@ $\Rightarrow \{\vec{a}, \vec{b}, \vec{a} \times \vec{b}\}$ je ortonormirana baza
 	\vec{r} \cdot \vec{b} &= \beta\\
 	\vec{r} \cdot (\vec{a} \times \vec{b}) &= \gamma
 \end{align*}
-
+%
 \begin{align*}
 	(|\vec{a} \times \vec{b}|)^2 &= (|\vec{a}| |\vec{b}| \sin \varphi)^2\\
 	(\vec{a} \cdot \vec{b})^2 &= (|\vec{a}| |\vec{b}| \cos \varphi)^2\\
 	\Rightarrow |\vec{a} \times \vec{b}|^2 + (\vec{a} \cdot \vec{b})^2 &= |\vec{a}|^2 \cdot |\vec{b}|^2
 \end{align*}
-
-
+%
 \subsection{Me"sani produkt}
 $(\vec{a} \times \vec{b}) \cdot \vec{c}$
 
@@ -413,24 +410,24 @@ $V$ - prostornina pralelepipeda\\
 	V &= \pm |\vec{a} \times \vec{b}| |\vec{c}| \cos \delta =\\
 	&= \pm (\vec{a} \times \vec{b}) \cdot \vec{c}
 \end{align*}
-
+%
 \[(\vec{a} \times \vec{b}) \cdot \vec{c} = \pm V\]
 $+$: $(\vec{a}, \vec{b}, \vec{c})$ pozitivno orienirani\\
 $-$: $(\vec{a}, \vec{b}, \vec{c})$ negativno orientirani
-
+%
 $\vec{a}, \vec{b}, \vec{c}$ linearno odvisni $\Leftrightarrow (\vec{a} \times \vec{b})\vec{c} = 0$.
 
 Orientacija se pri cikli"cnih zamenjavah ohrani:
 \[(\vec{a} \times \vec{b}) \vec{c} = (\vec{b} \times \vec{c})\vec{a} = \vec{a}(\vec{b} \times \vec{c})\]
-
+%
 \[(\vec{a} \times \vec{b})\vec{c} = \vec{a}(\vec{b} \times \vec{c}) = [\vec{a}, \vec{b}, \vec{c}]\]
-
+%
 \begin{align*}
 	\vec{a} &= (a_1, a_2, a_3)\\
 	\vec{b} &= (b_1, b_2, b_3)\\
 	\vec{c} &= (c_1, c_2, c_3)
 \end{align*}
-
+%
 \begin{align*}
 	[\vec{a}, \vec{b}, \vec{c}] = \vec{a} (\vec{b} \times \vec{c}) = a_1e_1 + a_2e_2 + a_3e_3 =\\
 	\begin{vmatrix}
@@ -451,7 +448,7 @@ Orientacija se pri cikli"cnih zamenjavah ohrani:
 	c_1 & c_2
 	\end{vmatrix}
 \end{align*}
-
+%
 \[[\vec{a}, \vec{b}, \vec{c}] = \begin{vmatrix}
 a_1 & a_2 & a_3 \\
 b_1 & b_2 & b_3 \\
@@ -464,16 +461,16 @@ c_1 & c_2 & c_3
 	\vec{e} &\perp \vec{a} \times \vec{b} \\
 	\vec{e} &\perp \vec{c}
 \end{align*}
-
+%
 $\vec{a}, \vec{b}$ linearno neodvisna $\Rightarrow \vec{e} = \alpha \vec{a} + \beta \vec{b}$.\\
 $\vec{e} \cdot \vec{c} = 0$
-
+%
 \[\alpha (\vec{a} \vec{c}) + \beta (\vec{b} \vec{c}) = 0\]
 \begin{align*}
 	\beta &= \lambda \vec{a} \vec{c}\\
 	\alpha &= - \lambda \vec{b} \vec{c}
 \end{align*}
-
+%
 \begin{align*}
 	\vec{e} = \lambda(\vec{b} \vec{c}) \vec{a} + \lambda (\vec{a} \vec{c}) \vec{b}\\
 	\vec{e} = \lambda(-(\vec{b} \vec{c}) \vec{a} + (\vec{a}\vec{c}) \vec{b})

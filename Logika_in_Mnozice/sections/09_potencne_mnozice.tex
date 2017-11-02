@@ -1,0 +1,37 @@
+$\mathcal{P}(A)$ je poten"cna mno"zica $A$. Njeni elementi so natanko vse podmno"zice $A$.
+
+Primeri:
+\begin{gather*}
+\mathcal{P}(\{1, 7\}) = \{\varnothing, \{1\}, \{7\}, \{1, 7\}\}\\
+\mathcal{P}(\varnothing) = \{\varnothing\}
+\end{gather*}
+
+Spomnimo: $2 = \{\bot, \top\}$
+
+Podmno"zice $A$ so preslikave $A \rightarrow 2$.
+
+Izrek: $\mathcal{P}(A) \cong 2^A$
+\begin{align*}
+\mathcal{P}(A) &\rightarrow 2^A\\
+\chi : S &\mapsto \left(x \mapsto \begin{cases}
+\bot & x \notin S\\
+\top & x \in S
+\end{cases}\right)
+\end{align*}
+%
+\begin{align*}
+2^A &\rightarrow \mathcal{P}(A)\\
+f &\mapsto \{x \in A | f(x)\}
+\end{align*}
+
+Nato te funkcije se preverimo, kot smo delali "ze mnogokrat na vajah.
+
+\subsection{Boolova algebra na $\mathcal{P}(A)$}
+Imamo operacije $\cup, \cap$, komplement
+\begin{align*}
+S \cap T &:= \{x \in A | x \in S \land x \in T\}\\
+S \cup T &:= \{x \in A | x \in S \lor x \in T\}\\
+\varnothing &:= \{x \in A | \bot\}\\
+A &:= \{x \in A| \top\}\\
+S^C &:= \{x \in A| \lnot (x \in S)\}
+\end{align*}

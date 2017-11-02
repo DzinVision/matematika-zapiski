@@ -1,0 +1,36 @@
+\emph{Definicija:} Za mno"zici $A$ in $B$:
+\begin{align*}
+A \subseteq B &:= \forall x \in A . x \in B\\
+\subseteq &:= (A, B) \mapsto \forall x \in A . x \in B
+\end{align*}
+Namesto $\subseteq(A, B)$ pi"semo $A \subseteq B$.
+
+Konstrukcija podmno"zice:
+\begin{itemize}
+	\item mno"zica $A$
+	\item izjava $p(x)$, kjer $x \in A$
+\end{itemize}
+Tvorimo mno"zico:
+\begin{equation*}
+\{x \in A | p(x)\}
+\end{equation*}
+Elementi te mno"zico so natanko tisti $a \in A$, za katere velja $p(a)$.
+
+Ostali zapsi so:
+\begin{gather*}
+	\{x \in A: p(x)\}\\
+	\{x \in A ; p(x)\}
+\end{gather*}
+
+Ra"cunski pravili:
+\begin{enumerate}[1)]
+	\item
+	\begin{equation*}
+	(\forall x \in \{y \in A | p(y)\} . q(x)) \iff (\forall z \in A. p(z) \Rightarrow q(z))
+	\end{equation*}
+	
+	\item 
+	\begin{equation*}
+	(\exists x \in \{y \in A | p(y)\} . q(x)) \iff (\exists z \in A. p(z) \land q(z))
+	\end{equation*}
+\end{enumerate}

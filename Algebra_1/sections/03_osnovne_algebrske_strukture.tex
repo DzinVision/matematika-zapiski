@@ -108,4 +108,70 @@ $(x, y) \in R \equiv x R y$
 	\begin{equation*}
 	x R y \Rightarrow y R x
 	\end{equation*}
+	
+	\item $R$ je relacija \emph{delne urejenosti}, kadar je refleksivna, antisimetri"cna in tranzitivna ($R \equiv \leq$).
+	
+	\item $R$ je relacija \emph{ekvivalence} (ali ekvivalen"cna relacija), kadar je refleksivna, simetri"cna in tranzitivna ($R \equiv \sim$).
+\end{enumerate}
+
+Naj bo $A$ neprazna mno"zica, $\sim$ ekvivalen"cna relacija na $A$ in $a \in A$.
+\begin{equation*}
+[a] = \{x \in A: x \sim a\}
+\end{equation*}
+$[a]$ je \emph{ekvivalen"cni razred} elementa $a$.
+%
+\begin{equation*}
+a \sim a \Rightarrow a \in [a]
+\end{equation*}
+%
+$a$ je predstavnik tega ekvivalne"cnega razreda.
+
+\begin{equation*}
+[a] = [b] ?
+\end{equation*}
+Predpostavimo $b \sim a$ (zaradi simetri"cnosti sledi $a \sim b$).
+\begin{equation*}
+x \in [a] \Rightarrow x \sim a \sim b \Rightarrow x \sim b \Rightarrow x \in [b]
+\end{equation*}
+Torej velja:
+\begin{align*}
+[a] &\subseteq [b]\\
+[b] &\subseteq [a]
+\end{align*}
+Zato $[a] = [b]$.
+
+\dashuline{Velja tudi $[a] = [b] \Rightarrow a \sim b$}
+\begin{equation*}
+[a] = [b] \Rightarrow a \in [a] \Rightarrow a \in [b] \Rightarrow a \sim b
+\end{equation*}
+%
+\begin{equation*}
+a \sim b \iff [a] = [b]
+\end{equation*}
+
+Naj velja $[a] \cap [b] \neq \varnothing$:
+\begin{align*}
+&\exists c \in [a] \cap [b]\\
+&\Rightarrow c \sim a \land c \sim b \Rightarrow a \sim b \Rightarrow [a] = [b]
+\end{align*}
+%
+\begin{gather*}
+	[a] \cap [b] \neq \varnothing \Rightarrow [a] = [b]\\
+	[a] \neq [b] \Rightarrow [a] \cap [b] = \varnothing
+\end{gather*}
+
+$A/_\sim = \{[a]: a \in A\}$ je \emph{kvocientna} ali \emph{faktorska} mno"zica glede na ekvivalen"cno relacijo $\sim$.
+
+$A = \cup [a]$ pravimo \emph{raz"clenitev} $A$-ja.
+
+\emph{Primera:}
+\begin{enumerate}[(1)]
+	\item $A = \{\overrightarrow{MN}: M,N - \text{to"cki v prostoru} \}$
+	
+	$\overrightarrow{MN}$ je usmerjena daljica
+	
+	$\overrightarrow{XY} \sim \overrightarrow{MN} \iff$ obstaja translacija, ki $XY$ prenese v $MN$. $\sim$ je ekvivalen"cna relacija.
+	\begin{equation*}
+	\left[\overrightarrow{MN}\right] = \left\{\overrightarrow{XY}: \overrightarrow{XY} \sim \overrightarrow{MN}\right\} = \vec{MN}
+	\end{equation*}
 \end{enumerate}

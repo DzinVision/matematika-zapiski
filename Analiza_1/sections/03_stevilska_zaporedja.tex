@@ -1,0 +1,187 @@
+\deff Zaporedje realnih "stevil je preslikava $\NN \rightarrow \RR$. Zapis je:
+\begin{align*}
+f: &\NN \rightarrow \RR\\
+&f(n) \text{ozna"cimo z $a_n$}
+\end{align*}
+Preslikava $f$ je podana z $a_1, a_2, a_3, \ldots$.
+
+Zaporedje realnih "stevil podamo \emph{s "cleni} $a_1, a_2, a_3, \ldots$, kar kraj"se zapi"semo $\left\{a_n\right\}_{n=1}^\infty$, $\left\{a_n\right\}$,  $\left(a_n\right)_{n=1}^\infty$ ali pa kar zaporedje $a_n$.
+
+\textsc{Opomba}: zaporedje $\left\{a_n\right\}$ ni mno"zica $\left\{a_n; n \in \NN \right\}$.
+
+\textsc{Primer:}
+\begin{enumerate}[1)]
+	\item $a_n = 1, n \in \NN$ \emph{konstantno zaporedje}
+	
+	To zaporedje ustreza preslikavi $f(n) = 1, n \in \RR$
+	
+	\item $b_n = n, n \in \NN$ Takemu zaporedju pravimo, da je podan s splo"snim "clenom. Nari"semo lahko njegov graf $\left\{(n, b_n); n \in \NN \right\}$
+	
+	\item $d_1=1, d_2=1, d_{n+2} = d_n + d_{n+1}, n \in \NN$ je \emph{rekurzivno podano}. Predstavlja Fibonaccijevo zaporedje.
+	
+	\item \emph{aritmeti"cno aporedje}
+	\begin{gather*}
+	a_n = a_1 + (n-1)d, n \in \NN\\
+	a_1, a_1 + d, a_1 + 2d, \ldots
+	\end{gather*}
+	To lahko zapi"semo tudi z rekurzivno zvezo:
+	\begin{equation*}
+	\begin{cases}
+	a_{n+1} = a_n + d, n \in \NN\\
+	a_1 = a_1
+	\end{cases}
+	\end{equation*}
+	
+	\item \emph{geometrijsko zaporedje}
+	\begin{gather*}
+		a_n = a_1 q{n-1}, n \in \NN\\
+		a_1, a_1 q, a_1 q^2, \ldots
+	\end{gather*}
+	Zapisano z rekurzivno zvezo:
+	\begin{equation*}
+	\begin{cases}
+	a_{n+1} = a_n q, n \in \NN \\
+	a_1 = a_1
+	\end{cases}
+	\end{equation*}
+\end{enumerate}
+
+\deff
+\begin{itemize}
+	\item Zaporedje $a_n$ je \emph{navzgor omejeno} "ce je zaloga vrednosti preslikave $n \mapsto a_n$ navzgor omejena, t.j.:
+	\begin{equation*}
+	\exists M \in \RR \forall n \in \NN: a_n \leq M
+	\end{equation*}
+	
+	\item \emph{Natan"cna zgornja meja} zaporedja $a_n$ je natanc"na zgornja meja zaloge vrednosti preslikave $n \mapsto a_n$ in jo ozna"cimo s $\sup a_n$.
+	
+	\item "Stevilo $M$ imenujemo \emph{zgornja meja} zaporedja $a_n$.
+	
+	\item Analogno definiramo navzdol omejeno, natan"cno spodnjo mejo $\inf a_n$, $\max$ in $\min$.
+\end{itemize}
+
+\textsc{Primer:}
+
+$a_n = \dfrac{1}{n}, n \in \NN$
+	
+navzgor omejeno z 1: $\forall n \in \NN: \dfrac{1}{n} \leq 1$
+	
+navzdol omejeno z 0: $\forall n \in \NN: \dfrac{1}{n} \geq 0$
+	
+$\sup \dfrac{1}{n} = 1$, ker je 1 zgornja meja in $a_1 = 1$.
+	
+\dashuline{$\inf 1/n = 0$}
+0 je spodnja meja.
+
+Izberemo $\varepsilon > 0$. Dokazujemo da $\varepsilon$ ni spodnja meja. Po arhimedski lastnosti:
+\begin{equation*}
+\exists n \in \NN: \dfrac{1}{n} < \varepsilon
+\end{equation*}
+	
+$\max \dfrac{1}{n} = 1$
+	
+$\min \dfrac{1}{n}$ ne obstaja.
+
+\deff Zaporedje $a_n$ \emph{konvergira} proti $a \in \RR$, "ce:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \in \NN: n \geq n_0 \Rightarrow |a_n - a| < \varepsilon
+\end{equation*}
+"Stevilo $a$ imenujemo \emph{limita zaporedja} in ozna"cimo z:
+\begin{equation*}
+a = \lim_{\toinf{n}} a_n
+\end{equation*}
+
+"Ce zaporedje $a_n$ konvergira, je $a_n$ \emph{konvergentno zaporedje}. Sicer je \emph{divergentno zaporedje}.
+\begin{equation*}
+|a_n - a| < \varepsilon \iff a_n \in (a - \varepsilon, a + \varepsilon)
+\end{equation*}
+Zunaj $\varepsilon$-te okolice je kve"cjemo kon"cnomnogo "celnov.
+
+Zapis $\lim_{\toinf{n}} a_n = a$ pomeni, da zaporedje konvergira in njegova limita je $a$. To ne velja, "ce zaporedje divergira, ali pa njegova konvergira in njegova limita ni $a$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item $a_n = 1, n \in \NN$
+	
+	\dashuline{$\lim_{\toinf{n}} a_n = 1$}
+	
+	Izberemo poljuben $\varepsilon > 0: |a_n - 1| = |1-1| = 0 < \varepsilon$ za vse $n \in \NN$.
+	
+	\item $b_n = \dfrac{1}{n}, n \in \NN$
+	\begin{equation*}
+	\lim_{\toinf{n}} \dfrac{1}{n} = 0
+	\end{equation*}
+	Po arhimedski lastnosti:
+	\begin{align*}
+	\forall \varepsilon > 0: \exists m : \dfrac{1}{m} &< \varepsilon\\
+	n \geq m: \dfrac{1}{n} &\leq \dfrac{1}{m}\\
+	- \varepsilon < \dfrac{1}{n} &\leq \dfrac{1}{m} < \varepsilon
+	\end{align*}
+	\begin{equation*}
+	\forall n \in \NN, n \geq m: \dfrac{1}{n} \in (-\varepsilon, \varepsilon)
+	\end{equation*}
+	
+	\item $c_n = (-1)^n \dfrac{1}{n}$
+	\begin{equation*}
+	\lim_{\toinf{n}} c_n = 0
+	\end{equation*}
+	ker:
+	\begin{equation*}
+	\left|(-1)^n \dfrac{1}{n} - 0\right| = \dfrac{1}{n} < \varepsilon
+	\end{equation*}
+	po prej"snjem primeru
+	
+	\item $d_n = (-1)^n$
+	
+	\dashuline{zaporedje divergira}
+	
+	Denimo, da je $x$ limita tega zaporedja:
+	\begin{itemize}
+		\item "ce $x = -1: \varepsilon = 1$, zunaj $(-1 - \varepsilon, -1 + \varepsilon) = (-2, 0)$ le"zijo vsi sodi "cleni zaporedja, ki jih je neskon"cno, zato -1 ni limita.
+		
+		\item Analogno za $x = 1$.
+		
+		\item $x \neq 1 \land x \neq -1$
+		\begin{equation*}
+		d = \min \{|x-1|, |x+1|\}
+		\end{equation*}
+		velja:
+		\begin{align*}
+		1 &\notin (x - \dfrac{d}{2}, x + \dfrac{d}{2}) \\
+		-1 &\notin (x - \dfrac{d}{2}, x + \dfrac{d}{2})
+		\end{align*}
+		Vsi "cleni zaporedja le"zijo izven tega intervala, zato $x$ ni limita. Sledi: $d_n$ divergira.
+	\end{itemize}
+\end{enumerate}
+
+\textsc{Trditev:} Konvergentno zaporedje ima eno samo limito.
+
+\textsc{Dokaz:} Denimo da sta $a$ in $b$ limiti zaporedja $a_n$.
+\begin{multicols}{2}
+Izberemo poljuben $\varepsilon > 0:$
+\columnbreak
+\begin{gather*}
+	\exists n_a \forall n: n > n_a \Rightarrow |a_n - a| < \varepsilon \\
+	\exists n_b \forall n: n > n_b \Rightarrow |a_b - a| < \varepsilon
+\end{gather*}
+\end{multicols}
+\begin{equation*}
+|a - b| = |(a-a_n) + (a_n-b)| \leq |a-a_n| + |a_n-b| < 2\varepsilon
+\end{equation*}
+\begin{equation*}
+\forall \varepsilon > 0: |a-b| < 2\varepsilon \Rightarrow |a-b| = 0 \Rightarrow a = b
+\end{equation*}
+
+\textsc{Trditev:} Konvergentno zaporedje je omejeno
+
+\textsc{Dokaz:} Denimo, da je $a_n$ konvergentno zaporedje z limito $a$. Izberemo $\varepsilon = 1$ in po definiciji velja:
+\begin{equation*}
+\exists n_0 \in \NN \forall n \geq n_0: |a_n - a| < \varepsilon = 1
+\end{equation*}
+Lahko skonstruiramo mno"zico "clenov, ki so izven $\varepsilon$-te okolice $a$. Tej mno"zici dodamo tudi zgornjo mejo okolice $a + \varepsilon = a + 1$. Ker je izven okolice kon"cnomnogo "clenov, ima ta mno"zica maksimum:
+\begin{equation*}
+\max \left\{a+1, a_1, a_2, \ldots, a_{n_0-1} \right\} = M
+\end{equation*}
+Za vsak $n$ velja: $a_n \leq M$, ker "ce $n \leq n_0 - 1$, je $a_n$ v zgornji mno"zici, ki smo ji doli"cili maksimum, "ce $n \geq n_0$ je $a_n$ v okolici $a$, to pomeni $a_n < a + 1$, $a+1$ je v zgornji mno"zici, ki smo ji dolo"cili maksimum.
+
+Analogno lahko naredimo za spodnjo mejo. \hfill $\square$

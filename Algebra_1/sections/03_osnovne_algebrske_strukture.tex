@@ -174,4 +174,154 @@ $A = \cup [a]$ pravimo \emph{raz"clenitev} $A$-ja.
 	\begin{equation*}
 	\left[\overrightarrow{MN}\right] = \left\{\overrightarrow{XY}: \overrightarrow{XY} \sim \overrightarrow{MN}\right\} = \vec{MN}
 	\end{equation*}
+	
+	\item $A = \ZZ \times \NN = \{(m,n); m \in \ZZ, n \in \NN\}$
+	\begin{equation*}
+	\sim: (m,n) \sim (p,q) \iff mq = np
+	\end{equation*}
+	$\sim$ je ekvivalen"cna relacija
+	
+	$A/_\sim = \QQ$
+	\begin{equation*}
+	\left[(m,n)\right] = \{(p, q): (p, q) \sim (m, n)\}
+	\end{equation*}
+\end{enumerate}
+
+\subsection{Operacije}
+$M \neq \varnothing$
+
+Operacija na $M$ je preslikava $M \times M \rightarrow M, (a, b) \mapsto a \circ b$
+
+$a \circ b$ je \emph{kompozitum} elementov $a$ in $b$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item $M = \NN$ ali $\ZZ$ ali $\QQ$ ali $\RR$.
+	
+	$\circ$ je lahko $+$ ali $\cdot$.
+	\item $A \neq \varnothing$
+	\begin{equation*}
+	M = \{f: A \rightarrow A\} \equiv F(A)
+	\end{equation*}
+	$\circ$ je kompozitum preslikav
+\end{enumerate}
+
+$M$ z dano operacijo $\circ$ je \emph{grupoid} $(M, \circ)$.
+
+Zapis operacije brez znaka $(a, b) \mapsto ab$ je \emph{multiplikativen} zapis operacije.
+
+Imamo grupoid $(M, \sim, \circ)$. Radi bi prenesli $\circ$ v $M/_\sim$.
+
+Operacija $\circ$ je usklajena z ekvivalen"cno relacaijo $\sim$, kadar velja sklep:
+\begin{equation*}
+(m_1 \sim m \land n_1 \sim n) \Rightarrow m_1 \circ n_1 \sim m \circ n
+\end{equation*}
+kjer $m, n, m_1, n_1 \in M$.
+
+\textsc{Primer:} $M = \ZZ \times \NN$
+
+$\sim$ iz primera (2)
+\begin{gather*}
+(p_1, q_1) \sim (p, q) \land (m_1, n_1) \sim (m, n) \Rightarrow (p_1, q_1) + (m_1, n_1) \sim (p, q) + (m, n)\\
+(p,q) + (m, n) := (pn + mq, nq)
+\end{gather*}v
+$+$ iz $\ZZ \times \NN$ lahko prenesemo na $\QQ = (\ZZ \times \NN)/_\sim$.
+
+$(M, \sim, \circ)$, $\sim$ in $\circ$ usklajeni.
+
+V $M/_\sim$ lahko uvedemo operacijo $\scric$ s predpisom:
+\begin{equation*}
+[a] \scric [b] = [a \circ b]
+\end{equation*}
+Definicija je dobra zaradi uklajenosti operacije $\circ$ z relacijo $\sim$:
+\begin{equation*}
+[a_1] = [a] \text{ in } [b_1] = [b] \Rightarrow [a_1 \circ b_1 \sim a \circ b]
+\end{equation*}
+
+\textsc{Definicije:}
+\begin{itemize}
+	\item $(M, \circ)$ grupoid
+	
+	$e \in M$ je \emph{enota} ali \emph{nevtralni element} grupoida $(M, \circ)$ kadar velja:
+	\begin{equation*}
+	\forall a \in M: a \circ e = e \circ a = a
+	\end{equation*}
+	
+	\dashuline{"Ce enota obstaja je ena sam}
+	
+	$e_1, e_2 \in M$ sta enoti. Sledi:
+	\begin{equation*}
+	e_1 \circ e_2 = e_2
+	\end{equation*}
+	"ce upo"stevamo da je $e_1$ enota,
+	\begin{equation*}
+	e_1 \circ e_2 = e_1
+	\end{equation*}
+	"ce upo"stevamo da je $e_2$ enota
+	\begin{equation*}
+	\Rightarrow e_1 = e_2
+	\end{equation*}
+	\hfill $\square$
+	
+	\item Grupoid $(M, \circ)$ je \emph{polgrupa}, kadar je opracije $\circ$ \emph{asociativna}:
+	\begin{equation*}
+	\forall a, b, c \in M: (a \circ b) \circ c = a \circ (b \circ c)
+	\end{equation*}
+	V polgrupi oklepaji niso potrebni: $a \circ b \circ c$.
+	
+	\item Naj bo $(M, \circ)$ polgrupa z enoto $e$.
+	
+	Element $b \in M$ je \emph{inverz} elementa $a \in M$, kadar velja:
+	\begin{equation*}
+	a \circ b = b \circ a = e
+	\end{equation*}
+	Kadar ima element $a \in M$ inverz, pravimo, da je $a$ \emph{invertabilen} ali \emph{obrnljiv}.
+	
+	\dashuline{"Ce ima $a \in M$ inverz, je ta en sam}
+	
+	$b_1, b_2$ inverza elementa $a$.
+	\begin{align*}
+	a \circ b_1 = b_1 \circ a = e\\
+	a \circ b_2 = b_2 \circ a = e
+	\end{align*}
+	\begin{equation*}
+	\Rightarrow b_1 = b_1 \circ e = b_1 \circ (a \circ b_2) = (b_1 \circ a) \circ b_2 = e \circ b_2 = b_2
+	\end{equation*}
+	\hfill $\square$
+	
+	"Ce je $a \in M$ obrnljiv, njegov inverz zaznamujemo (v splo"snem) z $a^{-1}$.
+	\begin{equation*}
+	a \circ a^{-1} = a^{-1} \circ a = e
+	\end{equation*}
+	
+	\item Polgrupa z enoto, v kateri je vsak element obrnljiv se imenuje \emph{grupa}.
+	
+	Z multiplikativnim zapisom: $(G, \circ)$ je grupa, kadar velja:
+	\begin{enumerate}[(1)]
+		\item $\forall a, b, c \in G: (ab)c = a(bc)$
+		\item $\exists e \in G \forall a \in G: ae = ea = a$
+		\item $\forall a \in G \exists b \in G: ab = ba = e$
+	\end{enumerate}
+
+	\item $(M, \circ)$ grupoid je \emph{komutativen}, kadar velja:
+	\begin{equation*}
+	\forall a,b \in M: a \circ b = b \circ a
+	\end{equation*}
+\end{itemize}
+%
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $(\NN, +)$ polgrupa brez enote ("ce $0 \notin \NN$).
+	\item $(\NN, \cdot)$ polgrupa z enoto 1
+	\item $(\ZZ, +)$ grupa
+	\item $(\ZZ, \cdot)$ polgrupa z enoto 1
+	\item $A \neq \varnothing, M = F(A) = \{f: A \rightarrow A\}$
+	
+	operacija: komponiranje preslikave
+	
+	$(M, \circ)$ je polgrupa z enoto $e = id$
+	
+	\item $M = S(A) = \{f: A \mapsto A, \text{$f$ je bijekcija}\}$
+	
+	$(M, \circ)$ je grupa
 \end{enumerate}

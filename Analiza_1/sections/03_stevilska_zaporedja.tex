@@ -185,3 +185,104 @@ Lahko skonstruiramo mno"zico "clenov, ki so izven $\varepsilon$-te okolice $a$. 
 Za vsak $n$ velja: $a_n \leq M$, ker "ce $n \leq n_0 - 1$, je $a_n$ v zgornji mno"zici, ki smo ji doli"cili maksimum, "ce $n \geq n_0$ je $a_n$ v okolici $a$, to pomeni $a_n < a + 1$, $a+1$ je v zgornji mno"zici, ki smo ji dolo"cili maksimum.
 
 Analogno lahko naredimo za spodnjo mejo. \hfill $\square$
+
+Ni vsako omejeno zaporedje konvergentno. Primer: $a_n = (-1)^n, n \in \NN$.
+
+\deff Naj bo $a_n$ zaporedje. "Stevilo $s$ je \emph{stekali"c"ce zaporedja} $a_n$, "ce v vsaki okolici $s$ le"zi neskon"cno "clenov zaporedja.
+
+\textsc{Primer:} $a_n = (-1)^n, n \in \NN$
+
+Vemo, da ni konvergentno. -1 in 1 sta stekali"s"ci $a_n$, ker vvsi "cleni z lihimi indeksi le"zijo na $(-1 - \varepsilon, -1 + \varepsilon)$ za $\varepsilon > 0$. Analgono za 1 in sode "clene.
+
+\textsc{Opombi:}
+\begin{enumerate}[1)]
+	\item $s$ je stekali"s"ce $\iff \forall \varepsilon \in \RR, \varepsilon > 0$ je $|a_n - s| < \varepsilon$ izpolnjen za neskon"cno mnogo indeksov $n$.
+	
+	\item "Ce je zaporedje $a_n$ konvergentno z limito $a$, potem je $a$ edino stekali"s"ce zaporedja $a_n$, ker na $(a-b, a+b)$ le"zijo vsi, razen kon"cno mnogo "clenov.
+\end{enumerate}
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item Zaporedje s 3 stekali"s"ci: $a_n = n \mod3$.
+	\item Zaporedje z 2 stekali"s"cama, ki ima same razli"cne "clene: $a_n = (-1)^n \left(1+ \dfrac{1}{n}\right)$
+	\item Zaporejde z neskon"cno stekali"s"ci:
+	\begin{equation*}
+	1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5, \ldots
+	\end{equation*}
+	Stekali"s"ca zaporedja so vsa naravna "stevila.
+	\item Ali ima zaporedje ne"stevno stekali"s"c? Da.
+	
+	Obstaja bijekcija $\NN \rightarrow \QQ$.
+	\begin{equation*}
+	\QQ = \{a_1, a_2, a_3, \ldots\}
+	\end{equation*}
+	Stekali"s"ca zaporedja $a_n: x \in \RR,  \varepsilon > 0$ na $(x-\varepsilon, x+\varepsilon)$ le"zi neskon"cno nogo $\QQ$ "stevil, torej neskon"cno mnogo "clenov zaporedja. Zato je $x$ stekali"s"ce.
+	
+	\item Divergentno zaporedje brez stekali"s"c: $a_n = n$.
+\end{enumerate}
+
+\textsc{Trditev: } "Ce vsaka okolica "stevila $s \in \RR$ vsebuje "clen zaporedja $a_n, a_n \neq s$, potej je $s$ stekali"s"ce $a_n$.
+
+\textsc{Dokaz: } Izberemo poljuben $\varepsilon > 0$. Obstaja $n_1 \in \NN: a_{n_1} \in (s-\varepsilon, s+\varepsilon), a_{n_1} \neq s$. Definiramo razdaljo: $d_1 = |s - a_{n_1}|$. Obstaja $n_2: a_{n_2} \in (s-d_1, s+d_1), a_{n_2} \neq s, n_1 \neq n_2$. Postopek nadaljujemo $\square$.
+
+\textsc{Izrek:} Vsako omejeno zaporedje ima stekali"s"ce.
+
+\textsc{Dokaz:} Ker je zaopredje $a_n$ omejeno, ima spodnjo mejo $m$ in zgornjo mejo $M$.
+\begin{gather*}
+\mathcal{U} = \{u \in \RR; a_n <u \text{ je izpolnjeno za kon"cno mnogo "clenov zaporedja}\}\\
+m \in \mathcal{U}, M + 1 \notin \mathcal{U}
+\end{gather*}
+$\Rightarrow \mathcal{U}$ je navzgor omejena in neprazna, torej obstaja $\sup \mathcal{U} = s$.
+
+Izberemo $\varepsilon > 0$.:
+\begin{itemize}
+	\item $s + \varepsilon \notin \mathcal{U}: a_n < s + \varepsilon$ je izpolnjena za neskon"cno mnogo "clenov.
+	\item $s - \varepsilon: \exists u \in (s-\varepsilon, s] \cap \mathcal{U}$.	Ker $u \in \mathcal{U}, s - \varepsilon < u$, je $s - \varepsilon \in \mathcal{U}$, zato velja da $a_n < s-\varepsilon$ velja za kon"cno mnogo "clenov zaporedja.
+\end{itemize}
+Sledi: na $[s-\varepsilon, s + \varepsilon)$ le"zi neskon"cno mnogo "clenov zaporedja. $s$ je stekali"s"ce. 
+
+\hfill $\square$
+
+\subsection{Monotona zaporedja}
+\deff
+\begin{itemize}
+	\item Zaporedje $a_n$ je \emph{nara"s"cajao"ce}, "ce velja: $\forall n \in \NN: a_{n+1} \geq a_n$.
+	\item Zaporedje $a_n$ je \emph{padajo"ce}, "ce velja: $\forall n \in \NN: a_{n+1} \leq a_n$.
+	\item Zaporedje $a_n$ je \emph{strogo nara"s"cajao"ce}, "ce velja: $\forall n \in \NN: a_{n+1} > a_n$.
+	\item Zaporedje $a_n$ je \emph{strogo padajo"ce}, "ce velja: $\forall n \in \NN: a_{n+1} < a_n$.
+	\item Zaporedje $a_n$ je \emph{monotono}, "ce je zaporedje bodisi nara"s"cajo"ce, ali padajo"ce.
+	\item Zaporedje $a_n$ je \emph{strogo monotono}, "ce je zaporedje bodisi strogo nara"s"cajo"ce, ali strogo padajo"ce.
+\end{itemize}
+
+\textsc{Primer:}
+\begin{enumerate}[1)]
+	\item $a_n = -n$ (strogo) padajo"ce
+	\item $a_n = 1$ nara"s"cajo"ce ali padajo"ce
+	\item $a_n = \dfrac{1}{n}$ je padajo"ce in navzdol omejeno
+	\item $a_n = (-1)^n$ ni ne padajo"ce ne nara"s"cajo"ce
+\end{enumerate}
+
+\textsc{Trditev:} Monotono zaporedje je konvergentno natanko tedaj, kadar je omejeno. "Ce je zaporedje $a_n$ nara"s"cajo"ce in navzgor omejeno potem:
+\begin{equation*}
+\lim_{\toinf{n}}a_n = \sup a_n
+\end{equation*}
+"Ce je zaporedje $a_n$ padajo"ce in navzdol omejeno potem:
+\begin{equation*}
+\lim_{\toinf{n}}a_n = \inf a_n
+\end{equation*}
+Dokaz za v eno stran "ze vemo.
+
+\textsc{Dokaz: } (v drugo stran ekvivalence)
+
+Denimo, da je zaporedje $a_n$ nara"s"cajo"ce in navzgor omejeno. Ker je $a_n$ navzgor omejeno: $\exists a := \sup a_n$.
+
+Dokazujemo \dashuline{$a_n$ konjugira proti $a$}
+
+Izberemo poljubene $\varepsilon > 0$. Ker $a - \varepsilon$ ni zgornja meja zaporedja: $\exists n_0 \in \NN: a_{n_0} > a - \varepsilon$. Ker je zaporedje $a_n$ nara"s"cajo"ce in navzgor omejeno z $a$ velja:
+\begin{gather*}
+n \geq n_0: a-\varepsilon < a_{n_0} \leq a_n \leq a\\
+\forall n \geq n_0 a_n \in (a - \varepsilon, a + \varepsilon)
+\end{gather*}
+Sledi: $a = \lim_{\toinf{n}}a_n$ \hfill $\square$
+
+Analogno za navzdol omejeno padajo"ce zaporedje.

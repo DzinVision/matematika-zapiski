@@ -1,0 +1,58 @@
+Vzemimo mno"zico vseh mno"zic
+\begin{equation*}
+V = \{x | \text{$x$ je mno"zica}\}
+\end{equation*}
+Definirajmo podmno"zico:
+\begin{equation*}
+R  = \{x \in V | x \notin x\}
+\end{equation*}
+Dokazali bomo $R \notin R$ in $R \in R$:
+\begin{enumerate}[1)]
+	\item $R \notin R$
+	
+	Predpostavimo $R \in R$ in i"s"cemo protislovje. Po predpostavki vemo $R \in R$. To pomeni, da po definiciji $R$ velja $R \notin R$, s "cimer smo pri"sli do protilsovja, torej velja $R \notin R$.
+	
+	\item $R \in R$
+	
+	To bomo dokazali s protislovjem (pozor: prej"sen dokaz je bil dokaz negacije!). Predpostavimo $R \notin R$ in i"s"cemo protislovje. Po predpostavki vemo, da $R \notin R$, kar pomeni da po definiciji $R$ velja $R \in R$. Pri"sli smo do protislovja, kar pomeni da velja $R \in R$.
+\end{enumerate}
+Dokazali smo $\bot$, torej velja vse. Tudi tak"sne nesmiselnosti kot $0 = 1$.
+
+Da se znebimo tega problema uvedemo razred, ki ga tvorimo\footnote{Tvorba je razli"cna od tvorbe mno"zic. Za mno"zice imamo to"cno dolo"cene na"cine tvorbe (kartezi"cni produkt, podmno"zica, presek, unija, \dots)}:
+\begin{equation*}
+\{x | p(x)\}
+\end{equation*}
+Velja:
+\begin{equation*}
+a \in \{x | p(x)\} \iff p(a)
+\end{equation*}
+Pri tem je $a$ bodisi osnovni matemati"cni objekt ("stevilo, urejeni par) ali mno"zica, ne sme pa biti razred. Druga"ce povedano: razredi niso elementi.
+
+Razred $C$ je mno"zica, "ce lahko tvorimo mno"zico, ki ima iste elemente kot $C$
+\begin{equation*}
+a \in C \iff a \in S
+\end{equation*}
+kjer je $S$ mno"zica.
+
+Vsaka mno"zica $S$ je razred:
+\begin{equation*}
+\{x | x \in S\}
+\end{equation*}
+Razred, ki ni mno"zica se imenuje \emph{pravi razred}.
+
+Primeri pravih razredov:
+\begin{itemize}
+	\item Razred vseh mno"zic:
+	\begin{equation*}
+	V = \{x | \text{$x$ je mno"zica}\} = \{x | \top\}
+	\end{equation*}
+	oznaka za tak razred je Set.
+	
+	\item $R = \{x | x \notin x\}$
+	
+	\item  $\{A | \exists!x \in A:\top\}$ razred vseh enojcev
+	
+	\item $\{X | \text{$X$ je vektorski prostor}\}$
+	
+	$\{X | \text{$X$ je grupa}\}$
+\end{itemize}

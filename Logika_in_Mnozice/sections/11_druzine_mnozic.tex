@@ -1,0 +1,131 @@
+Imamo naslednje mno"zice:
+\begin{align*}
+A_0 &= \cdots \\
+A_1 &= \cdots \\
+A_2 &= \cdots
+\end{align*}
+Dru"zina mno"zic je preslikava:
+\begin{equation*}
+A : I \rightarrow \set
+\end{equation*}
+kjer $I$ je indeksna mno"zica in $i \in I$ so indeksi.
+
+Namesto $A(i)$ pi"semo $A_i$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item "Ce imamo mno"zice $A, B, C, D, E$, lahko tvorimo dru"zino:
+	\begin{gather*}
+		I = \{1, 2, 3, 4, 5\}\\
+		Q : I \rightarrow \set \\
+		Q_1 = A, Q_2 = B, Q_3 = C, Q_4 = D, Q_5 = E
+	\end{gather*}
+	
+	\item Dru"zina vseh zaprtih intervalov:
+	\begin{gather*}
+		K = \{(a, b) \in \RR \times \RR | a \leq b\}\\
+		I: K \rightarrow \set\\
+		I(a, b) := [a, b] = \{x \in \RR | a \leq x \leq b\}
+	\end{gather*}
+	
+	\item Nekateri elementi dru"zine so lahko enaki:
+	\begin{gather*}
+		I = \{1, 2, 3, 4, 5\} \\
+		A : I \rightarrow \set
+	\end{gather*}
+	lahko velja $A_1 = A_3$.
+	
+	\item Konstanta dru"zina $A: I \rightarrow \set$.
+	\begin{equation*}
+	\forall i, j \in I: A_i = A_j
+	\end{equation*}
+	
+	\item \emph{Prazna dru"zina} $\varnothing \rightarrow \set$
+	
+	\item \emph{Dru"zina praznih mno"zic}
+	\begin{gather*}
+		A : I \rightarrow \set \\
+		\forall i \in I: A_i = \varnothing
+	\end{gather*}
+	
+	\item \emph{Neprazna dru"zina}
+	\begin{gather*}
+		A: I \rightarrow \set \\
+		I \neq \varnothing
+	\end{gather*}
+	
+	\item \emph{Dru"zina nepraznih}
+	\begin{gather*}
+		A : I \rightarrow \set \\
+		\forall i \in I: A_i  \neq \varnothing
+	\end{gather*}
+\end{enumerate}
+
+\subsection{Konstrukcija z dru"zinami mno"zic}
+Naj bo $A: I \rightarrow \set$ dru"zina.
+
+\emph{Funkcija izbire} $f$ za dano dru"zino $A$ je prirejanje, ki vsakemu $i \in I$ priredi natanko en element $f(i) \in A_i$.
+
+\textsc{Primer:} dru"zina vseh zaprtih intervalov
+\begin{gather*}
+I = \{(a, b) \in \RR \times \RR | a \leq b\} \\
+K(a,b) = [a, b] \\
+f(a, b) = \dfrac{a + b}{2}\\
+g(a, b) = b
+\end{gather*}
+$f$ in $g$ sta primera funkcije izbire.
+
+"Ce imamo $A: I \rightarrow \set$ in $A_j = \varnothing$ za neki $j \in I$, potem za $A$ ni nobene funkcije izbire.
+\subsubsection{Kartezi"cni produkt}
+\begin{equation*}
+\prod_{i \in I} A_i
+\end{equation*}
+Elementi so funkcije izbire za $A$.
+
+Za vsak $i \in I$ imamo $i$-to projekcijo:
+\begin{gather*}
+\pi_i : \prod_{j \in I} A_j \rightarrow A_i \\
+f \mapsto f(i)
+\end{gather*}
+
+$B \times C$ je poseben primer:
+\begin{equation*}
+B \times C \cong \prod_{i \in I}A_i
+\end{equation*}
+kjer $I = \{1, 2\}$ in $A_1 = B, A_2 = C$.
+
+Tudi $C^B$ je poseben primer
+\begin{equation*}
+C^B \cong \prod_{j \in J} D_j
+\end{equation*}
+kjer $J = B$ in $D_j = C$.
+
+\subsubsection{Unija in presek}
+\begin{gather*}
+\bigcup_{i \in I} A_i = \{x; \exists i \in I : x \in A_i\}\\
+\bigcap_{i \in I} A_i = \{x; \forall i \in I : x \in A_i\}
+\end{gather*}
+
+Presek prazne dru"zine:
+\begin{equation*}
+\bigcap_{i \in \varnothing} A_i \ \{x; \forall i \in \varnothing: x \in A_i\} = \{x; \top\} = V
+\end{equation*}
+je pravi razred.
+
+Presek neprazne dru"zine je mno"zica, "ce imamo $j \in I$
+\begin{equation*}
+\bigcap_{i \in I} A_i = \{x; \forall i \in I: x \in A_i\} = \{x \in A_j; \forall i \in I: x \in A_i\}
+\end{equation*}
+
+\textsc{Aksiom o uniji: } Unija dru"zine mno"zic je mno"zica.
+
+\textsc{Primer:}
+\begin{gather*}
+A : \NN \rightarrow \set\\
+A_0 = \NN\\
+A_1 = P(\NN)\\
+A_2 = P(P(\NN))\\
+A_{n+1} = P(A_n)
+\end{gather*}
+
+$\bigcup_{n \in \NN} A_n$ je unija po aksiomu.

@@ -286,3 +286,154 @@ n \geq n_0: a-\varepsilon < a_{n_0} \leq a_n \leq a\\
 Sledi: $a = \lim_{\toinf{n}}a_n$ \hfill $\square$
 
 Analogno za navzdol omejeno padajo"ce zaporedje.
+
+\textsc{Primer:} $a_n = \dfrac{1}{\sqrt{n}}, n \in \NN$
+
+Najprej doka"zemo, da je $a_n$ padajo"ce zaporedje, t.j:
+\begin{align*}
+\dfrac{1}{\sqrt{n + 1}} &\leq \dfrac{1}{\sqrt{n}} \\
+\sqrt{n} &\leq \sqrt{n+1}
+\end{align*}
+Vemo, da je navzdol omejeno z 0. Ker je padajo"ce in navzdol omejeno, je konvergentno.
+
+\dashuline{$\lim_{\toinf{n}} a_n = 0$}
+
+Vemo: $\lim_{\toinf{n}} a_n = \inf a_n = a$
+
+Vemo, da $a$ ni negativen, ker so vsi "cleni zaporedji zaporedja pozitivini. "Ce bi $a > 0$:
+\begin{align*}
+a_n &\geq a\\
+\dfrac{1}{\sqrt{n}} &\geq a\\
+\dfrac{1}{n} &\geq a^2 > 0 \text{ za vse $n \in \NN$}
+\end{align*}
+Zaradi arhimedske lastnosti vemo, da to ni res. $\rightarrow \leftarrow$
+
+Torej $a$ ni negativen in $a$ ni pozitivne, torej $a = 0 \Rightarrow \lim_{\toinf{n}} a_n = 0$.
+
+\subsection{Podzaporedja}
+Podzaporedje zaporedja $a_n$ je zaporedje, ki vsebuje samo nekatere "clene zaporedja $a_n$ v enakem vrstnem redu.
+\begin{equation*}
+a_1, \xcancel{a_2}, \xcancel{a_3}, a_4, \ldots
+\end{equation*}
+
+\deff Naj bo $a_n$ zaporedje in naj bo $n_j$ strogo nara"s"cajo"ce zaporedje naravnih "stevil. Zaporedje $(a_{n_j})_{j=1}^\infty$ je podzaporedje $(a_n)_{n=1}$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item $(a_n)_{n=1}^\infty$ zaporedje
+	
+	podzaporedje $(a_n)_{n=1}^\infty$
+	
+	\item $b_n = (-1)^n, n \in \NN$ ni konvergentno, ima dve stekali"s"ci
+	
+	$b_{2n-1} = -1$ za vsak $n \in \NN$: $b_1, b_3, b_5, \ldots$ je podzaporedje lihih "clenov.
+	
+	Podobno lahko naredimo podzaporedje sodih "clenov. Podzaporedja lihih in sodih "clenov sta konvergentna.
+\end{enumerate}
+
+\textsc{Trditev} Naj bo $a_n$ zaporedje. "Ce je $a_n$ konvergentno, potem je konvergentno tudi vsako njegovo podzaporedje $(a_{n_j})_{j=1}^\infty$ in velja:
+\begin{equation*}
+\lim_{\toinf{n}}a_n = \lim_{\toinf{j}} a_{n_j}
+\end{equation*}
+\textsc{Dokaz:} Naj bo $a = \lim_{\toinf{n}}a_n$
+
+Izberemo poljuben $\varepsilon > 0$. Vemo: $\exists n_0 \in \NN \forall n \geq n_0: |a_n - a| < \varepsilon$
+
+Potem velja:
+\begin{equation*}
+j \geq n_0: |a_{n_j} - a| < \varepsilon
+\end{equation*}
+ker je $n_j \geq n_{n_0} \geq n_0$
+
+\textsc{Opomba:} "Ce neko podzaporedje danega zaporedja konvergira, ni nujno, da je dano zaporedje konvergentno. Primer: $(-1)^n$.
+
+\deff \emph{Rep zaporedja} je zaporedje, ki ga dobimo iz danega zaporedja tako, da izpustimo prvih kon"cno mnogo "clenov.
+
+Zaporedje je konvergentno natanko tedaj, kadar je konvergenten njegov rep.
+
+\textsc{Primer:} $1, 2, 4, 16, 36, 16, 4, 2, 1, \dfrac{1}{2}, \dfrac{1}{3}, \dfrac{1}{4}, \ldots, \dfrac{1}{n}, \ldots$
+
+\subsection{Ra"cunanje z zaporedji}
+\textsc{Trditev:} Naj bosta $a_n$ in $b_n$ konvergentni zaporedji. Tedaj konvergirajo tudi naslednja zaporedja:
+\begin{itemize}
+	\item $a_1 + b_1, a_2 + b_2, \ldots, a_n + b_n, \ldots$
+	\item $a_1 - b_1, a_2 - b_2, \ldots, a_n - b_n, \ldots$
+	\item $a_1 b_1, a_2 b_2, \ldots, a_n b_n, \ldots$
+\end{itemize}
+in velja:
+\begin{itemize}
+	\item $\lim_{\toinf{n}} (a_n + b_n) = \lim_{\toinf{n}} a_n + \lim_{\toinf{n}} b_n$
+	\item $\lim_{\toinf{n}} (a_n - b_n) = \lim_{\toinf{n}} a_n - \lim_{\toinf{n}} b_n$
+	\item $\lim_{\toinf{n}} (a_n b_n) = \lim_{\toinf{n}} a_n \cdot \lim_{\toinf{n}} b_n$
+\end{itemize}
+\textsc{Dokaz}
+\begin{itemize}
+	\item[Vsota:]
+	Izberemo poljuben $\varepsilon > 0: a = \lim_{\toinf{n}} a_n, b = \lim_{\toinf{n}} b_n$.
+	\begin{equation*}
+	|(a_n + b_n) - (a + b)| = |(a_n - a) + (b_n - b)| \leq |a_n - a| + |b_n - b| \leq 2\varepsilon \text{ za $n \geq \max \{n_a, n_b\}$}
+	\end{equation*}
+	\hfill $\square$
+
+	\item[Produkt:]
+	\begin{equation*}
+	|a_n b_n - ab| = |a_n b_n - ab_n + ab_n - ab| =  = |b_n(a_n - a) + a(b_n - b)| \leq |b_n(a_n - a)| + |a(b_n - b)|
+	\end{equation*}
+	Ker je $b_n$ konvergentno, je omejeno: $\exists M_b \forall n \in \NN: |b_n| < M_b$
+	\begin{equation*}
+	\leq M_b|a_n - a| + |a||b_n - b| \leq \varepsilon \text{ "ce $n \geq \max \{n_a, n_b\}$}
+	\end{equation*}
+	ker vemo: $|a_n - a| \leq \dfrac{\varepsilon}{2M_b}$ za $n \geq n_a$ in $|b_n - b| \leq \dfrac{\varepsilon}{2|a|}$ za $n \geq n_b$.
+	
+	\hfill $\square$
+\end{itemize}
+\textsc{Posledica:} "Ce je $a_n$ konvergentno zaporedje in $\lambda \in \RR$, potem je zaporedje $\lambda a_1, \lambda a_2, \ldots$ konvergentno in velja:
+\begin{equation*}
+\lim_{\toinf{n}} \lambda a_n = \lambda \lim_{\toinf{n}} a_n
+\end{equation*}
+Dokaz je enak kot dokaz za produkt limit, kjer $b_n = \lambda$.
+
+Ker veljajo pravila za dva "clena, veljajo tudi za kon"cno mnogo.
+
+\textsc{Trditev:} Naj bo $a_n$ konvergentno zaporedje in $\forall n \in \NN a_n \neq 0$ in $\lim_{\toinf{n}} a_n \neq 0$. Potem je zaporedje
+\begin{equation*}
+\dfrac{1}{a_1}, \dfrac{1}{a_2}, \ldots, \dfrac{1}{a_n}, \ldots
+\end{equation*}
+konvergetno in velja:
+\begin{equation*}
+\lim_{\toinf{n}} \dfrac{1}{a_n} = \dfrac{1}{\lim_{\toinf{n}} a_n}
+\end{equation*}
+
+\textsc{Dokaz:} $a = \lim_{\toinf{n}} a_n$
+\begin{equation*}
+\left|\dfrac{1}{a_n} - \dfrac{1}{a}\right| = \left|\dfrac{a - a_n}{a_n a}\right| = \dfrac{|a - a_n}{|a||a_n|} \leq \dfrac{|a - a_n|}{|a| \eta} < \varepsilon \text{ za dovolj velike $n$}
+\end{equation*}
+$|a_n|$ lahko omejino stran od 0, t.j.: $\exists \eta > 0 \forall n \in \NN: |a_n| \geq \eta$
+
+Konstrukcija $\eta$: Zunaj $\left(a - \dfrac{|a|}{2}, a + \dfrac{|a|}{2}\right)$ le"zi kon"cno mnogo "clenov zaporedja.
+\begin{equation*}
+\eta := \min \left\{\left|a - \dfrac{|a|}{2}\right|, \left|a + \dfrac{|a|}{2}\right|, |a_1|, |a_2|, \ldots, |a_{n_0}  \right\}
+\end{equation*}
+
+\textsc{Posledica:} Naj bosta $a_n$ in $b_n$ konvergentni zaporedji, $\forall n \in \NN: b_n \neq 0$, $\lim_{\toinf{n}} b_n \neq 0$. Potem je zaporedje $\frac{a_n}{b_n}$ konvergentno in velja:
+\begin{equation*}
+\lim_{\toinf{n}}\dfrac{a_n}{b_n} \ \dfrac{\lim_{\toinf{n}} a_n}{\lim_{\toinf{n}}b_n}
+\end{equation*}
+
+\textsc{Izrek o sendvi"cu:} Naj bodo $a_n, b_n, c_n$ taka zaporedja, da 
+\begin{equation*}
+\forall n \in \NN: a_n \leq b_n \leq c_n
+\end{equation*}
+"Ce sta zaporedji $a_n$ in $c_n$ konvergentni in $\lim_{\toinf{n}} a_n = \lim_{\toinf{n}}c_n$, potem je $b_n$ konvergentno in velja:
+\begin{equation*}
+\lim_{\toinf{n}} b_n = \lim_{\toinf{n}} a_n = \lim_{\toinf{n}} c_n
+\end{equation*}
+\textsc{Primer:} $b_n = \sqrt{n+1} - \sqrt{n}$
+\begin{gather*}
+\sqrt{n+1} - \sqrt{n} = \dfrac{n+1 - n}{\sqrt{n+1} + \sqrt{n}}\\
+0 \leq \sqrt{n+1} - \sqrt{n} \leq \dfrac{1}{2\sqrt{n}}
+\end{gather*}
+ker $\lim_{\toinf{n}} 0 = 0$ in $\lim_{\toinf{n}} \dfrac{1}{2\sqrt{n}} = 0$:
+\begin{equation*}
+\lim_{\toinf{n}} b_n = 0
+\end{equation*}

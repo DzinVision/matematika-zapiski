@@ -437,3 +437,172 @@ ker $\lim_{\toinf{n}} 0 = 0$ in $\lim_{\toinf{n}} \dfrac{1}{2\sqrt{n}} = 0$:
 \begin{equation*}
 \lim_{\toinf{n}} b_n = 0
 \end{equation*}
+
+\textsc{Dokaz izreka:}
+\begin{equation*}
+L = \lim_{\toinf{n}}a_n = \lim_{\toinf{n}}c_n
+\end{equation*}
+\begin{multicols}{2}
+Vzamemo poljuben $\varepsilon > 0$:
+\columnbreak
+\begin{gather*}
+\exists n_a: n \geq n_a \rightarrow |a_n - L| < \varepsilon \\
+\exists n_c: n \geq n_c \rightarrow |c_n - L| < \varepsilon
+\end{gather*}
+\end{multicols}
+"Ce vzamemo $n \geq \max \{n_a, n_c\}: L - \varepsilon < a_n \leq b_n \leq c_n < L + \varepsilon$.
+
+Torej $b_n \in (L - \varepsilon, L + \varepsilon)$ za vse $n \geq \max \{n_a, n_c\}$. Zato $b_n$ konvergira proti $L$.
+
+\textsc{Trditev:} Naj bosta $a_n$ in $b_n$ konvergetni zaporedji. "Ce $a_n \leq b_n$ za vse $n \in \NN$, potem velja $\lim_{\toinf{n}} a_n \leq \lim_{\toinf{n}} b_n$. \textbf{Opomba:} Trditev s strogimi neena"caji v splo"snem ne velja.
+\begin{gather*}
+a_n = 0, b_n = \dfrac{1}{n}, a_n < b_n\\
+\lim_{\toinf{n}}a_n = \lim_{\toinf{n}}b_n
+\end{gather*}
+
+\textsc{Primer:} Obravnavaj konvergenco zaporedja (Newtnova formula):
+\begin{align*}
+x_1 &= 2 \\
+x_{n+1} &= x_n - \dfrac{x_n^2 - 2}{2 x_n}
+\end{align*}
+Zaporedje je s to rekurzivno zvezo dobro definirano, t.j.: \dashuline{$\forall n \in \NN: x_n \neq 0$}
+\begin{equation*}
+x_{n+1} = x_n - \dfrac{x_n^2 - 2}{2x_n} = \dfrac{2x_n^2 - x_n^2 + 2}{2x_n} = \dfrac{x_n^2 + 2}{2x_n} > 0
+\end{equation*}
+"Ce $x_n \neq 0$ potem $x_{n+1} \neq 0$. To lahko preverimo tudi z indukcijo.
+
+Doka"zemo lahko, da: \dashuline{$x_n$ je padajo"ce}
+\begin{equation*}
+x_{n+1} = x_n - \dfrac{x_n^2 - 2}{2x_n}
+\end{equation*}
+"Ce je $\dfrac{x_n^2 - 2}{2x_n} > 0$, potem je padajo"ce. Dovolj je dokazati, da je $x_n^2 - 2 \geq 0$, ker tedaj iz rekurzivne zveze sledi: $x_{n+1} \leq x_n$.
+\begin{equation*}
+x_{n+1}^2 = \left(\dfrac{x_n^2 + 2}{2x_n}\right)^2 - 2 = \dfrac{x_n^4 + 4x_n^2 + 4 - 8x_n^2}{4x_n^2} = \dfrac{x_n^4 - 4x_n^2 + 4}{4x_n^2} = \dfrac{(x_n^2 - 2)^2}{4x_n^2} \geq 0
+\end{equation*}
+$x_n$ je padajo"ce in navzdol omejeno, zato je konvergentno. Torej lahko izra"cunamo limito. Velja:
+\begin{align*}
+x_{n+1} &= \dfrac{x_n^2 + 2}{2x_n} \\
+2x_n x_{n+1} &= x_n^2 + 2
+\end{align*}
+in vemo: 
+\begin{equation*}
+\exists \lim_{\toinf{n}} x_n =: x
+\end{equation*}
+Ker je $x_{n+1}$ rep zaporedja $x_n$, je konvergentno in ima isto limito kot $x_n$. Ker s konvergentnimi zaporedji lahko ra"cunamo:
+\begin{align*}
+\lim_{\toinf{n}} (2x_n x_{n+1}) & = \lim_{\toinf{n}} (x_n^2 + 2) \\
+2x^2 &= x^2 + 2 \\
+x^2 &= 2\\
+x &= \pm \sqrt{2}
+\end{align*}
+vemo $x \geq 0$, torej 
+\begin{equation*}
+\lim_{\toinf{n}} x_n = \sqrt{2}
+\end{equation*}
+
+\textsc{Izrek:} Naj bo $I_n = [a_n, b_n], a_n < b_n$ zaporedje vlo"zenih zaprtih intervalov, t.j.:
+\begin{equation*}
+\forall n \in \NN: [a_{n+1}, b_{n+1}] \subset [a_n, b_n]
+\end{equation*}
+Denimo, da zaporedje njihovih dol"zin konvergira proti ni"c:
+\begin{equation*}
+\lim_{\toinf{n}} (b_n, a_n) = 0
+\end{equation*}
+Tedaj obstaja natanko eno "stevilo $c \in \bigcap_{n=1}^{\infty} I_n$
+
+\textsc{Dokaz:} $a_n$ je nara"s"cajo"ce zaporedje, $b_n$ je padajo"ce zaporedje. Obe zaporedji sta omejeni (navzdol z $a_1$ in navzgor z $b_1$). Zato sta obe konvergentni. Zato $\lim_{\toinf{n}} (b_n - a_n) = \lim_{\toinf{n}} b_n - \lim_{\toinf{n}} a_n$.
+\begin{gather*}
+\Rightarrow \lim_{\toinf{n}} a_n = \lim_{\toinf{n}} b_n =: c \\
+\forall n \in \NN: c \in I_n \\
+c = \sup a_n: a_n \leq c\\
+c = \inf b_n: c \leq b_n \\
+c \in [a_n, b_n]
+\end{gather*}
+Dokaz, da je "stevilo $c$ eno samo doma. \hfill $\square$
+
+\textsc{Izrek:} Naj bo $a_n$ zaporedje. "Stevilo $b$ je stekali"s"ce zaporedja $a_n$ natanko tedaj, kadar obstaja podzaporedje zaporedja $a_n$, ki konvergira proti $s$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Leftarrow$)] Denimo, da podzaporedje $a_{n_j}$ konvergira proti $s$. Dokazujemo, da je $s$ stekali"s"ce $a_n$.
+	
+	Izberemo poljuben $\varepsilon > 0$. Obstaja $j_0$, da za vsak $j \geq j_0$ velja:
+	\begin{equation*}
+	a_{n_j} \in (s - \varepsilon, s+ \varepsilon)
+	\end{equation*}
+	Torej je na $s - \varepsilon, s + \varepsilon$ neskon"cno "clenov zaporedja. Zato je $s$ stekali"s"ce.
+	
+	\item[($\Rightarrow$)] Denimo, da je $s$ stekali"s"ce zaporedja $a_n$. Za dokaz bomo skonstruirali tako zaporedje, da bo konvergiralo proti $s$. Naj bo
+	\begin{equation*}
+	U_m = (s - \dfrac{1}{m}, s + \dfrac{1}{m})
+	\end{equation*}
+	Na $U_1$ obstaja neskon"cno mnogo "clenov zaporedja, zato lahko izberemo $a_{n_1} \in U_1$.
+	
+	Na $U_2$ obstaja neskon"cno mnogo "clenov zaopredja, zato obstaja:
+	\begin{equation*}
+	n_2 > n_1 \land a_{n_2} \in U_2
+	\end{equation*}
+	Ta postopek induktivno nadaljujemo. Recimo, da "ze imamo:
+	\begin{equation*}
+	a_{n_1}, a_{n_2}, \ldots, a_{n_k}, \text{ da } n_1 < n_2 < \ldots n_k \text{ in vsak } a_{n_j} \in U_j
+	\end{equation*}
+	Na intervalu $U_{k+1}$ obstaja neskonc"cno "clenov zaporedja, zato obstaja $n_{k+1} > n_k$ in $a_{n_{k+1}} \in U_{k+1}$
+	
+	Podzaporedje $a_{n_1}$ konvergira proti $s$ po konstrukciji. \hfill $\square$
+\end{itemize}
+
+\subsection{Cauchyjev pogoj}
+Zanima nas opis konvergence brez sklicevanja na limito. $a_n$ je konvergentno, "ce obstaja $a \in \RR$:
+\begin{equation*}
+\forall \varepsilon \exists n_0 \forall n \geq n_0: |a_n - a| < \varepsilon
+\end{equation*}
+\deff Zaporedje $a_n$ izpolnjuje \emph{Cauchyjev pogoj}, "ce velja:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0: |a_n - a_m| < \varepsilon
+\end{equation*}
+"Ce zaporedje izpolnjuje Cauchyjev pogoj, pravimo, da je zaporedje \emph{Cauchyjevo}.
+
+\textsc{Izrek:} Zaporedje realnih "stevil $a_n$ je konvergentno natanko tedaj, kadar je Cauchyjevo.
+
+\textbf{Opomba:} Za zaporedje racionalnih "stevil ta izrek ne velja. Obstaja zaporedje $q_n, q_n \in \QQ$, $q_n$ je Cauchyjevo ni pa konvergentno v $\QQ$. Npr. zaporedje racionalnih pribli"zkov za $\sqrt{2}$.
+
+\textsc{Dokaz}:
+\begin{itemize}
+	\item[($\Rightarrow$)] Denimo, da zaporedje $a_n$ konvergira proti $a$. Za poljuben $\varepsilon > 0$ po definiciji konvergence velja:
+	\begin{equation*}
+	\exists n_0 \forall n \geq n_0: |a_n - a| < \varepsilon
+	\end{equation*}
+	Za $n, m \geq n_0$ velja:
+	\begin{equation*}
+	|a_n - a_m| = |a_n - a + a - a_m| \leq |a_n - a| + |a - a_m| < 2 \varepsilon
+	\end{equation*}
+	Torej je zaporedje Cauchyjevo.
+	
+	\item[($\Leftarrow$)] Denimo, da je $a_n$ Cauchyjevo.
+	
+	\dashuline{Potem je $a_n$ omejeno}
+	\begin{equation*}
+	\exists n_0: \forall n, m \geq n_0: |a_n - a_m| < 1 = \varepsilon
+	\end{equation*}
+	Zato je $|a_n - a_{n_0}| < 1$ za vse $n \geq n_0$. (Namesto $m$ vzamemo $n_0$, saj vstreza pogoju)
+	
+	Torej vsi "cleni razen $a_1, a_2, \ldots, a_{n_1}$ le"zijo na $(a_{n_0} - 1, a_{n_0} + 1)$. Zato je $a_n$ omejeno.
+	
+	Vemo, da ima vsako omejeno zaporedje stekali"s"ce $s$. Trdimo \dashuline{$s = \lim_{\toinf{n}} a_n$}
+	
+	Izberemo poljuben $\varepsilon > 0$. Denimo, da je zunaj $(s - \varepsilon, s + \varepsilon)$ neskon"cno "clenov zaporedja. Potem bi zunaj $s - \varepsilon, s + \varepsilon$ obstajalo omejeno podzaporejde zaporedja $a_n$, zato ima to podzaporeje stekali"s"ce $t, t \neq s$. $t$ je stekali"s"ce $a_n$.
+	
+	\dashuline{Cauchyjevo stekali"s"ce nima nikoli dveh razli"cnih stekali"s"c.}
+	
+	Denimo, da sta $s$ in $t$ stekali"s"ci.
+	\begin{equation*}
+	d = |s - t|
+	\end{equation*}
+	Na $(s - \dfrac{d}{3}, s + \dfrac{d}{3})$ le"zi neskon"cno "clenov zaporedja.
+	
+	Na $(t - \dfrac{d}{3}, t + \dfrac{d}{3})$ le"zi neskon"cno "clenov zaporedja.
+	
+	"Ce bi bilo zaporedje Cauchyjevo, $\exists n_0 \forall n, m \geq n_0: |a_n - a_m| < \dfrac{d}{3}$. Pridemo v protislovje s prej"snjima dvema izjavama. $\rightarrow \leftarrow$
+	
+	\hfill $\square$m
+\end{itemize}

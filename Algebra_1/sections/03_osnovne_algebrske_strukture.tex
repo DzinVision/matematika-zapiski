@@ -489,3 +489,207 @@ a &= -\dfrac{1}{2} + \dfrac{\sqrt{3}}{2}
 \end{align*}
 
 Za katerikoli $n$ obstaja grupa. Zgornji grupi $G$ pravimo tudi \emph{cikli"cna grupa}.
+
+\textsc{Definicija} transpozicije:
+
+Naj bosta $j, k \in \{1, \ldots, n\}, j \neq k$
+\begin{align*}
+	\tau &\in S_n \\
+	\tau(j) &= k \\
+	\tau(k) &= j \\
+	\tau(i) &= i \forall i \in \{1, \ldots, n \} \setminus \{j, k\}
+\end{align*}
+$\tau$ je \emph{transpozicija}.
+
+Vsaka permutacija je kompozitum samih transpozicij.
+
+\textsc{Primer:}
+\begin{equation*}
+\pi = \begin{pmatrix}
+1 & 2 & 3 & 4 & 5 \\
+3 & 5 & 1 & 2 & 4
+\end{pmatrix}
+\end{equation*}
+Lahko si naredimo diagram, kjer v vsakem koraku premaknemo en element na pravo mesto. Za"cnemo z 1, nato 2 in tako naprej. Nato samo komponiramo transpozicije, ki smo jih uporabili. Skica takega postopka je v zvezku. "Ce je ni, potem lahko poizkusi"s izumiti toplo vodo, lahko pa vpra"sa"s kak"snega "studenta, ki je bolj priden od tebe in ima to skico v zvezku. Torej lahko permutacijo $\pi$ zapi"semo kot kompozitum transpozicij na nasledenj na"cin:
+\begin{equation*}
+\pi = (4, 5) (2, 4) (1, 3)
+\end{equation*}
+Startegija velja v vsaki simetri"cni grupi $S_n$. Zelo lahko je opzaiti, da lahko vsako permutacijo zapi"semo kot kompozitum najve"c $n-1$ transpozicij.
+
+Definirajmo inverzijo. Naj bo
+\begin{gather*}
+\pi = \begin{pmatrix}
+1 & 2 & 3 & \ldots & n \\
+i_1 & i_2 & i_3 & \ldots & i_n
+\end{pmatrix} \in S_n \\
+1 \leq j < k \leq n
+\end{gather*}
+\textsc{Definicija:} Par $(j, k)$ tvori \emph{inverzijo} v permutaciji $\pi$, kadar v vrstici $i_1, i_2, \ldots, i_n$ $k$ nastopa pred $j$ (z leve proti desni). Druga"ce povedano: indeks mesta elementa $i_k$ je manj"si od indeksa elementa $i_j$.
+\begin{equation*}
+\inv \pi = \text{ "stevilo inverzij v $\pi$}
+\end{equation*}
+%
+\textsc{Primer:}
+\begin{equation*}
+\pi = \begin{pmatrix}
+1 & 2 & 3 & 4 & 5 \\
+3 & 5 & 1 & 2 & 4
+\end{pmatrix}
+\end{equation*}
+\begin{multicols}{2}
+	Inverzije v $\pi$ so:
+	\columnbreak
+	\begin{gather*}
+		(1, 3), (1, 5) \\
+		(2, 3), (2, 5) \\
+		(4, 5)
+	\end{gather*}
+\end{multicols}
+\begin{equation*}
+\inv \pi = 5
+\end{equation*}
+Definirajmo naslednjo funkcijo:
+\begin{equation*}
+s(\pi) = (-1)^{\inv \pi} = \begin{cases}
+1 & \text{$\pi$ ima sodo inverzij} \\
+-1 & \text{$\pi$ ima liho inverzij}
+\end{cases}
+\end{equation*}
+Pravimo da:
+
+$\pi$ je soda $\iff s(\pi) = 1$ \\
+$\pi$ je liha $\iff s(\pi) = -1$
+
+\textsc{Trditev:} Naj bo $\tau \in S_n$ transpozicija. Potem $\forall \rho \in S_n$ velja:
+\begin{equation*}
+s(\tau \rho) = -s(\rho)
+\end{equation*}
+\textsc{Dokaz:}
+\begin{equation*}
+\rho = \begin{pmatrix}
+1 & \ldots & n \\
+i_1 & \ldots & i_n
+\end{pmatrix}
+\end{equation*}
+\begin{enumerate}[1)]
+	\item $\tau = (i_k, i_{k+1})$
+	\begin{gather*}
+	\inv (\tau \rho) = \inv (\rho) \pm 1 \\
+	\Rightarrow s(\tau \rho) = - s(\rho)
+	\end{gather*}
+	
+	\item $\tau (i_k, i_{k+p}), p > 1$
+	
+	$\tau$ dose"zemo s produktom transpozicij podobni tisti v primeru (1). To pomeni, da najprej element $i_k$ premikamo v desno proti $i_{k+p}$, vsaki"c za eno mesto, nato pa "se element $i_{k+p}$ premikamo nazaj na prvotno mesto elementa $i_k$. "Ce znamo vsaj malo algoritmov, se lahko spomnimo na bubble sort. Za ostale, ki ne znajo algoritmov pa obstaja skica, ki se "zal ponovno nahaja samo v zvezku in domi"sliji bralca.
+	
+	Torej potrebujemo $p$ transpozicij, da premakno element $i_k$ na mesto elementa $i_{k+p}$.  V tem trenutnku, je $i_{k+p}$, "ze premaknjen eno mesto proti ciljni poziciji, zato potrebujemo samo "se $p-1$ transpozicij, da ga damo na mesto elementa $i_k$. Torej je skupno "stevilo potrebnih transpozicij:
+	\begin{equation*}
+	p + p-1 = 2p - 1
+	\end{equation*}
+	Vemo, da se na vsakem koraku predznak premutacije zamenja, zato velja:
+	\begin{equation*}
+	s(\tau \rho) = (-1)^{2p - 1} s(\rho) = -s (\rho)
+	\end{equation*}
+	saj je $2p - 1$ liho "stevilo. \hfill $\square$
+\end{enumerate}
+
+\textsc{Izrek:} Naj bo $\pi \in S_n$ in naj velja:
+\begin{equation*}
+\pi = \tau_1 \tau_2 \ldots \tau_k
+\end{equation*}
+kjer so $\tau_i$ transpozicije.
+
+Potem je $\pi$ soda (oziroma liha) natanko takrat, kadar je "stevilo $k$ sodo (oziroma liho).
+
+\textsc{Dokaz:} $s(e) = 1$ kjer je $e = id_{\{1, \ldots, n\}}$ enota grupa $S_n$. Z uporabo prej"snje trditve lahko naredimo naslednje:
+\begin{multline*}
+s(\pi) = s(\underbrace{\tau_1}_{\tau} \underbrace{\tau_2 \ldots \tau_k e}_{\rho}) =\\
+(-1)s(\tau_2 \ldots \tau_k e) = (-1)^2 s(\tau_3 \ldots \tau_k e) = \cdots  \\
+ (-1)^k s(e) = (-1)^k
+\end{multline*}
+
+Naj bo $A_n = \{\pi \in S_n: \text{$\pi$ soda}\}$, $e \in A_n$
+\begin{enumerate}[(1)]
+	\item \dashuline{$\rho, \sigma \in A_n \Rightarrow \rho \sigma \in A_n$}
+	
+	$\rho, \sigma$ zapi"semo kot produkt samih transpozicij. Nato uporabimo prej"snji izrek. 
+	
+	\textbf{Opomba:} to velja samo za sode premutacje. Produkt 2 lihih permutacij je soda permutacija.
+	
+	\item \dashuline{$\rho \in A_n \Rightarrow \rho^{-1} \in A_n$}
+	\begin{align*}
+	\rho &= \tau_1 \tau_2 \ldots \tau_{k-1} \tau_k \\
+	\rho^{-1} &= \tau_k \tau_{k-1} \ldots \tau_2 \tau_1
+	\end{align*}
+	kjer $\tau_i$ transpozicija in $k$ je sodo.
+	\begin{equation*}
+	\rho \rho^{-1} = \tau_k \tau_{k-1} \ldots \tau_2 \tau_1 \tau_1 \tau_2 \ldots \tau_{k-1} \tau_k
+	\end{equation*}
+	Ker je $S_n$ grupa velja asociatovnost, torej lahko za"cnemo v sredini: $\tau_1 \tau_1 = e$, nato $\tau_2 \tau_2 = e$ in tako naprej.
+	
+	$A_n \subseteq S_n, e \in A_n$. Torej je $A_n$ zaprta za mno"zenje in zaprta za invertiranje. Zato je $A_n$ grupa. Pravimo ji \emph{alternirajo"ca grupa}.
+\end{enumerate}
+Naj bo $\tau$ transpozicija, $\rho \in A_n \Rightarrow \tau \rho$ je liha
+
+Naj bosta $\rho_1 \rho_2 \in A_n, \rho_1 \neq \rho_2$. Sledi $\tau \rho_1 \neq \tau \rho_2$.
+
+$n>1$ "stevilo lihih permutacij je enako "stevilu sodih permutacij. Torej ima $A_n$ $\dfrac{n!}{2}$ elementov.
+
+\textsc{Definirajmo} podgrupo:
+
+Naj bo $(G, \cdot)$ grupa in $H \subseteq G, H \neq \varnothing$. $H$ naj izpolnjuje pogoja:
+\begin{enumerate}[(1)]
+	\item $a, b \in H \Rightarrow ab \in H$
+	
+	Temu pravimo \emph{zaprtost za mno"zenje}
+	
+	\item $a \in H \Rightarrow a^{-1} \in H$
+	
+	Temu pravimo \emph{zaprtost za invertiranje}
+\end{enumerate}
+\dashuline{Potem je $H$ za operacijo iz $G$ grupa.}
+
+\begin{gather*}
+a \in H \stackrel{(2)}{\Rightarrow} a^{-1} \in H \\
+a, a^{-1} \in H \stackrel{(1)}{\Rightarrow} e = aa^{-1} \in H
+\end{gather*}
+$e$ enota grupa $G$ le"zi v $H$ in je enota v $H$. Pravimo, da je $H$ \emph{podgrupa} grupe $G$.
+
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $A_n$ je podgrupa $S_n$
+	\item $G$ grupa, $G$ je podgrupa v $G$.
+	
+	$\{e\}$ je \emph{trivialna podgrupa} $G$
+	
+	\item $(G, \cdot)$ je grupa
+	\begin{align*}
+	a &\in G \\
+	H &= \{a^m; m \in \ZZ\} \\
+	H &= \{\ldots, a^{-2}, a^{-1}, e ,a, a^2, a^3, \ldots \} \\
+	\end{align*}
+	$H$ je najmanj"sa podgrupa grupe $G$, ki vsebuje $a$.
+	\begin{equation*}
+	H \equiv \left<a\right>
+	\end{equation*}
+\end{enumerate}
+
+Recimo, da velja $a^{m_1} = a^{m_2}$ za celi "stevili $m_1 < m_2$.
+\begin{gather*}
+a^m a^{-m_1} = a^{m_2} a^{-m_1} = a^{m_2 - m_1} \\
+k = m_2 - m \in \NN, k \geq 1 \\
+\exists k \in \NN: a^k = e
+\end{gather*}
+Naj bo $k \in \NN$ najmanj"se naravno "stevilo, ki izpolnjuje pogoj $a^k = e$. Ponavljal se bo vzorec:
+\begin{equation*}
+e, a, a^2, \ldots, a^{k-1}
+\end{equation*}
+in veja:
+\begin{align*}
+	a^{k+1} &= a^k a = a \\
+	a^{k+2} &= a^k a^2 = a^2
+\end{align*}
+\begin{equation*}
+H = \{e, a, a^2, \ldots, a^{k-1}\}
+\end{equation*}
+$H$ ima $k$ elementov. Pravimo, da je $H$ \emph{cikli"cna grupa reda $k$}.

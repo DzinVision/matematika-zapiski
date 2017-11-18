@@ -1,0 +1,180 @@
+Naj bodo:
+\begin{align*}
+f: A \rightarrow B && \\ 
+S \subseteq A && S \in \mathcal{P}(A) \\
+T \subseteq B && B \in \mathcal{P}(B)
+\end{align*}
+\textsc{Definicije:}
+\begin{itemize}
+	\item \emph{Slika} je mno"zica:
+	\begin{equation*}
+	f_*(S) = \{y \in B | \exists x \in S: f(x) = y\}
+	\end{equation*}
+	
+	\item \emph{Praslika} je mno"zica:
+	\begin{equation*}
+	f^*(T) = \{x \in A | f(x) \in T\}
+	\end{equation*}
+\end{itemize}
+Poznamo tudi ostale zapise, ki pa so slab"si:
+\begin{itemize}
+	\item $f_*(S)$ se pi"se tudi kot $f(S)$ ali $f[S]$.
+	\item $f^*(S)$ se pi"se tudi kot $f^{-1}(S)$ ali $f^{-1}[S]$.
+\end{itemize}
+\begin{align*}
+&f: A \rightarrow B \\
+&f_*: \mathcal{P}(A) \rightarrow \mathcal{P}(B) \\
+&f^*: \mathcal{P}(B) \rightarrow \mathcal{P}(A)
+\end{align*}
+Pravimo, da je $f_*$ \emph{kovariantna} (ne obrne smeri $f$) in da je $f^*$ \emph{kontravariantna} (obrne smer $f$).
+
+\textsc{Velja:}
+\begin{align*}
+f^*(\varnothing) = \varnothing && f_*(\varnothing) = \varnothing \\
+f^*(B) = A && \underbrace{f_*(A)}_{Z_f} \subseteq B
+\end{align*}
+
+\subsection{Ra"cunska pravila}
+\begin{align*}
+f: A \rightarrow B && S: I \rightarrow \mathcal{P}(A)
+\end{align*}
+\begin{gather*}
+	f^*\left(\bigcup_{i \in I}S_i\right) = \bigcup_{i \in I}f^*(S_i) \\
+	f^*\left(\bigcap_{i \in I}S_i\right) = \bigcap_{i \in I}f^*(S_i) \\
+	f^*(S_1 \cup S_2) = f^*(S_1) \cup f^*(S_2) \\
+	f^*(S_1 \cap S_2) = f^*(S_1) \cap f^*(S_2) \\
+	f_*\left(\bigcup_{i \in I}S_i\right) = \bigcup_{i \in I}f_*(S_i) \\
+	f_*\left(\bigcap_{i \in I}S_i\right) \subseteq \bigcap_{i \in I}f_*(S_i) \\
+	f^*(S^\complement) = (f^*(S))^\complement
+\end{gather*}
+\textsc{Definicije} injektivne, surjektivne, bijektivne, epi in mono
+
+Naj bo $f: A \rightarrow B$ preslikava
+\begin{itemize}
+	\item $f$ je \emph{injektivna} "ce velja:
+	\begin{gather*}
+		\forall x, y \in A: f(x) = f(y) \Rightarrow x = y 
+		\intertext{v"casi uporabimo tudi:} 
+		\forall x, y \in A: x \neq y \Rightarrow f(x) \neq f(y)
+	\end{gather*}
+	
+	\item $f$ je \emph{surjektivna}, "ce velja:
+	\begin{equation*}
+	\forall y \in B \exists x \in A: f(x) = y
+	\end{equation*}
+	lahko re"cemo tudi, da je zaloga vrednosti za $f$ celoten $B$, kar zapi"semo s pomo"cjo slike:
+	\begin{equation*}
+	f_*(A) = B
+	\end{equation*}
+
+	\item $f$ je \emph{bijektivna} kadar je surjektivna in injektivna. Simbolno to zapi"semo kot:
+	\begin{equation*}
+	\forall y \in B \exists! x \in A: f(x) = y
+	\end{equation*}
+	
+	\item $f$ je \emph{monomorfizem} (pravimo, da je $f$ \emph{mono}).
+	
+	"Ce za preslikavi $g, h: C \to A$ velja:
+	\begin{equation*}
+	f \circ g = f \circ h \Rightarrow g = h
+	\end{equation*}
+	pravimo, da lahko $f$ \emph{kraj"samo} na levi.
+	
+	\textsc{Definicija:} $f: A \rightarrow B$ je \emph{mono}, kadar za vse preslikave $g, h: C \to A$ velja:
+	\begin{equation*}
+	f \circ g = f \circ h \Rightarrow g = h
+	\end{equation*}
+	
+	\item $f$ je \emph{epimorfizem} (pravimo, da je $f$ \emph{epi}), kadar velja:
+	\begin{equation*}
+	\forall C \in \set \forall g, h: B \to C: g \circ f = h \circ f \Rightarrow g = h
+	\end{equation*}
+\end{itemize}
+Doka"zimo nekatere izjeve, ki so na voljo na \url{https://github.com/andrejbauer/ucbenik-logika-in-mnozice/blob/master/predavanja-2017/07-funkcije.md}.
+\begin{enumerate}
+	\item[1)] \dashuline{$f$ mono in $g$ mono $\Rightarrow g \circ f$ mono.}
+	
+	Naj bo $f: A \to B$ in $g: B \to C$ in $k, l: D \to A$. Dokazujemo:
+	\begin{equation*}
+	(g \circ f) \circ k = (g \circ f) \circ l \Rightarrow k = l
+	\end{equation*}
+	Predpostavimo
+	\begin{equation*}
+	(g \circ f) \circ k = (g \circ f) \circ l
+	\end{equation*}
+	po definiciji je kompozitum asociativen, torej lahko zapi"semo:
+	\begin{equation*}
+	g \circ (f \circ k) =g \circ (f \circ l)
+	\end{equation*}
+	Ker je $g$ mono, lahko kraj"samo $g$:
+	\begin{equation*}
+	f \circ k = f \circ l
+	\end{equation*}
+	Ker je $f$ mono, lahko kraj"samo $f$:
+	\begin{equation*}
+	k = l
+	\end{equation*}
+	\hfill $\square$
+	
+	\item[3)] \dashuline{$g \circ f$ mono $\Rightarrow f$ mono}
+	
+	Dokazujemo:
+	\begin{equation*}
+		f \circ k = f \circ l \Rightarrow k = l
+	\end{equation*}
+	Predpostavimo:
+	\begin{equation*}
+	f \circ k = f \circ l
+	\end{equation*}
+	Na vsaki strani lahko ena"cbo ``raz"sirimo'' z $g$:
+	\begin{equation*}
+	g \circ f \circ k = g \circ f \circ l
+	\end{equation*}
+	Ker je kompozitum asociativen velja:
+	\begin{equation*}
+	(g \circ f) \circ k = (g \circ f) \circ l
+	\end{equation*}
+	Lahko kraj"samo $g \circ f$ po predpostavki:
+	\begin{equation*}
+	k = l
+	\end{equation*}
+	\hfill $\square$
+\end{enumerate}
+
+Naj bo $f: A \to B$
+\begin{enumerate}
+	\item[1)] \dashuline{$f$ je mono $\iff f$ je injektivna}
+	\begin{itemize}
+		\item[($\Rightarrow$)] Prepostavimo: $f$ je mono in dokazujemo:
+		\begin{equation*}
+		\forall x, y \in A: f(x) = f(y) \Rightarrow x = y
+		\end{equation*}
+		Naj bosta $x, y \in A$. Predpostavimo $f(x) = f(y)$ in dokazujemo $x = y$.
+		
+		Definirajmo:
+		\begin{align*}
+		k: 1 \to A && l: 1 \to A \\
+		* \mapsto x && * \mapsto y
+		\end{align*}
+		Spomnimo se: $1$ je enojec, $1 = \{*\}$
+		
+		Trdimo: $f \circ k = f \circ l$ ker:
+		\begin{align*}
+		(f \circ k)(*) &= f(k(*)) = f(x) \\
+		(f \circ l)(*) &= f(l(*)) = f(y)
+		\end{align*}
+		Po predpostavki $f(x) = f(y)$ zgornja trditev velja.
+		
+		Ker je $f \circ k = f \circ l$ sledi, $k = l$, ker je $f$ mono.
+		
+		Funkcij $k$ in $l$ slikata iz enojca, torej lahko zapi"semo:
+		\begin{equation*}
+		k(*) = l(*)
+		\end{equation*}
+		Torej po definiciji $k$ in $l$ velja:
+		\begin{equation*}
+		x = y
+		\end{equation*}
+	\end{itemize}
+\end{enumerate}
+

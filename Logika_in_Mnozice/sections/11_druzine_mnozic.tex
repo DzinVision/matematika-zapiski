@@ -129,3 +129,33 @@ A_{n+1} = P(A_n)
 \end{gather*}
 
 $\bigcup_{n \in \NN} A_n$ je unija po aksiomu.
+
+Ra"cunska pravila z $\in$:
+\begin{itemize}
+	\item $x \in \varnothing \iff \varnothing$
+	\item $x \in A \times B \iff \pi_1(x) \in A \land \pi_2(x) \in B$
+	\item $x \in \{y \in A| P(y)\} \iff x \in A \land P(x)$
+	\item $x \in A \cup B \iff x \in A \lor x \in B$
+	\item $x \in \bigcup_{i \in I} A_i \iff \exists i \in I: x \in A_i$
+	\item $x \in \bigcap_{i \in I} A_i \iff \forall i \in I: x \in A_i$
+\end{itemize}
+
+\subsubsection{Vsota ali koprodukt dru"zine mno"zic}
+Dru"zina $A: I \rightarrow \set$
+
+$\coprod_{i \in I} A_i$ je koprodukt dru"zine $A$. Elementi takega koprodukta so $\iota_k(x)$, kjer je $k \in I$ in $x \in A_k$.
+\begin{equation*}
+\coprod_{i \in I} A_i = \{\iota_k(x) | k \in I \land x \in A_k\}
+\end{equation*}
+\textbf{Opomba:} Na tak na"cin ponavadi zapi"semo razred, ki pa v tem primeru ni pravi razred in ga zato lahko obravnavamo kot mno"zico.
+
+$\sum_{i \in I} A_i$ je vsota dru"zine $A$. Elementi so tako kot pri koproduktu $\iota_k(x)$ za $k \in I$ in $x \in A_k$. Elemente lahko zapi"semo tudi kot \emph{odvisne pare} $(k, x)$ za $k \in I$ in $x \in A_k$, kar je samo drug zapis za $\iota_k(x)$.
+
+\textsc{Velja:}
+\begin{align*}
+B + C \cong \sum_{i \in \{1, 2\}} A_i && A: \{1, 2\} \rightarrow \set\\
+&& A_1 = B \\
+&& A_2 = C \\
+B \times C \cong \sum_{b \in B} A_b && A: B \rightarrow \set \\
+&& A_b = C
+\end{align*}

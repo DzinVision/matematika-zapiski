@@ -238,6 +238,8 @@ Definicija je dobra zaradi uklajenosti operacije $\circ$ z relacijo $\sim$:
 [a_1] = [a] \text{ in } [b_1] = [b] \Rightarrow [a_1 \circ b_1 \sim a \circ b]
 \end{equation*}
 
+\subsection{Grupe}
+
 \textsc{Definicije:}
 \begin{itemize}
 	\item $(M, \circ)$ grupoid
@@ -693,3 +695,110 @@ in veja:
 H = \{e, a, a^2, \ldots, a^{k-1}\}
 \end{equation*}
 $H$ ima $k$ elementov. Pravimo, da je $H$ \emph{cikli"cna grupa reda $k$}.
+
+\subsection{Abelove grupe}
+Pravimo jim tudi \emph{komutativne grupe}.
+
+$(G, +)$ je grupa in je komutativna:
+\begin{equation*}
+\forall a, b \in G: a + b = b + a
+\end{equation*}
+
+\textsc{Primeri:} $(\ZZ, +), (\RR, +), (\CC, +)$
+
+Naj bo $(G, \cdot)$ grupa (ne nujno komutativna).
+\begin{equation*}
+a \in G, \left< a \right> = \{a^m: m \in \ZZ \}
+\end{equation*}
+$\left<a\right>$ je abelova grupa:
+\begin{equation*}
+a^i a^j = a^{i+j} = a^j a^i
+\end{equation*}
+
+\subsubsection*{Oznake v abelovi grupi:}
+\begin{itemize}
+	\item $0$ -enota Abelove grupe
+	\item $-a$ \emph{nasprotni element} od $a$
+	\item $\underbrace{a + a + \ldots + a}_{n, n \in \NN} \equiv na, n \in \NN$
+	\item $(-n)a \equiv -(na) = \underbrace{(-a) + (-a) + \ldots + (-a)}_{n}, n \in \NN$
+	\item $0a \equiv 0$ 
+	
+	\textbf{Opomba:} na levi strani je 0 "stevilo 0, na desni pa je enota grupe
+	\item  $a, b \in GG$
+	\begin{equation*}
+	a - b \equiv a + (-b)
+	\end{equation*}
+\end{itemize}
+
+Naj bo $(G, +)$ Abelova grupa in $H \subseteq G, H \neq \varnothing$, $H$ podgrupa
+\begin{enumerate}[(1)]
+	\item $a, b \in H \Rightarrow a + b \in H$
+	\item $a \in H \Rightarrow -a \in H$
+	\item[(1) \& (2)] $\iff (a, b \in H \Rightarrow a - b \in H)$
+\end{enumerate}
+\textsc{Primer:} $(G, +) = (\ZZ, +)$, $+$ je obi"cajno se"stevanje.
+\begin{gather*}
+n \in \NN \\
+H = \{kn: k \in \ZZ\} = \{m \in \ZZ: n | m\}
+\end{gather*}
+$H$ je podgrupa grupe $(\ZZ, +)$ in je mno"zica ve"ckratnikov $n$. Pi"semo:
+\begin{equation*}
+H \equiv n\ZZ
+\end{equation*}
+
+Naj bo $(G, +)$ Abelova grupa, $H \subseteq G$, $H$ podgrupa.
+\begin{equation*}
+a, b \in G: a \sim b \stackrel{\text{def.}}{\iff} a - b \in H
+\end{equation*}
+\dashuline{$\sim$ je ekvivalen"cna relacija}
+\begin{enumerate}[(1)]
+	\item \emph{refleksivnost:} $\forall a \in G: a \sim a$
+	\begin{equation*}
+	a \sim a \iff \underbrace{a - a}_{\text{enota $H$}} \in H
+	\end{equation*}
+	
+	\item \emph{simetri"cnost} $a \sim b \Rightarrow b \sim a$
+	\begin{equation*}
+	a \sim b \Rightarrow a - b \in H \Rightarrow b - a = - (a - b) \in H
+	\end{equation*}
+	Dokazati je potrebno korak $b - a = -(a - b)$:
+	\begin{equation*}
+	(b-a) + (a - b) = b + (-a) + a + (-b) = 0
+	\end{equation*}
+	
+	\item \emph{tranzitivnost} $a \sim b \land b \sim c \Rightarrow a \sim c$
+	\begin{align*}
+	a - b &\in H \\
+	b - c &\in H
+	\end{align*}
+	Po definiciji $a, b \in H: a + b \in H$, torej v na"sem primeru:
+	\begin{equation*}
+	(a - b )+ (b - c)  = b - c \in H \Rightarrow a \sim c
+	\end{equation*}
+\end{enumerate}
+\hfill $\square$
+
+Se"stevanje in ekvivalen"cna relacija $\sim$ sta usklajeni:
+\dashuline{$x \sim a, y \sim b \Rightarrow x + y \sim a + b$}
+\begin{align*}
+x - a &\in H \\
+y - b &\in H
+\end{align*}
+Po definiciji relacije potrebuje veljati: $(x + y) - (a + b) \in H$
+\begin{equation*}
+(x + y) - (a + b) = \underbrace{x - a}_{\in H} + \underbrace{y - b}_{\in H} \in H
+\end{equation*}
+\hfill $\square$
+
+Zato lahko operacijo $+$ prenesemo na kvocientno mno"zico:
+\begin{gather*}
+G/_\sim = \left\{[a]: a \in G\right\} \\
+\forall a, b \in G: [a] + [b] = [a + b]
+\end{gather*}
+$(G/_\sim, +)$ je Abelova grupa
+
+\textbf{Opomba:} $+$ je operacija med ekvivalen"cnimi razredi in je razli"cna od operacije med elementi
+
+\textsc{Oznaka:} $G/_H$ (namesto $G/_\sim$, ker $\sim$ definiramo s pomo"cjo $H$)
+
+Komutativnost in asociativnost se hitro preveri. Za enoto vzamemo $[0]$. Nasprotni element definiramo kot $-[a] = [-a]$

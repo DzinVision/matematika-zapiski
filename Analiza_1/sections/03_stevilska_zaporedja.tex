@@ -604,5 +604,189 @@ Zanima nas opis konvergence brez sklicevanja na limito. $a_n$ je konvergentno, "
 	
 	"Ce bi bilo zaporedje Cauchyjevo, $\exists n_0 \forall n, m \geq n_0: |a_n - a_m| < \dfrac{d}{3}$. Pridemo v protislovje s prej"snjima dvema izjavama. $\rightarrow \leftarrow$
 	
-	\hfill $\square$m
+	\hfill $\square$
 \end{itemize}
+
+\textsc{Izrek:} Vsako omejeno zaporedje, ki ima eno stekali"s"ce je konvergentno (v dokazu prej"snjega izreka ("ce si naredil doma"co nalogo, tudi na dolgo)).
+
+\textbf{Opomba:} Izrek (zelo o"citno) ne velja za neomejena zaporedja.
+
+\deff Naj bo $a_n$ zaporedje. Pravimo, da zaporedje $a_n$ \emph{konvergira proti neskon"cno}, "ce velja:
+\begin{equation*}
+\forall M \in \RR \exists n_o \in \NN \forall n \in \NN, n \geq n_0: a_n \geq M
+\end{equation*}
+V tem primeru pi"semo:
+\begin{equation*}
+\limninf a_n = \infty
+\end{equation*}
+%
+Zaporedje, ki konvergira proti neskon"cno \textbf{ni} konvergentno. Z drugimi besedami: zaporedij, ki konvergirajo proti $\infty$ \textbf{ne} "stejemo med konvergentna zaporedja.
+
+Podobno definiramo tudi $\limninf a_n = -\infty$:
+\begin{equation*}
+\forall m \in \RR \exists n_0 \forall n \in \NN, n \geq n_0: a_n \leq m
+\end{equation*}
+\textsc{Primer:} $a_n$: $\limninf a_n = \infty$
+
+$b_n = n^{(-1)^n}$ ne konvergira proti neskon"cno.
+
+\subsubsection*{Nekaj posebnih zaporedij:}
+\textsc{Trditev:} Naj bo $a \in \RR$
+\begin{enumerate}[1)]
+	\item $|a| < 1 \Rightarrow a^n$ konvergentno z limito 0
+	\item $a > 1 \Rightarrow a^n$ konvergira proti $\infty$
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[1)]
+	\item $a \in (0, 1)$ zaporedje $a^n$ je padajo"ce: $a^{n+1} < a^n$ in navzdol omejeno z 0, zato je konvergetno.
+	
+	Naj bo $b_n = a^n$ in $b_{n+1} = a^{n+1} = ab_n$. Vemo:
+	\begin{equation*}
+	b = \limninf b_n
+	\end{equation*}
+	Torej:
+	\begin{gather*}
+	b = \limninf b_{n+1} = \limninf (ab_n) = a \limninf b_n = ab \\
+	b(1-a) = 0
+	\end{gather*}
+	Ker $a \neq 1$ velja $b = 0$.
+	
+	"Ce $a \in (-1, 0)$ velja:
+	\begin{equation*}
+	- |a|^n \leq a^n \leq |a|^n 
+	\end{equation*}
+	Za $|a|^n$ velja zgoren dokaz. Nato lahko uporabimo izrek o sendvi"cu, zaradi katerega velja:
+	\begin{equation*}
+	\limninf a^n = 0
+	\end{equation*}
+	
+	\item $a > 1: a^n$ je nara"s"cajo"ce
+	
+	"Ce bi bilo omejeno, bi bilo konvergentno. Po prej"snjem dokazu bi dobili $\limninf a_n = 0$, kar ni mogo"ce, ker je zaporedje nara"s"cajo"ce in so vsi "cleni pozitivni. Torej $a_n$ ni omejeno.
+	
+	\dashuline{Zato $\limninf a^n = \infty$}
+	
+	Ker je $a_n$ neomejeno, za $M \in \RR$ obstaja $n_0: a^{n_0} \geq M$. Ker je nara"s"cajo"ce velja:
+	\begin{equation*}
+	\forall n \geq n_0: a^n \geq M
+	\end{equation*}
+\end{enumerate}
+%
+\textsc{Trditev:} Za vsak $a > 0$ in vsak $m \in \NN$ obstaja natanko en $x  0$, ki re"si ena"cbo $x^m = a$. To re"sitev ozna"cimo z $\sqrt[m]{a}$. Veljajo osnovne lastnosti za $\sqrt[m]{~}$:
+
+$a, b > 0, m , n \in \NN$
+\begin{align*}
+\sqrt[m]{ab} &= \sqrt[m]{a} \sqrt[m]{b} \\
+\sqrt[n]{a^m} &= (\sqrt[n]{a})^m \\
+\sqrt[nm]{a} &= \sqrt[m]{\sqrt[n]{a}} \\
+\sqrt[np]{a^{nq}} &= \sqrt[p]{a^q} \\
+\sqrt[p]{a^q} \sqrt[n]{a^m} &= \sqrt[pn]{a^{qn}} \sqrt[np]{a^{mp}} = \sqrt[np]{a^{qno + np}}
+\end{align*}
+%
+\deff Naj bo $a > 0, a \in \RR, m, n \in \NN$. Pi"semo $a^{\frac{n}{m}} = \sqrt[m]{a_n}$
+\begin{align*}
+a^0 & = 1 \\
+a^{-\frac{n}{m}} & = \dfrac{1}{a^{\frac{n}{m}}}
+\end{align*}
+Naj bo $q \in \QQ$. Obstajata $m \in \ZZ, n \in \NN: q = \frac{m}{n}$.
+\begin{equation*}
+a^q = a^{\frac{m}{n}}
+\end{equation*}
+\textbf{Opomba:} Je dobro definirano, ker ni odvisno od izbere ulomka (ena izmed lastnosi nam dovoljuje ``kraj"sanje'')
+
+\textsc{Trditev:} Naj bo $a \in \RR, a > 0, p, q \in \QQ$. Velja:
+\begin{align*}
+a^{pq} &= (a^p)^q \\
+a^pa^1 &= a^{p+q} \\
+a^p b^p &= (ab)^p
+\end{align*}
+
+\textsc{Trditev:} Za $a \in \RR, a > 0$ velja: $\limninf \sqrt[n]{a} = 1$
+
+\textsc{Dokaz:} $a > 1$:
+\begin{align*}
+\sqrt[n]{a} &\geq \sqrt[n+1]{a} \\
+a^{n+1} &\geq a^n
+\end{align*}
+Zaporedje je padajo"ce. Ker je navzdol omejeno z 0 (tudi z 1), je konvergetno in njegova limiti $\geq 1$.
+
+Denimo, da je $\limninf \sqrt[n]{a} = L > 1$:
+\begin{align*}
+\sqrt[n]{a} &\geq L > 1 \\
+\forall n \in \NN: a &\geq L^n
+\end{align*}
+Ker je $L > 1$, $L^n$ konvergira proti $\infty$, kar pomeni, da bo presegel $a$. Torej protislovje $\leftarrow \rightarrow$.
+
+Zato je $L = 1$. 
+
+Za $a<1$ je podoben dokaz (DN). \hfill $\square$
+
+\textsc{Trditev:} $\limninf \sqrt[n]{n} = 1$
+
+\textsc{Dokaz:} 
+\begin{multline*}
+n = \left(\sqrt[n]{n}\right)^n = \left(\left(\sqrt[n]{n} - 1\right) + 1\right)^n = \\
+= 1 + \binom{n}{1} \left(\sqrt[n]{n} - 1\right) + \binom{n}{2} \left(\sqrt[n]{n} - 1\right)^2 + \ldots \geq \\
+\geq \binom{n}{2} \left(\sqrt[n]{n} - 1\right)^2 = \dfrac{n(n-1)}{2} \left(\sqrt[n]{n} - 1\right)^2
+\end{multline*}
+Dobili smo:
+\begin{equation*}
+0 \leq \dfrac{n(n-1)}{2} \left(\sqrt[n]{n} - 1\right)^2 \leq n
+\end{equation*}
+torej velja:
+\begin{equation*}
+0 \leq \dfrac{n - 1}{2}\left(\sqrt[n]{n} - 1\right)^2 \leq 1
+\end{equation*}
+za $n \geq 2$.
+
+Po izeku o sendvi"cu velja: $\limninf \left(\sqrt[n]{n} - 1\right) = 0$ \hfill $\square$
+
+\textsc{Izrek:} Zaporedje $a_n = \left(1 + \frac{1}{n}\right)^n$ je konvergentno. Njegovo limito ozna"cimo z:
+\begin{equation*}
+e = \limninf \left(1 + \dfrac{1}{n}\right)^n
+\end{equation*}
+\textsc{Dokaz:} \dashuline{$a_n$ je nara"s"cajo"ce}
+\begin{equation*}
+a_n = \left(1 + \dfrac{1}{n}\right)^n = 1 + \binom{n}{1}\dfrac{1}{n} + \binom{n}{2} \dfrac{1}{n^2} + \ldots + \binom{n}{k}\dfrac{1}{n^k} + \ldots + \binom{n}{n} \dfrac{1}{n^n}
+\end{equation*}
+\begin{equation*}
+\binom{n}{k}\dfrac{1}{n^k} = \dfrac{n!}{k!(n-k)!} \cdot \dfrac{1}{n^k} = \dfrac{1}{k!} \cdot \dfrac{n (n-1) (n-2) \ldots (n - k + 1)}{n n n n \ldots n}
+\end{equation*}
+Ker je v "stevu in imenvolacu tega ulomka enako "stevil, lahko naredimo re"cemo:
+\begin{equation*}
+\dfrac{1}{k!} \cdot \dfrac{n (n-1) (n-2) \ldots (n - k + 1)}{n n n n \ldots n} = \underbrace{\dfrac{1}{k!} (1 - \dfrac{1}{n}) (1 - \dfrac{2}{n}) \ldots (1 - \dfrac{k-1}{n})}_{k-1}
+\end{equation*}
+Torej velja:
+\begin{align*}
+a_n &= 1 + 1 + \dfrac{1}{2!}(1 - \dfrac{1}{n}) + \dfrac{1}{3!} (1 - \dfrac{1}{n}) (1 - \dfrac{2}{n}) + \ldots + \dfrac{1}{n!}(\ldots) \\
+a_{n+1} &= 1 + 1 + \dfrac{1}{2!}(1 - \dfrac{1}{n}) + \dfrac{1}{3!} (1 - \dfrac{1}{n}) (1 - \dfrac{2}{n}) + \ldots + \dfrac{1}{n!}(\ldots) + \dfrac{1}{(n+1)!}(\ldots)
+\end{align*}
+Prva dva "clena sta enaka, nato pa se za"cnejo razlikovati v oklepajih:
+\begin{equation*}
+1-\dfrac{1}{n} \leq 1 - \dfrac{1}{n+1}
+\end{equation*}
+Prav tako ima zaporedje $a_{n+1}$ en "clen ve"c kota zaporedje $a_n$. Iz tega sledi: $a_n \leq a_{n+1}$
+
+\dashuline{$a_n$ je navzgor omejeno}
+\begin{multline*}
+a_n = 1 + 1 + \dfrac{1}{2!} (1 - \dfrac{1}{n}) + \dfrac{1}{3!} (1 - \dfrac{1}{n}) (1 - \dfrac{2}{n}) + \ldots \leq \\
+\leq 1 + 1 + \dfrac{1}{2!} + \dfrac{1}{3!} + \dfrac{1}{4!} + \ldots + \dfrac{1}{n!} \leq 1 + 1 + \dfrac{1}{2} + \dfrac{1}{2^2} + \dfrac{1}{2^3} + \ldots + \dfrac{1}{2^{n-1}}  = \\
+= 1 + \dfrac{1 - \left(\frac{1}{2}\right)^n}{1 - \frac{1}{2}} \leq 1 + \dfrac{1}{\frac{1}{2}} = 3
+\end{multline*}
+Sledi, da je $a_n$ konvergentno.
+
+\subsection{Potence z realnimi eksponenti}
+\begin{align*}
+a > 0, x \in \RR, a^x && r_n \stackrel{n \to \infty}{\longrightarrow} x, r_n \in \QQ
+\end{align*}
+\begin{itemize}
+	\item "Ce $r_n$ konvergira, potem $a^{r_n}$ konvergira.
+	\item "Ce $r_n \stackrel{n\to \infty}{\longrightarrow} x, s_n \stackrel{n\to \infty}{\longrightarrow} x, r_n, s_n \in \QQ$, potem velja: $\limninf a^{r_n} = \limninf a^{s_n}$
+\end{itemize}
+\begin{equation*}
+a^x := \limninf a^{r_n} \text{ , kjer } r_n \stackrel{n\to \infty}{\longrightarrow}, r_n \in \QQ
+\end{equation*}
+\textsc{Trditev:} Naj bo $a \in \RR, a > 0$. Potem:
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall h \in \QQ, |h| < \delta: |a^h - 1| < \varepsilon
+\end{equation*}

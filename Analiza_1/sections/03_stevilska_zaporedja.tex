@@ -790,3 +790,249 @@ a^x := \limninf a^{r_n} \text{ , kjer } r_n \stackrel{n\to \infty}{\longrightarr
 \begin{equation*}
 \forall \varepsilon > 0 \exists \delta > 0 \forall h \in \QQ, |h| < \delta: |a^h - 1| < \varepsilon
 \end{equation*}
+\textsc{Dokaz:} $a > 0, \varepsilon > 0$,
+
+Vemo: $\limninf \sqrt[n]{a} = 1$. "Ce $\sqrt[n]{a}$ zapi"semo kot $a^{\frac{1}{n}}$, potem po definiciji limite velja:
+
+Za $\varepsilon > 0 \exists n_0 : |a^{\frac{1}{n}} -1 | < 0$ za vse $n \geq n_0$.
+
+Naj bo $h \in \QQ, 0 < h \leq \frac{1}{n}$. Za $a > 1$ velja:
+\begin{equation*}
+0 < a^h - 1 < a^{\frac{1}{n}} - 1 < \varepsilon
+\end{equation*}
+in za $a < 1$ velja:
+\begin{equation*}
+0 < 1-a^h < 1 - a ^{\frac{1}{n}} < \varepsilon
+\end{equation*}
+Spomnimo se: "ce $a < 1$ in $n, m \in \QQ, n < m$ potem velja: $a^m < a^n$. V na"sem primeru to pomeni:
+\begin{equation*}
+h < \dfrac{1}{n}: a^{\frac{1}{n}} < a^h
+\end{equation*}
+Zato pri $1-a^{\frac{1}{n}}$ od 1 od"stejemo ve"c, kot pri $1-a^h$, torej neenakost velja.
+
+Sklep zgornjih dveh dokazov je:
+\begin{equation*}
+\forall h \in \left(0, \frac{1}{n}\right): |a^h - 1| < \varepsilon
+\end{equation*}
+Podobno lahko doka"zemo za $h < 0$. \hfill $\square$
+
+\textsc{Trditev:} Naj bo $a > 0$ in naj bo $r_n$ konvergentno zaporednje racionalnih "stevil z limito $r \in \RR$. Potem velja naslednje:
+\begin{enumerate}[(1)]
+	\item Zaporedje $a^{r_1}, a^{r_2}, a^{r_3}, \ldots$	konvergira.
+	\item "Ce je $r \in \QQ$, potem je $\limninf a^{r_n} = a^r$.
+\end{enumerate}
+
+\textsc{Dokaz:}
+\begin{enumerate}[(1)]
+	\item za primer $a > 1$:
+	
+	\dashuline{$a^{r_n}$ je omejeno zaporedje} za primer $a > 1$.
+	
+	$r_n$ je omejeno zaporedje, ker je konvergentno: obstaja $M \in \QQ$, da velja:
+	\begin{equation*}
+	\forall n \in \NN: r_n \leq M
+	\end{equation*}
+	iz tega sledi:
+	\begin{equation*}
+	\forall n \in \NN: a^{r_n} \leq a^M
+	\end{equation*}
+	
+	\dashuline{$a^{r_n}$ je Cauchyjevo zaporedje} (od tod sledi, da je konvergentno)
+	
+	Naj bo $\varepsilon > 0$
+	\begin{multline*}
+		|a^{r_n} - a^{r_m}| = \\
+		 = |a^{r_m}(a^{r_n - r_m} - 1)| = |a^{r_m}| \cdot |a^{r_n - r_m} - 1| \leq\\
+		  \leq a^M |a^{r_n - r_m} - 1| < \varepsilon
+	\end{multline*}
+	Velja, ker po prej"snji trditvi obstaja $\delta > 0$, tako da velja:
+	\begin{equation*}
+		|\underbrace{r_n - r_m}_{h}| < \delta \Rightarrow |a^{\overbrace{r_n - r_m}^h} - 1| < \dfrac{\varepsilon}{a^M}
+	\end{equation*}
+	Ker je $r_n$ konvergentno, je Cauchyjevo, zato obstaja $n_o \in \NN$, tako da velja
+	\begin{equation*}
+	 \forall n, m \in \NN, m, n \geq n_0: |r_n - r_m|  < \delta
+	\end{equation*}
+	Podobno naredimo za $a < 1$.
+	
+	\item "Ce je $r \in \QQ$:
+	\begin{equation*}
+	|a^r - a^{r_n}| = |a^r(1 - a^{r_n - r})| = |a^r| |1 - a^{r_n - r} < \varepsilon
+	\end{equation*}
+	za $\varepsilon > 0$. Torej mora veljati:
+	\begin{equation*}
+	|1-a^{r_n - r}| < \dfrac{\varepsilon}{a^r}
+	\end{equation*}
+	Po trditvi od prej:
+	\begin{equation*}
+	\exists \delta > 0 \forall h \in \QQ, |h| < \delta: |a^h - 1| < \dfrac{\varepsilon}{a^r}
+	\end{equation*}
+	Ker $r_n$ konvergira proti $r$, obstaja $n_0 \in \NN \forall n \in \NN, n \geq n_0: |r_n - r| < \delta$
+	
+	\hfill $\square$
+\end{enumerate}
+\textsc{Trditev:} Naj bo $a > 0$ in naj bosta $r_n$ in $s_n$ zaporedji racionalnih "stevil z isto limito
+\begin{equation*}
+\limninf r_n = \limninf s_n
+\end{equation*}
+Potem velja:
+\begin{equation*}
+\limninf a^{r_n} = \limninf a^{s_n}
+\end{equation*}
+\textsc{Dokaz:} ideja dokaza je:
+\begin{equation*}
+1 = a^0 = a^{\limninf r_n - \limninf s_n} = \dfrac{a^{\limninf r_n}}{a^{\limninf s_n}}
+\end{equation*}
+To "se ni dokaz, ker ne vemo kaj je $a^{\limninf r_n}$, saj se lahko zgodi, da je limita zaporedja $r_n$ iracionalno "stevilo, za kar "se nismo definirali potenciranja.
+
+\textbf{Vemo}: $a^{r_n - s_n} = \dfrac{a^{r_n}}{a^{s_n}}$ za vse $n \in \NN$
+
+$\limninf (r_n - s_n) = 0$, zato $1 = a^0 = \limninf a^{r_n - s_n}$. Ta neenakost velja zaradi prej"snje trditve. Ker je $\limninf (r_n - s_n)$ racionalno "stevilo, velja $\limninf a^{r_n - s_n} = a^{\limninf (r_n - s_n)} = a^0$
+\begin{equation*}
+1 = a^0 = \limninf a^{r_n - s_n} = \limninf \dfrac{a^{r_n}}{a^{s_n}} = \dfrac{\limninf a^{r_n}}{\limninf a^{s_n}}
+\end{equation*}
+\textbf{Sklep}:
+\begin{align*}
+1 &= \dfrac{\limninf a^{r_n}}{\limninf a^{s_n}} \\
+\limninf a^{s_n} &= \limninf a^{r_n}
+\end{align*}
+To seveda velja, samo "ce $\limninf a^{s_n} \neq 0$.
+
+Ker je $s_n$ konvergentno, je omejeno:
+\begin{equation*}
+\exists M \in \NN: |s_n| < M \Rightarrow a^{-M} \leq a^{s_n} \leq a^M
+\end{equation*}
+zato za $a > 1$ velja:
+\begin{equation*}
+a^{-M} \leq \limninf a^{s_n} \leq a^M
+\end{equation*}
+za $0 < a < 1$ velja podobno:
+\begin{equation*}
+a^{M} \leq \limninf a^{s_n} \leq a^{-M}
+\end{equation*}
+torej je $\limninf a^{s_n}$ pozitivno "stevilo. 
+
+\hfill $\square$
+
+\deff Naj bo $a > 0$ in $r \in \RR$. Denimo, da zaporedje $r_n$ racionalnih "stevil konvergira proti $r$. Potem definiramo:
+\begin{equation*}
+a^r = \limninf a^{r_n}
+\end{equation*}
+
+\textsc{Opombe:}
+\begin{enumerate}[1)]
+	\item Definicija je dobra, ko za razli"cni konvergentni zaporedji racionalnih "stevil z isto limito, zaporedji $a^{r_n}$ in $a^{s_n}$ konvergirati k istemu "stevilu.
+	
+	\item "Ce je $r \in \QQ$, se nova definicija ujema z definicijo za racionalne potence.
+	\item Ra"cunska pravila za ra"cunanje z racionalnimi eksponenti se prenesejo na ra"unanje z realnimi eksponenti.
+\end{enumerate}
+%
+\textsc{Trditev:} Naj bo $\alpha > 0$. Potem je $\limninf \dfrac{1}{n^\alpha} = 0$.
+
+\textsc{Dokaz:} za doma"co nalogo. "Ce si priden si ga naredil, "ce si pridna se u"cis iz svojih zapiskov, ker znate "zenske brati za sabo (naredimo se fizike in zanemarimo, da zna Nik brati za sabo kljub temu, da ni "zenskega spola\footnote{lahko se sam odlo"cis ali zanemarimo njegov obstoj, ali pa samo njegov spol})).
+
+\textsc{Trditev:} Naj bo $q \in \QQ, q > 1$ in $\alpha \in \RR$. Potem je
+\begin{equation*}
+\limninf \dfrac{n^\alpha}{q^n} = 0
+\end{equation*}
+\textsc{Dokaz:} 
+\begin{align*}
+a_n &= \dfrac{n^\alpha}{q^n} \\
+a_{n+1} &= \dfrac{(n+1)^\alpha}{q^{n+1}} = \dfrac{(n+1)^\alpha}{q n^\alpha} \dfrac{n^\alpha}{q^n} = \left(\dfrac{n+1}{n}\right)^\alpha \cdot \dfrac{1}{q} a_n
+\end{align*}
+Vemo, da $\frac{1}{q} < 1$
+
+Sledi:
+\begin{equation*}
+\exists n_0 \in \NN: \forall n \geq n_0: \left(\dfrac{n+1}{n}\right)^\alpha \dfrac{1}{q} < 1
+\end{equation*}
+Zato bo od nekod naprej $a_{n+1} < a_n$.
+
+Ker je $\forall n \in \NN: 0 a_n > 0$, je $a_n$ konvergentno. Torej obstaja
+\begin{equation*}
+L = \limninf a_n
+\end{equation*}
+in velja:
+\begin{equation*}
+L = \limninf a_{n+1} = \limninf \left( \left(\dfrac{n+1}{n} \right)^\alpha \dfrac{1}{q} a_n \right) = \dfrac{1}{q} L
+\end{equation*}
+Torej lahko pora"cunamo $L$:
+\begin{align*}
+L &= \dfrac{1}{q} L \\
+L - \dfrac{1}{q} L &= 0 \\
+L(1-\dfrac{1}{q}) &= 0
+\end{align*}
+Ker $1- \dfrac{1}{q} \neq 1$, velja $L = 0$
+
+\hfill $\square$
+
+\subsection{Zgornja in spodnja limita}
+\deff Naj bo $a_n$ omejeno zaporedje in $\mathcal{S}$ mno"zica njegovih stekali"s"c. Natan"cno zgornjo mejo mno"zice $\mathcal{S}$ imenujemo \emph{zgornja limita} ali \emph{limes superior} in pi"semo:
+\begin{equation*}
+\limsup_{\toinf{n}} a_n = \overline{\limninf}a_n = \sup \mathcal{S}
+\end{equation*}
+\emph{Spodnja limita} ali \emph{limes inferior} je natan"cna sopdnja meja od $\mathcal{S}$ in pi"semo
+\begin{equation*}
+\liminf_{\toinf{n}} a_n = \underline{\lim}_{\toinf{n}} a_n = \inf \mathcal{S}
+\end{equation*}
+\textsc{Opombi:} 
+\begin{itemize}
+	\item Ker je zaporedje $a_n$ omejeno, $\mathcal{S} \neq \varnothing$. 
+	\item Mno"zica $\mathcal{S}$ je omejena, ker je zaporedje omejeno (z zgornjo in spodnjo mejo zaporedja).
+\end{itemize}
+%
+\deff
+\begin{enumerate}[(1)]
+	\item "Ce je zaporedje $a_n$ navzgor neomjeno, potem definiramo:
+	\begin{equation*}
+		\limsupninf a_n = \infty
+	\end{equation*}
+	
+	\item "Ce je zaporedje $a_n$ navzdol neomejeno, potem definiramo:
+	\begin{equation*}
+		\liminfninf a_n = - \infty
+	\end{equation*}
+	
+	\item Denimo, da je $a_n$ navzgor neomejeno in navzdol omejeno. "Ce je mno"zica njegovih stekali"s"c $\mathcal{S}$ neprazna, potem definiramo:
+	\begin{equation*}
+	\liminfninf a_n = \inf \mathcal{S}
+	\end{equation*}
+	sicer:
+	\begin{equation*}
+	\liminfninf a_n = \infty
+	\end{equation*}
+	
+	\item Denimo, da je $a_n$ navzdol neomejeno in navzgor omejeno. "Ce je mno"zica njegovih stekali"s"c $\mathcal{S}$ neprazna, potem definiramo:
+	\begin{equation*}
+	\limsupninf a_n = \sup \mathcal{S}
+	\end{equation*}
+	sicer:
+	\begin{equation*}
+	\limsupninf a_n = - \infty
+	\end{equation*}
+\end{enumerate}
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item $a_n = (-1)^n$
+	\begin{align*}
+	\limsupninf a_n &= 1 \\
+	\liminfninf a_n &= -1 \\
+	\end{align*}
+	
+	\item $b_n$ konvergentno z limito $b$
+	\begin{equation*}
+	b = \limsupninf b_n = \liminfninf b_n
+	\end{equation*}
+	
+	\item $c_n = n^{(-1)^n}: 1, 2, \dfrac{1}{3}, 4, \dfrac{1}{5}, \ldots$
+	\begin{align*}
+	\limsupninf c_n &= \infty \\
+	\liminfninf c_n &= 0
+	\end{align*}
+	
+	\item $d_n = 1, 2, 3, \ldots$
+	\begin{align*}
+	\limsupninf d_n &= \infty \\
+	\liminfninf d_n &=\infty
+	\end{align*}
+\end{enumerate}

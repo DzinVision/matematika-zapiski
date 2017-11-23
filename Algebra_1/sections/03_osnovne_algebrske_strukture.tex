@@ -802,3 +802,183 @@ $(G/_\sim, +)$ je Abelova grupa
 \textsc{Oznaka:} $G/_H$ (namesto $G/_\sim$, ker $\sim$ definiramo s pomo"cjo $H$)
 
 Komutativnost in asociativnost se hitro preveri. Za enoto vzamemo $[0]$. Nasprotni element definiramo kot $-[a] = [-a]$
+
+Naj bo bo $(G, +)$ Abelova grupa in $H$ njena podgrupa. Velja:
+\begin{align*}
+G/_H &= \{[q]: q \in G\} \\
+[q] &= \{x \in G: x - q \in H\} = \{q+h: h \in H\}
+\end{align*}
+Uvedemo novi oznaki:
+\begin{align*}
+[q] &\equiv q + H \\
+[0] &= H
+\end{align*}
+\textsc{Primer:} $G = \ZZ$ z obi"cajnim se"stevanjem. Naj bo $n \in \NN; H = n\ZZ$ podgrupa $\ZZ$. Ekvivalen"cni razred torej zaznamujemo kot:
+\begin{equation*}
+[m] = m + n\ZZ
+\end{equation*}
+"Ce si nari"semo skico za npr. $n = 4$ opazimo, da je $[0] = [4]$ Torej je kvocientna grupa:
+\begin{equation*}
+\ZZ/_{4\ZZ} = \{[0], [1], [2], [3]\}
+\end{equation*}
+V splo"snem zapi"semo:
+\begin{equation*}
+\ZZ/_{n\ZZ} = \{[0], [1], \ldots, [n-1]\}
+\end{equation*}
+To da je $m$ v nekem ekvivalen"cnem razredu, lahko povemo kot:
+\begin{equation*}
+m \in [j], j \in {0, 1, \ldots, n} \iff \text{ $m$ pri deljenju z $n$ da ostanek $j$}
+\end{equation*}
+Obi"cajno skraj"samo zapis in pi"semo:
+\begin{align*}
+[j] &\equiv j \\
+\ZZ/_{n\ZZ} &\equiv \ZZ_n
+\end{align*}
+Pravimo, da je $\ZZ_n$ grupa ostankov pri deljenju z $n$. To lahko nari"semo v tabelo. Poglejmo si, kako bi izgledala tabela za grupo
+\begin{equation*}
+\ZZ_4 = \{0, 1, 2, 3\}
+\end{equation*}
+\begin{table}[!htbp]
+	\centering
+	\caption{Tabela za $\ZZ_4$}
+	\begin{tabular}{c|ccc}
+		+ & 1 & 2 & 3  \\ \hline
+		1 & 2 & 3 & 0 \\
+		2 & 3 & 0 & 1 \\
+		3 & 0 & 1 & 2
+	\end{tabular}
+\end{table}
+%
+\subsection{Homomorfizmi}
+\textsc{Definicija:} Naj bosta $(G_1, \circ), (G_2, \circ)$ grupoida. Preslikava $f: G_1 \to G_2$ je \emph{homomorfizem}, kadar velja:
+\begin{equation*}
+\forall x, y \in G_1: f(x \circ y) = f(x) \circ f(y)
+\end{equation*}
+Z besedami: ``Slika kompozituma je kompozitum slik''.
+
+"Ce je $G_2 = G_1$ in $f: G_1 \to G_2$ homomorfizem, potem je $f$ \emph{endomorfizem}.
+
+\textsc{Definicija:} Preslikava $f: G_1 \to G_2$ je \emph{izomorfizem}, kadar je $f$ bijektivna in sta $f$ ter $f^{-1}$ homomorfizma.
+
+\textsc{Trditev:} Bijektven homomorfizem je izomorfizem.
+
+\textsc{Dokaz:} Naj bo $f: G_1 \to G_2$ bijektiven homomorfizem, kjer sta $G_1$ in $G_2$ grupoida. Trdimo, da je $f^{-1}: G_2 \to G_1$ homomorfizem. Naj bosta $u, v \in G_2$. Ker je $f$ surjektivna velja: $u = f(x)$ in $v = f(y)$. Torej lahko zapi"semo:
+\begin{equation*}
+f^{-1}(u \circ v) = f^{-1}(f(x) \circ f(y)) = f^{-1}(f(x \circ y)) = x \circ y = f^{-1}(u) \circ f^{-1}(v)
+\end{equation*}
+Zadnji ena"caj velja, ker je $f$ injektivna. \hfill $\square$
+
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $f: \ZZ \to G$, $(G, \circ)$ grupa, $a \in G$. Predpis $f$ definiramo kot $f(m) = a^m$.
+	
+	$f$ je homomorfizem med grupama $(\ZZ, +)$ in $(G,\circ)$
+	\begin{equation*}
+	f(m_1 + m_2) = a^{m_1 + m_2} = a^{m_1} a^{m_2} = f(m_1) f(m_2)
+	\end{equation*}
+	
+	$G$ nadomestimo s podgrupo $\left<a\right> = \{a^m, m \in \ZZ\}$ in ohranimo isti predpis:
+	\begin{equation*}
+	f: \ZZ \to \left<a\right>
+	\end{equation*}
+	 $f$ je surjektiven homomorfizem.
+	 
+	 Opazimo, da je $f$ izomorfizem natanko takrat, ko $\left<a\right>$ ni kon"cna:
+	 \begin{equation*}
+	 a^{m_1} = a^{m_2} \Rightarrow m_1 = m_2
+	 \end{equation*}
+	 
+	 \item $f: \ZZ_n \to C_n$ kjer:
+	 \begin{equation*}
+	 C_n = \{z \in \CC: z^n = 1\}
+	 \end{equation*}
+	 imamo $(C_n, \circ), (\ZZ_n, +)$. Predpis od $f$ definiramo kot:
+	 \begin{equation*}
+	 f(j) = z_0^j, z_0 = \cos \dfrac{2\pi}{n} + i \sin \dfrac{2\pi}{n}
+	 \end{equation*}
+	 \dashuline{$f$ je homomorfizem}
+	 \begin{equation*}
+	 f(j+k) = z_0^{j+k} = z_0^j z_0^k = f(j) f(k)
+	 \end{equation*}
+	 $f$ je surjekcija in injekcija $\Rightarrow f$ je izomorfizem.
+	 
+	 \item $(\RR, +), (\RR^+, \circ)$, kjer:
+	 \begin{equation*}
+	 \RR^+ = \{x \in \RR: x > 0\}
+	 \end{equation*}
+	 \begin{align*}
+	 f: (\RR, +) &\to (\RR^+, \circ) \\
+	 \RR &\to \RR^+
+	 \end{align*}
+	 Predpis definiramo kot:
+	 \begin{equation*}
+	 f(x) = 2^x
+	 \end{equation*}
+	 \dashuline{$f$ je homomorfizem}
+	 \begin{equation*}
+	 f(x+y) = 2^{x+y} = 2^x 2^y = f(x) f(y)
+	 \end{equation*}
+	 $f$ je bijekcija z inverzom:
+	 \begin{equation*}
+	 f^{-1}(x) = \log_2 x
+	 \end{equation*}
+	 Torej je $f$ izomorfizem.
+\end{enumerate}
+\textsc{Trditev:} Kompozitum (dveh) homomorfizmov je homomorfizem. Kompozitum izomorfizmov je izomorfizem.
+
+\textsc{Dokaz:}
+\begin{multline*}
+	(f \circ g) (x \circ y) = \\
+	= f(g(x \circ y)) = f(g(x) \circ g(y) = f(g(x)) \circ f(g(y)) = \\
+	= (f\circ g)(x) \circ (f \circ g) (y)
+\end{multline*}
+Naj bosta $G_1, G_2$ grupi z multiplikativnim zapisom in $f: G_1 \to G_2$ homomorfizem. Potem velja:
+\begin{enumerate}[(1)]
+	\item $f$ enoto grupe $G_1$ preslika v enoto grupe $G_2$
+	\item $\im f = \{f(x): x \in G_1\}$ (zaloga vrednosti) je podgrupa v $G_2$\footnote{$\im f$ je slika (image) of $f$}
+	\item $\ker f = \{x \in G_1: f(x) = e_2\}$ ($e_2$ je enota grupe $G_2$) je podgrupa v $G_1$\footnote{$\ker f$ je jedro (kernel) od $f$}
+\end{enumerate}
+\textsc{Dokaz:} $e_1$ enota $G_1$, $e_2$ enota $G_2$
+\begin{enumerate}[(1)]
+	\item \dashuline{$f(e_1) = f(e_2)$}
+	\begin{equation*}
+	f(e_1) = f(e_1 e_1) = f(e_1)f(e_1)
+	\end{equation*}
+	Ozna"cimo
+	\begin{equation*}
+	f(e_1) = x \in G_2
+	\end{equation*}
+	Dobili smo:
+	\begin{align*}
+	x &= xx \\
+	xx^{-1} &= (xx)x^{-1} = x(xx^{-1})
+	\end{align*}
+	Torej:
+	\begin{equation*}
+	e_2 = x
+	\end{equation*}
+	Sklep: $f(e_1) = e_2$ \hfill $\square$
+	
+	\item \dashuline{$\im f$ je podgrupa $G_2$}
+	
+	Naj bosta $u, v \in \im f$. Velja:
+	\begin{equation*}
+	\exists x, y \in G_1: u = f(x), v = f(y)
+	\end{equation*}
+	Velja:
+	\begin{equation*}
+	uv = f(x)f(y) = f(xy)
+	\end{equation*}
+	Torej $uv \in \im f$.
+	
+	Podgrupa potrebuje tudi zaprtost za invertiranje:
+	
+	\dashuline{$u \in \im f \Rightarrow u^{-1} \in \im f$}
+	\begin{equation*}
+	u = f(x) \Rightarrow f(x^{-1}) = u^{-1}
+	\end{equation*}
+	To je potrebno "se dokazati in naj bi bilo doma za vajo. Iz tega sledi:
+	\begin{equation*}
+	u^{-1} \in \im f
+	\end{equation*}
+\end{enumerate}

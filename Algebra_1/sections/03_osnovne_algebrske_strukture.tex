@@ -982,3 +982,87 @@ Naj bosta $G_1, G_2$ grupi z multiplikativnim zapisom in $f: G_1 \to G_2$ homomo
 	u^{-1} \in \im f
 	\end{equation*}
 \end{enumerate}
+
+\subsection{Kolobar}
+\textsc{Definicija:} Kolobar je mno"zica $K$ skupaj z operacijama $+$ in $\cdot$ na $K$. ($+$ je se"stevanje, $\cdot$ je mno"zenje), kadar je $(K, +)$ Abelova grupa, $(K, \cdot)$ je podgrupa. Operaciji povezujeta distributivnostna zakona:
+\begin{align*}
+a(b+c) &= ab + ac \\
+(b+c)a &= ba + ca
+\end{align*}
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item "Stevilski kolobarji ($+, \cdot$ obi"cajni operaciji)
+	\begin{equation*}
+	(\ZZ, +, \cdot), (\QQ, +, \cdot), (\RR, +, \cdot), (\CC, +, \cdot)
+	\end{equation*}
+	
+	\item $\ZZ_n, n \in \NN$ Kolobar ostankov pri deljenju z $n$
+	\begin{equation*}
+	\ZZ_n = \{0, 1, 2, \ldots, n-1\}
+	\end{equation*}
+	Mno"zenje definiramo podobno kot se"stevanje:
+	\begin{equation*}
+	i, j \in \ZZ_n; ij = k \text{ - ostanek pri deljenju obi"cajnega produkta $ij$ z $n$}
+	\end{equation*}
+	Primer mno"zenja v $\ZZ_6$:
+	\begin{align*}
+	3 \cdot 5 &= 3 \\
+	3 \cdot 4 &= 0
+	\end{align*}
+	
+	\item $K = \RR^2$
+	\begin{itemize}
+		\item[$\oplus$] $(x, y) + (u, v) = (x + u, y + v)$
+		\item [$\odot$] $(x, y) \cdot (u, v) = (xu, xv)$
+	\end{itemize}
+	$(\RR^2, +, \cdot)$ je kolobar.
+	
+	\item $K = \RR^3$
+	\begin{itemize}
+		\item[$\oplus$] $(x, y, z) + (u, v, w) = (x + u, y + v, z + w)$
+		\item [$\odot$] $(x, y, z) \cdot (u, v, w) = (xu, xv + yw, zw)$
+	\end{itemize}
+	$(\RR^3, +, \cdot)$ je kolobar.
+	
+	\item $M \neq \varnothing, K = \{f: M \to R\} = \RR^M$
+	\begin{itemize}
+		\item[$\oplus$] $(f+g)(x) = f(x) + g(x) \forall x \in M (f, g \in K)$
+		\item [$\odot$] $(f\cdot g)(x) = f(x) \cdot g(x) \forall x \in M (f, g \in K)$
+	\end{itemize}
+	\textbf{Opomba:} Pravimo, da operaciji definiramo po to"ckah.
+\end{enumerate}
+%
+$K$ je \emph{kolobar z enoto} (ali enico) $e$, kadar je $e$ enota za mno"zenje.
+\begin{equation*}
+\forall a \in K: ea = ae = a
+\end{equation*}
+$K$ je \emph{komutativen kolobar}, kadar je mno"zenje komutativno.
+\begin{equation*}
+\forall a, b \in K: ab = ba
+\end{equation*}
+\textsc{Primeri:} (nana"sajo se na primere za kolobarje)
+\begin{table}[!htbp]
+	\centering
+	\begin{tabular}{c|cc}
+		& \textbf{ima enoto} & \textbf{komutativen} \\ \hline
+		\textbf{1} & \cmark & \cmark \\
+		\textbf{2} & \cmark & \cmark \\
+		\textbf{3} & \xmark & \xmark \\
+		\textbf{4} & \xmark & \cmark \\
+		\textbf{5} & \cmark & \cmark
+	\end{tabular}
+\end{table}
+
+\textsc{Definicija:} Naj bo $(K, +, \cdot)$ kolobar in $a, b \in K \setminus \{0\}$. "Ce velja $ab = 0$, sta $a$ in $b$ \emph{delitelja ni"ca}. Pravimo, da je $a$ \emph{levi} delitelj ni"ca in $b$ \emph{desni delitelj} ni"ca.
+
+\textsc{Definicija:} Kolobar z enoto (enko) 1 je \emph{obseg}, kadar je $1 \neq 0$ in vsak $a \in K \setminus \{0\}$ obrnljiv (v polgrupi $(K, \cdot)$). S simbolnim zapisom je to:
+\begin{equation*}
+\forall a \in K \setminus \{0\} \exists b \in K: ab = ba = 1
+\end{equation*}
+Posledica je, da je $(K \setminus \{0\}, +, \cdot)$ grupa.
+
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $\QQ, \RR, \CC$ za obi"cajna $+$ in $\cdot$.
+	\item $\ZZ_n$ je obseg, kadar je $n$ pra"stevilo.
+\end{enumerate}

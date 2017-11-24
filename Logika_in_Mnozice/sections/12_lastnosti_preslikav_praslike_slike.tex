@@ -175,6 +175,91 @@ Naj bo $f: A \to B$
 		\begin{equation*}
 		x = y
 		\end{equation*}
+		
+		\item[($\Leftarrow$)] Predpostavimo, da je $f$ injektivna in dokazujemo, da je mono.
+		
+		Naj bosta $g, h: C \to A$. Predpostavimo $f\circ g = f\circ h$. Dokazujemo:
+		\begin{equation*}
+		g =h \iff \forall c \in C: g(c) = h(c)
+		\end{equation*}
+		Naj bo $c \in C$. Dokazujemo $g(c) = h(c)$. Vemo $f \circ g = f \circ h$. Sledi:
+		\begin{equation*}
+			\Rightarrow (f\circ g)(c) = (f\circ h)(c) \iff f(g(c)) = f(h(c))
+		\end{equation*}
+		Ker je $f$ injektivna sledi:
+		\begin{equation*}
+		g(c) = h(c)
+		\end{equation*}
 	\end{itemize}
 \end{enumerate}
 
+\textsc{Trditvi:}
+\begin{itemize}
+	\item $f$ je \emph{epi} $\iff f$ surjektivna
+	\item $f$ je izomorfizem $\iff f$ bijekcija
+\end{itemize}
+Doka"zimo drugo trditev:
+\begin{itemize}
+	\item[($\Rightarrow$)] Dokazujemo $f$ izo $\Rightarrow f$ bijekcija. Predpostavimo, da je $f$ izomorfizem in dokazujemo, da je bijekcija. Po definiciji bijekcije to pomeni, da je injektivna in surjektivna. Po prej"snjih trditvah velja, da mora biti \dashuline{$f$ mono in epi}.
+	\begin{enumerate}
+		\item $f$ je mono
+		
+		Vemo $id_A = f^{-1} \circ f$ in $id_A$ je mono. Torej je $f^{-1} \circ f$ mono. Spomnimo se trditve od zadnji"c:
+		\begin{equation*}
+		g \circ h \text{ mono } \Rightarrow h \text{ mono}
+		\end{equation*}
+		Torej je $f$ mono.
+		
+		\item $f$ je epi: podoben dokaz kot za 1. to"cko.
+		
+		Vemo $id_B = f \circ f^{-1}$ in $id_B$ je epi. Torej je $f \circ f^{-1}$ epi. Ponovno se spomnimo trditve od zadnji"c:
+		\begin{equation*}
+		g \circ h \text{ epi } \Rightarrow g \text{ epi}
+		\end{equation*}
+		Sledi $f$ je epi.
+	\end{enumerate}
+
+	\item[($\Leftarrow$)] $f$ je bijekcija $\Rightarrow f$ je izomofizem.
+	
+	Predpostavimo, da je $f$ bijekcija in dokazujemo, da je izomorfizem. Po definiciji izomorfizma:
+	\begin{equation*}
+	\exists g : B \to A: f\circ g = id_B \land g \circ f = id_A
+	\end{equation*}
+	Definirajmo $g: B \to A$ s predpisom:
+	\begin{equation*}
+	g(y) = \text{ ``tisti $x \in A$ za katerega je $f(x) = y$''}
+	\end{equation*}
+	Utemeliti moramo:
+	\begin{equation*}
+	\forall y \in B \exists!x \in A: f(x) = y
+	\end{equation*}
+	Z drugimi besedami:
+	\begin{enumerate}
+		\item $g$ je celovit predpis:
+		\begin{equation*}
+		\forall y \in B \exists x \in A: f(x) = y
+		\end{equation*}
+		Opazimo, da je to definicija surjektivnosti in velja, ker je $f$ bijektivna.
+		
+		\item $g$ je enoli"cen predpis:
+		\begin{equation*}
+		\forall y \in B \forall x_{1,2} \in A: f(x_1) = y \land f(x_2) = y \Rightarrow x_1 = x_2
+		\end{equation*}
+		Vemo injektivnost $f$: 
+		\begin{equation*}
+		\forall z_1, z_2 \in A: f(z_1) = f(z_2) \Rightarrow z_1 = z_2
+		\end{equation*}
+		"Ce velja $f(x_1) = y$ in $f(x_2) = y$, potem velja $f(x_1) = f(x_2)$, torej tudi $x_1 = x_2$ ker $f$ injektivna.
+	\end{enumerate}
+	Sedaj vemo, da je $g$ dobro definirana funkcija. Preverimo:
+	\begin{enumerate}
+		\item $f \circ g = id_B$
+		
+		Naj bo $y \in B$ Preverimo $f(g(y)) = y$. Velja po definiciji $g$.
+		
+		\item $g \circ f = id_A$
+		
+		Naj bo $x \in A$ Preverimo $g(f(x)) = x$. Po definiciji $g$ je to tisti element, ki ga $f$ slika v $f(x)$. Torej velja.
+	\end{enumerate}
+\hfill $\square$
+\end{itemize}

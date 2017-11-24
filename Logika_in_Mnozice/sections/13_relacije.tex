@@ -1,0 +1,151 @@
+\textsc{Definicija:} Relacija na mno"zicah $A_1, A_2, \ldots, A_n$ je podmno"zica $A_1 \times A_2 \times \ldots \times A_n$.
+
+\textsc{Primeri:}
+\begin{itemize}
+	\item ``to"cka $A$ je med to"ckama $B$ in $C$''. (troji"ska relacija)
+	\item $R \subseteq A_1 \times A_2$ dvoji"ska relacija na $A_1, A_2$
+	\item $R \subseteq A \times A$ relacija na $A$.
+\end{itemize}
+\textsc{Primeri:}
+\begin{itemize}
+	\item  $\leq$ je relacija na $\RR$ in lahko zapi"semo:
+	\begin{equation*}
+	\leq \subseteq \RR \times \RR
+	\end{equation*}
+	
+	\item $R \subseteq A \times B, a \in A, b \in B$
+	$(a, b) \in \RR$ preberemo kot: ``$a$ in $b$ sta v relaciji $R$''. Zapi"semo tudi
+	\begin{equation*}
+	a R b
+	\end{equation*}
+\end{itemize}
+\textsc{Primer:} $a \leq b$ lahko zapi"semo kot $(a, b) \in \leq$
+
+\subsection{Osnovne lastnosti}
+Naj bo $R \subseteq A \times A$.
+\begin{itemize}
+	\item \textbf{refleksivnost} $\forall x \in A: x R x$ \hfill $=, \leq$
+	\item \textbf{irefleksivnost} $\forall x \in A: \lnot (x R x)$ \hfill $<, \perp$
+	\item \textbf{simetri"cnost} $\forall x, y \in A: x R y \Rightarrow y R x$ \hfill $\perp, \parallel, =$
+	\item \textbf{asimetri"cnost} $\forall x, y \in A: x R y \Rightarrow \lnot(y R x)$ \hfill $<$
+	\item \textbf{antisimetri"cnost} $\forall x, y \in A: x R y \land y R a \Rightarrow x = y$ \hfill $\leq$
+	\item \textbf{tranzitivnost} $\forall x, y, z \in A: x R y \land y R z \Rightarrow x R z$ \hfill $<, \leq, \parallel$
+	\item \textbf{sovisnost} $\forall x, y \in A: x \neq y \Rightarrow x R y \lor y R x$ \hfill $<, \leq$
+	\item \textbf{stroga sovisnost} $\forall x, y \in A: x R y \lor y R x$ \hfill $\leq$
+\end{itemize}
+\textsc{Definicije:}
+\begin{itemize}
+	\item \emph{Prazna relacija} na $A$ je $\varnothing$.
+	\item \emph{Polna relacija} na $A$ je $A \times A$.
+	\item \emph{Enakost} na $A$ je relacija $\{(x, y) \in A \times A | x = y\} \subseteq A \times A$.
+\end{itemize}
+Relacije lahko predstavimo kot grafe (tiste iz teorije grafov, ne kot grafe funkcij).
+
+\subsection{Operacije na relacijah}
+\subsubsection*{Transponirana relacija}
+Naj bo $R \subseteq A \times B$.
+\begin{equation*}
+R^\intercal \subseteq B \times A
+\end{equation*}
+Definiramo kot
+\begin{equation*}
+R^\intercal := \{(b, a) \in B \times A| (a,b) \in R\}
+\end{equation*}
+\textsc{Primera:} $\leq^\intercal = \geq$ in $\subseteq^\intercal = \supseteq$
+
+Velja:
+\begin{equation*}
+(R^\intercal)^\intercal = R
+\end{equation*}
+Relacijo in njeno transpozicijo lahko predstavimo kot tabelo:
+\begin{table}[!htbp]
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\caption{Relacija $R$}
+		\begin{tabular}{c|ccc}
+			$R$ & 1 & 2 & 3 \\ \hline
+			$a$ & $\bot$ & $\top$ & $\top$ \\
+			$b$ & $\bot$ & $\bot$ & $\top$
+		\end{tabular}
+	\end{minipage}%
+	\begin{minipage}{.5\linewidth}
+		\centering
+		\caption{Transponirana relacija $R$}
+		\begin{tabular}{c|cc}
+			$R^\intercal$ & $a$ & $b$ \\ \hline
+			1 & $\bot$ & $\bot$ \\
+			2 & $\top$ & $\bot$ \\ 
+			3 & $\top$ & $\top$ 
+		\end{tabular}
+	\end{minipage}
+\end{table}
+
+\subsubsection*{Kompozicija relacij}
+Naj bosta $R \subseteq A \times B$ in $S \subseteq B \times C$ relaciji.
+
+Kompozicijo $S \circ R \subseteq A \times C$ definiramo kot\footnote{Vrstni red je nekoliko zmeden in je potebno biti nanj pozoren. Jaz si zapomnim na slede"c na"cin: gremo iz $A$ v $C$, torej gremo najprej "cez relacijo $R$, in nato "cez relacijo $S$. Tako kot kompozitum funkcij, pa se ta zapi"se iz desne proti levi. Torej $S \circ R$ preberemo: ``gremo "cez $R$ in nato "cez $S$.'' "Cedalje bolj verjamem, da si je kompozitum izmislil fizik, ker gre vse v rikverc in je zmedeno.}:
+\begin{equation*}
+S \circ R = \{(a, c) \in A \times C | \exists b \in B: a R b \land b S c\}
+\end{equation*}
+\textsc{Trditev:} Kompozicija relacij je asociativna:
+\begin{equation*}
+(S \circ R) \circ T = S \circ (R \circ T)
+\end{equation*}
+\textsc{Definiramo:}
+\begin{equation*}
+\underbrace{R \circ R \circ R \circ \ldots \circ R}_n =: R^n
+\end{equation*}
+
+\subsection{Graf preslikave}
+Naj bo $f: A \to B$. \emph{Graf} je $\Gamma_f \subseteq A \times B$ definiran z:
+\begin{equation*}
+\Gamma_f := \{(x, y)| f(x) = y\}
+\end{equation*}
+$\Gamma_f$ ima lastnost:
+\begin{enumerate}
+	\item Celovita relacija
+	\item Enoli"cna relacija
+\end{enumerate}
+\textsc{Definicija:} $R \subseteq A \times B$ je:
+\begin{enumerate}
+	\item \emph{celovita}, "ce velja:
+	\begin{equation*}
+	\forall x \in A \exists y \in B: x R y
+	\end{equation*}
+	
+	\item \emph{enoli"cna}, "ce velja:
+	\begin{equation*}
+	\forall x \in A \forall y, z \in B: x R y \land x R z \Rightarrow y = z
+	\end{equation*}
+\end{enumerate}
+$R$ je \emph{funkcijska relacija}, "ce je celovita in enoli"cna.
+
+\textsc{Trditev:}
+\begin{enumerate}
+	\item Za vsako $f: A \to B$ je $\Gamma_f$ funkcijska relacija.
+	\item Vsaka funkcijska relacija je graf neke funkcije.
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}
+	\item Opazimo, da je $R$ funkcijska $\iff \forall x \in A \exists! y \in B: x R y$. Ali je $\Gamma_f$ funkcijska?
+	\begin{equation*}
+	\forall x \in A \exists! y \in B: (x, y) \in \Gamma_f \iff \forall x \in A \exists! y \in B: f(x) = y
+	\end{equation*}
+	Veja, ker je $f$ preslikava.
+	
+	\item Denimo, da je $R \subseteq A \times B$ funkcijska. Dokazujemo:
+	\begin{equation*}
+	\exists f : A \to B: R = \Gamma_f
+	\end{equation*}
+	Vzemimo $f: A \to B$ s predpisom:
+	\begin{equation*}
+	f(x) = \text{ tisti $y \in B$, da velja $x R y$} = \iota y \in B: x R y
+	\end{equation*}
+	Preverimo $R = \Gamma_f$
+\end{enumerate}
+
+\textbf{Poanta}\footnote{za ljubitelje sloven"s"cine: izraz je uporabil profesor, jaz pa se ne morem spomniti bolj"sega}
+\begin{equation*}
+B^A \cong \{R \subseteq A \times B | R \text{ funkcijska}\}
+\end{equation*}
+Torej lahko funkcije definiramo kot funkcijske relacije.

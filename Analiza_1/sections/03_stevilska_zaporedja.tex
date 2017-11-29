@@ -24,7 +24,7 @@ Zaporedje realnih "stevil podamo \emph{s "cleni} $a_1, a_2, a_3, \ldots$, kar kr
 	a_n = a_1 + (n-1)d, n \in \NN\\
 	a_1, a_1 + d, a_1 + 2d, \ldots
 	\end{gather*}
-	To lahko zapi"semo tudi z rekurzivno zvezo:
+	To lahko zapi"semo tudi z  rekurzivno zvezo:
 	\begin{equation*}
 	\begin{cases}
 	a_{n+1} = a_n + d, n \in \NN\\
@@ -1036,3 +1036,124 @@ Ker $1- \dfrac{1}{q} \neq 1$, velja $L = 0$
 	\liminfninf d_n &=\infty
 	\end{align*}
 \end{enumerate}
+
+\textsc{Trditev} Naj bo $a_n$ omejeno zaporedje in $\mathcal{S}$ mno"zica njegovih stekali"s"c. Tedaj je
+\begin{equation*}
+s = \limsupninf a_n = \sup \mathcal{S}
+\end{equation*}
+natanko tedaj, kadar za vsak $\varepsilon > 0$ velja:
+\begin{align*}
+a_n &> s + \varepsilon \text{ kve"cjemu za kon"cno indeksov $n$} \\
+a_n &> s-\varepsilon \text{ za neskon"cno indeksov $n$}
+\end{align*}
+\textsc{Posledica} Naj bo $a_n$ omejeno zaporedje. Potem je $\limsupninf a_n$ najve"cje stekali"s"ce $a_n$.
+
+\textsc{Dokaz}
+\begin{itemize}
+	\item[($\Rightarrow$)] Naj bo $s  = \limsupninf a_n = \sup \mathcal{S}$. Denimo, da bi za nek $\varepsilon > 0$
+	\begin{equation*}
+	a_n > s + \varepsilon
+	\end{equation*}
+	veljalo za neskon"cno indeksov $n$. Sledi, da obstaja omejeno podzaboredje $a_{n_j}$, da je
+	\begin{equation*}
+	\forall j a_{n_j} > s + \varepsilon
+	\end{equation*}
+	Ker je omejeno, ima stekali"s"ce $\geq s+\varepsilon$ $\rightarrow \leftarrow$
+	
+	\item[($\Leftarrow$)] $\forall \varepsilon > 0$ na intervalu $(s-\varepsilon, s+\varepsilon]$ le"zi neskon"cno mnogo "clenov zaporedja, zato je stekali"s"ce. Dokazujemo \dashuline{$s = \sup \mathcal{S}$}
+	
+	dovolj je dokazati, da $a_n$ nima stekali"s"ca $x, x > s$
+	
+	Denimo, da je $x > s$ stekali"s"ce $a_n$.
+	\begin{equation*}
+	d = x - s
+	\end{equation*}
+	Na $\left(x - \dfrac{d}{2}, x + \dfrac{d}{2}\right)$le"zi neskon"cno mnogo "clenov zaporedja. Torej $a_n > s + \dfrac{d}{2}$ izpolnjena za neskon"cno mnogo indeksov $n$. $\rightarrow \leftarrow$
+	
+	\hfill $\square$
+\end{itemize}
+
+\textsc{Trditev:} Naj bo $a_n$ omejeno zaporedje. Tedaj velja:
+\begin{equation*}
+\limsupninf a_n = \inf_n (\sup_{k \geq n} a_k) = \limninf (\sup_{k \geq n} a_k) = b
+\end{equation*}
+\textsc{Skica dokaza:} \begin{equation*}
+b_n = \sup_{k \geq n} a_k = \sup \{a_n, a_{n+1}, \ldots\} \geq b_{n+1} = \sup \{a_{n+1}, a_{n+2}, \ldots\}
+\end{equation*}
+$b_n$ je padajo"ce in je omejen (ker je $a_n$ omejeno). Torej je konvergentno. Njegova limita je njegova spodnja meja.
+
+$\varepsilon > 0:$ $a_n > b + \varepsilon$ kon"cno mnogo indeksov
+
+$a_n > b-\varepsilon$ za neskon"cno indeksov
+
+\textsc{Trditev:} Naj bosta $a_n$ in $b_n$ omejeni zaporedji. "Ce velja $a_n \leq b_n$ za $\forall n \in \NN$ potem:
+\begin{gather*}
+\limsupninf a_n \leq \limsupninf b_n \\
+\liminfninf a_n \leq \liminfninf b_n
+\end{gather*}
+
+\subsection{O zaporedjih kompleksnih "stevil}
+\deff Zaporedje kompleksnih "stevil je preslikava $f: \NN \to \CC$. Pi"semo:
+\begin{equation*}
+z_n = f(n)
+\end{equation*}
+Teko kot pri realnih zaporedjih re"cemo zaporedje $z_n$.
+
+\deff Zaporedje kompleksnih "stevil $z_n$ konvergira proti $z \in \CC$, "ce:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_o \in \NN \forall n \geq n_o: |z_n - z| < \varepsilon
+\end{equation*}
+Pi"semo:
+\begin{equation*}
+z = \limninf z_n
+\end{equation*}
+\textsc{Primer:} $z_n = \dfrac{1}{3n} + i\dfrac{2n-1}{n}$ zaporeje kompleksnih "stevil podano s splo"snim "lenom.
+\begin{equation*}
+\limninf z_n = 2i
+\end{equation*}
+\textsc{Trditev:} Zaporedje kompleksnih "stevil $z_n$ konvergira proti $z \in \CC$ natanko takrat, ko zaporedje $\Re z_n$ konvergira proti $\Re z$ in zaporedje $\Im z_n$ konvergira proti $\Im z$.
+
+\textsc{Dokaz:}
+\begin{equation}
+\label{eq:czaporedje}
+|z_n - z| ^2 = (\Re z_n - \Re z)^2 + (\Im z_n - \Im z)^2
+\end{equation}
+\begin{itemize}
+	\item[($\Rightarrow$)] Denimo, da $z_n \stackrel{n \to \infty}{\longrightarrow} z$
+	\begin{equation*}
+	\varepsilon > 0: \exists n_0 \forall n \geq n_0 : |z - z_n| < \varepsilon
+	\end{equation*}
+	Iz~\ref{eq:czaporedje} sledi:
+	\begin{gather*}
+	|\Re z_n - \Re z| \leq |z_n - z| \leq \varepsilon \\
+	|\Im z_n - \Im z| \Im |z_n - z| \leq \varepsilon
+	\end{gather*}
+	
+	\item[($\Leftarrow$)] $\Re z_n \stackrel{n \to \infty}{\longrightarrow} \Re z$ in $\Im z_n \stackrel{n \to \infty}{\longrightarrow} \Im z$
+	
+	za $\varepsilon > 0$:
+	\begin{gather*}
+		\exists n_{Re}: |\Re z_n - \Re_z| < \varepsilon \text{ za $n \geq n_{Re}$} \\
+		\exists n_{Im}: |\Im z_n - \Im_z| < \varepsilon \text{ za $n \geq n_{Im}$}
+	\end{gather*}
+	Iz~\ref{eq:czaporedje} sledi:
+	\begin{align*}
+	|z - z_n| ^2 &\leq \varepsilon^2 + \varepsilon ^2 \\
+	|z - z_n| &\leq \sqrt{2}\varepsilon
+	\end{align*}
+\end{itemize}
+\textsc{Trditev:} Za konvergentni zaporedji kompleksnih "stevil $z_n$ in$w_n$ velja, da so zaporedja $z_n + w_n$, $z_n - w_n$ in $z_n w_n$ konvergentna in velja:
+\begin{align*}
+\limninf (z_n + w_n) &= \limninf z_n + \limninf w_n \\
+\limninf (z_n - w_n) &= \limninf z_n - \limninf w_n \\
+\limninf (z_n \cdot w_n) &= \limninf z_n \cdot \limninf w_n
+\end{align*}
+"Ce $w_n \neq 0$ za $\forall n \in \NN$ in je $\limninf w_n \neq 0$, potem $\dfrac{z_n}{w_n}$ konvergira.
+\begin{equation*}
+\limninf \dfrac{z_n}{w_n} = \dfrac{\limninf z_n}{\limninf w_n}
+\end{equation*}
+Doka"ze se tako, da s pomo"cjo prej"snje trditve pretvorime na vsoto, razliko, zmno"zek in kvocient realnih zaporedji.
+
+\textsc{Izrek:} Zaporeje kompleksnih "stevil $z_n$ je konvergentno natanko takrat, kadar izpolnjuje Cauchyjev pogoj.
+
+Dokaz ponovno tako, da pretvorimo na realna zaporedja s pomo"cjo prej"snje trditve.

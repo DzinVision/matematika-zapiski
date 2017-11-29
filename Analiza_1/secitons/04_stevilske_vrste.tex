@@ -1,0 +1,217 @@
+\deff Naj bo $a_n$ realno zaporedje. Nekson"cno formalno vrsto
+\begin{equation*}
+a_1 + a_2 + a_2 + \ldots + a_n + \ldots
+\end{equation*}
+imenujemo \emph{"stevilska vrsta}. "Clen $a_n$ imenujemo splo"sni "clen "stevilske vrste. Oznai"cimo:
+\begin{equation*}
+a_1 + a_2 + a_3 + \ldots + a_n + \ldots = \sumalln{1} a_n
+\end{equation*}
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item geometrijska vrsta
+	\begin{equation*}
+	1 + \dfrac{1}{2} + \dfrac{1}{4} + \ldots + \dfrac{1}{2^{n-1}} = \sumalln{0} \dfrac{1}{2^n}
+	\end{equation*}
+	\textbf{Osnovna lastnost:} kovocient zaporednih "clenov je konstanten
+	
+	\item 
+	\begin{equation*}
+	1 - 1 + 1 - 1 \ldots = \sumalln{1} (-1)^n
+	\end{equation*}
+\end{enumerate}
+\deff Dana je "stevilska vrsta $\sumalln{1} a_n$. Zaporedje
+\begin{align*}
+s_1 &= a_1 \\
+s_2 &= a_1 + a_2 \\
+s_n &= \sum_{j = 1}^{n} a_j
+\end{align*}
+imenujemo \emph{zaporedje delnih vsot}. "Ce zaporedje delnih vsot konvergira, pravimo, da vsrta konvergira. V tem primeru limito zaporedja delsnih vsto $s$ imenujemo \emph{vsota vrste} in pi"semo
+\begin{equation*}
+\sumalln{1} a_n = s
+\end{equation*}
+"Ce zaporedje delnih vsto divergira, re"cemo, da vrsta divergira.
+
+\textbf{Opomba:} Zapis $\sumalln{1} a_n = s$ pomeni:
+\begin{enumerate}
+	\item $\sumalln{1} a_n$ konvergira
+	\item njena vsota je $s$
+\end{enumerate}
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item Obrovnavaj konvergenco geometrijske vrste
+	\begin{gather*}
+	\sumalln{0} a q^n = a + aq + aq^2 + \ldots + aq^n + \ldots \\
+	s_n = a + aq + aq^n + \ldots + aq^{n-1} = a (1 + q + q^2 + \ldots + q^{n-1}) = a \dfrac{1-q^n}{1-q}
+	\end{gather*}
+	Velja za $q \neq 1$. Oklepaj smo razre"sili po formuli, ki smo jo na"sli v spominu:
+	\begin{equation*}
+	a^n - b^n = (a-b)(a^{n-1} + a^{n-1}b + \ldots + b^{n-1})
+	\end{equation*}
+	\begin{equation*}
+	\limninf s_n = \limninf a\dfrac{a-q^n}{1-q} = \dfrac{a}{a-1}
+	\end{equation*}
+	"Ce $|q| < 1 \Rightarrow q^n \to 0$
+	
+	Za $q > 1: a\dfrac{1-q^n}{1-q} \stackrel{n \to \infty}{\longrightarrow} \infty$ vrsta ne konvergira.
+	
+	Za $q < -1: a\dfrac{1 - q^n}{1-q}$ ne konvergira
+	
+	Za $q = -1: a \dfrac{1 - (-1)^n}{2}$ ima dve stekali"s"ci, zato divergira.
+	
+	Za $q = 1: s_n = na$ divergira (ker konvergira proti $\pm \infty$).
+	
+	Geiom vrsta $\sumalln{0} aq^n$ konvergira natanko takrat, kadar $|q| < 1$. V tem primeru velja:
+	\begin{equation*}
+	\sumalln{0}aq^n = \dfrac{a}{1-q}
+	\end{equation*}
+	
+	\item Obravnavaj konvergenco $\sumalln{1} \dfrac{1}{n(n+1)}$
+	\begin{equation*}
+	s_n = a_1 + a_2 + \ldots + a_n
+	\end{equation*}
+	$\sumalln{1}a_n$ konvergira po definiciji natanko takrat, kadar zaporedje $s_n$ konvergira.
+	\begin{equation*}
+	s_n = \dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \ldots + \dfrac{1}{n(n+1)}
+	\end{equation*}
+	Razceptimo na delne ulomke:
+	\begin{equation*}
+	\dfrac{1}{k(k+1)} = \dfrac{a}{k} + \dfrac{b}{k+1} = \dfrac{1}{k} + \dfrac{-1}{k+1}
+	\end{equation*}
+	Razpi"semo $s_n$ in dobimo:
+	\begin{equation*}
+	s_n = \dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \ldots + \dfrac{1}{n(n+1)} = \dfrac{1}{1} - \dfrac{1}{2} + \dfrac{1}{2} - \dfrac{1}{3} + \dfrac{1}{3} - \ldots + \dfrac{1}{n} - \ldots \dfrac{1}{n+2} = \dfrac{1}{1} - \dfrac{1}{n+1}
+	\end{equation*}
+	Torej velja:
+	\begin{equation*}
+	\limninf s_n = \limninf\left(1 - \dfrac{1}{n+1}\right) = 1
+	\end{equation*}
+	Vrsta je konvergentna in $\sumalln{1} \dfrac{1}{n(n+1)} = 1$
+	
+	\item Obravnavaj konvergenco $\sumalln{1} 1$
+	
+	Vrsta divergira, ker $s_n = 1 + 1 + \ldots + 1 = n$ divergira.
+\end{enumerate}
+\textsc{Opomba:} Naj bo vrsta $\sumalln{1}a_n$ konvergentna. Potem je zaporedje $a_n$ konvergentno in $\limninf a_n = 0$.
+
+\textsc{Dokaz:} "Ce je vrsta $\sumalln{1} a_n$ konvergenta, je zaporedje delnih vsot $s_n$ konvergentno.
+\begin{align*}
+s_n &= a_1 + a_2 + \ldots + a_n \\
+s_{n+1} &= a_1 + a_2 + \ldots + a_n + a_{n+1} = s_n + a_{n+1}
+\end{align*}
+Torej:
+\begin{equation*}
+a_{n+1}  = s_{n+1} - s_n
+\end{equation*}
+$\Rightarrow a_{n+1}$ je konvergentno in velja:
+\begin{equation*}
+\limninf a_{n+1} = \limninf s_{n+1} - \limninf s_n = 0
+\end{equation*}
+\textsc{Trditev:} (Cauchyjev pogoj za vrste) Vrsta $\sumalln{1}a_n$ konvergira natanko tedaj, kadar velja:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \in \NN, n \geq n_0 \forall k \in \NN: |a_{n+1} + a_{n+2} + \ldots + a_{n+k}| < \varepsilon
+\end{equation*}
+\textsc{Dokaz:} $\sumalln{1}a_n$ konvergira po definiciji natanko takrat, kadar zaporedje delnih vsot $s_n$ konvergira. Po definiciji je zporedje $s_n$ Cauchyjevo:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0, n, m \in \NN: |s_n - s_m| < \varepsilon
+\end{equation*}
+Naj bo $m \geq n$:
+\begin{equation*}
+|a_{n+1} + a_{n+2} + \ldots + a_m| < \varepsilon
+\end{equation*}
+Lahko si izberemo $k = m-n$ in trditev velja.
+
+\textsc{Trditev:} Dana je "stevilska vrsta $\sumalln{1} a_n$
+\begin{enumerate}[(1)]
+	\item "Ce vrsta $\sumalln{1} a_n$ konvergira, potem $\forall m \in \NN$ konvergira vrsta $\sum_{n=m}^{\infty}a_n$.
+	\item "Ce za nek $m \in \NN$ vrsta $\sum_{n=m}^{\infty} a_n$ konvergira, potem konvergira vrsta $\sumalln{1}a_n$
+\end{enumerate}
+\textsc{Ideja dokaza:} 
+\begin{align*}
+\sum a_n \text{ konvergira } &\Rightarrow s_n = a_1 + a_2 + \ldots + a_n  \text{ konvergira.} \\
+\sum_{n=m}a_n &\rightsquigarrow t_n = a_m + a_{m+1} + \ldots + a_{m+n}
+\end{align*}
+\begin{align*}
+s_{m+k} &= \underbrace{a_1 + a_2 + a_{m-1}}_{A} + \underbrace{a_m + \ldots + a_{m+k}}_{t_{k + 1}} \\
+s_{m+k} &= A + t_{k+1}
+\end{align*}
+"Ce konvergira eno zaporedje, konvergira tudi drugo zaporedje.
+
+\textsc{Trditev:} Denima, da sta $\sumalln{1}a_n$ in $\sumalln{1}b_n$ konvergentni vrsti, $c \in \RR$. Potem konvergirajo tudi:
+$\sumalln{1} (ca_n)$, $\sumalln{1}(a_n + b_n)$ in $\sumalln{1}(a_n - b_n)$ ter velja:
+\begin{align*}
+\sumalln{1}ca_n &= c \sumalln{1}a_n \\
+\sumalln{1}(a_n + b_n) &= \sumalln{1}a_n + \sumalln{1}b_n \\
+\sumalln{1}(a_n - b_n) &= \sumalln{1}a_n -\sumalln{1} b_n
+\end{align*}
+\textbf{Opomba:} KOnvergentne vrste sestavljajo vektorski prostor (nad obsegom).
+
+\textsc{Dokaz:} "Ce $\sumalln{1} a_n$ konvergira, konvergira tudi njeno zaporedje delnih vsot $s_n = a_1 + a_2 + \ldots + a_n$, zato konvergira $c s_n = ca_1 + ca_2 + \ldots + ca_n$ in velja ustrezna zveza za limito.
+
+\textsc{Primer:} Obravnavaj konvergenco vrsto $\sumalln{1}\dfrac{1}{n}$ (\emph{harmoni"cna vrsta}).
+
+$\sumalln{1}\dfrac{1}{n}$ divergira.
+
+$s_n = 1 + \dfrac{1}{2} + \dfrac{1}{3} + \ldots + \dfrac{1}{n}$ je \dashuline{neomejeno}
+\begin{align*}
+s_4 &= 1 + \dfrac{1}{2} + \underbrace{\dfrac{1}{3} + \dfrac{1}{4}}_{\geq 2 \frac{1}{4} = \frac{1}{2}} \geq \dfrac{3}{2} + \dfrac{1}{2}\\
+s_8 &= s_4 + \underbrace{\dfrac{1}{5} + \dfrac{1}{6} + \dfrac{1}{7} + \dfrac{1}{8}}_{\geq 4 \frac{1}{8}} \geq \dfrac{3}{2} + \dfrac{1}{2} + \dfrac{1}{2}
+\end{align*}
+Opazimo vzorec:
+\begin{equation*}
+s_{2^k} \geq \dfrac{3}{2} + \dfrac{1}{2}(k-1)
+\end{equation*}
+To formulo lahko doka"zemo z indukcijo. $s_k$ je neomejeno in vrsta divergira.
+
+\subsection{Vrte z nenegativnimi "cleni}
+\deff Denimo, da je $\sumalln{1}a_n$ vrsta z nenegativnimi "cleni. Potem je zaporedje delnih vsot $s_n$ nara"s"cajao"ce ($s_{n+1} = s_n + \underbrace{a_{n+1}}_{\geq 0} \geq s_n$)
+
+\textsc{Trditev:} Vrsta $\sumalln{1}a_n$ z nenegativnimi "cleni konvergira natanko takrat, kadar je njeno zaporedje delnih vsot $s_n$ navzgor omejeno.
+
+\textsc{Izrek:} (primerjalni kriterij za konvergenco vrst): Naj bosta $\sumalln{1}a_n$ in $\sumalln{1}b_n$ vrsti z nenegativnimi "cleni in naj velja:
+\begin{equation*}
+\forall n \in \NN: a_n \leq b_n
+\end{equation*}
+\begin{enumerate}[(1)]
+	\item "Ce vsota $\sumalln{1}b_n$ konvergira, potem $\sumalln{a_n}$ konvergira.
+	\item "Ce vsota $\sumalln{1}a_n$ divergira, potem $\sumalln{b_n}$ divergira.
+\end{enumerate}
+\textbf{Opomba:} Pravimo, da je $\sumalln{1}b_n$ \emph{majoranta} za $\sumalln{1} a_n$.
+
+\textsc{Primer:} $\sumalln{1}\dfrac{1}{n^2}$ ali konvergira?
+\begin{equation*}
+\dfrac{1}{n(n+1)} = \dfrac{1}{n^2 + n} \geq \dfrac{1}{n^2 + 2n + 1}  = \dfrac{1}{(n+1)^2}
+\end{equation*}
+$\sumalln{1}\dfrac{1}{(n+1)^2}$ konvergira po primerjalnem kriteriju. Ker je to rep zaporedja $\sumalln{1}\dfrac{1}{n^2}$ konvergira.
+
+\textsc{Dokaz} trditve:
+\begin{align*}
+s_n &= a_1 + \ldots + a_n \\
+t_n &= b_1 + \ldots + b_n
+\end{align*}
+Po predpostavki $s_n \leq t_n$ za vsak $n \in \NN$.
+\begin{enumerate}[(1)]
+	\item "Ce vrsta $\sumalln{1}b_n$ konvergira, zaporedje $t_n$ konvergir, t.j.: $t_n$ je navzgor omejeno:
+	\begin{equation*}
+	\exists M \in \RR \forall n \in \NN: t_n \leq M
+	\end{equation*}
+	Sledi: $s_n \leq M$ za vsak $n \in \NN$, torej $s_n$ in s tem $\sumalln{1}a_n$ konvergira.
+	
+	\item "Ce $\sumalln{1}a_n$ divergira, potem je zaporedje $s_n$ navzgor neomejeno. Ker $s_n \leq t_n$ je tudi $t_n$ navzgor neomejeno, zato $\sumalln{1} b_n$ divergira.
+\end{enumerate}
+\textsc{Primer:} Obravnavaj konvergenco $\sumalln{1}\dfrac{1}{n^p}$ v odvisnosti od $p \in \RR$.
+\begin{itemize}
+	\item[$p = 1$] Vemo, da je harmoni"cna vrsta in divergira.
+	\item[$p \leq 1$] $\dfrac{1}{n^p} \geq \dfrac{1}{n}$ odtod po primerjalnem kriteriju sledi, da $\sumalln{1}\dfrac{1}{n^p}$ divergira.
+	\item[$p > 1$] \dashuline{$\sumalln{1}\dfrac{1}{n^p}$ konvergira}
+	
+	Podoben dokaz kot pri harmoni"cni vrsti (samo druge ocene)
+	\begin{align*}
+	s_4 &= \dfrac{1}{1^p} + \dfrac{1}{2^p} + \underbrace{\dfrac{1}{3^p} + \dfrac{1}{4^p}}_{\leq 2\frac{1}{2^p} = \frac{1}{2^{p-1}}} \leq 1 + \dfrac{1}{2^p} + \dfrac{1}{2^{p-1}} \\
+	s_8 &= s_4 + \underbrace{\dfrac{1}{5^p} + \dfrac{1}{6^p} + \dfrac{1}{7^p} + \dfrac{1}{8^p}}_{\leq 4 \frac{1}{4^p} = \frac{1}{4^{p-1}}} \leq 1 + \dfrac{1}{2^p} + \dfrac{1}{2^{p-1}} + \dfrac{1}{4^{p-1}} \\
+	\end{align*}
+	\begin{multline*}
+		s_{2^k} = 1 + \dfrac{1}{2^p} + \dfrac{1}{2^{p-1}} + \dfrac{1}{4^{p-1}} + \ldots + \dfrac{1}{(2^{-1})^{p-1}} \leq \\
+		\leq \underbrace{1 + \dfrac{1}{2^p} + \dfrac{1}{2^{p-1}} + \dfrac{1}{4^{p-1}} + \ldots + \dfrac{1}{(2^{-1})^{p-1}} + \ldots}_{\text{zgornja meja}}
+	\end{multline*}
+	Opazimo, da je od nekega "clena naprej to geometrijska vrsta z $q = \frac{1}{2^{p-1}} < 1$, kar pomeni, da ima vsoto. Torej je $s_{2^k}$ navzgor omejen0, ker je nara"s"cajo"ce je tudi $s_n$ navzgor omejeno in je zato $s_n$ konvergentno.
+\end{itemize}

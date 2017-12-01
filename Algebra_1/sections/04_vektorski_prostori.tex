@@ -1,0 +1,194 @@
+\textsc{Definicija:} \emph{Vektorski prostor} na obsegom \OO je Abelova grupa $(V, +)$ skupaj z \emph{zunanjo operacijo}
+\begin{align*}
+\OO \times V &\to V \\
+(\alpha, v) &\mapsto \alpha v
+\end{align*}
+ki ustreza naslednjim pogojem:
+\begin{enumerate}
+	\item $(\alpha + \beta) v = \alpha v + \beta v$ \hfill $\forall \alpha, \beta \in \OO, \forall v \in V$
+	\item $\alpha(u + v) = \alpha u + \alpha v$ \hfill $\forall \alpha \in \OO, \forall u, v \in V$
+	\item $\alpha(\beta v) = (\alpha \beta)v$ \hfill $\forall \alpha, \beta \in \OO, \forall v \in V$
+	\item $1v = v$ \hfill $\forall v \in V$
+\end{enumerate}
+Elemente iz \OO imenujemo \emph{skalarji}, elemente iz $V$ imenujemo \emph{vektorji}, zunanjo operacijo pa imenujemo \emph{mno"zenje z skalarji}.
+
+\textsc{Primer:}
+\begin{enumerate}[(1)]
+	\item $V = \RR^3, \OO = \RR$ obi"cajen trirazse"zen vektorski prostor
+	\item $V = \OO^n$, $\OO$ - obseg
+	
+	Naj bosta $x$ in $y$ naslednja vektorja:
+	\begin{align*}
+	x &= (x_1, x_2, \ldots, x_n) \in \OO^n (x_i \in \OO \forall i) \\
+	y &= (y_1, y_2, \ldots, y_n) \in \OO^n (y_i \in \OO \forall i)
+	\end{align*}
+	Operaciji definiramo slede"ce:
+	\begin{align*}
+	x + y &= (x_1 + y_1, x_2 + y_2, \ldots, x_n + y_n) \in \OO^n \\
+	\alpha x &= (\alpha x_1, \alpha x_2, \ldots, \alpha x_n) \in \OO^n
+	\end{align*}
+	Za ti dve operacijie je $\OO^n$ vektorski prostor na obsegom $\OO$. Ni"celni element je
+	\begin{equation*}
+	0 = (0, 0, \ldots, 0) \in \OO^n
+	\end{equation*}
+	Nasprotni element je:
+	\begin{equation*}
+	-(x_1, x_2, \ldots x_n) = (-x_1, -x_2, \ldots, -x_n) \in \OO^n
+	\end{equation*}
+	
+	\item $M \neq \varnothing$ \qquad $\mathcal{F}(M, \RR) \equiv \RR^M = \{f: M \to \RR\}$
+	
+	Operaciji definiramo po to"ckah:
+	\begin{align*}
+	(\alpha f)(t) &= \alpha f(t) && \forall t \in M (\alpha \in \RR) \\
+	(f + g)(t) &= f(t) + g(t) && \forall t \in M
+	\end{align*}
+	$V = \RR^M, \OO = \RR$
+	
+	$V$ je vekotrski prostor nad $\RR$.
+\end{enumerate}
+\subsection{Nekaj osnovnih lastnosti vektorskih prostorov}
+Naj bo $V$ vektorski prostor nad \OO. Velja:
+\begin{enumerate}[(1)]
+	\item $0v = 0$ \hfill $\forall v \in V$
+	\item $\alpha 0 = 0$ \hfill $\forall \alpha \in \OO$
+	\item $\alpha v = 0 \Rightarrow (\alpha = 0 \lor v = 0)$
+	\item $(-1)v = -v$ \hfill $\forall v \in V$
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[(1)]
+	\item
+	\begin{multline*}
+		0v = x \in V \Rightarrow \\
+		x + x = 0v + 0v = (0 + 0)v = 0v = x  \\
+		\Rightarrow x + x = x \Rightarrow x = 0 \\
+		\Rightarrow 0v = 0
+	\end{multline*}
+	\item Podoben dokaz kot za (1).
+	\item $\alpha v = 0$. "Ce $\alpha = 0$ optem velja (2). Druga"ce:
+	\begin{multline*}
+		\alpha \neq 0 \Rightarrow \exists \alpha^{-1} \in \OO \Rightarrow \\
+		\Rightarrow \alpha^{-1} (\alpha v) = \alpha^{-1} 0 = 0 \\
+		\underbrace{(\alpha^{-1} \alpha)}_1 v = 1v = v \\
+		\Rightarrow v = 0
+	\end{multline*}
+	\item
+	\begin{equation*}
+	(-1)v + v = (-1)v + 1v = (-1 + 1) v = 0v = 0
+	\end{equation*}
+\end{enumerate}
+%
+\subsection{Vektorski podprostor}
+\textsc{Definicija:} Naj bo $V$ vektorski prostor nad $\OO$ in $U \subseteq V, U \neq \varnothing$. $U$ je vektorski poprostor vektorskega prostora $V$, kadar velja:
+\begin{enumerate}[(1)]
+	\item $x, y \in U \Rightarrow x + y \in U$
+	\item $x \in U \Rightarrow \alpha x \in U$ \hfill $\forall \alpha \in \OO$
+\end{enumerate}
+Obe zahtevi lahko zdru"zimo v eno:
+\begin{equation*}
+(1) \land (2) \iff (x, y \in U \Rightarrow \forall \alpha, \beta \in U: \alpha x + \beta y \in U)
+\end{equation*}
+$(U, +)$ je podgrupa grupe $(V, +)$.
+
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $V = \RR^3$, $U$ je ravnina skozi $0$ v $\RR^3$
+	
+	\item 
+	\begin{align*}
+	V &= \RR^3 \\
+	U &= \RR[x]
+	\end{align*}
+	
+	\item 
+	\begin{align*}
+	V &= \RR[x] \\
+	U &= \RR_m[x] = \{p(x) \in \RR[x]: \text{stp}(x) \leq m\}
+	\end{align*}
+\end{enumerate}
+"Ce je $V$ vektorski prostor nad $\OO$ in $U \subseteq V$ podprostor, uporabljamo oznako:
+\begin{equation*}
+U \leq V
+\end{equation*}
+Vsak podprostor vsebuje ni"clo:
+\begin{equation*}
+x \in U \Rightarrow 0x = 0 \in U
+\end{equation*}
+Nasprotni element je element podprostora:
+\begin{equation*}
+x, y \in U \Rightarrow x - y = x + (-1) \in U
+\end{equation*}
+Ker velja $\alpha x \in U$ in $\beta y \in U$, lahko zapi"semo:
+\begin{equation*}
+\alpha x + \beta y \in U
+\end{equation*}
+Zapi"semo lahko:
+\begin{equation*}
+x_1, x_2, \ldots, x_k \in U \Rightarrow \underbrace{\alpha x_1 + \alpha x_2 + \ldots + \alpha x_k}_{\text{\emph{linearna kombinacija vektorjev} $x_1, \ldots, x_k$}} \in U
+\end{equation*}
+\subsection{Linearna ogrinja"ca}
+\textsc{Definicija:} Naj bo $M \in V, M \neq \varnothing$. \emph{Linearno ogrinja"ca mno"zice} $M$ je
+\begin{equation*}
+\Lin M = \{\alpha_1 x_1 + \ldots +\alpha_k x_k: x_1, \ldots, x_k \in M, \alpha_1, \ldots \alpha_k \in \OO, k \in \NN\}
+\end{equation*}
+Velja:
+\begin{equation*}
+M \subseteq U \leq V \Rightarrow \Lin M \subseteq U
+\end{equation*}
+\dashuline{$\Lin M$ je vektorski podprostor vektorskega prostora $V$ ($\Lin M \leq V$)}
+\begin{itemize}
+	\item Zaprtost za se"stevanje:
+	\begin{gather*}
+	\alpha_1 x_1 + \ldots + \alpha_k x_k \in \Lin M \\
+	\beta_1 x_1 + \ldots + \beta_n y_n \in \Lin M
+	\end{gather*}
+	Opazimo, da so po definiciji $\Lin M$ posame"cni "cleni $\alpha_1 x_1, \ldots \alpha_k x_k \in \Lin M$ in $\beta_1 y_1, \ldots, \beta_n y_n \in \Lin M$, torej je tudi vsota vseh "clenov $\in \Lin M$.
+	
+	\item Zaprtost za mno"zenje s skalarjem:
+	\begin{gather*}
+		\beta(\alpha_1 x_1 + \ldots + \alpha_k x_k) = (\beta \alpha_1) x_1 + \ldots + (\beta \alpha_k)x_k \in \Lin M \\
+		x_1, \ldots, x_k \in M
+	\end{gather*}
+	\hfill $\square$
+\end{itemize}
+Iz tega sledi, da je $\Lin M$ najmanj"si vektorski podprostor, ki vsebuje $M$. Simbolno za malo naprednej"se:
+\begin{equation*}
+M \subseteq U \leq V \Rightarrow \Lin M \subseteq U
+\end{equation*}
+Za prazno mno"zico velja:
+\begin{equation*}
+\Lin \varnothing = \{0\}
+\end{equation*}
+Poglejmo si, kako je s preseki in unijami. Za preseke velja:
+\begin{equation*}
+V_i \leq V \forall i \in I \Rightarrow \bigcap_{i \in I}V_i \leq V
+\end{equation*}
+To je o"citno. Zaprtost za se"stevanje velja, ker "ce sta neka dva vektorja $x, y$ v $\bigcap_{i \in I}V_i$, potem se nahajata v vseh $V_i$. Ker so $V_i$ vektorski podprostori, v njih tudi velja zaprtost za se"stevanje. Zato je vsota $x + y$ tudi v vseh $V_i$, torej je tudi v $\bigcap_{i \in I}V_i$. Podobno lahko naredimo za zaprtost za mno"zenje s skalarjem.
+
+Malo ve"c je za videti pri uniji. $V_1, V_2 \leq V \Rightarrow \Lin (V_1 \cup V_2)$ je najmanj"si vektorski podprostor, ki vsebuje $V_1$ in $V_2$. Primer na katerem se lahko predstavljamo, sta dve premici. Unija dveh premic, ki se sekata ni vektorski podrpostor, zato okoli naredimo linearno ogrinja"co. Poglejmo si eno zanimivost:
+\begin{gather*}
+x \in \Lin (V_1 \cup V_2) \\
+x = \underbrace{\alpha_1 x_1 + \ldots \alpha_k x_k}_{\in V_1} + \underbrace{\beta_1 y_1 + \ldots + \beta_n y_n}_{\in V_2} = u + v
+\end{gather*}
+Torej velja:
+\begin{equation*}
+x \in \Lin (V_1 \cup V_2) \iff x = u + v, u \in V_1, v \in V_2
+\end{equation*}
+Zapi"semo:
+\begin{equation*}
+V_1 + V_2 = \{u + v: u \in V_1, v \in V_2\}
+\end{equation*}
+Torej velja:
+\begin{equation*}
+\Lin (V_1 \cup V_2) = V_1 + V_2
+\end{equation*}
+Analogno naredimo za ve"c sumandov:
+\begin{gather*}
+	\Lin (V_1 \cup V_2 \cup \ldots \cup V_k) = V_1 + V_2 + \ldots + V_k \\
+	V_i \leq V \forall i \\
+	V_1 + \ldots + V_k = \{x_1 + \ldots + x_k: x_i \in V_i \forall i\}
+\end{gather*}
+\textsc{Definicija:} $V_1 + \ldots + V_k$ je \emph{prema} ali \emph{direktna}, kadar za vsak $x \in V_1 + \ldots + V_k$ obstajajo in so z $x$ enoi"cno dolo"ceni taki vektorji $x_i \in V_i (i = 1, \ldots, k)$, da je $x = x_1 + \ldots + x_k$. Ozani"cimo:
+\begin{equation*}
+V_1 \oplus \ldots \oplus V_k
+\end{equation*}

@@ -1066,3 +1066,19 @@ Posledica je, da je $(K \setminus \{0\}, +, \cdot)$ grupa.
 	\item $\QQ, \RR, \CC$ za obi"cajna $+$ in $\cdot$.
 	\item $\ZZ_n$ je obseg, kadar je $n$ pra"stevilo.
 \end{enumerate}
+Naj bo $\mathcal{O}$ obseg in $a, b, c \in \mathcal{O}$. Linearne ena"cbe lahko re"sujemo na naslednji na"cin:
+\begin{align*}
+ax + b &= c
+\intertext{predpostavimo $a \neq 0 \Rightarrow \exists a^{-1}$}
+ax &= c - b \\
+a^{-1} ax &= a^{-1} (c-b) \\
+x &= a^{-1} (c-b)
+\end{align*}
+Ker komutativnost ni obvezna, moramo biti pozorni iz katere smeri pomno"zimo ena"cbo z $a^{-1}$.
+
+\textsc{Definicija:} Naj bost $K_1$ in  $K_2$ kolobarja. Preslikava $f: K_1 \to K_2$ je homomorfizem kolobarjev, kadar za vse $a, b \in K_1$ velja:
+\begin{align*}
+f(a+b) &= f(a) + f(b) \\
+f(ab) &= f(a) f(b)
+\end{align*}
+"Ce je $f: K_1 \to K_2$ bijektiven homomorfizem kolobarjev, je $f^{-1}: K_2 \to K_1$ homomorfizem kolobarjev. V tem primeru je $f$ izomorfizem med kolobarjema $K_1$ in $K_2$.

@@ -192,3 +192,224 @@ Analogno naredimo za ve"c sumandov:
 \begin{equation*}
 V_1 \oplus \ldots \oplus V_k
 \end{equation*}
+\textsc{Trditev:} Vsota $V_1 + V_2$ vektorskih podprostorov $V_1$ in $V_2$ je direktna natanko takrat, kadar je $V_1 \cup V_2 = \{0\}$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Rightarrow$)] Naj bo vsota $V_1 + V_2$ direktna ($V_1 \oplus V_2$). Vzemimo $x \in V_1 \cup V_2$.
+	\begin{equation*}
+	x = \underbrace{x}_{\in V_1} + \underbrace{0}_{\in V_2} = \underbrace{0}_{\in V_1} + \underbrace{x}_{\in V_2} \Rightarrow x = 0
+	\end{equation*}
+	$\Rightarrow V_1 \cup V_2 = \{0\}$
+	
+	\item[($\Leftarrow$)] Naj bo $V_1 \cup V_2 = \{0\}$.
+	\begin{align*}
+	x &\in V_1 + V_2 \\
+	x &= x_1 + x_2, x_1 \in V_1, x_2 \in V_2 \\
+	x &= x_1' + x_2', x_1' \in V_1, x_2' \in V_2 \\
+	x_1 + x_2 &= x_1' + x_2' \\
+	\underbrace{x_1 - x_1'}_{\in V_1} &= \underbrace{x_2 - x_2'}_{\in V_2} = z
+	\end{align*}
+	\begin{align*}
+	&\Rightarrow z \in V_1 \cap V_2 = \{0\} \\
+	&\Rightarrow x = 0 \Rightarrow \\
+	&\Rightarrow x_1' = x_1 \land x_2' = x_2
+	\end{align*}
+	\begin{equation*}
+	V_1 \oplus V_2
+	\end{equation*}
+	\hfill $\square$
+\end{itemize}
+
+\subsection{Kvocientni vektorski prostor}
+Naj bo $U$ vektorski prostor nad $\OO$, $U \leq V$. Definiramo:
+\begin{equation*}
+v_1 \sim v_2 \iff v_1 - v_2 \in U
+\end{equation*}
+kjer je $\sim$ ekvivalen"cna relacija. $U$ je Abelova podgrupa Abelove grupe $V$. $V/_U$ je torej Abelova grupa in velja:
+\begin{align*}
+[x] + [y] &= [x+y] \forall x, y \in V \\
+[z] &= z + U \forall z \in V
+\end{align*}
+V $V/_U$ uvedemo mno"zenje s skalarji:
+\begin{equation*}
+\alpha [x] := [\alpha x], \alpha \in \OO, x \in V
+\end{equation*}
+\dashuline{Definicija je dobra} "ce velja:
+\begin{align*}
+y \sim x &\Rightarrow \alpha x \sim \alpha y \\
+y -x \in U &\Rightarrow \underbrace{\alpha y - \alpha x}_{\alpha (y - x) = z} \in U
+\end{align*}
+Ker je $U$ podprostor zaprt za mno"zenje s skalarjem, vemo:
+\begin{equation*}
+z \in U \Rightarrow \alpha z \in U \forall \alpha \in \OO
+\end{equation*}
+\hfill $\square$
+
+Sledi, da je $V/_U$ vektorski prostor nad $\OO$. Elementi so $x + U, x \in V$.
+
+\textsc{Primer:} $U$ premica skozi 0 v $V = \RR^3$. Elementi $V/_U: x + U, x \in \RR^3$ so premice vzporedne premici $U$.
+%
+\subsection{Linearne preslikave}
+So neke vrste homomorfizmi vektorskih prostorov.
+
+\textsc{Definicija:} Naj bosta $V$ in $U$ vektorska prostora nad istim $\OO$. Preslikava $\A : V \to U$ je \emph{linearna} (= homomorfizem vektorskih prostorov), kadar velja:
+\begin{enumerate}[(1)]
+	\item $\A(x + y) = \A x + \A y$ \hfill $\forall x, y \in V$
+	\item $\A(\alpha x) = \alpha \A x$ \hfill $\forall \alpha \in \OO, \forall x \in V$
+\end{enumerate}
+Pogoju (1) pravimo, da je $\A$ \emph{aditivna}, pogoju (2) pa pravimo, da je $\A$ \emph{homogena}.
+\subsubsection*{Nekaj lastnosti:}
+\begin{itemize}
+	\item $\A0 = 0$ (pride iz Abelove grupe)
+	\item $\A (-x) =  -\A x$ (pride iz Abelove grupe) \hfill $\forall x \in V$
+	\item $\A(x-y) = \A x - \A y$ \hfill $\forall x, y \in V$
+	\item[(3)] $\A(\alpha x + \beta y) = \A(\alpha x) + \A(\beta y) = \alpha \A x + \beta \A y$ \hfill $\forall x, y \in V, \forall \alpha, \beta \in \OO$
+	\begin{equation*}
+	\A(\alpha x + \beta y) = \alpha \A x + \beta \A y
+	\end{equation*}
+	Ta lastnost sledi iz pogojev (1) in (2). Iz te lastnosti lahko dobimo nazaj pogoj (1) in (2).
+	\begin{equation*}
+	((1) \land (2)) \iff (3)
+	\end{equation*}
+\end{itemize}
+\textsc{Splo"sno:}
+\begin{equation*}
+	\A(\alpha_1 x_1 + \alpha_2 x_2 + \cdots + \alpha_n x_n) = \alpha_1 \A x_1 + \alpha_2 \A x_2 + \cdots + \alpha_n \A x_n
+\end{equation*}
+%
+\textsc{Definicija:} $\A V \to U$ je \emph{izomorfizem} vektorskega prostora, kadar je $\A$ bijektivna in sta $\A$ in $\A^{-1}$ linearni preslikavi. \textbf{Velja:} bijektivna linearna preslikava je izomorfizem vektorskega prostora.
+
+Naj bo $\A: V \to U$ linearna bijekcija. \dashuline{$\A^{-1}: U \to V$ je linearna}
+
+Aditivnost sledi iz dejstva, da je $A$ izomorfizem Abelovih grup $(V, +)$, $(U, +)$.
+\begin{equation*}
+\A^{-1}(\alpha u) = \A^{-1}(\alpha \A v) = \A^{-1}(\A(\alpha v)) = \alpha v = \alpha \A^{-1} u
+\end{equation*}
+kjer upo"stevamo, da $\exists v \in V: u = \A v (v = \A^{-1}u)$
+
+$\Rightarrow \A^{-1}$ je homogena \hfill $\square$
+
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $V = U = \RR^3$
+	\begin{itemize}
+		\item $\A: \RR^3 \to \RR^3$ pravokotna projekcija na ravnino skozi 0.
+		\item $\A: \RR^3 \to \RR^3$ zasuk za dolo"cen kot okrog dane osi skozi 0.
+	\end{itemize}
+	\item $\A: \RR[x] \to \RR[x]$, $\A$ odvajanje.
+	\item $\A: \RR[x] \to \RR$, $\A$ je dolo"ceno integriranje.
+\end{enumerate}
+%
+\subsubsection{Slika in jedro linearnih preslikav}
+\textsc{Definicija:} Naj bo $\A: V \to U$ linearna preslikava. Definiramo:
+\begin{itemize}
+	\item $\im \A = \{\A x: x \in V\}$ slika preslikave $\A$
+	\item $\ker \A = \{x \in V: \A x = 0\}$ jedro preslikave $\A$
+\end{itemize}
+\textsc{Velja:} $\im \A \leq U$ in $\ker \A \leq V$
+
+\textsc{Dokaz:} za $\im \A$: \dashuline{$u_1, u_2 \in \im\A \Rightarrow \alpha_1 u_1 + \alpha_2 u_2 \in \im \A$}
+\begin{gather*}
+\exists x_1, x_2 \in V: u_1 = \A x_1, u_2 = \A x_2 \\
+\alpha_1 u_1 + \alpha_2 u_2 = \alpha_1 \A x_1 + \alpha_2 \A x_2 = \A(\alpha_1 x_1 + \alpha_2 x_2) \in \im \A
+\end{gather*}
+%
+\textsc{Definicija:} Naj bo $\A: V \to U$. Velja:
+\begin{enumerate}[(1)]
+	\item $\A$ je surjektivna $\iff \im \A = U$
+	\item $\A$ je injektivna $\iff \ker \A = \{0\}$
+\end{enumerate}
+\textsc{Dokaz} za (2):
+\begin{itemize}
+	\item[($\Rightarrow$)] $\A$ je injektivna. Vemo $\A0 = 0$. Zanima nas, za katere $x$ velja $\A x = 0$. Ker je injektivna je $x = 0 \Rightarrow \ker A = \{0\}$.
+	\item[($\Leftarrow$)] $\ker \A = \{0\}$ Naj bosta $\A x = \A y$, $x, y \in V$.
+	\begin{align*}
+	&\Rightarrow \underbrace{\A x - \A y}_{\A(x-y) = 0} = 0 \\
+	&\Rightarrow x - y \in \ker \A = \{0\} \\
+	&\Rightarrow x - y = 0 \Rightarrow x = y
+	\end{align*}
+\end{itemize}
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $\A: V \to U$ linearna preslikava. Potem obstaja izomorfizem med vektorskima prostoroma $V/_{\ker \A}$ in $\im \A$. Izomorfizem deluje s predpisom:
+\begin{equation*}
+\hat{\A}: [x] \mapsto \A x
+\end{equation*}
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item \dashuline{Predpis je dober} t.j: $[x] = [y] \Rightarrow \A x = \A y$.
+	\begin{equation*}
+	x \sim y \Rightarrow x - y \in \ker \A \Rightarrow \underbrace{\A(x-y)}_{\A x - \A y = 0} = 0 \Rightarrow \A x = \A y
+	\end{equation*}
+
+	\item \dashuline{$\hat{\A}$ je linearna}
+	\begin{multline*}
+	\hat{\A}(\underbrace{\alpha[x]}_{[\alpha x]} + \underbrace{\beta[y]}_{[\beta y]}) = \\
+	=\hat{\A}(\alpha x + \beta y) = \A(\alpha x + \beta y) = \alpha \A x + \beta \A y =\\
+	= \alpha \hat{\A}([x]) + \beta \hat{\A}([y])
+	\end{multline*}
+	
+	\item \dashuline{$\hat{\A}$ je surjektivna} -- sledi neposredno iz definicije $\hat{\A}$
+	\item \dashuline{$\hat{\A}$ je injektvina}
+	\begin{gather*}
+	\underbrace{\hat{\A}([x])}_{\A x} = \underbrace{\hat{\A}([y])}_{\A y} \\
+	\Rightarrow \A (x-y) = \A x - \A y = 0 \\
+	\Rightarrow x - y \in \ker \A \Rightarrow \\
+	\Rightarrow x \sim y \Rightarrow [x] = [y]
+	\end{gather*}
+\end{itemize}
+$\Rightarrow \hat{\A}$ je linearne in bijektivna $\Rightarrow \hat{\A}: V/_{\ker \A} \to \im \A$ je izomorfizem vektorskih prostorov. \hfill $\square$
+
+\textsc{Posledici:} Naj bo $\A: V \to U$ linearna preslikava
+\begin{enumerate}[(1)]
+	\item "Ce je $\A$ surjektivna, je vektorski prostor $V/_{\ker \A}$ izomorfen $U$.
+	\item "Ce je $\A$ injektivna, je vektorski prostor $V$ izomorfen vektorskemu prostoru $\im \A$
+	\begin{equation*}
+	\A \text{ injektivna} \Rightarrow \ker \A = \{0\} \Rightarrow V/_{\{0\}} = V
+	\end{equation*}
+\end{enumerate}
+%
+\subsection{Vektorski prostor linearnih preslikav}
+$V, U$ naj bosta vektorska prostora nad komutativnim obsegom $\OO$.
+\begin{equation*}
+\LL(V, U) = \{\A: V \to U; \text{ $\A$ je linearna}\}
+\end{equation*}
+Ni"celna preslikava 0 je element te mno"zice $0 \in \LL(V, U)$.
+
+V $\LL(V, U)$ uvedemo operavijo $+$ (se"stevanje) po to"ckah:
+\begin{align*}
+\A, \mathcal{B} &\in \LL(V, U) \\
+(\A + \mathcal{B})(x) &= \A x + \mathcal{B} x, \forall x \in V
+\end{align*}
+Velja $\A + \mathcal{B} \in \LL(V, U)$. Preverimo homogenost (aditivnost za DN):
+\begin{equation*}
+(\A + \mathcal{B})(\alpha x) = \alpha \A x + \alpha \mathcal{B} x = \alpha (\A x + \mathcal{B} x) = \alpha ((\A + \mathcal{B})x)
+\end{equation*}
+\textsc{Velja:}
+\begin{itemize}
+	\item $(\LL(V, U), +)$ je Abelova grupa
+	\item $0$ (ni"celna preslikava) je ni"celni element
+	\item $\A \in \LL(V, U); -\A = -\A x \forall x \in V$
+	\begin{gather*}
+		(-A)x = -\A x, \forall x \in V \\
+		(\A + (-A))x = \A x + (-\A) x = \A x +(-\A)x = 0 (\in U), \forall x \in V \\
+		\Rightarrow \A + (-\A) = 0
+	\end{gather*}
+\end{itemize}
+\textbf{Mno"zenje s skalarji} definiramo po to"ckah:
+\begin{gather*}
+	(\alpha A)x = \alpha (A x), \forall x \in V, \alpha \in \OO \\
+	\A \in \LL(V, U) \Rightarrow \alpha A \in \LL(V, U)
+\end{gather*}
+$\LL(V, U)$ postane z obema operacijama vektorski prostor nad $\OO$.
+%
+\textbf{Poseben primer} $U = V$
+
+$\LL(V, V) \equiv \LL(V)$ -- mno"zica vseh endomorfizmov vektorskega prostora $V$. V mno"zico $\LL(V)$ uvedemo "ze mno"zenje (= komponiranje preslikav).
+\begin{align*}
+\A, \mathcal{B} &\in \LL(V) \\
+(\A \mathcal{B})x &= A(Bx), \forall x \in V
+\end{align*}
+Mno"zenje je operacija na $\LL(V): A, \mathcal{B} \in \LL(V) \Rightarrow \A \mathcal{B} \in \LL(V)$.

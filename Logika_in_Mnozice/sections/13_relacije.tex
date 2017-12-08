@@ -149,3 +149,168 @@ $R$ je \emph{funkcijska relacija}, "ce je celovita in enoli"cna.
 B^A \cong \{R \subseteq A \times B | R \text{ funkcijska}\}
 \end{equation*}
 Torej lahko funkcije definiramo kot funkcijske relacije.
+
+\subsection{Ekvivalen"cne relacije in kvocientne mno"zice}
+\textsc{Definicija}: $R \subseteq A \times A$ je \emph{ekvivalen"cna}, ko je refleksivna, simetri"cna in tranzitivna. Uporabljamo simbole $=\ \equiv\ \equiv\ \sim\ \approx\ \cong$.
+
+\textsc{Primeri:} enakost $=$, polna relacija na $A$.
+
+Naj bo $f: A \to B$ in definiramo $R \subseteq A \times A$ s 
+\begin{equation*}
+x R y \iff f(x) = f(y)
+\end{equation*}
+Tedaj je $R$ ekvivalen"cna. Pravimo, da je $R$ \emph{inducirana} s $f$.
+
+\subsubsection{Ekvivalen"cni razredi}
+Naj bo $R \subseteq A \times A$ ekvivalen"cna. Za $x \in A$ definiramo ekvivalen"cni razred $x$
+\begin{equation*}
+[x]_R := \{y \in A| x R y\}
+\end{equation*}
+Za $x, y$ velja:
+\begin{align*}
+x R y &\iff [x]_R = [y]_R \\
+&\iff x \in [y]_R \\
+&\iff y \in [x]_R
+\end{align*}
+\textsc{Primer:} Relacija $\sim$ na $\ZZ$.
+\begin{align*}
+m \sim n &\iff m | n \land n | m \\
+[12]_\sim &= \{12, -12\} \\
+[-2]_\sim &= \{2, -2\} \\
+[0]_\sim &= \{0\}
+\end{align*}
+"Ce je $R \subseteq A \times A$ ekvivalen"cna, velja:
+\begin{itemize}
+	\item ekvivalen"cni razredi so neprazni: $x \in [x]_R$ ("Ce $A = \varnothing \Rightarrow$ ni ekvivalen"cnih razredov)
+	\item $[x]_R \cap [y]_R \neq \varnothing \Rightarrow [x]_R = [y]_R$
+\end{itemize}
+Pravimo, da ekvivalen"cni razredi tvorijo \emph{particijo} ali \emph{razdelitev} $A$.
+
+Ekvivalen"cno relacijo lahko podamo z ekvivalen"cnimi razredi tako, da podamo dru"zino $\{E_i\}, i \in I$, da velja:
+\begin{itemize}
+	\item $E_i \neq \varnothing \forall i \in I$ neprazni
+	\item paroma diskunktni
+	\item $\bigcup E_i = A$ tvorijo pokritje $A$
+\end{itemize}
+Pripadajo"ca $R \subseteq A \times A$ je:
+\begin{equation*}
+x R y \iff \exists i \in I: x \in E_i \land y \in E_i
+\end{equation*}
+%
+\subsubsection{Univerzalne lastnosti kvocientnih mno"zic}
+\textsc{Definicija:} Naj bo $R \subseteq A \times A$. Kvocientna mno"zica je:
+\begin{align*}
+A/_R &:= \{[x]_R : x \in A\} \\
+&:= \{S: \exists x \in A: S = [x]_R\} \\
+&:= \{S \in \mathcal{P}(A):\exists x \in A: S = [x]_R\} \\
+&:= \{S \in \mathcal{P}(A):\exists x \in A \forall y \in A: y \in S \iff x R y \}
+\end{align*}
+\subsubsection*{Kvocientna preslikava}
+\begin{align*}
+q_R : A &\to A/_R \\
+x &\mapsto  [x]_R
+\end{align*}
+\dashuline{$q_R$ je surjektivna}: $\forall \xi \in A/_R \exists x \in A: q_R(x) = \xi$
+
+Naj bo $\xi \in A/_R$. Tedaj obstaja $y \in A$, da je $\xi = [y]_R$. Vzamemo $x := y$. Preverimo $q_R(x) = \xi$.
+\begin{equation*}
+q_R(x) = q_R(y) = [y]_R = \xi
+\end{equation*}
+\textsc{Izrek:} Naj bo $R \subseteq A \times A$ ekvivalen"cna relacija in $f: A \to B$ preslikava, ki je \emph{skladna} z $R$, kar pomeni:
+\begin{equation*}
+x R y \Rightarrow f(x) = f(y)
+\end{equation*}
+Pravimo tudi, da je $f$ \emph{kongluenca} za $R$.
+
+Tedaj obstaja natanko ena preslikava $\overline{f}: A/_R \to B$, da velja
+\begin{equation*}
+f = \overline{f} \circ q_R
+\end{equation*}
+\begin{figure}[!htbp]
+	\centering
+	\begin{tikzpicture}
+		\node (A) at (-2, 0) {$A/_R$};
+		\node (B) at (2, 0) {$B$};
+		\node (C) at (-2,3) {$A$};
+		
+		\draw[->] (A) -- node[midway, below] {$\overline{f}$} ++ (B);
+		\draw[->] (C) -- node[midway, above] {$f$} ++ (B);
+		\draw[->] (C) -- node[midway, left] {$g_R$} ++ (A);
+	\end{tikzpicture}
+\end{figure}
+\textsc{Dokaz:} Pokazati moramo, enoli"cnost in obstoj $\overline{f}$.
+\begin{itemize}
+	\item[\textbf{Enoli"cnost:}] denimo, da imamo $\overline{f_1}, \overline{f_2}: A/_R \to B$ in
+	\begin{equation*}
+	f = \overline{f_1} \circ g_R \quad \text{in} \quad f = \overline{f_2} \circ g_R
+	\end{equation*}
+	Dokazujemo $\overline{f_1} = \overline{f_2}$. Vemo 
+	\begin{equation*}
+	\overline{f_1} \circ g_R = f = \overline{f_2} \circ g_R
+	\end{equation*}
+	Ker je $g_R$ surjektivna, je epi
+	\begin{equation*}
+	\overline{f_1} = \overline{f_2}
+	\end{equation*}
+	
+	\item[\textbf{Obstoj:}] Vzemimo $\overline{f}: A/_R \to B$ definirano z:
+	\begin{equation*}
+	\overline{f}(S) := \iota b \in B \exists x \in A: b = f(x) \land [x]_R = b
+	\end{equation*}
+	Preverimo, da je $\overline{f}$ dobro definirana:
+	\begin{enumerate}
+		\item \textbf{Celovitost:} naj bo $S \in A/_R$. Ker je $S \in A/_R$, obstaja $x \in A$, da je $[x]_R = S$. Za $b$ vzemimo $b := f(x)$. Tedaj velja $b = f(x)$.
+		
+		\item \textbf{Enoli"cnost:} "Ce imamo:
+		\begin{align*}
+		b_1 &\in B \exists x_1 \in A: b_1 = f(x_1) \land [x_1] = S \\
+		b_2 &\in B \exists x_2 \in A: b_2 = f(x_2) \land [x_2] = S
+		\end{align*}
+		Dokazujemo $b_1 = b_2$. Ker $[x_1] = S = [x_2]$, velja $x_1 R x_2$. Ker je $f$ skladna z $R$, velja $f(x_1) = f(x_2)$, torej:
+		\begin{equation*}
+		b_1 = f(x_1) = f(x_2) = b_2
+		\end{equation*}
+	\end{enumerate}
+	\hfill $\square$
+\end{itemize}
+%
+\subsection{Delne ureditve}
+\textsc{Definicija:} Relacija $R \subseteq A \times A$ je \emph{"sibka ureditev}, "ce je refleksivna in tranzitivna. $R$ je \emph{delna ureditev}, "ce je refleksivna, tranzitivna in antisimetri"cna. Za delno ureditev uporabljamo simbole $\leq\ \sqsubseteq\ \preccurlyeq\ \subseteq$.
+
+\textsc{Primeri:}
+\begin{itemize}
+	\item obi"cajna relacija  ,,manj"si ali enak'' na $\RR$
+	\item tudi ,,ve"cji ali enak''
+	\item ,,deli'' na $\NN$
+	\item $=$ na $A$
+\end{itemize}
+\textsc{Protiprimeri:}
+\begin{itemize}
+	\item $<$ na $\RR$
+	\item ,,deli'' na $\ZZ$ ($2 | -2 \land -2 | 2$ ampak $2 \neq -2$)
+\end{itemize}
+%
+\textsc{Definicija:} $R \subseteq A \times A$ delna ureditev, je \emph{linearna}, "ce velja
+\begin{equation*}
+\forall x,y \in A: x R y \lor y R x
+\end{equation*}
+\textsc{Primeri:}
+\begin{itemize}
+	\item $\leq$ na $\QQ$ linearna
+	\item $=$ na $\QQ$ ni linearna
+	\item $\subset$ na $\mathcal{P}(\NN)$ ni linearna
+\end{itemize}
+Nari"semo lahko \emph{Hassejev diagram} (glej zvezek kako izgleda).
+
+\textsc{Definicija:} Naj bo $(A, \leq)$ delna ureditev in naj bo $S \subseteq A$.
+\begin{itemize}
+	\item $x \in A$ je \emph{spodnja meja} za $S$, "ce velja $\forall y \in S: x \leq y$
+	\item $x \in A$ je \emph{zgornja meja} za $S$, "ce velja $\forall y \in S: x \geq y$
+	\item $x \in A$ je \emph{natan"cna zgornja meja} za $S$, "ce velja
+	\begin{enumerate}
+		\item $x$ je zgornja meja
+		\item $\forall y \in A: y \text{ zgornja meja za $S$} \Rightarrow x \leq y$
+	\end{enumerate}
+	Pravimo, da je $x$ \emph{supremum} $S$.
+	\item \emph{infimum} ali \emph{natan"cna spodnja meja} podobno
+\end{itemize}

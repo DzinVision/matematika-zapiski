@@ -202,7 +202,7 @@ Po predpostavki $s_n \leq t_n$ za vsak $n \in \NN$.
 \begin{itemize}
 	\item[$p = 1$] Vemo, da je harmoni"cna vrsta in divergira.
 	\item[$p \leq 1$] $\dfrac{1}{n^p} \geq \dfrac{1}{n}$ odtod po primerjalnem kriteriju sledi, da $\sumalln{1}\dfrac{1}{n^p}$ divergira.
-	\item[$p > 1$] \dashuline{$\sumalln{1}\dfrac{1}{n^p}$ konvergira}
+	\item[$p > 1$] \dashuline{$\sumalln{1}\frac{1}{n^p}$ konvergira}
 	
 	Podoben dokaz kot pri harmoni"cni vrsti (samo druge ocene)
 	\begin{align*}
@@ -213,5 +213,320 @@ Po predpostavki $s_n \leq t_n$ za vsak $n \in \NN$.
 		s_{2^k} = 1 + \dfrac{1}{2^p} + \dfrac{1}{2^{p-1}} + \dfrac{1}{4^{p-1}} + \ldots + \dfrac{1}{(2^{-1})^{p-1}} \leq \\
 		\leq \underbrace{1 + \dfrac{1}{2^p} + \dfrac{1}{2^{p-1}} + \dfrac{1}{4^{p-1}} + \ldots + \dfrac{1}{(2^{-1})^{p-1}} + \ldots}_{\text{zgornja meja}}
 	\end{multline*}
-	Opazimo, da je od nekega "clena naprej to geometrijska vrsta z $q = \frac{1}{2^{p-1}} < 1$, kar pomeni, da ima vsoto. Torej je $s_{2^k}$ navzgor omejen0, ker je nara"s"cajo"ce je tudi $s_n$ navzgor omejeno in je zato $s_n$ konvergentno.
+	Opazimo, da je od nekega "clena naprej to geometrijska vrsta z $q = \frac{1}{2^{p-1}} < 1$, kar pomeni, da ima vsoto. Torej je $s_{2^k}$ navzgor omejeno, ker je nara"s"cajo"ce je tudi $s_n$ navzgor omejeno in je zato $s_n$ konvergentno.
+\end{itemize}
+%
+\textsc{Izrek:} (\emph{kvocientni} kriterij ali \emph{d'Alembertov} kriterij) Naj bo $\sumalln{1}a_n$ vrsta s pozitivnimi "cleni. Sestavimo zaporedje:
+\begin{equation*}
+d_n = \dfrac{a_{n+1}}{a_n}
+\end{equation*}
+\begin{enumerate}[1)]
+	\item "Ce obstaja $q \in (0, 1)$, da velja $d_n \leq q \forall n \in \NN$, potem vrsta $\sumalln{1}a_n$ konvergira.
+	\item "Ce velja $d_n \geq 1 \forall n \in \NN$, potem vrsta $\sumalln{1}a_n$ divergira.
+\end{enumerate}
+"Ce obstaja $\limninf d_n = d$, potem velja:
+\begin{enumerate}[1')]
+	\item "Ce je $d < 1$, potem $\sumalln{1} a_n$ konvergira.
+	\item "Ce je $d > 1$, potem $\sumalln{1} a_n$ divergira.
+\end{enumerate}
+\textbf{Opombi:}
+\begin{itemize}
+	\item "Ce je $d = 1$, kriterij ne da odgovora.
+	\item "Ce je $\limsupninf d_n < 1$, potem $\sumalln{1} a_n$ konvergira.
+\end{itemize}
+\textsc{Primer:}
+\begin{itemize}
+	\item $\sumalln{1}\dfrac{2^n}{n!}$
+	\begin{gather*}
+	d_n = \dfrac{a_{n+1}}{a_n} = \dfrac{\frac{2^{n+1}}{(n+1)!}}{\frac{2^n}{n!}} = \dfrac{2^{n+1}n!}{(n+1)!2^n} = \dfrac{2}{n+1} \\
+	d = \limninf d_n = \limninf\dfrac{2}{n+1} = 0
+	\end{gather*}
+	$\Rightarrow$ vrsta $\sumalln{1}\dfrac{2^n}{n!}$ konvergira.
+	
+	\item Obravnavaj konvergenco vrste $\sumalln{1} nx^n$, $x > 0$
+	\begin{gather*}
+		d_n = \dfrac{a_{n+1}}{a_n} = \dfrac{(n+1)x^{n+1}}{nx^n} = \dfrac{(n+1)x}{n} \\
+		d = \limninf d_n = \limninf \dfrac{(n+1)x}{n} = x \limninf \dfrac{n+1}{n} = x
+	\end{gather*}
+	\begin{itemize}
+		\item "Ce $x < 1$ vrsta konvergira.
+		\item "Ce $x > 1$ vrsta divergira.
+		\item "Ce $x = 1: \sumalln{1}n$ divergira (ker "cleni ne konvergirajo proti 0).
+	\end{itemize}
+\end{itemize}
+\textsc{Dokaz:} 
+\begin{enumerate}[1)]
+	\item Denimo, da je $d_n \leq q < 1$ za vse $n \in \NN$
+	\begin{gather*}
+	\dfrac{a_{n+1}}{a_n} \leq q \forall n \\
+	a_{n+1} \leq q a_n \leq q \cdot q a_{n-1} \leq q^3 a_{n-2} \leq \ldots \leq q^n a_1 \\
+	\sumalln{1}a_{n+1} \leq \sumalln{1}q^n a_1
+	\end{gather*}
+	Po primerjalnem kriteriju vrsta $\sumalln{1}a_{n+1}$ konvergira $\Rightarrow \sumalln{1}a_n$ konvergira.
+	
+	\item $d_n \geq q \forall n \in \NN$
+	\begin{align*}
+	\dfrac{a_{n+1}}{a_n} &\geq 1 \quad \forall n \in \NN \\
+	a_{n+1} &\geq a_n \quad \forall n \in \NN
+	\end{align*}
+	Zaporedje $d_n$ je nara"s"cajo"ce zaporedje pozitivnih "stevil. Zato "cleni $a_n$ ne konvergirajo proti $0$. Torej vrsta divergira.
+\end{enumerate}
+Iz 1 sledi 1', iz 2 sledi 2'. Dokaz je bil za DN. Si naredil/a?
+
+\textsc{Izrek:}(\emph{korenski} kriter ali \emph{Cauchyjev} kriterij) Naj bo $\sumalln{1}a_n$ vrsta z nenegativnimi "cleni. Sestavimo zaporedje
+\begin{equation*}
+c_n = \sqrt[n]{a_n}
+\end{equation*}
+Tedaj velja:
+\begin{enumerate}[1)]
+	\item "Ce obstaja $q \in (0, 1)$, da velja $c_n \leq q$ za vse $n \in \NN$, potem vrsta $\sumalln{1} a_n$ konvergira.
+	\item "Ce velja $c_n \geq 1 \forall n$, potem vrsta $\sumalln{1}a_n$ divergira.
+\end{enumerate}
+"Ce obstaja $\limninf c_n = c$, potem velja:
+\begin{enumerate}[1')]
+	\item "Ce je $c < 1$, potem $\sumalln{1}a_n$ konvergira.
+	\item "Ce je $c > 1$, potem $\sumalln{1}a_n$ divergira.
+\end{enumerate}
+\textbf{Opombi:}
+\begin{itemize}
+	\item "Ce je $c = 1$, kriterij ne da odgovora.
+	\item "Ce je $\limsupninf c_n < 1$, potem $\sumalln{1}a_n$ konvergira.
+\end{itemize}
+\textsc{Dokaz:}
+\begin{enumerate}[1)]
+	\item Naj bo $q \in (0, 1), c_n \leq q \forall n \in \NN$.
+	\begin{align*}
+	c_n &\leq q \\
+	\sqrt[n]{c_n} &\leq q \\
+	a_n &\leq q^n
+	\end{align*}
+	"Cleni v vrsti $\sumalln{1}a_n$ so majonirani s "cleni konvergentne geometrijske vrste $q^n$, zato $\sumalln{1}a_n$ konvergira po primerjalnem kriteriju.
+	
+	\item Naj bo $c_n \geq 1, \forall n \in \NN$
+	\begin{align*}
+	c_n &\geq 1 \\
+	\sqrt[n]{a_n} &\geq 1
+	a_n &\geq 1^n
+	\end{align*}
+	Vrsta divergira, ker "cleni ne konvergirajo proti 0.
+\end{enumerate}
+Tako kot pri prej"snjem primeru iz 1 sledi 1' in iz 2 sledi 2'. Ponovno je bil dokaz za DN.
+
+\textsc{Primer:}
+\begin{itemize}
+	\item Obravnavaj konvergenco vrste $\sumalln{1}\left(\dfrac{x}{n}\right)^n, x > 0$
+	\begin{gather*}
+		c_n = \sqrt[n]{\left(\dfrac{x}{n}\right)^n} = \dfrac{x}{n} \\
+		c = \limninf c_n = \limninf \dfrac{x}{n} = x \limninf \dfrac{1}{n} = 0
+	\end{gather*}
+	Po korenskem kriteriju vrsta $\sumalln{1}\left(\dfrac{x}{n}\right)^n$ konvergira za vse $x > 0$.
+	
+	\item $\sumalln{1}\dfrac{1}{n^2}$. "Ze od prej vemo, da konvergira, ampak si vseeno poglejmo kvocientni in korenski kriterij.
+	\begin{itemize}
+		\item \textbf{Kvocientni kriterij:}
+		\begin{equation*}
+		d_n = \dfrac{a_{n+1}}{a_n} = \dfrac{n^2}{(n+1)^2} \stackrel{\toinf{n}}{\longrightarrow} 1
+		\end{equation*}
+		\item \textbf{Korenski kriterij:}
+		\begin{equation*}
+		c_n = \sqrt[n]{\dfrac{1}{n^2}} = \dfrac{1}{\left(\sqrt[n]{n}\right)^2} \stackrel{\toinf{n}}{\longrightarrow} 1
+		\end{equation*}
+	\end{itemize}
+\end{itemize}
+%
+\textsc{Izrek:} (\emph{Raabejev} kriterij) Naj bo $\sumalln{1}a_n$ vrsta s pozitivnimi "cleni. Sestavimo zaporedje:
+\begin{equation*}
+r_n = n\left(\dfrac{a_n}{a_{n+1}} - 1\right)
+\end{equation*}
+\begin{enumerate}[1)]
+	\item "Ce obstaja $r > 1$, da velja $r_n > r \quad \forall n \in \NN$, potem vrsta $\sumalln{1}a_n$ konvergira.
+	\item "Ce velja $r_n \leq 1 \forall n$, potem $\sumalln{1}a_n$ divergira.
+\end{enumerate}
+"Ce obstaja $\limninf r_n = R$, potem velja:
+\begin{enumerate}[1')]
+	\item "Ce je $R > 1$, potem $\sumalln{1}a_n$ konvergira.
+	\item "Ce je $R < 1$, potem $\sumalln{1}a_n$ divergira.
+\end{enumerate}
+\textbf{Opombi:}
+\begin{itemize}
+	\item "Ce je $R=1$ kriterij ne da odgovora.
+	\item "Ce je $\limsupninf r_n > 1$, potem $\sumalln{1}a_n$ konvergira.
+\end{itemize}
+\textsc{Dokaz:}
+\begin{enumerate}[1)]
+	\item Naj bo $r_n \geq r > 1 \quad \forall n$
+	\begin{align*}
+	n\left(\dfrac{a_n}{a_{n+1}} - 1\right) &\geq r \\
+	\dfrac{a_n}{a_{n+1}} -1 &\geq \dfrac{r}{n} \\
+	\dfrac{a_n}{a_{n+1}} &\geq \dfrac{r}{n} + 1
+	\end{align*}
+	\textbf{Trditev:} "Ce je $s \in \QQ \quad 1 < s < r$, potem velja $1 + \dfrac{r}{n} > \left(1 + \dfrac{1}{n}\right)^s$ \\
+	\textbf{Dokaz trditve:} $s = \dfrac{p}{q}, p, q \in \NN$
+	\begin{gather*}
+	\begin{aligned}
+	1 + \dfrac{r}{n} &> \left(1+\dfrac{1}{n}\right)^{\frac{p}{q}} \\
+	\left(1 + \dfrac{r}{n}\right)^q &> \left(1 + \dfrac{1}{n}\right)^p
+	\end{aligned} \\
+	\dashuline{\left(1 + \dfrac{r}{n}\right)^q - \left(1 + \dfrac{1}{n}\right)^p > 0}
+	\end{gather*}
+	\begin{multline*}
+		\left(1 + \dfrac{r}{n}\right)^q - \left(1 + \dfrac{1}{n}\right)^p =\\=
+		 1 + q\dfrac{r}{n} + \dfrac{1}{n^2}(\cdots) - (1 + \dfrac{p}{n} + \dfrac{1}{n^2}(\cdots)) = \dfrac{1}{n}(qr - p) + \dfrac{1}{n^2}(\cdots) = \\
+		 = \underbrace{\dfrac{1}{n}}_{>0}(\underbrace{(qr - p)}_{>0} + \dfrac{1}{n}(\cdots)) > 0
+	\end{multline*}
+	$qr - p > 0$, ker $r>\dfrac{p}{q} \Rightarrow qr > p$. \quad $\dfrac{1}{n}(\cdots) > 0$ za dovolj velik $n$, ker je limita tega "clena 0.
+	%
+	\begin{align*}
+	\dfrac{a_n}{a_{n+1}} &\geq 1 + \dfrac{r}{n} > \left(1+\dfrac{1}{n}\right)^s = \left(\dfrac{n+1}{n}\right)^s \\
+	a_{n+1} &\leq a_n \left(\dfrac{n}{n+1}\right)^s \text{ za dovolj velik $n$} \\
+	a_{n_0 +1} &\leq a_{n_0} \left(\dfrac{n_0}{n_0 + 1}\right)^s \\
+	a_{n_0 +2} &\leq a_{n_0+1} \left(\dfrac{n_0+1}{n_0 + 2}\right)^s < a_{n_0} \left(\dfrac{n_0}{n_0 + 1}\right)^s \cdot \left(\dfrac{n_0}{n_0 + 1}\right)^s = a_{n_0} \dfrac{n_0^s}{(n_0 + 2)^s} \\
+	a_{n_0 + 3} &\leq a_{n_0 + 2}(\cdots) < a_{n_0} \dfrac{n_0^s}{(n_0 + 3)^s} \\
+	a_{n_0 + k} &\leq a_{n_0} \dfrac{n_0^s}{(n_0 + k)^s} \quad \forall k \in \NN
+	\end{align*}
+	\begin{equation*}
+	\sum_{k=1}^{\infty}a_{n_0}\dfrac{n_0^s}{(n_0 + k)^s} = a_{n_0}n_0^s \sum_{k = 1}^{\infty}\dfrac{1}{(n_0+k)^s}
+	\end{equation*}
+	Ta vrsta konvergira, ker je $s > 1$ in je ostanek vrste $\sum_{k=1}^{\infty}\dfrac{1}{k^s}$. Torej po primerjalnem kriteriju konvergira tudi vrsta $\sumalln{1}a_n$.
+	
+	\item Naj bo $r_n \leq 1$ za vse $n \in \NN$.
+	\begin{align*}
+	n\left(\dfrac{a_n}{a_{n+1}} - 1\right) &\leq 1 \\
+	\dfrac{a_n}{a_{n+1}} - 1 &\leq \dfrac{1}{n} \\
+	\dfrac{a_n}{a_{n+1}} &\leq 1 + \dfrac{1}{n} = \dfrac{n+1}{n} \\
+	a_{n+1} &\geq \dfrac{n}{n+1}a_n \\	
+	a_{n+2} &\geq \dfrac{n+1}{n+2}a_{n+1} \geq \dfrac{n+1}{n+2} \cdot \dfrac{n}{n+1}a_n = \dfrac{n}{n+2}a_n \\
+	a_{n+k} &\geq \dfrac{n}{n+k}a_n \\
+	a_{k+1} &\geq \dfrac{1}{k+1}a_1
+	\end{align*}
+	\begin{equation*}
+	\sum_{k = 1}^{\infty}\dfrac{1}{k+1}a_1 = a_1 \sum_{k=1}^{\infty}\dfrac{1}{k+1}
+	\end{equation*}
+	Je harmoni"cna vrsta, ki divergira. Po primerjalnem kriteriju divergira tudi $\sumalln{1}a_n$.
+\end{enumerate}
+\textsc{Primer:} Obravnavaj konvergenco $\sumalln{1}\dfrac{n!}{(x+1)(x+2)\ldots(x+n)}, x > 0$.
+\begin{itemize}
+	\item \textbf{Kvocientni:}
+	\begin{equation*}
+	d_n = \dfrac{a_{n+1}}{a_n} = \dfrac{(x+1)\ldots(x+n)(n+1)!}{(x+1)(x+2)\ldots(x+n+1)n!} = \dfrac{n+1}{x+n+1}
+	\end{equation*}
+	$\limninf d_n = 1$ in kriterij ne da odgovora
+	\item \textbf{Raabejev:}
+	\begin{gather*}
+	r_n = n\left(\dfrac{a_n}{a_{n+1}}-1\right) = n\left(\dfrac{x+n+1}{n+1} - 1\right) = \dfrac{nx}{n+1} \\
+	\limninf r_n = x
+	\end{gather*}
+	\begin{itemize}
+		\item "Ce je $x > 1$, potem vrsta konvergira.
+		\item "Ce je $x < 1$, potem vrsta divergira.
+		\item "Ce je $x = 1: \sumalln{1}\dfrac{n!}{2\cdot3\cdot n+1} = \sumalln{1}\dfrac{1}{n+1}$ divergira.
+	\end{itemize}
+\end{itemize}
+%
+\subsection{Absolutna konvergenca}
+\deff Naj bo $\sumalln{1}a_n$ "stevilska vrsta. Pravimo, da vrsta $\sumalln{1}a_n$ \emph{absolutno konvergira}, "ce konvergira vrsta $\sumalln{1}|a_n|$. \\
+\textbf{Opomba:} Za vrste z nenegativnimi "cleni, je absolutna konvergenca isto kot konvergenca.
+
+\textsc{Izrek:} Naj bo $\sumalln{1}a_n$ "stevilska vrsta. "Ce $\sumalln{1}a_n$ absolutno konvergira, potem $\sumalln{1}a_n$ konvergira.
+
+\textsc{Dokaz:} Vemo: $\sumalln{1}a_n$ konvergira natanko takrat, ko $\sumalln{1}a_n$ izpolnjuje Cauchyjev pogoj. Spomnimo se Cauchyjevega pogoja za vrste:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0 \forall k \in \NN: |a_{n+1} + \cdots + a_{n+k}| < \varepsilon
+\end{equation*}
+Naj vsota $\sumalln{1}|a_n|$ konvergira, zato izpolnjuje Cauchyjev pogoj. Doka"zimo, da \dashuline{$\sumalln{1}a_n$ izpolnjuje Cauchyjev pogoj.}\\
+Izberemo $\varepsilon$.
+\begin{equation*}
+|a_{n+1} + \cdots + a_{n+k}| \leq \underbrace{|a_{n+1}| + \cdots + |a_{n+k}|}_{||a_{n+1}| + \cdots + |a_{n+k}|| < \varepsilon} < \varepsilon
+\end{equation*}
+\hfill $\square$
+
+\textsc{Primer:} Ugotovi ali vrsta konvergira
+\begin{equation*}
+\sumalln{1}\dfrac{\sin n}{n^2}
+\end{equation*}
+\dashuline{$\sumalln{1}\left|\dfrac{\sin n}{n^2}\right|$ konvergira}. Vemo $|\sin n| \leq 1$:
+\begin{equation*}
+\left|\dfrac{\sin n}{n^2}\right| \leq \dfrac{1}{n^2} \quad \sumalln{1}\dfrac{1}{n^2} \text{ konvergira}
+\end{equation*}
+Po primerjalnem kriteriju $\sumalln{1}\left|\dfrac{\sin n}{n^2}\right|$ konvergira.
+
+\textsc{Izrek:}(\emph{Leibnizov kriterij} za alternirajo"ce vrste) Naj bo $a_n$ padajo"ce zaporedje pozitivnih "stevil z limito 0. Tedaj vrsta $\sumalln{1}(-1)^na_n$konvergira. Velja ocena:
+\begin{equation*}
+\left|\sumalln{0}(-1)^n a_n - \sum_{n=0}^{m-1}(-1)^n a_n\right| \leq a_m
+\end{equation*}
+\textsc{Primer:} $\sumalln{1}(-1)^n\dfrac{1}{n}$ alternirajo"ca harmoni"cna vrsta. $a_n = \dfrac{1}{n}$ ustreza pogojem, zato vrsta konvergira. Ne konvergira absolutno (ker harmoni"cna vrsta divergira).
+
+\deff naj bo $\sumalln{1}a_n$ "stevilska vrsta. "Ce je $\sumalln{1}a_n$ konvergentna, ni pa absolutna konvergentna, potem re"cemo, da je \emph{pogojno konvergentna}.
+
+\textsc{Dokaz:}
+\begin{gather*}
+\begin{aligned}
+	s_n &= a_0 - a_1 + a_2 - a_3 + \cdots + (-1)^{n-1}a_{n-1} \\
+	s_{2n+1} &=  (\underbrace{a_0 - a_1 + a_2 - a_3 + \cdots}_{s_{2n-1}}) - \underbrace{a_{2n-1} + a_{2n}}_{> 0} \leq s_{2n-1} \intertext{$\Rightarrow s_{2n+1}$  je padajo"ce}
+	s_{2n+2} &= (\underbrace{a_0 - a_1 + a_2 - a_3 + \cdots}_{s_{2n}}) + \underbrace{a_{2n} - a_{2n+1}}_{>0} \geq s_{2n}
+	\intertext{$\Rightarrow s_{2n}$  je nara"s"cajo"ca}
+	s_{2_n+1} &= (a_0-a_1)+(a_2-a_3)+\cdots+(a_{2n-2}-a_{2n-1}) + a_{2n} \geq 0 \ \\
+	s_{2n+2} &= a_0 +(-a_1 + a_2) +(-a_3 + a_4) + \cdots + (-a_{2n-1} + a_{2n}) - a_{2n+1} \leq a_0
+\end{aligned}
+\end{gather*}
+$\Rightarrow s_{2n+1}$ je navzdol omejeno \\
+$\Rightarrow s_{2n+2}$ je navzgor omejeno
+
+$\Rightarrow s_{2n+1}, s_{2n+2}$ sta konvergentni podzaporedji v $s_n$.
+\begin{equation*}
+s_{2n+1} = s_{2n} + \underbrace{a_{2n}}_{\to 0}
+\end{equation*}
+Zato velja $\limninf s_{2n+1} = \limninf s_{2n}$. Zato je $s_n$ konvergentno $\Rightarrow \sumalln{1}(-1)^na_n$ konvergira.
+\begin{equation*}
+|s_{m+k} - s_m| = |(-1)^m||a_m+(-a_{m+1}+a_{m+2})+(-\cdots) + (-1^{k-1})a_{m+k-1}| \leq a_m
+\end{equation*}
+$k \to \infty: |s - s_m| \leq a_m \hfill \square$
+%
+\subsection{O preureditvah vrst}
+Zamenjava vrstnega reda se"stevanja.
+\begin{align*}
+\sumalln{1}a_n &= a_1 + a_2  \cdots + a_n + \cdots \\
+\pi&: \NN\to \NN \text{ bijekcija} \\
+\sumalln{1}a_{\pi(n)} &= a_{\pi(1)} + a_{\pi(2)} + \cdots + a_{\pi(n)} + \cdots
+\end{align*}
+\textsc{Izrek:} Naj bo $\sumalln{1}a_n$ absolutno konvergentna vrsta in $\pi: \NN \to \NN$ bijektivna preslikava. Potem je $\sumalln{1}a_{\pi(n)}$ konvergentna in velja:
+\begin{equation*}
+\sumalln{1}a_n = \sumalln{1}a_{\pi(n)}
+\end{equation*}
+\textsc{Dokaz:}
+\begin{equation*}
+s_n = a_1 + a_2 + \cdots + a_n, \quad s = \limninf s_n
+\end{equation*}
+Dokazujemo \dashuline{$\sumalln{1}a_{\pi(n)} = s$}
+\begin{equation*}
+\left|s-\sum_{k=1}^{m}a_{\pi(k)}\right| = \left|s - s_n - \underbrace{\sum_{k=1}^{m}a_{\pi(k)}}_{\text{razen }\pi(k)\in\{1\ldots n\}}\right| \leq |s - s_n| + \sum_{k=1}^{m}|a_{\pi(k)}| \leq |s-s_n| + \sum_{k = m+1}^{\infty}|a_k| < \varepsilon
+\end{equation*}
+\begin{itemize}
+	\item $|s-s_n < \frac{\varepsilon}{2}$, ker $\exists n_0 \forall n \geq n_0$ to velja.
+	\item $\exists m_0 \forall n \geq m_0: \sum_{k=n+1}^{\infty}|a_n| < \frac{\varepsilon}{2}$
+	\item $\exists m \in \NN: \{\pi(1), \ldots, \pi(m)\} \supset \{1, 2, \ldots, n\}$
+\end{itemize}
+%
+\textsc{Izrek:}(Reimann) Naj bo $\sumalln{1}a_n$ pogojno konvergenta. Potem $\forall A \in \RR$ obstaja bijekcija $\pi: \NN \to \NN$, da je $\sumalln{1}a_{\pi(n)} = A$. Obstaja "se dve bijekciji $\pi_1, \pi_2: \NN \to \NN$
+\begin{align*}
+\lim_{m\to \infty} \sum_{n=1}^{m} a_{\pi_1(n)} &= \infty \\
+\lim_{m\to \infty} \sum_{n=1}^{m} a_{\pi_2(n)} &= -\infty
+\end{align*}
+\textsc{Dokaz:} Predpostaviti smemo, da $a_n \neq 0 \forall n$.
+\begin{equation*}
+s_n = a_1 + \cdots + a_n = P_{k(n)} - Q_{m(n)}
+\end{equation*}
+Pri "cemer so v $P_{k(n)}$ se"steti vsi pozitivni "cleni, med $a_1$ in $a_n$, v $Q_{m(n)}$ pa nasprotne vrednosti vseh negativnih "clenov med $a_1$ in $a_n$.
+\begin{align*}
+P_{k(n)} &= p_1 + p_2 + \cdots + p_{k(n)} \\
+Q_{m(n)} &= q_1 + q_2 + \cdots + q_{m()}
+\end{align*}
+Velja tudi $k(n) + m(n) = n$.
+\begin{equation*}
+P_{k(n)} + Q_{m(n)} = |a_1| + |a_2| + \cdots + |a_n|
+\end{equation*}
+\dashuline{$\sumalln{1}p_n$ in $\sumalln{1}q_n$ divergirata}
+\begin{itemize}
+	\item "Ce bi obe konvergirali, bi $\sumalln{1}|a_n$ konvergirala $\rightarrow \leftarrow$
+	\item "Ce bi ena konvergirala, druga pa ne: iz $s_n = P_{k(n)} - Q_{m(n)}$ sledi, da "ce bi ena od vrst konvergirala bi tudi druga, ker $s_n$ konvergira.
 \end{itemize}

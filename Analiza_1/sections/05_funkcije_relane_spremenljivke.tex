@@ -1,0 +1,179 @@
+\deff Naj bo $D \subseteq \RR$. \emph{(Realna) funkcija (realne spremenljivke)} je preslikava
+\begin{equation*}
+f: D \to \RR
+\end{equation*}
+Spomnimo se, da je preslikava predpis, za katerega velja
+\begin{equation*}
+\forall x \in D \exists! y \in \RR: y = f(x)
+\end{equation*}
+\textsc{Opombi:}
+\begin{enumerate}
+	\item V pojmu funkcija sta zdru"zena dve predpostavki:
+	\begin{itemize}
+		\item definicijsko obmo"cje
+		\item predpis
+	\end{itemize}
+
+	\item Funkciji $f$ in $g$ sta enki, "ce imata enako definicijsko obmo"cje in predpis.
+\end{enumerate}
+\textsc{Dogovor:} Funkcijo lahko podamo samo s spredpisom. V tem primeru vzamemo za definicjsko obmo"cje mno"zico vseh $x$, za katero ima predpis smisel.
+
+\textsc{Primer:}
+\begin{enumerate}[1)]
+	\item $f(x) = \sqrt{x} \quad D_f = [0, \infty)$
+	\item Ali sta funkciji, ki sta dani s predpisoma
+	\begin{align*}
+	f(x) &= \ln (x-1) + \ln (x+1) \\
+	g(x) &= \ln (x^2 - 1)
+	\end{align*}
+	enaki?
+	\begin{align*}
+	D_f &= (1, \infty) \\
+	D_g &= (-\infty, -1) \cup (1, \infty)
+	\end{align*}
+	Nista enaki, vedar data enake vrednosti na preseku definicijskih obmo"cji.
+	\begin{equation*}
+	\forall x \in D_f \cap D_g: f(x) = g(x)
+	\end{equation*}
+\end{enumerate}
+\deff Naj bosta $f$ in $g$ funkciji. "Ce velja $D_f \subset D_g$ in "ce velja $f(x) = g(x)$ za vse $x \in D_f$, potem re"cemo, da je funkcija $g$ \emph{raz"siritev} funkcije $f$ in da je $f$ \emph{zo"zitev} funkcije $g$. Zo"zitev zapi"semo kot
+\begin{equation*}
+g|_{D_f} = f
+\end{equation*}
+\deff Naj bo $f$ funkcija. Mno"zico
+\begin{equation*}
+\Gamma_f = \{(x, f(x)): x \in D_f\} \subset \RR^2
+\end{equation*}
+imenujemo \emph{graf funkcije}.
+
+\textsc{Opomba:}
+\begin{enumerate}
+	\item Funkcija $f$ je s svojim grafom natan"cno dolo"cena.
+	\item Katere podmno"zice $S \subseteq \RR^2$ so grafi funkcij? Presek vsake navpi"cne premice z mno"zico $S$ je to"cka ali prazna mno"zica.
+\end{enumerate}
+%
+\subsection{Operacije s funkcijami}
+\deff Naj bosta $f: D_f \to \RR$ in $g: D_g \to \RR$ funckiji. "Ce je $Z_f \subset D_g$, potem lahko definiramo \emph{kompozitum funkcij}
+\begin{equation*}
+g \circ f: D_f \to \RR
+\end{equation*}
+s predpisom:
+\begin{equation*}
+(g \circ f)(x) = g(f(x))
+\end{equation*}
+Ni nujno, da bi bila $g\circ f$ in $f \circ g$ v kak"sni zvezi.
+
+\textsc{Primer:}
+\begin{enumerate}[1)]
+	\item $f(x) = x^2 + 1$, $g(x) = \ln x^2$. $D_f = \RR$, $D_g =\RR \setminus \{0\}$
+	\begin{align*}
+	(f \circ g)(x) &= f(g(x)) = f(\ln x^2) = \ln^2 x^2 + 1 = 4\ln^2|x| + 1 \\
+	(g \circ f)(x) &= g(f(x)) = g(x^2 + 1) = \ln(x^2 + 1)^2 = 2 \ln(x^2 + 1)
+	\end{align*}
+	
+	\item $f(x) = x^2$ ni injektivna
+	\begin{equation*}
+	f|_{[0, \infty)}: [0, \infty) \to \RR
+	\end{equation*}
+	je injektivna. Naredimo lahko inverzno funkcijo $f^{-1} : Z_f \to \RR$ s predpisom $f^{-1}(x) = \sqrt{x}$
+\end{enumerate}
+\deff Naj bo $f: D \to \RR$ injektivna funkcija z zalogo vrednosti $Z_f$. Inverzno preslikavo $f^{-1}: Z_f \to \RR$ imenujemo \emph{inverzna funkcija}. Njen predpis je znan "za iz poglavja o preslikavah
+\begin{equation*}
+f^{-1}(b) = a \iff f(a) = b
+\end{equation*}
+\textsc{Primer:} Funkcija $f$ je dana s predpisom:
+\begin{equation*}
+f(x) = \dfrac{2x + 3}{3x - 1}
+\end{equation*}
+Dolo"ci inverzno funkcijo, "ce obstaja.
+\begin{gather*}
+D_f = \RR \setminus \left\{\dfrac{1}{3}\right\}\\
+\begin{aligned}
+y &= \dfrac{2x + 3}{3x-1} \\
+y(3x - 1) &= 2x + 3 \\
+3xy - 2x &= 3 + y \\
+x(3y - 2) &= 3 + y \\
+x &= \dfrac{3 + y}{3y- 2}
+\end{aligned}
+\end{gather*}
+Iz ra"cuna sledi: "ce je $y \neq \dfrac{2}{3}$, potem obstaja natanko en $x$ za katerega velja $f(x) = y$. Torej je $Z_f = \RR \setminus \left\{\dfrac{2}{3}\right\}$, $f$ je injektivna in $f^{-1}(y) = \dfrac{y+3}{3y - 2}$.
+%
+\begin{align*}
+\Gamma_f &= \{(x, f(x)): x \in D_f\} = \{(f^{-1}(y), y): y \in Z_f\} \\
+\Gamma_{f^{-1}} &= \{(y, f^{-1}(y): y \in Z_f)\}
+\end{align*}
+Zato je $\Gamma_{f^{-1}}$ dobljen iz $\Gamma_f$ z zrcaljenjem preko simetrale lihih kvadrantov.
+
+\deff Naj bo $f$ funkcija. 
+\begin{itemize}
+	\item Pravimo, da je $f$ navzogr omejena, "ce je $Z_f$ navzgor omejena, t.j.:
+	\begin{equation*}
+	\exists M \in \RR \forall x \in D_f : f(x) \leq M
+	\end{equation*}
+	
+	\item Pravimo, da je $f$ navzdol omejena, "ce je $Z_f$ navzdol omejena, t.j.:
+	\begin{equation*}
+	\exists m \in \RR \forall x \in D_f : f(x) \geq m
+	\end{equation*}
+	
+	\item Funkcija $f$ je omejena, kadar je navzgor in navzdol omejena.
+	
+	\item "Ce je $f$ navzgor omejena, potem je supremum funkcije $f$ natan"cna zgornja meja zaloge vrednosti
+	\begin{equation*}
+	\sup f := \sup Z_f
+	\end{equation*}
+	
+	\item "Ce je $f$ navzdol omejena, potem je infimum funkcije $f$ natan"cna spodnja meja zaloge vrednosti
+	\begin{equation*}
+	\inf f := \inf Z_f
+	\end{equation*}
+	
+	\item "Ce obstaja maksimum zaloge vrednosti, velja
+	\begin{equation*}
+	\max f := \max Z_f
+	\end{equation*}
+	
+	\item "Ce obstaja minimum zaloge vrednosti, velja
+	\begin{equation*}
+	\min f := \min Z_f
+	\end{equation*}
+\end{itemize}
+\deff Naj bo $f$ funkcija. Pravimo, da je $x \in D_f$ \emph{ni"cla} funkcije $f$, "ce
+\begin{equation*}
+f(x) = 0
+\end{equation*}
+\deff Naj bosta $f, g : D \to \RR$ funkciji. Funkcije $f+g, f-d, f\cdot g: D \to \RR$ definiramo s predpisi:
+\begin{align*}
+(f+g)(x) &= f(x) + g(x) \\
+(f-g)(x) &= f(x) - g(x) \\
+(f\cdot g)(x) &= f(x) \cdot g(x)
+\end{align*}
+"Ce $\forall x \in D g(x) \neq 0$, potem definiramo $\dfrac{f}{g}: D \to \RR$ s predpisom
+\begin{equation*}
+\left(\dfrac{f}{g}\right)(x) = \dfrac{f(x)}{g(x)}
+\end{equation*}
+\deff Naj bosta $f, g : D \to \RR$ funkciji. Funkciji $\max \{f, g\}, \min \{f, g\}: D \to \RR$ definiramo s predpisoma:
+\begin{align*}
+\max \{f, g\}(x) &:= \max\{f(x), g(x)\}\\
+\min \{f, g\}(x) &:= \min\{f(x), g(x)\}
+\end{align*}
+\deff Naj bo $\Gamma$ mno"zica in naj bo za vsak $\gamma \in \Gamma$
+\begin{equation*}
+f_\gamma: D \to \RR
+\end{equation*}
+funkcija. "Ce je $\{f_\gamma(x): \gamma \in \Gamma\}$ navzgor omejena za vsak $x \in D$, potem lahko definiramo funkcijo
+\begin{equation*}
+\sup_{\gamma \in \Gamma}f_\gamma: D \to \RR
+\end{equation*}
+s predpisom
+\begin{equation*}
+(\sup_{\gamma \in \Gamma} f_\gamma)(x) = \sup \{f_\gamma(x): \gamma \in \Gamma\}
+\end{equation*}
+Podobno definiramo 
+\begin{equation*}
+\inf_{\gamma \in \Gamma}f_\gamma: D \to \RR
+\end{equation*}
+\textsc{Primer:} $f_\gamma(x) = \dfrac{1}{1 + \gamma x^2}, \gamma \in (0, \infty)$, $D_{f_\gamma} = \RR$
+\begin{equation*}
+\left\{\dfrac{1}{1 + \gamma x^2}: \gamma \in (0, \infty)\right\} \text{ je navzgor omejena z 1 in navzdol omejena z 0}
+\end{equation*}

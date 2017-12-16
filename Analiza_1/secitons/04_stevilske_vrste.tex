@@ -530,3 +530,130 @@ P_{k(n)} + Q_{m(n)} = |a_1| + |a_2| + \cdots + |a_n|
 	\item "Ce bi obe konvergirali, bi $\sumalln{1}|a_n$ konvergirala $\rightarrow \leftarrow$
 	\item "Ce bi ena konvergirala, druga pa ne: iz $s_n = P_{k(n)} - Q_{m(n)}$ sledi, da "ce bi ena od vrst konvergirala bi tudi druga, ker $s_n$ konvergira.
 \end{itemize}
+\dashuline{$\limninf p_n = 0, \limninf q_n = 0$}
+
+Vemo: ker $\sumalln{1}a_n$ konvergira, je $\limninf a_n = 0$. $p_n$ je podaporedje v $a_n \Rightarrow \limninf p_n = 0$. Podobno velja za $q_n$. Torej
+\begin{equation*}
+\limninf a_n = \limninf p_n = \limninf q_n = 0
+\end{equation*}
+
+Sedaj lahko sestavimo, tako zaporedje, ki konvergira proti $A \in \RR$. Obstaja najmanj"si $k_1 \in \NN$, da velja
+\begin{gather*}
+p_1 + p_2 + \cdots + p_{k_1} > A \\
+p_1 + p_2 + \cdots + p_{k_1 - 1} \leq A
+\end{gather*}
+Obstaja najmanj"si $k_2 \in \NN$, da velja:
+\begin{gather*}
+p_1 + \cdots + p_{k_1} - q_1 - q_2 - \cdots - q_{k_2} < A \\
+p_1 + \cdots + p_{k_1} - q_1 - \cdots - q_{k_2-1} \geq A
+\end{gather*}
+Postopek nadaljujemo. Ker je $\limninf p_n = \limninf q_n = 0$, bo preurejena vrsta konvergentna z vsoto $A$. Dobili smo bijektivno preslikavo po konstrukciji.
+
+"Ce "zelimo skonstruirati vrsto, ki konvergira proti neskon"cno $A = \infty$ naredimo slede"ce
+\begin{align*}
+p_1 + p_2 + \cdots + p_{k_1} &> 1 \\
+p_1 + \cdots + p_{k_1} - q_1 + p_{k_1+1} + p_{k_1 + 2} + \cdots + p_{k_2} &> 2
+\end{align*}
+\hfill $\square$
+
+\subsection{Mno"zenje vrst}
+Naj bosta $\sumalln{1}a_n$ in $\sumalln{1} b_n$ "stevilski vrsti.
+\begin{align*}
+&(a_1 + a_2 + \cdots + a_n)(b_1 + b_2 + \cdots + b_n) = \\
+&= a_1 b_1 + a_1 b_2 + \cdots + a_1 b_n + \\
+&+ a_2 b_1 + a_2 b_2 + \cdots + a_2 b_n + \cdots
+\end{align*}
+To lahko zapi"semo v tabelo, podobno kot urejenost racionalnih "stevil. Vsota iz vseh produktov je vrsta oblke
+\begin{equation*}
+\sum_{s=1}^{\infty} a_{i_s} b_{k_s}
+\end{equation*}
+kjer je $\NN \to \NN \times \NN$ bijektivna preslikava s predpisom $s \mapsto (i_s, k_s)$. \emph{Cauchyjev produkt}
+\begin{equation*}
+c_n = a_1b_{n-1} + a_2 b_{n-2} + \cdots + a_{n-1} b_1
+\end{equation*}
+je produkt kontra diagonal v tabeli. Vsota produktov je
+\begin{equation*}
+\sumalln{1}c_n
+\end{equation*}
+\textsc{Izrek:} Naj bosta $\sumalln{1}a_n$ in $\sumalln{1}b_n$ absolutno konvergentni "stevilski vrsti. Potem je vrsta, ki je sestavljena iz vseh produktov konvergentna in njena vsota je
+\begin{equation*}
+\left(\sumalln{1}a_n\right)\left(\sumalln{1}b_n\right)
+\end{equation*}
+Natan"cneje, za vsako bijektivno preslikavo $\varphi: \NN\to \NN \times \NN$, je vrsta
+\begin{equation*}
+\sum_{s=1}^{\infty}a_{\varphi_1(s)} b_{\varphi_2(s)}
+\end{equation*}
+konvergentna in velja:
+\begin{equation*}
+\sum_{s=1}^{\infty}a_{\varphi_1(s)} b_{\varphi_2(s)} = \left(\sumalln{1}a_n\right)\left(\sumalln{1}b_n\right)
+\end{equation*}
+\textsc{Dokaz:} dokazujemo absolutno konvergenco vrste iz vseh produktov. \dashuline{$\sum_{s=1}^{\infty}|a_{\varphi_1(s)} b_{\varphi_2(s)}|$ je konvergenta}
+
+Zaporedje delnih vsot:
+\begin{equation*}
+|a_{\varphi_1(1)} b_{\varphi_2(1)}| + |a_{\varphi_1(2)} b_{\varphi_2(2)}| + \cdots + |a_{\varphi_1(m)} b_{\varphi_2(m)}|
+\end{equation*}
+Obstaja $n_0 = \max \{\varphi_1(1), \varphi_1(2), \ldots, \varphi_1(m)\}$ in $k_0 = \max \{\varphi_2(1), \varphi_2(2), \dots, \varphi_2(m)\}$, tako da lahko zgornjo vsoto omejimo navzgor in dobimo
+\begin{multline*}
+|a_{\varphi_1(1)} b_{\varphi_2(1)}| + |a_{\varphi_1(2)} b_{\varphi_2(2)}| + \cdots + |a_{\varphi_1(m)} b_{\varphi_2(m)}| \leq  \\
+\leq \left(|a_1| + |a_2| + \cdots + |a_{n_0}|\right)\left(|b_1| + |b_2| + \cdots + |b_{k_0}|\right) \leq \\ 
+\leq \underbrace{\left(\sumalln{1}|a_n|\right) \left(\sumalln{1}|b_n|\right)}_{\text{"stevilo}}
+\end{multline*}
+Ker $\sumalln{1}a_n$ absolutno konvergira, $\sumalln{1}|a_n|$ konvergira. Podobno velja za $|b_n|$.
+
+Zaporedje delnih vsot $\sum_{s=1}^{\infty}|a_{\varphi_1(s)} b_{\varphi_2(s)}|$ je navzgor omejeno, zato je vrsta z nenegativnimi "cleni konvergentna.
+
+Vosta vrste je neodvisna od izbire vrstnega reda "clenov, zato izberemo vrstni red ,,po kvadratih''.
+\begin{equation*}
+s_{m^2} = \left(\sum_{n=1}^{m}a_n\right) \left(\sum_{n=1}^{m}b_n\right)
+\end{equation*}
+\begin{equation*}
+\lim_{m\to \infty} s_{m^2} = \left(\sumalln{1}a_n\right) \left(\sumalln{1}b_n\right)
+\end{equation*}
+Vsako podzaporedje konvergentnega zaporedja konvergira proti limiti zaporedja, zato tudi $s_m$ konvergira k temu "stevilu.
+
+\hfill $\square$
+
+\textsc{Primer:} $a_n = b_n = (-1)^n \dfrac{1}{\sqrt{n+1}}$.
+
+$\sumalln{1}a_n = \sumalln{1}(-1)^n \dfrac{1}{\sqrt{n+1}}$ konvergira po Leibnizevem kriteriju, vendar ne konvergira absolutno. Izra"cunajmo produkt vrst s Cauchyjevo ureditvijo
+\begin{multline*}
+c_n = a_1 b_{n-1} + a_2 b_{n-2} + \cdots + a_{n-1} b_1 = \\
+= (-1) \dfrac{1}{\sqrt{2}} \cdot (-1)^{n-1} \dfrac{1}{\sqrt{n}} + (-1)^2 \dfrac{1}{\sqrt{3}} \cdot (-1)^{n-2} \dfrac{1}{\sqrt{n-1}} + \cdots + (-1)^{n-1}\dfrac{1}{\sqrt{n}}\cdot (-1)\dfrac{1}{\sqrt 2} = \\
+=(-1)^n \sum_{k=1}^{n-1} \dfrac{1}{\sqrt{(k+1)(n+1-k)}}
+\end{multline*}
+\begin{equation*}
+|c_n| = \sum_{k=1}^{n-1} \dfrac{1}{\sqrt{\underbrace{(k+1)}_{\leq n} \underbrace{(n+1-k)}_{\leq n}}} \geq \sum_{k=1}^{n-1}\dfrac{1}{n} \geq \dfrac{n-1}{n}
+\end{equation*}
+$\sumalln{1}c_n$ divergira, ker "cleni ne gredo proti 0.
+
+\subsection{Dvakratne vrste}
+Imamo neskon"cno matriko $[a_{ij}]$
+\begin{equation*}
+\begin{matrix}
+a_{11} & a_{12} & a_{13} & a_{14} & \cdots \\
+a_{21} & a_{22} & a_{23} & a_{24} & \cdots \\
+a_{31} & a_{32} & a_{33} & a_{34} & \cdots \\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{matrix}
+\end{equation*}
+Formalni vrsti
+\begin{equation*}
+\sum_{i=1}^{\infty} \left(\sum_{j=1}^{\infty}a_{ij}\right)
+\end{equation*}
+in
+\begin{equation*}
+\sum_{j=1}^{\infty} \left(\sum_{i=1}^{\infty}a_{ij}\right)
+\end{equation*}
+imenujemo \emph{dvakratni vrsti}, "ce $\sum_{j=1}^{\infty}a_{ij}$ konvergira za vsak $i$, oziroma "ce $\sum_{i = 1}^{\infty} a_{ij}$ konvergira za vsak $j$.
+
+Naj bo $\varphi: \NN \to \NN \times \NN$ bijektivna preslikava. Elemente $[a_{ij}]$ s $\varphi$ uredimo v zaporedje in sestavimo "stevilsko vrsto.
+\begin{equation}
+\label{eq:dvojna_vrsta}
+\sum_{s=1}^{\infty}a_{\varphi(s)}
+\end{equation}
+\textsc{Velja:}
+\begin{enumerate}[1)]
+	\item "Ce~\ref{eq:dvojna_vrsta} absolutno konvergira, potem dvakratni vrsti konvergirata in vse tri imajo enako vsoto.
+	\item "Ce dvakratna vrsta konvergira, ko njene "clene nadomestimo z absoutnimi vrednostmi, potem~\ref{eq:dvojna_vrsta} konvergira in vsote so enake.
+\end{enumerate}

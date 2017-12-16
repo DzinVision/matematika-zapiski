@@ -413,3 +413,189 @@ $\LL(V, V) \equiv \LL(V)$ -- mno"zica vseh endomorfizmov vektorskega prostora $V
 (\A \mathcal{B})x &= A(Bx), \forall x \in V
 \end{align*}
 Mno"zenje je operacija na $\LL(V): A, \mathcal{B} \in \LL(V) \Rightarrow \A \mathcal{B} \in \LL(V)$.
+
+$(\LL(V), \cdot)$ je polgrupa (mno"zenje je asociativno) in velja
+\begin{itemize}
+	\item $\A(\mathcal{B} + \mathcal{C}) = \A \mathcal{B} + \A \mathcal{C}$
+	\item $(\mathcal{B} + \mathcal{C}) \A = \mathcal{B} \A + \mathcal{C} \A$
+\end{itemize}
+$(\LL(V), +, \cdot)$ je kolobar. Velja "se:
+\begin{equation*}
+(\alpha \A) (\beta \mathcal{B}) = (\alpha \beta) (\A \mathcal{B})
+\end{equation*}
+Pravimo, da je $\LL(V)$ \emph{algebra} nad $\OO$.
+
+\textsc{Definicija:} $\A$ je \emph{algebra} nad komutativnim obsegom $\OO$, kadar je $\A$ vektorski prostor nad $\OO$, v katerem je dano mno"zenje
+\begin{equation*}
+\A \times \A \to \A \quad ((a, b) \mapsto ab)
+\end{equation*}
+ki ustreza pogojem:
+\begin{itemize}
+	\item $(\A, +, \cdot)$ je kolobar
+	\item $(\alpha a) (\beta b) = (\alpha \beta) (ab)$ \hfill $\forall \alpha, \beta \in \OO, \quad \forall a, b, \in \A$
+\end{itemize}
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item $\LL(V)$ je algebra
+	\item $(\RR^M) \equiv \mathcal{F}(M, \RR)$ za operacije definirane po to"ckah je algebra
+	\item $\RR[x]$ algebra polinomov z realnimi koeficienti, kjer so operacije definirane po to"ckah
+\end{enumerate}
+$id_V \in \LL(V)$ je enota algebre $\LL(V)$
+\begin{equation*}
+id_V (x) = x \forall x \in V
+\end{equation*}
+%
+\subsection{Kon"cno razse"zni vektorski prostori}
+\textsc{Definicija:} Naj bo $V$ vektorski prostor nad $\OO$ in $M \subseteq V$. $M$ je \emph{ogrodje} vektorskega prostora $V$, kadar velja $\Lin M = V$
+
+$M \neq \varnothing$ je ogrodje vektorskega prostora $V$, kadar za vsak $x \in V$ velja
+\begin{equation*}
+\exists v_1, \dots v_m \in M, \alpha_1, \ldots, \alpha_m \in \OO: x = \alpha_1 v_1 + \cdots + \alpha_m v_m
+\end{equation*}
+\textsc{Definicija:} Vektorski prostor $V$ je \emph{kon"cno razse"zen}, kadar ima kak"sno kon"cno ogrodje.
+\begin{gather*}
+M = \{v_1, \ldots v_m\} \text{ ogrodje v.p. $V$} \\
+x \in V \Rightarrow x = \alpha_1v_1 + \cdots + \alpha_m v_m, \quad \alpha_1,\ldots \alpha_m \in \OO
+\end{gather*}
+Poglejmo si kako je z enoli"snostjo zapisa. Naj bo
+\begin{align*}
+0 &= 0v_1 + 0v_2 + \cdots + 0v_m \\
+0 &= \alpha_1 v_1 + \alpha_2 v_2 + \cdots + \alpha_m v_m
+\end{align*}
+"Ce je zapis enoli"cen, velja sklep
+\begin{equation*}
+\alpha_1v_1 + \cdots + \alpha_m v_m = 0 \Rightarrow \alpha_1 = \cdots = \alpha_m = 0
+\end{equation*}
+Poglejmo si "se, kako je v obratno smer. Naj velja prej"snji sklep
+\begin{gather*}
+\begin{aligned}
+x &= \alpha_1 v_1 + \cdots + \alpha_m v_m \\
+x &= \beta_1 v_1 + \cdots + \beta_m v_m
+\end{aligned}\\
+\begin{aligned}
+&\Rightarrow (\alpha_1 - \beta_1)v_1 + \cdots + (\alpha_m - \beta_m)v_m = 0 \\
+&\Rightarrow \alpha_1 -\beta_1 = \cdots = \alpha_m - \beta_m = 0 \\
+&\Rightarrow \beta_j = \alpha_j \quad \forall j = 1, \ldots, m
+\end{aligned}
+\end{gather*}
+Torej velja enoli"cnost zapisa.
+
+\textsc{Definicija:} Vektorji $v_1, \ldots v_m$ so \emph{linearno neodvisni}, kadar velja sklep
+\begin{equation*}
+\alpha_1 v_1 + \cdots + \alpha_m v_m = 0 \Rightarrow \alpha_1 = \cdots \alpha_m = 0
+\end{equation*}
+
+"Ce je $M = \{v_1, \ldots, v_m\}$ ogrodje vektorskega prostora $V$, potem vsak $x \in V$ lahko zapi"semo v obliki $x = \alpha_1 v_1 + \cdots + \alpha_m v_m$, pri "cemer so $\alpha_1, \ldots, \alpha_m$ enoli"cno dolo"ceni z $x$ natanko takrat, kadar so $v_1, \ldots v_m$ linearno neodvisni.
+
+"Ce so $v_1, \ldots, v_m$ linearno neodvisni, potem so razli"cni ($i \neq j \Rightarrow v_i \neq v_j$). Naj bo $v_1 = v_2$. Zapi"semo lahko:
+\begin{equation*}
+\underbrace{1}_{\neq 0}v_1 + \underbrace{(-1)}_{\neq 0}v_2 + 0v_3 + \cdots + 0v_m = 0
+\end{equation*}
+$\Rightarrow$ vektorji niso neodvisni.
+
+\textsc{Definicija:} Naj bo $M \subseteq V$. $M$ je linearno neodvisna, kadar je vsaka njena kon"cna podmno"zica linearno neodvisna.
+
+\textsc{Definicija:} Naj bo $M \subseteq V$. $M$ je \emph{baza} vektorskega prostora $V$, kadar je linearno neodvisna in hkrati ogrodje vektorskega prostora $V$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item Baze v $\RR^3$ so oblike $\{\vec{a}, \vec{b}, \vec{c}\}$, kjer so $\vec{a}, \vec{b}, \vec{c} \in \RR^3$ linearno neodvisni.
+	\item $V = \OO^n$
+	\begin{equation*}
+	e_j  (0, \ldots, 0, \underbrace{1}_{\text{$j$-to mesto}}, 0, \ldots, 0) \in \OO^n
+	\end{equation*}
+	$\{e_1, e_2, \ldots e_n\}$ je \emph{standardna baza} $\OO^n$.
+	\begin{equation*}
+	x = (\alpha_1, \ldots, \alpha_n) \in \OO^n \Rightarrow x = \alpha_1 e_1 + \cdots + \alpha_n e_n
+	\end{equation*}
+	
+	\item $V = \RR[x]$\\
+	\begin{gather*}
+		p(x) \in \RR[x] \\
+		p(x) = a_0 + a_1 x + \cdots + a_n x^n
+	\end{gather*}
+	Baza tega prostora je
+	\begin{equation*}
+	\{p_j(x) = x^j: j = 0, 1, \ldots\} = \{1, x, x^2, x^3, \ldots\}
+	\end{equation*}
+\end{enumerate}
+%
+\textsc{Definicija:} Vektorji $v_1, \ldots v_m$ so \emph{linearno odvisni}, kadar niso linearno neodvisni.
+
+Naj bodo $v_1, \ldots v_m$ linearno odvisni ($m > 1$). Potem obstajajo tudi skalarji $\alpha_1, \ldots \alpha_m \in \OO$, da niso vsi enako 0, vendar pa je
+\begin{equation*}
+\alpha_1 v_1 + \cdots + \alpha_m v_m = 0
+\end{equation*}
+Recimo, da $\alpha_1 \neq 0$, Potem je
+\begin{equation*}
+v_1 = \underbrace{(-\alpha_1^{-1} \alpha_2)}_{\beta_2}v_2 + \cdots + \underbrace{(-\alpha_1^{-1} \alpha_m)}_{\beta_m}v_m
+\end{equation*}
+$v_1$ je linearna kombinacija elemetnov $v_2, \ldots v_m$. 
+
+Potem obstaja tak $j \in \{j, \ldots, m\}$, da je $v_j$ linearna kombinacija vektorjev
+\begin{equation*}
+v_1, \ldots v_{j-1}, v_{j+1}, \ldots v_m
+\end{equation*}
+\textbf{Obratno:} "Ce velja prej"snja trditev, potem so $v_1, \ldots v_m$ linearno odvisni
+\begin{gather*}
+v_1 = \beta_2 v_2 + \cdots + \beta_m v_m \\
+1 v_1 + (-\beta_2)v_2 + \cdots + (-\beta_m)v_m = 0
+\end{gather*}
+%
+\textsc{Trditev:} Naj bodo $v_1, \ldots v_m$ linearno odvisni in $v_1 \neq 0$, $m > 1$. Potem obstaja tak $k > 1$, $k \leq m$, da je $v_k$ linearna kombinacija vektorjev $v_1, \ldots v_{k-1}$.
+
+\textsc{Dokaz:} Naj bo $\alpha_1 v_1 + \cdots + \alpha_m v_m = 0$, pri "cemer niso vsi $\alpha_j = 0$.
+\begin{gather*}
+\exists \alpha_j \neq 0: j > 1 \\
+k = \max \{j: \alpha_j \neq 0\} \quad (k > 1) \\
+\Rightarrow v_k = \beta_1 v_1 + \cdots + \beta_1{k-1}v_{k-1}
+\end{gather*}
+\hfill $\square$
+
+\textsc{Trditev:} Naj vektorji $x_1, \ldots, x_m$ tvorijo ogrodje vektorskega prostora $V$. "Ce obstaja $j \in \{1, \ldots, m\}$, da je $x_j$ linearna kombinacija vektorjev $x_i, i \in \{1, \ldots, m\} \setminus \{j\}$, potem vektorji $\{x_i: i \in \{1, \ldots, m\} \setminus \{j\}\}$ sestavljajo ogrodje vektorskega prostora $V$.
+
+\textsc{Dokaz:} Smemo vzeti $j=1$, ker lahko spremenimo indekse.
+\begin{gather*}
+x_1 = \alpha_2 x_2 + \cdots + \alpha_m x_m\\
+v \in V
+\end{gather*}
+\begin{multline*}
+v = \beta_1 x_1 + \cdots + \beta_m x_m = \\
+= \beta_1 (\alpha_2 x_2 + \cdots + \alpha_m x_m) + \beta_2 x_2 + \cdots + \beta_m x_m = \\
+= (\beta_1 \alpha_2 + \beta_2)x_2 + \cdots + (\beta_1 \alpha_m + \beta_m)x_m
+\end{multline*}
+Torej $x_2, \ldots, x_m$ sestavljajo ogrodje vektorskega prostora $V$.
+
+\hfill $\square$
+
+\textsc{Trditev:} Iz vsakega kon"cnega ogrodja vektorskega prostora $V \neq \{0\}$, lahko izberemo bazo.
+
+\textsc{Dokaz:} Iz ogrodja postopoma odstanjujemo vektorje, ki so linearna kombinacija drugih. Na koncu ostane baza. (Predpostavimo lahko, da so vektorji v ogrodju razli"cni).
+
+\textsc{Posledica:} Vsak netrivialen kon"cno razse"zen vektorski prostor ima bazo.
+
+\textsc{Trditev:} Naj vektorji $x_1 \ldots x_m$ sestavljajo ogrodje vektorskega prostora $V$, vektorji $y_1, \ldots, y_n$ pa naj bodo linearno neodvisni. Potem je $m \geq n$.
+
+\textsc{Dokaz:} Predpostavimo, da je $n > m$. Imamo dve vrsti vektorjev:
+\begin{equation*}
+x_1, \ldots , x_m \quad y_1, \ldots, y_n
+\end{equation*}
+Premaknemo $y_1$ v bazo in dobimo
+\begin{equation*}
+y_1, x_1, \ldots, x_m
+\end{equation*}
+To je ogorodje, vektorji $y_1, x_1, \ldots x_m$ pa so linearno odvisni. Torej obstaja tak vektor, ki je linearna kombinacija predhodnih. To je eden od vektorjev $x_1, \ldots x_m$. Tega odstranimo in ostane ogrodje
+\begin{equation*}
+y_1, x_1', \ldots, x_{m-1}'
+\end{equation*}
+Postopem ponovimo "se enkrat in dobimo
+\begin{equation*}
+y_2, y_1, x_1', \ldots, x_{m-1}'
+\end{equation*}
+Ti vektorji sestavljajo ogrodji in so linearno odvisni. Odstranimo vektor, ki je linearna kombinacija predhotnih. To je eden od vektorjev $x_1', \ldots, x_{m-1}'$, ker so $y_i$ linearno neodvisni. Dobimo ogrodje
+\begin{equation*}
+y_2, y_1, x_1'', \ldots, x_{m-2}''
+\end{equation*}
+Postopoma izpodrinemo vse $x$-e in dobimo ogrodje $y_m, y_{m-1}, \ldots, y_1$. Zato je $y_{m+1}$ linearna kombinacija vektorjev $y_1, \ldots, y_m$. $\rightarrow \leftarrow$ ($y_1, \ldots, y_n$ so linearno neodvisni).
+
+\textbf{Sklep:} $m \geq n$ \hfill $\square$

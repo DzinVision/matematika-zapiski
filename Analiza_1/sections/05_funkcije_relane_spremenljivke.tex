@@ -177,3 +177,110 @@ Podobno definiramo
 \begin{equation*}
 \left\{\dfrac{1}{1 + \gamma x^2}: \gamma \in (0, \infty)\right\} \text{ je navzgor omejena z 1 in navzdol omejena z 0}
 \end{equation*}
+%
+\subsection{Zveznost}
+Zvezna funkcija je funkcija, kjer ,,majhna'' spremembna neodvisne spremenljivke povzro"ci ,,majhno'' spremembo odvisne spremenljivke.
+
+\textsc{Primera}
+\begin{itemize}
+	\item $g(x) = \sin \dfrac{1}{x}$: V 0 ni definirana, zato ne moremo govoriti v zveznosti. Lahko dolo"cimo $g(0) = 0$, vendar ne glede na vrednost, ki jo dolo"cimo v 0, $g$ ne bo zvezna.
+	
+	\item $h(x) = x \sin \dfrac{1}{x}$. "Ce dolo"cimo $h(0) = 0$, potem je $h$ zvezna.
+\end{itemize}
+\deff Naj bo $f: D \to \RR$ funkcija in $a \in D$ to"cka. Funkcija $f$ je \emph{zvezna v to"cki $a \in D$}, "ce velja
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x \in D: |x - a| < \delta \Rightarrow |f(x)-f(a)| < \varepsilon
+\end{equation*}
+\textbf{Opomba:} $\delta$ je odvisna od $\varepsilon$. Najprej si izberemo $\varepsilon$, nato pa dolo"cimo $\delta$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item $C \in \RR, \quad f(x) = C$ \dashuline{$f$ je zvezna v $a \in \RR$}
+	
+	Izberemo poljuben $\varepsilon > 0$. Vemo $f(a) = C$. "Ce si izberemo $\delta = 1$, velja:
+	\begin{equation*}
+	|x - a| < 1 \Rightarrow |f(x) - f(a)| = 0 < \varepsilon
+	\end{equation*}
+	
+	\item $g(x) = x$ \dashuline{$g$ je zvezna v $a \in \RR$}
+	
+	Izberemo $\varepsilon > 0$. Dokazujemo
+	\begin{equation*}
+		|x - a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon
+	\end{equation*}
+	Naj bo $\delta := \varepsilon$. Velja:
+	\begin{equation*}
+	|f(x)-f(a)| = |x-a| < \varepsilon
+	\end{equation*}
+	ker $|x-a| < \delta$ in $\varepsilon = \delta$
+	
+	\item $f(x) = \begin{cases} 0 & x \leq 0 \\ 1 & x > 1\end{cases}$ \dashuline{$f$ ni zvezna v 0}
+	
+	Negacija definicje je:
+	\begin{equation*}
+	\exists \varepsilon >0 \forall \delta>0 \exists x \in D: |x-a| < \delta \land |f(x) - f(a)| \geq \varepsilon
+	\end{equation*}
+	Naj bo $\varepsilon = \dfrac{1}{2}$. Izberemo poljuben $\delta > 0$. Naj bo $x_\delta = \dfrac{\delta}{2}$. $x_\delta$ je v okolici to"cke 0, ker
+	\begin{equation*}
+	|0 - x_\delta| = |0 - \dfrac{\delta}{2}| = \dfrac{\delta}{2} < \delta
+	\end{equation*}
+	Funkcijske slike niso v $\varepsilon$-ti okolici to"cke $f(0)$, ker:
+	\begin{equation*}
+	|f(0) - f(x_\delta)| = |0 - 1| = 1 \geq \varepsilon = \dfrac{1}{2}
+	\end{equation*}
+\end{enumerate}
+\deff Naj bo $\delta \in \RR,\ \delta > 0,\ D \subset \RR,\ a \in D$. Mno"zico $(a - \delta, a + \delta) \cap D$ imenujemo \emph{$\delta$ okolice to"cek $a$ v $D$}. Mno"zica $U \subset \RR$ je \emph{okolica to"cke $a$ v $D$}, "ce vsebuje kak"sno $\delta$-okolico to"cke $a$ v $D$.
+
+\textsc{Ekvivalentni definicija zveznosti}
+\begin{itemize}
+	\item Naj bo $f: D \to \RR$ funkcija in $a \in D$. Potem je $f$ zvezna v to"cki $a$ natanko tedaj, kadar velja, da za vsak $\varepsilon > 0$ obstaja $\delta > 0$, da $f$ preslika $\delta$-okolico to"cke $a$ v $\varepsilon$-to okolico to"cke $f(a)$.
+	
+	\item Funkcija $f$ je zvezna v to"cki $a$ natanko tedaj, "ce za vsako okolico $V$ to"cek $f(a)$, obstaja taka okolica $U$ to"cke $a$, da velja $f(U) \subset V$.
+\end{itemize}
+%
+\subsubsection{Opis zveznosti z zaporedji}
+Naj bo $f: D \to R$ zvezna v $a \in D$. Izberemo poljubno konvergentno zaopredje $x_n \in D$ z limito $a$. Opazujemo $f(x_n)$. Trdimo \dashuline{$f(x_n)$ konvergira proti $f(a)$}.
+
+Izberemo $\varepsilon > 0$. Ker je $f$ zvezna v $a$, obstaja $\delta > 0$, da za $x \in D$ velja, "ce $|x -a| < \delta$ sledi $|f(x) - f(a)| < \varepsilon$. Ker $x_n$ konvergira proti $a$, obstaja $n_0 \in \NN$, da velja $|x_n - a| < \delta$ za vse $n \geq n_0$. Potem velja $|f(x_n) - f(a)| < \varepsilon$ za vse $n \geq n_0$. \hfill $\square$
+
+\textsc{Izrek:} Naj bo $f: D \to \RR$ funkcija in $a \in D$. $f$ je zvezna v $a \in D$ natanko tedaj, kadar za \textbf{vsako} zaporedje $x_n \in D$, ki konvergira proti $a$, zaporedje $f(x_n)$ konvergira proti $f(a)$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Rightarrow$)] "Ze dokazano.
+	\item[($\Leftarrow$)] Denimo, da $f$ ni zvezna v to"cki $a$. Potem velja:
+	\begin{equation*}
+	\exists \varepsilon > 0 \forall \delta > 0 \exists x \in D: |x-a| < \delta \land |f(x) - f(a)| \geq \varepsilon
+	\end{equation*}
+	Torej za vsak $n$ velja:
+	\begin{equation*}
+	x_n \in D: |x_n - a| < \dfrac{1}{n} \land |f(x_n) - f(a)| \geq \varepsilon
+	\end{equation*}
+	kjer je $\dfrac{1}{n} = \delta$.
+	
+	Zaporedje $x_n$ konvergira proti $a$, ker $|x_n - a| < \dfrac{1}{n}$ za vsak $n$. Zaporedje $f(x_n)$ ne konvergira proti $f(a)$, ker $|f(x_n) - f(a)| \geq \varepsilon$ za vsak $n$. 
+	
+	\hfill $\square$
+\end{itemize}
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item $f(x) = \begin{cases}0 & x \in \RR \setminus \QQ \\
+	1 & x \in \QQ
+	\end{cases}$ \quad \emph{Dirichletova funkcija}
+	
+	Ni zvezna v nobeni to"cki. Naj bo $a \in \RR$. Velja
+	\begin{align*}
+	\exists &q_n \in \QQ, q_n \to a \\
+	\exists &a_n \in \RR \setminus \QQ, a_n \to a
+	\end{align*}
+	Torej je $f(q_n) = 1$ za vsak $n$ iin $\limninf f(q_n) = 1$. Vemo tudi, da $f(a_n) = 0$ za vsak $n$ in $\limninf f(a_n) = 0$. Torej $f$ ni zvezna v $a$.
+	
+	\item \begin{align*}
+	g&: (0, 1) \to \RR \\
+	g(x) &= \begin{cases}
+	\dfrac{1}{k} & x = \dfrac{m}{k} \text{ okraj"san ulomek}\\
+	0 & x \in \RR \setminus \QQ
+	\end{cases}
+	\end{align*}
+	$g$ ni zvezna v $\QQ$ to"ckah.
+\end{enumerate}

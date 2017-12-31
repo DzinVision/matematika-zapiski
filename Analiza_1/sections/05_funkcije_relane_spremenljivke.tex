@@ -284,3 +284,67 @@ Izberemo $\varepsilon > 0$. Ker je $f$ zvezna v $a$, obstaja $\delta > 0$, da za
 	\end{align*}
 	$g$ ni zvezna v $\QQ$ to"ckah.
 \end{enumerate}
+%
+\textsc{Izrek:} Naj bosta $f, g: D \to \RR$ zvezni funkciji v to"cki $a \in D$. Potem so funkcije $f + g$, $f-g$, $f\cdot g$ zvezne v to"cki $a$. "Ce je $g(a) \neq 0$, potem je $\dfrac{f}{g}$ zvezna v to"cki $a$.
+
+\textsc{Dokaz} Vemo, da je $f$ zvezna v $a \in D$ $\iff$ za vsako zaporedje $x_n$ v $D$, ki konvergira proti $a$, zaporedje $f(x_n)$ konvergira proti $f(a)$. Izberemo poljubno zaporedje $x_n \in D$, ki konvergira proti $a$. Dokazujemo $(f+g)(x_n)$ kovergira proti $(f+g)(a)$.
+
+$(f+g)(x_n) = f(x_n) + g(x_n)$ ker sta $f$ in $g$ zvezni, $f(x_n)$ konvergira proti $f(a)$ in $g(x_n)$ konvergira proti $g(a)$. Torej $f(x_n) + g(x_n)$ konvergira proti $f(a) + g(a) = (f+g)(a)$.
+
+"Ce $g(a) \neq 0$, potem je $\dfrac{f}{g}$ definirana na okolici to"cke $a \in D$. Obstaja $\delta > 0$, da za
+\begin{equation*}
+x \in (a - \delta, a + \delta) \cap D
+\end{equation*}
+velja $g(x) \neq 0$. Torej lahko izberemo poljubno zaporedje $x_n \in (a - \delta, a + \delta) \cap D$, ki konvergira proti $a$. Tedaj je zaporedje $\left(\frac{f}{g}\right)(x_n)$ dobro definirano in konvergira proti $\left(\frac{f}{g}\right)(a)$ (podoben sklep kot prej).
+
+\textsc{Izrek:} Naj bosta $f$ in $g$ funkciji, za kateri velja $Z_f \subseteq D_g$. "Ce je $f$ zvezna v $a$ in $g$ zvezna v $f(a)$, potem je $g \circ f$ zvezna v $a$.
+
+\textsc{Dokaz:} Izberemo poljubno konvergentno zaporeje $x_n \in D_f$ z limito $a$. Ker je $f$ zvezna v $a$, zaporedje $f(x_n)$ konvergira proti $f(a)$. Ker je $g$ zvezna v $f(a)$, zaporedje $g(f(x_n))$ konvergira proti $g(f(a))$.
+
+\deff Naj bo $f: D \to R$ funkcija. Pravimo, da je $f$ \emph{zvezna funkcija}, "ce je zvezna v vsaki to"cki $a \in D$.
+
+\textsc{Primeri:}
+\begin{enumerate}[1)]
+	\item Konstante so zvezne funkcije. Polinome in racionalne funkcije lahko dobimo z deljenjem in mno"zenjem linearnih funkcij. Posledica je, da so polinomi in racionalne funkcije zvezne.
+\end{enumerate}
+%
+\deff Naj bo $f: D \to R$ funkcija. Pravimo, da je $f$ \emph{enakomerno zvezna} na $D$, "ce velja:
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x, x' \in D: |x - x'| < \delta \Rightarrow |f(x) - f(x')| < \varepsilon
+\end{equation*}
+\textbf{Opomba:} "Ce je $f$ enakomerno zvezna na $D$, potem je $f$ zvezna na $D$. $f$ je zvezna na $D$ ($f$ je zvezna na vsaki to"cki $a \in D$):
+\begin{equation*}
+\forall a \in D \forall \varepsilon > 0 \exists \delta > 0 \forall x \in D: |x-a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon
+\end{equation*}
+\dashuline{$f(x) = \frac{1}{x}$ ni enakomerna zvezna na $(0, \infty)$}
+
+Naj bo $0 < a < \dfrac{1}{2}$. Velja:
+\begin{equation*}
+|f(a) - f(2a)| = \left|\dfrac{1}{a} - \dfrac{1}{2a}\right| = \dfrac{1}{2a}
+\end{equation*}
+Za $\varepsilon = 1$ izveremo poljuben $\delta > 0$. Obtaja $a$, da velja: $\dfrac{1}{2a} > 1$ in $2a \in (0, \delta)$.
+\begin{equation*}
+|a - 2a| = a < \delta \land |f(a) - f(2a)| \geq 1
+\end{equation*}
+\textsc{Izrek:} Naj bo $f: [a, b] \to \RR$ zvezna funkcija. Potem je $f$ enakomerna zvezna.
+
+\textbf{Lema o pokritjih:} Dan je nek zaprt interval $[a, b]$ in za vsak $x \in [a, b]$ imamo $\delta(x) > 0$. Ozna"cimo $O_x = (x - \delta(x), x + \delta(x)$ $\delta(x)$ okolica to"cke $x$. Tedaj v dru"zini okolic $\{O_x; x \in [a, b]\}$ obstaja kon"cno "stevilo okolic, ki pokrijejo $[a, b]$, t.j. obstaja $n \in \NN$ in obstaja $x_1, x_2, \ldots, x_n \in [a, b]$, da velja $[a, b] \subset \bigcup_{j=1}^n O_{x_j}$
+
+\textsc{Dokaz:} $O_a$ pokrije vsak interval $[a, c)$, kjer je $c < a + \delta(a)$.
+\begin{equation*}
+S = \{c \in [a, b], \text{interval $[a, c]$ je mogo"ce pokriti s kon"cno mnogo okolicami iz dru"zine $O_x$}\}
+\end{equation*}
+Vemo $S \neq \varnothing$ in $S \subset [a, b]$. Torej je $S$ neprazna navzgor omejena mno"zica in ima $\sup S := M$.
+
+\dashuline{Dokazujemo $M \in S$}
+
+Vemo $M \in [a, b]$. Ker je $M - \delta(M) < M$, obstaja $c > M - \delta(M), c \in S$. Velja
+\begin{align*}
+[a, c] & \subset O_{x_1} \cup O_{x_2} \cup \cdots \cup O_{x_k} \\
+[a, M] & \subset O_{x_1} \cup O_{x_2} \cup \cdots \cup O_{x_k} \cup O_M
+\end{align*}
+$\Rightarrow M \in S$
+
+"Ce $M \neq b$ potem zgornji interval pokrije $[a, M + \delta(M)) \cap [a, b]$, kar je ve"c kot $[a, M]$. To je v protislovju s tem, da $M = \sup S$. $\rightarrow \leftarrow$
+
+$\Rightarrow M = b$

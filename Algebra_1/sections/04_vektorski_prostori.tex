@@ -599,3 +599,196 @@ y_2, y_1, x_1'', \ldots, x_{m-2}''
 Postopoma izpodrinemo vse $x$-e in dobimo ogrodje $y_m, y_{m-1}, \ldots, y_1$. Zato je $y_{m+1}$ linearna kombinacija vektorjev $y_1, \ldots, y_m$. $\rightarrow \leftarrow$ ($y_1, \ldots, y_n$ so linearno neodvisni).
 
 \textbf{Sklep:} $m \geq n$ \hfill $\square$
+
+\textbf{Posledica:} Vse baze netrivialnega kon"cno razse"znege vektorksega prostora imajo enako elementov.
+
+\textsc{Definicija:} "Stevilo elementov v bazi kon"cno razse"znega vektorskega prostora imenujemo \emph{razse"znost} ali \emph{dimenzija} tega vektorskega prostora. \textbf{Oznaka:} $\dim V$
+
+\textsc{Dokaz posledice:} $V \neq \{0\}$. Naj bosta
+\begin{align*}
+X &= \{x_1, \ldots, x_m\} \\
+Y &= \{y_1, \ldots, y_n\}
+\end{align*}
+bazi vektorskega prostora $V$ in velja $x_i \neq x_j \forall i \neq j$ in $y_i \neq y_j \forall i \neq j$. Potem velja:
+
+$X$ je ogrodje, $Y$ niz linearno neodvisnih vektorjev $\Rightarrow m \geq n$\\
+$Y$ je ogrodje, $X$ niz linearno neodvisnih vektorjev $\Rightarrow n \geq m$ 
+
+$\Rightarrow m = n$
+
+\textsc{Izrek:} Naj bo $V$ $n$-razse"zen vektorski prostor nad $\OO$ (komutativen), $N \in \NN$. Potem je vektorski prostor $V$ izomorfen vektorskemu prostoru $\OO^n$.
+
+\textsc{Dokaz:} Naj bo $\mathcal{V} = \{v_1, \ldots, v_n\}$ baza $V$ (\emph{urejena}, t.j., dolo"cen vrstni red).
+\begin{gather*}
+x \in V, x \mapsto (\alpha_1, \ldots, \alpha_n) \in \OO^n \\
+x = \alpha_1 v_1 + \cdots + \alpha_n v_n
+\end{gather*}
+ker je $\{v_1, \ldots, v_n\}$ baza, so $\alpha_1, \ldots, \alpha_n$ enoli"cno dolo"ceni. Zapi"semo lahko preslikavo
+\begin{align*}
+\Phi_v&: V \to \OO^n \\
+\Phi_v (x) &= (\alpha_1, \ldots, \alpha_n)
+\end{align*}
+$\Phi_v$ je odvisen od vrstenga reda baze in je izomorfen . Zapi"semo lahko tudi preslikavo
+\begin{align*}
+\Psi_v&: \OO^n \to V \\
+\Psi_v (\alpha_1, \ldots, \alpha_n) &= \alpha_1 v_1 + \cdots + \alpha_n v_n
+\end{align*}
+$\Psi_v$ je inverz preslikave $\Phi_v \Rightarrow \Psi_v, \Phi_v$ sta bijekciji. Zado"s'ca dokazati, da je $\Psi$ linearna. Torej je potrebno dokazati homogenost in aditivnost. Oboje je o"citno, zato nismo napisali dokaza. Lahko ga napi"se"s za vajo doma (ni te"zek, saj je o"citen).
+
+\textsc{Izrek:} Kon"cno razse"zna vektorska prostora nad istim obsegom sta izomorfna natanko takrat, kadar imata enako dimenzijo.
+
+\textsc{Dokaz:} Smemo privzeti, da sta $V, U$ netrivialna. Kot se je izrazil profesor: ,,"ce sta $V$ in $U$ trivialna, je tudi dokaz trivialen.''
+\begin{itemize}
+	\item[($\Leftarrow$)] $\dim V = \dim U = n \Rightarrow$ obstajata izomorfizma  $\Phi, \Psi$:
+	\begin{align*}
+	\Phi &: V \to \OO^n \\
+	\Psi &: \OO^n \to U
+	\end{align*}
+	$\Rightarrow \Psi \Phi: V \to U$ je izomorfizem
+	
+	\item[($\Rightarrow$)] Naj bo $F: V \to U$ izomorfizem vektorskih prostorov in $\dim V = n, n \in \NN$, ter $\{v_1, \ldots, v_n\}$ baza $V$. Trdimo, da je $\{F(v_1), \ldots, F(v_n)\}$ baza $U$.
+	\begin{enumerate}
+		\item \dashuline{linearna neodvisnost}
+		\begin{gather*}
+			\alpha_1 F(v_1) + \cdots + \alpha_n F(v_n) = 0 \\
+			F(\alpha_1 v_1 + \cdots + \alpha_n v_n) = F(0) \\
+			\Rightarrow \alpha_1 v_1 + \cdots + \alpha_n v_n = 0 \Rightarrow \\
+			\Rightarrow \alpha_1 = \cdots = \alpha_n = 0
+		\end{gather*}
+		
+		\item \dashuline{$\{F(v_1) , \ldots, F(v_n)\}$ je ogrodje}
+		\begin{gather*}
+			u \in U \Rightarrow \exists v \in V: F(v) = u \\
+			v = \beta_1 v_1 + \cdots + \beta_n v_n \Rightarrow \\
+			\Rightarrow u = f(v) = F(\beta_1 v_1 + \cdots + \beta_n v_n) = \\
+			= \beta_1 F(v_1) + \cdots + \beta_n F(v_n)
+		\end{gather*}
+	\end{enumerate}
+	\hfill $\square$
+\end{itemize}
+%
+\textsc{Trditev:} Naj bo $V \neq \{0\}$ kon"cno razse"zen vektorski prostor. "Ce so $v_1, \ldots, v_m \in V$ linearno neodvisni, obstaja baza $V$, ki vsebuje $v_1, \ldots, v_m$.
+
+\textsc{Dokaz:} $u_1, \ldots, u_n$ naj tvorijo ogrodje $V$.
+
+$\Rightarrow \{v_1, \ldots, v_m, u_1, \ldots, u_n\}$ je ogrodje $V$. Postopoma iz tega ogrodja odtranjujemo vektorje, ki so linearna kombinacija vektorjev pred njimi. Vsi vektorji $v_1, \ldots, v_m$ ostanejo, ker so linearno neodvisni. Ostane nam baza, ki vsebuje $\{v_1, \ldots, v_n\}$.
+
+\textsc{Trditev:} Naj bo $V$ kon"cno razse"zen vektorski prostor in $U$ njegov vektorski podprostor. Potem je $\dim U \leq \dim V$, pri "cemer velja ena"caj le v primeru $U = V$.
+
+\textsc{Dokaz:} $V \neq \{0\}, \dim V = n \in \NN$.
+
+$U \subseteq V, U \neq \{0\}$
+
+$u_1, \ldots, u_m \in U$ linearno neodvisni v $U$ ($\Rightarrow$ v $V$)., zato je $m \leq n$. Naj bo $m$ maksimalen. Trdimo, da je potem $\{u_1, \ldots, u_m\}$ baza $U$. Zado"s"ca dokaz, da je $\mathcal{U} = \{u_1, \ldots, u_m\}$ ogrodje $U$.
+
+"Ce $\mathcal{U}$ ni ogrodje vektorskega prostora $U$, obstaja tak $u \in U$ da $u$ ni linearna kombinacija vektorjev $u_1, \ldots, u_m$ ($u \notin \Lin \mathcal{U}$). Potem so vektorji $u_1, \ldots, u_m, u$ linearno neodvisni, to pa je protislovje z maksimalnostjo "stevila $m$. Torej je $\mathcal{U}$ ogrodje vektorskega prostora $U$, zato je baza $U$ in $\dim U = m (\leq n)$ "Ce je $\dim U = n$, je $U$ baza $V$, zato $U = V$.
+
+\hfill $\square$
+
+\textsc{Trditev:} Naj bo $V$ kon"cno razse"zen vektorski prostor in $U$ njegov vektorski podprostor. Potem obstaja tak vektorski podprostor $W \subset V$, da velja $V = U \oplus W$
+
+\textsc{Dokaz:} $U = \{0\}, W = V$. Bolj zanimivo je, "ce $U \neq \{0\}, \{u_1, \ldots, u_m\}$ baza $U$. Dopolnimo jo do baze $V$
+\begin{equation*}
+\{u_1, \ldots u_m, u_{m+1}, \ldots, u_{m+k}\}
+\end{equation*}
+Postavimo $W = \Lin \{u_{m+1}, \ldots, u_{m+k}\}$. "Ce dopolnimo tako, da ni"c ne dopolnimo potem:
+\begin{align*}
+	W &= \Lin\{\} = \{0\} \\
+	U &= V
+\end{align*}
+\dashuline{Trdimo, da je $V = U \oplus W$}
+\begin{gather*}
+v \in V \Rightarrow v = \underbrace{\alpha_1 u_1 + \cdots + \alpha_m u_m}_{x \in U} +\underbrace{\alpha_1{m+1} u_{m+1} + \cdots + \alpha_{m+k} u_{m+k}}_{y \in W} \\
+v = x + y, x \in U, y \in W \\
+\Rightarrow V = U + W
+\end{gather*}
+\dashuline{$U \cap W = \{0\}$}
+\begin{gather*}
+z \in U \cap W \\
+z = \beta_1 u_1 + \cdots + \beta_m u_m = \beta_1{m+1} u_{m+1} + \cdots + \beta_{m+k} u_{m+k} \\
+\beta_1 u_1 + \cdots + (-\beta_{m+k})u_{m+k} = 0 \\
+\Rightarrow \beta_1 = \cdots = \beta_{m+k} = 0 \Rightarrow z = 0
+\end{gather*}
+$\Rightarrow V = U \oplus W$
+
+\hfill $\square$
+
+Tej trditvi pravimo \emph{trditev o eksistenci direktnega komplementa}.
+
+\textsc{Trditev:} Naj bo $V$ kon"cno razse"zen vektorski prostor in $U, W$ njegova vektorska podprostora. "Ce je $U \cap W = \{0\}$, potem velja $\dim U \oplus W = \dim U + \dim W$.
+
+\textsc{Dokaz:} $U, W$ sta netrivialna, druga"ce je o"citno. Naj bosta
+\begin{gather*}
+\{u_1, \ldots, u_m\} \text{ baza $U$, $\dim U = m$} \\
+\{w_1, \ldots, w_n\} \text{ baza $W$, $\dim W = n$}
+\end{gather*}
+Trdimo, da je $\{u_1, \ldots, u_m , w_1, \ldots, w_n\}$ baza $U \oplus W$.
+\begin{enumerate}
+	\item linearna neodvisnost
+	\begin{gather*}
+	\alpha_1 u_1 + \cdots + \alpha m u_m + \beta_1 w_1 + \cdots + \beta_n w_n = 0 \\
+	z = \underbrace{\alpha_1 u_1 + \cdots + \alpha_m u_m}_{\in U} = \underbrace{(-\beta_1)w_1 + \cdots + (-\beta_n)w_n}_{\in W} \\
+	z \in U \cap W = \{0\} \Rightarrow z = 0 \\
+	\Rightarrow \alpha_1 = \cdots = \alpha_m = 0, \\
+	\beta_1 = \cdots = \beta_n = 0
+	\end{gather*}
+	(1) $\Rightarrow u_1 \cdots u_m, w_1 \cdots w_n$ so razli"cni
+	
+	\item $\Lin \{u_1, \ldots, u_m, w_1, \ldots, w_n\} = U \oplus W$
+
+	O"citno je, da je $\Lin \{u_1, \ldots, u_m, w_1, \ldots, w_n\} \subseteq U \oplus W$. Dokazati je treba "se obratno smer ($\supseteq$).
+	\begin{gather*}
+	x \in U \oplus W \Rightarrow \\
+	\Rightarrow x = u + 2, u \in U, w \in W \\
+	u = \alpha_1 u_1 + \cdots + \alpha_m u_m \\
+	w = \beta_1 w_1 + \cdots + \beta_n w_n \\
+	\Rightarrow x = \alpha_1 u_1 + \cdots + \alpha_m u_m + \beta_1 w_1 + \cdots + \beta_n w_n
+	\end{gather*}
+\end{enumerate}
+$(1), (2) \Rightarrow \dim U \oplus W = m + n = \dim U + \dim W$
+
+\textsc{Trditev:} Naj bo $V$ kon"cno razse"zen vektorski prostor in $U \leq V, W \leq V$. Ptem velja enakost (= \emph{dimeznisjska formula}):
+\begin{equation*}
+\dim (U + W) = \dim U + \dim W - \dim (U \cap W)
+\end{equation*}
+\textsc{Osnovna ideja dokaza:} Vzamemo bazo vektorskega prostora $U \cap W$. V $W$ najdemo vektorje s katerimi raz"sirimo $U \cap W$. Linearno ogrinja"co teh vektorjev ozna"cimo z $Z$. Velja $U + W = U \oplus Z$.
+
+$\Rightarrow \dim (U + W) = \dim U + \dim Z$ in \\
+$W = (U \cap W) \oplus  \Rightarrow \dim W = \dim (U \cap W) + \dim Z$
+
+Iz tega sledi zgornja formula.
+
+\textsc{Trditev:} Naj bo $V = U \oplus W, \dim V < \infty$. Potem je vektorski prostor $V/_U$ izomorfen $W$, vektorski prsotor $V/_W$, pa je izomorfen $U$.
+
+\textsc{Dokaz:}
+\begin{gather*}
+	f: W \to V/_U \\
+	f(w) = [w] = w + U
+\end{gather*}
+\dashuline{$f$ je linearna preslikava}
+\begin{equation*}
+f (w_1 + w_2) = [w_1 + w_2] = [w_1] + [w_2] = f(w_1) + f(w_2)
+\end{equation*}
+$\Rightarrow f$ je aditivna. Podobno doka"zemo homogenost.
+
+\dashuline{$f$ je injektvina}
+\begin{gather*}
+f(w_1) = f(w_2) \Rightarrow \\
+\Rightarrow [w_1] = [w_2] \Rightarrow \\
+\Rightarrow w_1 \sim w_2 \Rightarrow \\
+\Rightarrow w_1 - w_2 \in U \\
+w_1 - w_2 \in W \\
+\Rightarrow w_1 - w_2 \in U \cap W = \{0\} \Rightarrow w_1 - w_2 = 0 \\
+\Rightarrow w_1 = w_2
+\end{gather*}
+\dashuline{$f$ je surjektivna:}
+\begin{gather*}
+[v] \in V/_U, v \in V \\
+v = u + w, u \in U, w \in W
+\end{gather*}
+\dashuline{$f(w) = [v]$}
+\begin{gather*}
+f(w) = w \\
+v = u + w \Rightarrow u = v - w \in U \Rightarrow w \sim v
+\end{gather*}
+\hfill $\square$

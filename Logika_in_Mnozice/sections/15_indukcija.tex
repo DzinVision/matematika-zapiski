@@ -1,0 +1,104 @@
+\subsection{Peanovi aksiomi:}
+\begin{enumerate}
+	\item $\forall n \in \NN: n^+ \neq 0$
+	\item $\forall n, m \in \NN: n^+ = m^+ \Rightarrow n = m$
+	\item $\forall n \in \NN: n + 0 = n$
+	\item $\forall n, m \in \NN: n + m^+ = (n + m)^+$
+	\item $\forall n \in \NN: n \cdot 0 = 0$
+	\item $\forall n, m \in \NN: n \cdot m^+ = n + n \cdot m$
+	\item \emph{Princip indukcije:} Za vsako izjavo $\varphi(n)$, kjer $n \in \NN$ velja:
+	\begin{gather*}
+		\varphi(0) \land (\forall k \in \NN: (\varphi(k) \Rightarrow \varphi(k^+)) \Rightarrow \forall n \in \NN: \varphi(n) \\
+		\forall S \subseteq \NN: 0 \in S \land (\forall k \in \NN: k \in S \Rightarrow k^+ \in S) \Rightarrow S = \NN
+	\end{gather*}
+\end{enumerate}
+\textsc{Uporaba indukcije}: Za vsak $n \in \NN$ doka"zi $\varphi(n)$.
+
+Dokaz z indukcijo:
+\begin{itemize}
+	\item baza (osnova) indukcije: preverimo $\varphi(0)$
+	\item  indukcijski korak: predpostavimo $\varphi(k)$ in dokazujemo $\varphi (k^+)$
+\end{itemize}
+%
+\textsc{Izrek:} $\forall n \in \NN: 0+n = n$
+
+\textsc{Dokaz:} z indukcijo
+\begin{itemize}
+	\item baza: $0 + 0 = 0 $ zaradi (3)
+	\item korak: predpostavimo $0 + n = n$ (IH)
+	
+	Dokazujemo $0 + n^+ = n^+$
+	\begin{equation*}
+	0 + n^+ = (0 + n)^+ = n^+
+	\end{equation*}
+\end{itemize}
+%
+\subsection{Indukcija na dvoji"skih drevesih}
+Imamo prazno drevo in sestavljeno drevo.
+
+\textbf{Aksiomi za drevesa:} ($\mathbb{D}$, Empty, Tree)
+\begin{itemize}
+	\item  Empty $\in \mathbb{D}$
+	\item Tree(Empty, Empty)
+	\item Tree(Empty, Tree(Empty, Tree(Empty, Empty)))
+\end{itemize}
+
+\subsection{Razli"cica indukcije za $\NN$}
+\begin{equation*}
+\forall S \subseteq \NN: (\forall m \in \NN: (\forall k \in \NN: k < m \Rightarrow k \in S) \Rightarrow m \in S) \Rightarrow S = \NN
+\end{equation*}
+Z besedami: Denimo, da ima $S$ lastnost:\\
+"Ce so vsi predhodniki $m$ v $S$ je tudi $M \in S$.
+
+Potem je $S = \NN$.
+
+Iz tega sledi, da je $0 \in S$ na prazno izpolnjen.
+
+\textsc{Definicija:} \emph{Stroga} delna ureditev je $R \subseteq A \times A$, ki je 
+\begin{enumerate}
+	\item irefleksivna
+	\item tranzitivna
+\end{enumerate}
+Stroga delna ureditev je \emph{linearna}, "ce je
+\begin{enumerate}[3.]
+	\item sovisna $\forall x, y \in A: x \neq y \Rightarrow x R y \lor y R x$
+\end{enumerate}
+Za stroge ureditve uporabljamo: $<, \sqsubset, \subset, \prec$
+
+\textsc{Definicija:} Relacija $R \subseteq A \times A$ je \emph{dobro osnovana}, "ce
+\begin{equation*}
+\forall S \subseteq A: (\forall y \in A: (\forall x \in A: x R y \Rightarrow x \in S) \Rightarrow y \in S) \Rightarrow S = A
+\end{equation*}
+$R$ je \emph{dobra ureditev}, "ce je strogo linearna in je dobro osnovana.
+
+\textsc{Izrek:} Naj bo $\sqsubset$ stroga linearna ureditev na $A$. Ekvivalentne so izjave:
+\begin{enumerate}
+	\item $\sqsubset$ je dobra ureditev\item vsaka neprazna $S \subseteq A$ ime prvi element
+	\begin{equation*}
+	\exists x \in S \forall y \in S: x \neq y \Rightarrow x \sqsubset y
+	\end{equation*}
+	\item $A$ nima padajo"ce verige:
+	
+	Padajo"ca veriga je zaporedje $a: \NN \to A$, da velja $a_{n+1} \sqsubset a_n$ za vse $n \in \NN$. To je:
+	\begin{equation*}
+	\cdots \sqsubset a_3 \sqsubset a_2 \sqsubset a_1 \sqsubset a_0
+	\end{equation*}
+\end{enumerate}
+\textsc{Primeri}
+\begin{enumerate}
+	\item Relacija $<$ na $\RR$: (2) ne velja za $(0, 1) \Rightarrow <$ na $\RR$ ni dobra ureditev
+	
+	\item $A = \NN \cup \{\omega\}$ uredimo:
+	\begin{equation*}
+	0 < 1 < 2 < \cdots < \omega
+	\end{equation*}
+	\begin{equation*}
+	x < y \iff (y = \omega \land x \in \NN) \lor (y, x \in \NN \land x < y \text{ obi"cajno za $\NN$})
+	\end{equation*}
+	Velja (3): ni neskon"cnih padajo"cih verig $\Rightarrow$ je dobra ureditev
+	
+	\item 
+	\begin{equation*}
+	0 < 1 \cdots < \omega < \omega + 1 < cdots < \omega + \omega < \omega + \omega + 1 \cdots < \omega + \omega + \omega
+	\end{equation*}
+\end{enumerate}

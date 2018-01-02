@@ -1,0 +1,40 @@
+Naj bo preslikava $f: A \to B$. Definiramo:
+\begin{align*}
+\sim&: x \sim y \Rightarrow f(x) = f(y) \\
+q(x) &:= [x]/_\sim \\
+b([x]_\sim) &:= f(x) \\
+i(y) &:= y
+\end{align*}
+\begin{itemize}
+	\item $q$ epi: $q$ je surjektivna, ker so ekvivalen"cni razredi neprazni
+	\item $i$ je mono: $i$ je injektivna $i(y) = i(z) \Rightarrow y = z$
+	\item $b$ je izo:
+	\begin{gather*}
+		c : f_*(A) \to A/_\sim \\
+		 f_*(A) = \{y \in B: \exists x \in A: f(x) = y\} \\
+		 c(y) = [x]_\sim \text{ "ce velja $f(x) = y$} \\
+		 := f^*(\{y\}) = \{x \in A: f(x) = y\}
+	\end{gather*}
+	Trdimo, da je $\{x \in A: f(x)= y\}$ ekvivalen"cni razred za $y$:
+	\begin{itemize}
+		\item je neprazna, ker je $y \in f_*(A)$, torej obstaja $x_0 \in A$, da je $f(x_0) = y$
+		\item $x', x'' \in f^*(\{y\}) \Rightarrow f(x') = y = f(x'') \Rightarrow x' \sim x''$
+		\item "ce $x' \sim x_0$ potem je $x' \in f^*(\{y\})$
+		\begin{equation*}
+		x' \sim x_0 \Rightarrow f(x') = f(x_0) = y \Rightarrow x' \in f^*(\{y\})
+		\end{equation*}
+	\end{itemize}
+\end{itemize}
+Preveriti je treba:
+\begin{itemize}
+	\item $b(c(y)) = y \quad \forall y \in f_*(A)$
+	\item $c(b([x]_\sim)) = [x]_\sim \quad \forall x \in A$
+\end{itemize}
+Preostane "se $f = i \circ b \circ q$
+\begin{equation*}
+i(b(q(x))) = i(b([x])) = i(f(x)) = f(x)
+\end{equation*}
+\subsection{Razli"cica}
+Vsak $f$ lahko razcepimo na $f = m \circ e$. Vzamemo $e = b \circ q$ in $m = i$ v zgornjem razcepu
+
+\textsc{Izrek:} Kanoni"cni razcep preslikave je enoli"cen do izomorfizma natan"cno.

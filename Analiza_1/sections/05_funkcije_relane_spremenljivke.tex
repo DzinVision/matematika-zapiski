@@ -326,8 +326,6 @@ Za $\varepsilon = 1$ izveremo poljuben $\delta > 0$. Obtaja $a$, da velja: $\dfr
 \begin{equation*}
 |a - 2a| = a < \delta \land |f(a) - f(2a)| \geq 1
 \end{equation*}
-\textsc{Izrek:} Naj bo $f: [a, b] \to \RR$ zvezna funkcija. Potem je $f$ enakomerna zvezna.
-
 \textbf{Lema o pokritjih:} Dan je nek zaprt interval $[a, b]$ in za vsak $x \in [a, b]$ imamo $\delta(x) > 0$. Ozna"cimo $O_x = (x - \delta(x), x + \delta(x)$ $\delta(x)$ okolica to"cke $x$. Tedaj v dru"zini okolic $\{O_x; x \in [a, b]\}$ obstaja kon"cno "stevilo okolic, ki pokrijejo $[a, b]$, t.j. obstaja $n \in \NN$ in obstaja $x_1, x_2, \ldots, x_n \in [a, b]$, da velja $[a, b] \subset \bigcup_{j=1}^n O_{x_j}$
 
 \textsc{Dokaz:} $O_a$ pokrije vsak interval $[a, c)$, kjer je $c < a + \delta(a)$.
@@ -348,3 +346,134 @@ $\Rightarrow M \in S$
 "Ce $M \neq b$ potem zgornji interval pokrije $[a, M + \delta(M)) \cap [a, b]$, kar je ve"c kot $[a, M]$. To je v protislovju s tem, da $M = \sup S$. $\rightarrow \leftarrow$
 
 $\Rightarrow M = b$
+
+\textsc{Posledica:} Naj bo $K = [a, b]$. Iz vsakega pokritja $K$ z odpritmi intervali je mogo"ce izbrati kon"cno podpokritje. To pomeni: $\{I_\gamma: \gamma \in \Gamma\}$ dru"zina odprtih intervalov, za katero velja:
+\begin{equation*}
+K \subset \bigcup_{\gamma \in \Gamma} I_\gamma
+\end{equation*}
+Obstaja $m \in \NN$ in $\gamma_1, \gamma_2, \ldots, \gamma_m \in \Gamma$, da velja:
+\begin{equation*}
+K \subset \bigcup_{i = 1}^m I_{\gamma_i}
+\end{equation*}
+\textsc{Dokaz posledice}
+Za $x \in [a, b]$ velja $x \in \bigcup_{\gamma \in \Gamma} I_\gamma$.
+
+Obstaja $\gamma \in \Gamma: x \in I_\gamma$.
+
+Obstaja $\delta(x) > 0: (x - \delta(x), x + \delta(x)) \subset I_\gamma$
+
+Na ta na"cin dobimo pokritje $[a, b]$ z $O_x$. Po lemi o pokritjih obstaja $m \in \NN, x_1, \ldots, x_m \in [a, b]$
+\begin{equation*}
+[a, b] \subset \bigcup_{i=1}^m O_{x_i} \subset \bigcup_{i=1}^m I_{\gamma_i}
+\end{equation*}
+ker $O_{x_i} \subset I_{\gamma_i}$ za ustrazno izbrane $\gamma$. \hfill $\square$
+
+\textsc{Izrek:} Naj bo $f: [a, b] \to \RR$ zvezna funkcija. Potem je $f$ enakomerna zvezna na $[a, b]$
+
+$c \in [a, b]: f$ je zvezna v to"cki $c$:
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x \in [a, b]: |x - c| < \delta \Rightarrow |f(x) - f(c)| < \varepsilon
+\end{equation*}
+$f$ je enakomerno zvezna na $[a, b]$:
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x, x' \in [a, b]: |x - x'| < \delta \Rightarrow |f(x) - f(x')| < \varepsilon
+\end{equation*}
+\textsc{Dokaz:} Ker je $f$ zvezna na $[a, b]$ je za $x \in [a, b]$ $f$ zvezna v $x$. Izberemo poljuben $\varepsilon > 0$. Obstaja $\delta(x) > 0$, za katerega velja
+\begin{equation}
+\label{eq:enakomerna_zveznost}
+x' \in [a, b]: |x' - x| < 2\delta(x) \Rightarrow |f(x) - f(x)| < \dfrac{\varepsilon}{2}
+\end{equation}
+\begin{equation*}
+O_x = (x - \delta(x), x + \delta(x)): \{O_x: x \in [a, b]\}
+\end{equation*}
+je odprto pokritje $[a, b]$ in po lemi o pokritjih obstaja kon"cno podpokritje:
+\begin{gather*}
+m \in \NN: x_1, \ldots, x_m \in [a, b] \\
+[a, b] \subset \bigcup_{i=1}^m O_{x_i} \\
+\delta := \min \{\delta(x_1), \ldots, \delta(x_m)\}
+\end{gather*}
+Naj bosta $x, x' \in [a, b], |x - x'| < \delta$.
+
+Obstaja $i \in {1, \ldots, m}: x \in (x_i - \delta(x_i), x_i + \delta(x_i))$:
+\begin{equation*}
+|x' - x_i| = |x' -x + x - x_i| \leq |x' - x| + |x - x_i| < 2 \delta(x_i)
+\end{equation*}
+Po~\eqref{eq:enakomerna_zveznost} sledi:
+\begin{gather*}
+|x - x_i| < \delta(x_i) < 2\delta(x_i) \Rightarrow |f(x) - f(x_i)| < \dfrac{\varepsilon}{2} \\
+|x' - x_| < 2\delta(x_i)i \Rightarrow |f(x') - f(x_i)| < \dfrac{\varepsilon}{2} \\
+|f(x) - f(x')| = |f(x) - f(x_i) + f(x_i) - f(x')| \leq |f(x) - f(x_i)| + |f(x_i) - f(x')| < \varepsilon
+\end{gather*}
+\hfill $\square$
+%
+\subsubsection{Lastnosti zveznih funkcij}
+\textsc{Izrek:} (\emph{bisekcija}) Naj bo $f$ zvezna funkcija na $[a, b]$. "Ce ima $f$ v kraji"s"cih intervala $[a, b]$ nasprotno predzna"ceni vrednosti, potem ima $f$ na $[a, b]$ ni"clo.
+\begin{equation*}
+f(a)f(b) < 0 \Rightarrow (\exists c \in [a, b]: f(c) = 0)
+\end{equation*}
+\textsc{Dokaz:} $c_1 = \dfrac{a+b}{2}$. "Ce je $f(c_1) = 0$, potem kon"camo.
+
+Sicer ozna"cimo z $[a_1, b_1]$ tistega od podintervalov $[a, c_1], [c_1, b]$, na katerem ima $f$ v kraji"s"cih nasprotno predzna"ceni vrednosti.
+
+Nadaljujemo podobno $c_1 = \dfrac{a_1 + b_1}{2}, \cdots$. "Ce se postpoek ni ustavil.
+
+Na ta na"cin konstruiramo zaporedje vlo"zenih intervalov:
+\begin{gather*}
+[a, b] \supset [a_1, b_1] \supset [a_2, b_2] \supset \cdots \\
+b_n - a_n = \dfrac{1}{2^n}(b-1) \text{\quad in \quad} f(a_n)f(b_n) < 0
+\end{gather*}
+Po izreku obstaja natanko ena to"cka $c$, ki je vsebovana v vseh intervalih
+\begin{equation*}
+c = \limninf a_n = \limninf b_n
+\end{equation*}
+Ker je $f$ zvezna, velja:
+\begin{equation*}
+f(c) = \limninf f(a_n) = \limninf f(b_n)
+\end{equation*}
+Ker velja $f(a_n) f(b_n) < 0$
+\begin{equation*}
+(f(c))^2 = \limninf f(a_n) f(b_n) \leq 0 \Rightarrow f(c) = 0
+\end{equation*}
+\hfill $\square$
+
+\textbf{Opomba:} Metoda bisekcije je metoda za numberi"cno iskanje ni"cel
+
+\textsc{Izrek:} Naj bo $f$ zvezna funkcija na $[a, b]$. Potem je $f$ omejena. Ozani"cimo:
+\begin{equation*}
+m = \inf_{[a, b]} f \quad \text{in} \quad M = \sup_{[a, b]} f
+\end{equation*}
+Obstajata $x_m, x_M \in [a, b]$, za kateri velja
+\begin{equation*}
+f(x_m) = m \quad \text{in} \quad f(x_M) = M
+\end{equation*}
+\textbf{Opomba:} Zvezna funkcija na zaprtem intervalu dose"ze minimum in maksimum.
+
+\textsc{Dokaz:} Denimo, da $f$ ni omejena. Recimo, da ni navzgor omejena. Torej velja:
+\begin{equation*}
+\forall n \in \NN \exists x_n \in [a, b]: f(x_n) > n
+\end{equation*}
+Zaporedje $x_n$ je omejeno, zato ima stekali"s"ce $s$. Torej obstaja konvergentno podzaporedje $x_{n_k} \to s$. Ker je $f$ zvezna, je $f(x_{n_k})$ konvergentna z limito $f(s)$. Pridemo do protislovja, ker mora biti $f(x_{n_k}) > n$ neomejeno. $\rightarrow \leftarrow$
+
+Naj bo $M = \sup f$. Vemo $\forall x \in [a, b]: f(x) \leq M$. Recimo, da funkcija $f$ ne zadodose"ze vrednosti $M$.
+\begin{equation*}
+M - f(x) > 0 \quad \forall x \in [a, b]
+\end{equation*}
+$M-f$ je zvezna na $[a, b]$, zato $\frac{1}{M-f}$ zvezna na $[a, b]$ Po pravkar dokazanem je $\frac{1}{M-f}$ omejena. Torej
+\begin{gather*}
+\exists A \in \RR, A > 0: \dfrac{1}{M-f} \leq A \quad \forall x \in [a, b] \\
+\dfrac{1}{A} \leq M - f(x) \\
+f(x) \leq M - \dfrac{1}{A} \quad \forall x \in [a, b]
+\end{gather*}
+Pridemo do protislovja, ker $M = \sup f$ $\rightarrow \leftarrow$.
+
+Torej obstaja $x_M \in [a ,b]: f(x_M) = M$ \hfill $\square$
+
+\textsc{Posledica:} Naj bo $A$ zvezna funkcija na $[a, b]$. Ozna"cimo $m = \min f$, $M = \max f$. Potem funkcija $f$ dose"ze vse vrednosti med $m$ in $M$.
+\begin{equation*}
+\forall c \in [m, M] \exists x_c \in [a, b]: f(x_c) = c
+\end{equation*}
+\textsc{Dokaz:} "Ce je $m = M$ je $f$ konstantna.
+
+"Ce $m \neq M:$ naj bo $c \in (m, M)$. Definiramo $g(x) = f(x) - c$. $g$ je definirana na $[a, b]$ in je zvezna. Obstajata $x_m$ in $x_M: f(x_m) = m, f(x_M) = M$. $g$ zo"zimo med $x_m$ in $x_M$. $g$ ima na tem intervalu v kraji"s"cih nasprotno predzna"ceni vrednosti: $m-c < 0$ in $M-c > 0$. Zato obstaja $x_c: g(x_c) = 0$. Velja: $f(x_c) = c$.
+
+\hfill $\square$

@@ -792,3 +792,195 @@ f(w) = w \\
 v = u + w \Rightarrow u = v - w \in U \Rightarrow w \sim v
 \end{gather*}
 \hfill $\square$
+
+Naj bo $V= V_1 \oplus V_2 \Rightarrow V/_{V_1} \cong V_2 \land V/_{V_2} \cong V_1$
+
+\textsc{Trditev:} Naj bo $V$ kon"cno razse"zen vektorski prostor in $U$ njegov vektorski podprostor. Potem je
+\begin{equation*}
+\dim V/_U = \dim V - \dim U
+\end{equation*}
+\textsc{Dokaz:} Poi"s"cimo $W \leq V$, da je $V = U \oplus W$. Ker je $V/_U \cong W$, velja $\dim V/_U = \dim W$. Vemo:
+\begin{equation*}
+\dim V = \dim U + \dim W
+\end{equation*}
+Zato je
+\begin{equation*}
+\dim V/_U = \dim V - \dim U
+\end{equation*}
+%
+\subsection{Linearne preslikave na kon"cno razse"znih V.\,P.}
+Naj bosta $V, U$ kon"cno razse"zna vektorska prostora nad $\OO$ in naj bo $\mathcal{A} \in \LL (V, U)$ linearna.
+
+Naj bo $\mathcal{V} = \{v_1, \ldots v_n\}$ baza $V$. "Ce poznamo slike $\A v_1, \ldots, \A v_n$, poznamo $\A$:
+\begin{gather*}
+x \in V, \quad \exists \alpha_1, \ldots, \alpha_n \in \OO: \\
+x = \alpha_1 v_1 + \cdots + \alpha_n v_n \\
+\Rightarrow \A x = \A(\alpha_1 v_1 + \cdots + \alpha_n v_n) = \alpha_1 \A v_1 + \cdots +  \alpha_n \A v_n
+\end{gather*}
+\subsubsection{Poseben primer}
+\begin{gather*}
+V = \OO^n ,\quad U = \OO^m \\
+A = \LL(\OO^n, \OO^m) \\
+\{e_1, \ldots, e_n\} \text{ standardna baza $\OO^n$} \\
+e_j = \begin{bmatrix}
+0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots
+\end{bmatrix} \\
+x \in \OO^n, \quad x = \begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix}
+\end{gather*}
+Poznamo $Ae_1, \ldots Ae_n \Rightarrow$ poznamo $A$.
+\begin{gather*}
+Ae_j \in \OO^m \\
+Ae_j = \begin{bmatrix}
+a_{1j} \\ a_{2j} \\ \vdots \\ a_{mj}
+\end{bmatrix} \in \OO^m \\
+A = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+a_{31} & a_{32} & \cdots & a_{3n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix} = \text{$m \times n$ matrika, ki predstavlja linearno preslikavo $A$}
+\end{gather*}
+$a_{ij} (1 \leq i \leq m, 1 \leq j \leq n)$ je "clen matrike $A$. $a_{ij}$ le"zi v $i$-ti vrstici in $j$-tem stolpcu.
+\begin{gather*}
+A^{(j)} = \begin{bmatrix}
+a_{1j} \\ a_{2j} \\ \vdots \\ a^{mj}
+\end{bmatrix} = \text{$j$-ti stolpec matrike} \\
+A_{(i)} = \begin{bmatrix}
+a_{i1} & a_{i2} & \cdots & a_{in}
+\end{bmatrix} \\
+A = [a_{ij}]\\\\
+A : \OO^n \to \OO^m \\
+x = \begin{bmatrix}
+x_1 \\ x_2 \\ \vdots \\ x_n
+\end{bmatrix} \in \OO^n \\
+A = [a_{ij}] \\
+Ax = y \\
+y = \begin{bmatrix}
+y_1 \\ y_2 \\ \cdots \\ y_m
+\end{bmatrix}
+\end{gather*} 
+$y$ izra"cunamo kot:
+\begin{multline*}
+y = Ax = A(x_1 e_1 + x_2 e_2 + \cdots + x_n e_n) = \\
+= x_1 A e_1 + x_2 A e_2 + \cdots + x_n A e_n = \\
+= x_1 A^{(1)} + x_2 A^{(2)} + \cdots + x_n A^{(n)} \\
+\Rightarrow y_i = x_1 a_{i1} + x_2 a_{i2} + \cdots + x_n a_{in} = \\
+y_i = \sum_{j=1}^{n} a_{ij} x_j, \quad i = 1, \ldots, m
+\end{multline*}
+\textsc{Primer:} $A: \RR^3 \to \RR^3$ zasuk za kot $\varphi$ okrog $z$-osi. Kaj je matrika $A$ in kam $A$ preslika to"cko $(1, 2, 3)$?
+\begin{align*}
+A e_1 &= A\vec{i} = A^{(1)} \\
+A e_2 &= A\vec{j} = A^{(2)} \\
+A e_3 &= A\vec{k} = A^{(3)}
+\end{align*}
+\begin{gather*}
+A^{(3)} = A\vec{k} = \begin{bmatrix}0 \\ 0 \\ 1\end{bmatrix} \\
+A^{(1)} = A\vec{i} = \begin{bmatrix}\cos \varphi '' \sin \varphi \\ 0 \end{bmatrix} \\
+A^{(2)} = A\vec{j} = \begin{bmatrix}- \sin \varphi \\ \cos \varphi \\ 0\end{bmatrix} \\
+A = \begin{bmatrix}
+\cos \varphi & -\sin \varphi & 0 \\
+\sin \varphi & \cos \varphi & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\end{gather*}
+Izra"cunajmo sliko to"cke $(1, 2, 3)$:
+\begin{equation*}
+A\begin{bmatrix}1 \\ 2 \\ 3\end{bmatrix} = \begin{bmatrix}
+\cos \varphi - 2 \sin \varphi \\
+\sin \varphi + 2 \cos \varphi \\
+3
+\end{bmatrix}
+\end{equation*}
+$\LL(\OO^n, \OO^m) \equiv \OO^{m \times n}$ je mno"zica vseh $m \times n$ matrik s "cleni $\OO$. Preslikave smo \emph{identificirali} (poistovetili) z matrikami.
+
+$\LL(\OO^n, \OO^m)$ je vektorski prostor nad $\OO$. $\OO^{m \times n}$ postane vektorski prostor nad $\OO$.
+
+Naj bosta $A, B \in \OO^{m \times n}$.
+\begin{gather*}
+(A + B) x = Ax + Bx \quad \forall x \in \OO^n \\
+(\underbrace{A + B}_{C \in \OO^{m\times n}})e_j = Ae_j + Be_j = A^{(j)} + B^{(j)}
+\end{gather*}
+\begin{gather*}
+\Rightarrow C^{(j)} = Ce_j = A^{(j)} + B^{(j)} \\
+\Rightarrow c_{ij} = a_{ij} + b_{ij} \quad \forall i,j \\
+\end{gather*}
+$\Rightarrow$ v $\OO^{m \times n}$ se"stevamo po "clenih. Podobno je z mno"zenjem s skalarji.
+%
+\subsubsection{Splo"sna situacija}
+Naj bosta $V, U$ vektorska prostora nad $\OO$. 
+\begin{gather*}
+\begin{aligned}
+\dim V &= n\\
+\dim U &= m
+\end{aligned} \\
+\begin{aligned}
+\mathcal{V} &= \{v_1, \ldots, v_n\} \text{ urejena baza $V$} \\
+\mathcal{U} &= \{u_1, \ldots, u_n\} \text{ urejena baza $U$}
+\end{aligned}
+\end{gather*}
+$\A = \LL(V, U)$, $\A$ poznamo, "ce poznamo slike $\A v_j, \quad j = 1, \ldots, n$.
+\begin{gather*}
+\Phi_\mathcal{V}: V \to \OO^n \text{ izomorfizem} \\
+\begin{aligned}
+v &\in V \\
+v &= \alpha_1 v_1 + \cdots + \alpha_n v_n \\
+v &\to (\alpha_1, \ldots, \alpha_n) = \Phi_\mathcal{V}(v) = \begin{bmatrix}\alpha_1 \\ \vdots \\ \alpha_n\end{bmatrix}
+\end{aligned} \\
+\Psi_{\mathcal{V}}(v_j) = \begin{bmatrix}0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\ 0\end{bmatrix} = e_j
+\end{gather*}
+Podobno velja za izomorfizem $\Phi_\mathcal{U}: U \to \OO^m$.
+\begin{figure}[!htbp]
+	\centering
+	\begin{tikzpicture}
+	\node (V) at (0, 0) {V};
+	\node (U) at (3, 0) {U};
+	\node (On) at (0, -3) {$\OO^n$};
+	\node (Om) at (3, -3) {$\OO^m$};
+	
+	%\draw (Point1) -- (Point2) node [<position>, fill=white] {Label Text};
+	
+	\draw[->] (V) edge node [midway, above] {$\A$} (U);
+	\draw[->] (V) edge node [midway, left] {$\Phi_\mathcal{V}$} (On);
+	\draw[->] (U) edge node [midway, right] {$\Phi_\mathcal{U}$} (Om);
+	\draw[->] (On) edge node [midway, below] {$A$} (Om);
+	\end{tikzpicture}
+	\caption{Diagram preslikave}
+\end{figure}
+
+Diagram \emph{komutira} $\Phi_\mathcal{U}\A = A\Phi_\mathcal{V}$
+\begin{gather*}
+(\Phi_{\mathcal{U}}\A)v_j = (A \Phi_{\mathcal{V}})v_j = Ae_j = A^{(j)} \\
+(\Phi_{\mathcal{U}}\A)v_j = \Phi_{\mathcal{U}}(\A v_j) = \Phi_{\mathcal{U}} (\alpha_1 u_1 + \cdots + \alpha_m u_m) = \alpha_1 e_1 + \cdots + \alpha_m e_m = \begin{bmatrix}\alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_m \end{bmatrix} \\
+\A v_j = \alpha_1 u_1 + \alpha_2 u_2 + \cdots + \alpha_m u_m \\
+\Rightarrow A^{(j)} = \begin{bmatrix}\alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_m \end{bmatrix} \Rightarrow \alpha_i = a_{ij} \quad \forall i, j
+\end{gather*}
+\begin{equation*}
+\A v_j = a_{1j} u_1 + a_{2j} u_2 + \cdots + a_{mj} u_m
+\end{equation*}
+Linearni preslikavi $\A \in \LL(V, U)$ priredimo (glede na bazi $\mathcal{U}, \mathcal{V}$) matriko $A \in \OO^{m \times n}$.
+\begin{gather*}
+\begin{aligned}
+F : \LL(V, U) &\to \OO^{m \times n} \\
+\A &\mapsto A = F(\A)
+\end{aligned} \\
+F(\A) = \Phi_{\mathcal{U}}\A\left(\Phi_{\mathcal{V}}\right)^{-1}
+\end{gather*}
+$F$ je izomorfizem med $\LL(V, U)$ in $\OO^{m \times n}$
+\begin{itemize}
+	\item  aditivnost in homogenost sta o"citni
+	\item iz diagrama hitro dobimo inverz $F^{-1} = \left(\Phi_{\mathcal{U}}\right)^{-1}A\Phi_{\mathcal{V}}$
+\end{itemize}
+\begin{equation*}
+\dim \LL(V, U) = \dim \OO^{m \times n} = ?
+\end{equation*}
+Standradna baza $\OO^{m \times n}$ je sestavljena iz \emph{elementarnih matrik}. V elementarni matriki se nahaja ena 1, ostali "cleni so 0.
+\begin{align*}
+E_{pq} &= [e_{ij}] \quad i = 1, \ldots, m \quad j = 1, \ldots, n \\
+e_{ij}& = \begin{cases}
+1 & i = p \land j = q \\
+0 & \text{sicer}
+\end{cases}
+\end{align*}

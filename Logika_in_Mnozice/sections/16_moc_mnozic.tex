@@ -1,0 +1,34 @@
+Za vsako $n \in \NN$ definiramo \emph{standardno mno"zico} z $n$ elementi:
+\begin{equation*}
+n := \{k \in \NN: k < n\} = \{0, 1, \ldots, n-1\}
+\end{equation*}
+\textbf{Primer:}
+\begin{align*}
+[0] &= \{\}\\
+[1] &= \{0\} \\
+[4] &= \{0, 1, 2, 3\}
+\end{align*}
+\textsc{Definicija:} Mno"zica je \emph{kon"cna}, "ce je izomorfn kaki standardni mno"zici
+\begin{equation*}
+\text{$A$ kon"cna} \iff \exists n \in \NN: A \cong [n]
+\end{equation*}
+\textsc{Izrek:} $A \cong [m] \land A \cong [n] \Rightarrow m = n$
+
+\textsc{Dokaz:} Opustimo, ker je o"citno.
+
+\textsc{Definicija:} \emph{Mo"c kon"cne mno"zice} $A$ je tisti $n \in \NN$, za katerega velja
+\begin{equation*}
+A \cong [n]
+\end{equation*}
+Mo"c $A$ ozna"cimo z $|A|$
+\subsection{Ra"cunanje mo"ci}
+\begin{align*}
+|A \times B| &= |A| \cdot |B| \\
+|A + B|& = |A| + |B| \\
+\left|B^A\right| &= |B|^{|A|} \\
+|A \cup B| &= |A| + |B| - |A \cap B|
+\end{align*}
+\textbf{Princip vklju"citve in izklju"citve}
+\begin{equation*}
+|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+\end{equation*}

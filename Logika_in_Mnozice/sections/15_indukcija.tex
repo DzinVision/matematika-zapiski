@@ -102,3 +102,160 @@ $R$ je \emph{dobra ureditev}, "ce je strogo linearna in je dobro osnovana.
 	0 < 1 \cdots < \omega < \omega + 1 < cdots < \omega + \omega < \omega + \omega + 1 \cdots < \omega + \omega + \omega
 	\end{equation*}
 \end{enumerate}
+%
+Denimo, da je $<$ stroga urejenost na $A$. Pravimo, da je $S \subseteq A$ \emph{progresivna} (glede na $<$), ko velja
+\begin{equation*}
+\forall x \in A: (\forall y \in A: y < x \Rightarrow y \in S) \Rightarrow x \in S
+\end{equation*}
+Relacija $<$ je \emph{dobro osnovona}, "ce velja
+\begin{equation*}
+\forall S \subseteq A: \text{$S$ progresivna} \Rightarrow S = A
+\end{equation*}
+Relacija $<$ je \emph{dobro urejena}, "ce je linearna in dobro osnovana.
+
+\textsc{Lema:} Naj bo $<$ stroga urejenost na $A, A\neq \varnothing$. "Ce $A$ nima $\leq$-minimalnega elementa, potem v $A$ obstaja padajo"ca veriga. Ponovimo: $A$ ima $\leq$-minimalni element:
+\begin{equation*}
+\exists x \in A \forall y \in A: y \leq x \Rightarrow y = x
+\end{equation*}
+$A$ nima minimalnega elementa:
+\begin{equation*}
+\forall x \in a \exists y \in A: y \leq x \land y \neq x \iff \forall x \in A \exists y \in A: y < x
+\end{equation*}
+\textsc{Dokaz:} Dokazujemo, da v $A$ obstaja $a: \NN \to A$, da velja $a(n+1) < a(n)$ za vse $n \in \NN$. Ker $A \neq \varnothing$, obstaja $a(0) \in A$.
+
+Denimo, da smo "ze skonstruirali $a(n) < a(n-1) < \cdots < a(2) < a(1) < a(0)$. Ker $a(n)$ ni minimalni, obstaja $y \in A$, da je $y < a(n)$. Za $a(n+1)$ \emph{izberemo} enega od $y < a(n)$.
+
+Postopek nadaljujemo in dobimo $a(n+2), a(n+3), \ldots$
+
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $\sqsubset$ stroga urejenost na $A$. Ekvivalentne so izjave:
+\begin{enumerate}
+	\item $\sqsubset$ je dobro osnovana
+	\item Vsaka neprazna $S \subseteq A$ ima $\sqsubseteq$-minimalni element
+	\item $A$ nima padajo"ce $\sqsubset$-verige
+\end{enumerate}
+\textsc{Dokaz}
+\begin{itemize}
+	\item[$1 \Rightarrow 2$] Denimo, da je $\sqsubset$ dobro osnovana.
+	
+	Nj bo $S \subseteq A$ neprazna in naj bo 
+	\begin{equation*}
+	M := \{x \in S: x \text{ je minimalni v $S$}\}
+	\end{equation*}
+	Dokazujemo $M \neq \varnothing$. V ta namen definiramo:
+	\begin{equation*}
+	T := \{x \in A: (\exists y \in S: y \sqsubset x) \Rightarrow \exists m \in M: m \sqsubset x\}
+	\end{equation*}
+	Trdimo, da je $T$ progresivna.
+	
+	Naj bo $v \in A$ in denimo, da velja
+	\begin{equation*}
+	\forall u \in A: u \sqsubset v \Rightarrow u \in T \tag{\hexstar}
+	\end{equation*}
+	Dokazujemo $v \in T$.
+	
+	Predpostavimo, da obstaja $y \in S$, da je $y \sqsubset v$. Dokazujemo
+	\begin{equation*}
+	\exists m \in M: m \sqsubset v
+	\end{equation*}
+	Iz (\hexstar) sledi, $y \in T$. Obravnavamo dva primera:
+	\begin{enumerate}[(a)]
+		\item "Ce $\exists z \in S: z \sqsubset y$:
+		
+		Ker $y \in T$, obstaja $m' \in M$, da je $m' \sqsubset y$.
+		
+		Imamo $m' \sqsubset y \sqsubset v$
+		
+		Torej $\exists m \in M: m \sqsubset v$, namre"c $m := m'$
+		
+		\item "Ce $\lnot \exists z \in S: z \sqsubset y$
+		
+		Tedaj je $y \in M$.
+		
+		Torej $\exists m \in M: m \sqsubset v$, namre"c $m := y$.
+	\end{enumerate}
+	Ker je $T$ progresivna in velja 1, sledi $T = A$.
+	
+	Ker je $S$ neprazna, obstaja $t \in S$. Dva primera:
+	\begin{enumerate}[(a)]
+		\item "Ce $\exists z \in S: z \sqsubset t$
+		
+		Velja $t \in T$. Po definicija $T$, torej $\exists m \in M: m \sqsubset t$.
+		
+		Torej $M \neq \varnothing$.
+		
+		\item "Ce $\lnot \exists z \in S: z \sqsubset t$:
+		
+		Potem je $t \in M$. Torej $M \neq \varnothing$.
+	\end{enumerate}
+
+	\item[$2 \Rightarrow 3$] Predpostavimo: vsaka neprazna $S \subseteq A$ ima minimalni element.
+	
+	Dokazujemo: $A$ nima padajo"ce verige.
+	\begin{equation*}
+	\lnot \exists a: \NN \to A: \text{$a$ padajo"ca veriga}
+	\end{equation*}
+	Predpostavimo, da je $a: \NN \to A$ padajo"ca veriga. I"s"cemo protislovje.
+	
+	Mno"zica $C = \{a(n): n \in \NN\} \subseteq A$ je neprazna ($a(0)$ vsebuje).
+	
+	Po predpostavki ima minimalni element $a(j)$, vendar $C$ nima minimalnega elementa, ker za $\forall i \in \NN: a(i+1) \sqsubset a(i)$
+	
+	$\rightarrow \leftarrow$
+	
+	\item[$3 \Rightarrow 1$] Predpostavimo $A$ nima padajo"ce verige. 
+	
+	Dokazujemo: $\sqsubset$ je dobro osnovana.
+	
+	Naj bo $S \subseteq A$ progresivna. Dokazujemo $S = A$. Trdimo, da $C := A \setminus S$ nima minimalnega elementa. "Ce bi bil $c \in S$ minimalni, bi to pomenilo:
+	\begin{gather*}
+	\forall x \in A: x \sqsubset c \Rightarrow x \notin C \iff \\
+	\forall x \in A: x \sqsubset c \Rightarrow x \in S \text{ ker je } A \setminus C = S
+	\end{gather*}
+	Ker je $S$ progresivna, sledi $c \in S$, kar je v nasprotju z $c \in A \setminus S$.
+	
+	Torej $C$ nima minimalnega elementa.
+	
+	Doka"zimo $S = A$ s protislovjem.
+	
+	Denimo $S \neq A$. Potem obstaja element v $A \setminus S$. Torej $C = S \setminus A$ ni prazna in nima minimalnega elementa. Po lemi v $C$ obstaja padajo"ca veriga, ki je tudi padajo"ca veriga v $A$. Protislovje s predpostavko (3). $\rightarrow \leftarrow$
+	
+	\hfill $\square$
+\end{itemize}
+%
+\subsection{Aksiom Izbire}
+V lemi smo uporabili \textbf{aksiom odvisne izbire:}
+
+Naj bo $A$ neprazna in $R \subseteq A \times S$ celovita: $\forall x \in A \exists y \in A: x R y$. Tedaj obstaja $f: \NN \to A$, da velja $\forall n \in \NN: f(n) R f(n+1)$.
+
+V lemi: $R$ je bila relacija $x R y \iff y < x$ in $f$ je bila padjo"ca veriga.
+
+Bolj splo"sen je \textbf{aksiom izbire:}
+
+Vsaka dru"zina nepraznih mno"zic ima funkcijo izbire.
+
+"Ce je $A : I \to \set$ dru"zina mno"zic in $\forall i \in I: A_i \neq \varnothing$, potem 
+\begin{equation*}
+\exists f \in \prod_{i \in I} A_i: \top
+\end{equation*}
+To pomeni $f: I \to \bigcup_{i \in I} A_i$ in velja
+\begin{equation*}
+\forall i \in I: f(i) \in A_i
+\end{equation*}
+\textbf{Posledica aksioma izbire:} Vsaka surjekcija ima prerez. To pomeni $f: A \to B$ surjektivna, prerez $f$ je $g: B \to A$, da vleja $f \circ g = id_B$
+
+Uporabimo izbiro na dru"zini $D: I \to \set$
+\begin{gather*}
+I := B \\
+D_y := f^*(\{y\}) = \{x \in A: f(x) = y\}
+\end{gather*}
+$D_y \neq \varnothing$, ker je $f$ surjektivna.
+
+Torej obstaja funkcija izbire $g: B \to \bigcup_{y \in B} D_y = A$, da je
+\begin{gather*}
+\forall y \in B: g (y) \in D_y \\
+\forall y \in B: f(g(y)) = y \\
+f \circ g = id_B
+\end{gather*}
+\textbf{Premislek:} "Ce ima vsaka surjekcija prere, potem velja aksiom izbire.

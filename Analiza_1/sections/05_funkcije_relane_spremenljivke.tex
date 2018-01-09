@@ -477,3 +477,147 @@ Torej obstaja $x_M \in [a ,b]: f(x_M) = M$ \hfill $\square$
 "Ce $m \neq M:$ naj bo $c \in (m, M)$. Definiramo $g(x) = f(x) - c$. $g$ je definirana na $[a, b]$ in je zvezna. Obstajata $x_m$ in $x_M: f(x_m) = m, f(x_M) = M$. $g$ zo"zimo med $x_m$ in $x_M$. $g$ ima na tem intervalu v kraji"s"cih nasprotno predzna"ceni vrednosti: $m-c < 0$ in $M-c > 0$. Zato obstaja $x_c: g(x_c) = 0$. Velja: $f(x_c) = c$.
 
 \hfill $\square$
+%
+\subsection{Monotone zvezne funkcije}
+\deff Naj bo $I \subset \RR$ interval in $f: I \to \RR$ funkcija. Pravimo, da je $f$ \emph{nara"s"cajo"ca funkcija} (na $I$), "ce velja
+\begin{equation*}
+\forall x_1, x_2 \in I: x_1 \leq x_2 \Rightarrow f(x_1) \leq f(x_2)
+\end{equation*}
+Pravimo, da je $f$ \emph{strogo nara"s"cajo"ca} (na $I$), "ce
+\begin{equation*}
+\forall x_1, x_2 \in I : x_1 < x_2 \Rightarrow f(x_1) < f(x_2)
+\end{equation*}
+Podobno definiramo padajo"co in strogo padajo"co funkcijo.
+
+Funkcija  je (strogo) \emph{monotona}, "ce je ali (strogo) nara"s"cajo"ca, ali (strogo) padajo"ca.
+
+\textsc{Izrek:} Naj bo $f$ strogo monotona funkcija na $[a, b]$. "Ce je $f$ zvezna, potem je njena inverzna funkcija $f^{-1}$ zvezna.
+
+\textsc{Dokaz:} Denimo, da je $f$ strogo nara"s"cajo"ca. Ker je $f$ strogo nara"s"cajo"ca, je injektivna, zato inverzna funkcija obstaja.
+
+Vemo: Ker je $f$ zvezna, je njena zaloga vrednosti zaprt interval od najmanj"se do najve"cje vrednosti, t.j.: $[f(a), f(b)]$.
+\begin{equation*}
+f^{-1}: [f(a), f(b)] \to \RR
+\end{equation*}
+Dokazujemo, da je $f^{-1}$ zvezna $\forall y_0 \in [f(a), f(b)]$.
+
+Izberimo $\varepsilon > 0$. Obstaja natanko en $x_0 \in (a, b): f(x_0) = y_0$ ($f^{-1}(y_0) = x_0$).
+
+Ker je $f$ strogo nara"s"cajo"ca:
+\begin{equation*}
+f(x_0 - \varepsilon) < \underbrace{y_0}_{f(x_0)} < f(x_0 + \varepsilon)
+\end{equation*}
+Izberemo
+\begin{equation*}
+\delta = \min \{f(x_0+\varepsilon) - y_0, y_0 - f(x_0 - \varepsilon)\} > 0
+\end{equation*}
+"Ce $|y - y_0| < \delta : f(x_0 - \varepsilon) < y < f(x_0 + \varepsilon)$
+
+Ker je $f^{-1}$ strogo nara"s"cajo"ca:
+\begin{gather*}
+x_0 - \varepsilon < f^{-1}(y) < x_0 + \varepsilon \\
+|f^{-1}(y) - \underbrace{x_0}_{f^{-1}(y_0)}| < \varepsilon
+\end{gather*}
+\hfill $\square$
+%
+\subsection{Zveznost posebnih funkcij}
+Vemo, da so polinomi in racionalne funkcije zvezne.
+
+\textsc{Primer} $f(x) = x^n$ je zvezna funkcija
+\begin{itemize}
+	\item $n \in \NN$, $n$ liho, potem je $f$ strogo nara"s"cajo"ca na $\RR$. Po izreku $x \mapsto \sqrt[n]{x}$ zvezna funkcija na $\RR$.
+
+	\item $n$ sodo: $x \mapsto \sqrt[n]{x}$ je zezna funkcija na $[0, \infty)$.
+\end{itemize}
+Zato so \emph{algebrai"cne} funkcije zvezne.
+
+Eksponentna funkcija $a>0, a \neq 1$. Definirali smo "ze $a^x, x \in \RR$
+\begin{gather*}
+a^{\frac{m}{n}} = \sqrt[n]{a^m} \\
+x \in \RR, x = \limninf q_n \\
+a^x := \limninf a^{q_n}
+\end{gather*}
+Iz pravil za ra"cunanje z racionalnimi potencami sledi:
+\begin{equation*}
+a^{x+y} = a^x a^y, \quad x, y \in \RR
+\end{equation*}
+\textsc{Izrek:} Eksponentna funkcija $x \mapsto a^x$ je zvezna na $\RR$, njena zaloga vrednosti je $(0, \infty)$.
+
+"Ce je $a> 1$, potem je eksponentna funkcija nara"s"cajo"ca, "ce je $a < 1$, potem je padajo"ca.
+
+\textsc{Dokaz:} Za $a > 1$, za $a < 1$ je podobno. \dashuline{$x \mapsto a^x$ strogo nara"s"cajo"ca}
+
+\dashuline{$x_1 < x_2 \Rightarrow a^{x_1} < a^{x_2}$}
+\begin{equation*}
+a^{x_2} = a^{x_1 + (x_2 - x_1)} = a^{x_1} \cdot \underbrace{a^{x_2 - x_1}}_{> 1} > a^{x_1}
+\end{equation*}
+Zveznost: Vemo "ze
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall h \in \QQ, |h| < \delta \Rightarrow |a^h - 1| < \varepsilon
+\end{equation*}
+Ker je $x \mapsto a^x$ strogo nara"s"cajo"ca, velja zgornja trditev tudi "ce $\QQ$ zamenjamo z $\RR$.
+\begin{equation*}
+h>0: \exists h_1 \in (h, \delta): 0 < h < h_1 < \delta \Rightarrow a^0 < a^h < a^{h_1}
+\end{equation*}
+ker je $|a^{h_1} - a^0| < \varepsilon$ je tudi $|a^h - a^0| < \varepsilon$.
+
+Podobno lahko naredimo za $h < 0$.
+
+Torej je $x \mapsto a^x$ zvezna v to"cki 0.
+
+Naj bo $x_0 \in \RR$ in doka"zimo zveznost v $x_0$. Izberemo $\varepsilon > 0$ in i"s"cemo $\delta > 0$:
+\begin{gather*}
+|a^x - a^{x_0}| = a^{x_0} |a^{x - x_0} - 1| \\
+|a^{x - x_0} - 1| < \frac{\varepsilon}{a^{x_0}}
+\end{gather*}
+Ker je zvezna v to"cki 0, obstaja $\delta > 0$:
+\begin{equation*}
+|h| = |x - x_0| < \delta \Rightarrow |a^h - 1| < \frac{\varepsilon}{a^{x_0}}
+\end{equation*}
+%
+\begin{align*}
+\limninf a^n &= \infty \\
+\limninf a^{-1} &= 0
+\end{align*}
+Na $[-n, n]$ $a^x$ dose"ze vse vrednosti od $[a^{-n}, a^n]$. Za $a^x =\bigcup_{n \in \NN} [a^{-n}, a^n] = (0, \infty)$
+
+\textbf{Posledica:} Naj bo $a > 0, a \neq 1$. Potem velja:
+\begin{equation*}
+(a^x)^y = a^{xy}, \quad x, y \in \RR
+\end{equation*}
+\textsc{Dokaz:} (skica)
+\begin{align*}
+p_n \in \QQ, \quad p_n &\to x \\
+q_m \in \QQ, \quad q_m &\to y
+\end{align*}
+$(a^{p_n})^{q_m} = a^{p_n q_m}$ za $\forall n, m$ (ker so racionalne potence)
+
+$a^{p_n q_m} = a^{x q_m}$, ko gre $n \to \infty$ po definiciji. $a^{x q_m} = a^{xy}$, ko gre $m \to \infty$ po definiciji.
+
+$(a^{p_n})^{q_m} = (a^x)^{q_m}$, ko gre $n \to \infty$, ker je $x \mapsto x^{q_m}$ zvezna. $(a^x)^{q_m} = (a^x)^y$, ko gre $m \to \infty$, zaradi zveznosti.
+
+\deff Naj bo $a > 0, a \neq 1$> inverzno funkcijo eksponentne funkcije $x \mapsto a^x$ imenujemo \emph{logaritemska funkcija} z osnovo $a$ in ozna"cimo z $\log_a$ Logaritem z osnovo $e$ ozna"icmo z $\ln$ in imenujemo \emph{naravni logaritem.}
+
+\textbf{Opomba:}
+\begin{itemize}
+	\item $\log$ obstaja (po nekem izreku)
+	\item $\log_a: (0, \infty) \to \RR$ slika bijektivno
+\end{itemize}
+Po definiciji inverzne funkcije je
+\begin{equation*}
+y = \log_a x \iff a^y = x
+\end{equation*}
+\textsc{Izrek:} Funkcija $\log_a$ je zvezna na $(0, \infty)$. "Ce je $a > 1$, potem je strogor nara"s"cajo"ca, "ce je $a < 1$, potem je strogo padajo"ca. \textbf{Velja}:
+\begin{align*}
+\log_a(xy) &= \log_a x + \log_a y &&\forall x, y > 0 \\
+\log_a x^\lambda &= \lambda \log_a x &&\forall x > 0, \lambda \in \RR
+\end{align*}
+\textsc{Dokaz:} Vse razen lastnosti so posledica prej"snjih izrekov
+\begin{gather*}
+c = \log_a x \quad \text{in} \quad d = \log_a y \\
+\Rightarrow a^c = x \quad \text{in} \quad a^d = y \\
+\Rightarrow \underbrace{a^c \cdot a^d}_{a^{c + d}} = xy \\
+\Rightarrow c + d = \log_a (x y) \\
+\Rightarrow \log_a x + \log_a y = \log_a (xy)
+\end{gather*}
+\hfill $\square$

@@ -984,3 +984,129 @@ e_{ij}& = \begin{cases}
 0 & \text{sicer}
 \end{cases}
 \end{align*}
+%
+\subsubsection{Mno"zenje matrik}
+Naj bodo $U, V$ in $W$ vektorski prostori, linearna preslikava $\mathcal{B}: W \to V$, $\A: V \to U$ in $\mathcal{C}: W \to U$, t.j.: $\mathcal{C} = \mathcal{A} \mathcal{B}$. 
+
+$\mathcal{U}$ je urejeneba baza v.p. $U$, $\mathcal{V}$ urejena baza $V$, $\mathcal{W}$, pa urejena baza $W$.
+
+Poznamo $\Phi_{\mathcal{V}}: V \to \OO^n$, $\Phi_{\mathcal{U}}: U \to \OO^m$ in $\Phi_\mathcal{W}: W \to \OO^p$. in poznamo preslikavi $A: \OO^n \to \OO^m$, ter $B: \OO^p \to \OO^n$. Zanima nas $C = AB$.
+\begin{align*}
+A &= [a_{ij}] \in \OO^{m \times n} \\
+B &= [b_{ij}] \in \OO^{n \times p} \\
+C &= [c_{ij}] \in \OO^{m \times p}
+\end{align*}
+\begin{gather*}
+C = AB \\
+C^{(j)} = C e_j = (AB)e_j = A(B e_j) = AB^{(j)} \Rightarrow \\
+C^{(j)} = AB^{(j)} \quad \forall j \\
+\Rightarrow C_ij = A_{(i)} B^{(j)} \\
+C_{ij} = \sum_{k = 1}^{n} a_{ik} b_{kj}
+\end{gather*}
+%
+\subsubsection{Poseben primer}
+Naj bo $U = V = W$, in $m = n = p$.
+\begin{equation*}
+A, B \in \OO^{n \times n} \Rightarrow C = AB \in \OO^{n \times n}
+\end{equation*}
+$\LL(\OO^n) \equiv \OO^{n \times n}$  je \emph{algebra kvadratnih matrik}.
+Naj bodo baze $U, V, W$ enake, to je $\mathcal{U} = \mathcal{V} = \mathbb{V}$. Skonstruiramo preslikavo
+\begin{align*}
+F: \LL(V) &\to \LL(\OO^n) \equiv \OO^{n \times n} \\
+\A &\mapsto A \\
+F(\A) &= \Phi_{\mathcal{V}} \A \Phi_{\mathcal{V}}^{-1}
+\end{align*}
+\textbf{Vemo:} $F$ je izomorfizem vektorskih prostorov $\LL(V)$ in $\OO^{n \times n}$.
+
+\textsc{Trditev:} $F$ je izomorfizem med algebrama $\LL(V)$ in $\OO^{n \times n}$.
+
+\textsc{Dokaz:} Zado"s"ca ugotoviti, da $F$ ohranja mno"zenje
+\dashuline{$F(\mathcal{A} \mathcal{B}) = F(\A) F(\mathcal{B})$}
+
+\begin{gather*}
+F(\A \mathcal{B}) = \Phi_{\mathcal{V}} (\A \mathcal{B}) \Phi_{\mathcal{V}}^{-1} \\
+F(\A) F(\mathbb{B}) = \Phi_{\mathcal{V}} \A \Phi_{\mathcal{V}}^{-1} \Phi_{\mathcal{V}} \mathcal{B} \Phi_{\mathcal{V}}^{-1} = \Phi_{\mathcal{V}} \A \mathcal{B} \Phi_{\mathcal{V}}^-1
+\end{gather*}
+\hfill $\square$
+
+$id_V$ je enota algebre $\LL(V)$. $F(id_V)$ je enota algebre $\OO^{n \times n}$
+\begin{equation*}
+F(id_V) = id_{\OO^{n \times n}} = I
+\end{equation*}
+$I$ je \emph{enotska} (ali identi"cna) matrika. Velja:
+\begin{equation*}
+I^{(j)} = I e_j = e_j
+\end{equation*}
+torej 
+\begin{equation*}
+I = [e_1, e_1, \ldots, e_n]
+\end{equation*}
+Zapi"semo lahko tudi kot
+\begin{equation*}
+I = [\delta_{ij}]\quad i,j = 1, \ldots, n
+\end{equation*}
+kjer je $\delta_{ij}$ \emph{Kroneckerjeva delta}, za katero velja predpis
+\begin{equation*}
+\delta_{ij} = \begin{cases}
+1 & i = j \\
+0 & \text{sicer}
+\end{cases}
+\end{equation*}
+%
+\textsc{Definicija:} Naj bo $\A \in \LL(V)$ bijekcija ($\exists \mathcal{B} \in \LL(V): \A \mathbb{B} = \mathcal{B} \A = id_V$). Pravimo, da je $F(\A) = A$ \emph{obrnljiva}:
+\begin{equation*}
+\exists B \in \OO^{n \times n} : A B = BA = I
+\end{equation*}
+$A$ obrnljiva $\Rightarrow B$ je enoli"cno dolo"cena. Ozna"cimo:
+\begin{equation*}
+B = A^{-1}
+\end{equation*}
+\subsubsection{Rang linearne preslikave in matrike}
+Naj bosta $V, U$ kon"cno razse"zna vektorksa prostora nad $\OO$ in $\A \in \LL(V, U)$.
+
+\textsc{Izrek:} Za $\A$ velja formula
+\begin{equation}
+\label{eq:rang-izrek}
+\dim (\im \A) + \dim (\ker \A) = \dim V
+\end{equation}
+\textsc{Dokaz:} Vemo, da sta vekotrska prostora $V_{\ker \A}$ in $\im \A$ izomorfna. Zato je $\dim V/_{\ker \A} = \dim (\im \A)$. Vemo $\dim V/_{\ker \A} = \dim V - \dim (\ker \A)$. $\Rightarrow$~\refeq{eq:rang-izrek}.
+
+\hfill $\square$
+
+\textsc{Definicija:} Rang preslikave $\A$ je $\dim (\im \A)$. Oznaka $\rang \A = \dim (\im \A)$.
+
+\textsc{Trditev:} $\A = \LL(V, U)$
+\begin{enumerate}
+	\item $\A$ je injektivna $\iff \rang \A = \dim V$
+	\item $\A$ je surjektivna $\iff \rang A = \dim U$
+	\item $\A$ je bijektivna $\iff \dim V = \dim U = \rang \A$
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}
+	\item vemo: $\A$ injektivna $\iff \ker \A = \{0\}$
+	\begin{equation*}
+	\ker \A = \{0\} \iff \dim (\ker \A) = 0
+	\end{equation*}
+	
+	\item vemo: $\A$ surjektivna $\iff \im \A = U$
+	\begin{equation*}
+	\im \A = U \iff \underbrace{\dim (\im \A)}_{\rang \A} = \dim U
+	\end{equation*}
+	
+	\item kombiniramo 1 in 2.
+\end{enumerate}
+%
+\textsc{Trditev:} Za $\A \in \LL(V)$ so ekvivalentne naslednje izjave:
+\begin{enumerate}
+	\item $\A$ je bijekcija
+	\item $\A$ je surjekcija
+	\item $\A$ je injekcija
+	\item $\rang \A = \dim V$
+\end{enumerate}
+\textsc{Dokaz:} $U = V$ v prej"snji trditvi $\Rightarrow$
+\begin{equation*}
+\Rightarrow [(1) \iff (4), (2) \iff (4), (3) \iff (4)]
+\end{equation*}
+\textsc{Posledica:} Matrika $A \in \OO^{n \times n}$ je obrnljiva natanko takrat, kadar je $\rang A = n$.
+
+\textsc{Dokaz:} V prej"snji trditvi vzamemo $V = \OO^n$ in $A$ razumemo kot endomorfizem vektorskih prostorov $\OO^n$. $A$ obrnljiva $\iff A$ bijekcija, t.j.: $(1) \iff (4)$ po prej"snji trditvi.

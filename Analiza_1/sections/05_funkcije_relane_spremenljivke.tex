@@ -621,3 +621,136 @@ c = \log_a x \quad \text{in} \quad d = \log_a y \\
 \Rightarrow \log_a x + \log_a y = \log_a (xy)
 \end{gather*}
 \hfill $\square$
+%
+\subsection{Trigonometri"cne funkcije}
+Iz prosminarja vemo
+\begin{align*}
+\sin (\varphi + \frac{\pi}{2}) &= \cos \varphi \\
+\dfrac{\sin \varphi}{\cos\varphi} &= \tan \varphi
+\end{align*}
+zato je za "studij osnovnih lastnosti dovolj obravnati le eno funkcijo.
+
+\textsc{Izrek:} Sinus je zvezna funkcija $\RR$.
+
+\textsc{Dokaz:} Nari"semo si enotsko kro"znico in v njo vri"semo kot $\varphi_0$ in $\varphi$, kjer $\varphi_0 < \varphi$. Ozani"cimo trikotnik $ABC$, tako da je $A(\cos \varphi_0, \sin \varphi_0)$, in $B(\cos\varphi, \sin\varphi)$. Vemo, da je $ABC$ pravokotni trikotnik, in je dol"cina loka $AB = l$. Velja $l > AB > AC, BC$.
+
+Vemo: $\overline{BC} = |\sin \varphi - \sin \varphi_0|$ in dol"zina loka $AB = |\varphi - \varphi_0|$. Velja $|\sin \varphi - \sin \varphi_0| \leq |\varphi - \varphi_0|$.
+
+\dashuline{sinus je zvezna v to"cki $\varphi_0$}
+
+Izberemo $\varepsilon > 0$ in i"s"cemo $\delta$. Velja
+\begin{equation*}
+|\sin\varphi - \sin \varphi_0| \leq |\varphi - \varphi_0|  \varepsilon
+\end{equation*}
+Izberemo $\delta := \varepsilon$ : "ce je $|\varphi - \varphi_0| < \delta = \varepsilon$, potem je $|\sin\varphi - \sin \varphi_0| \leq |\varphi-\varphi_0| < \delta = \varepsilon$.
+
+\hfill $\square$
+%
+\subsection{Ciklometri"cne funkcije}.
+Ve"cino znamo "ze iz proseminarja. Vemo, da je $\arcsin$ inverzna funkcija $\sin|_{[- \frac{\pi}{2}, \frac{\pi}{2}]}$. Posledica izreka je, da so arkus sinus, arkus kosinus, arkus tangens in arkus kotangens zvezna funkcije.
+
+\emph{Elementarne funkcije} so funkcije, ki jih dobimo iz osnovnih tipov (polinomi, racionalne funkcije, algebrai"cne funkcije, eksponentne, trigonometri"cne) z uporabo aritmeti"cnih opracij, kompozituma in invertiranja. \textbf{Primer:}
+\begin{equation*}
+\ln (\arcsin ( \sqrt{x^2 + 6x} + e^x))
+\end{equation*}
+Elementarne funkcije so zvezne.
+\begin{equation*}
+f(x) = \begin{cases}
+x & x > 0 \\
+16 & x \leq 0
+\end{cases}
+\end{equation*}
+ni zvezna funkcije (ni elementarna funkcija). Pravimo ji \emph{zlepek}.
+%
+\subsection{Limita funkcije}
+Radi bi opisali lokalno obna"sanje funkcije: imamo funkcijo, ki je definaran v okolici to"cke $a$ in ne nujno v $a$.
+
+\deff Naj bo funkcija $f$ definirana v \emph{prebodeni okolici} to"cke $a$, t.j.: obstaja $r > 0$, da je $f$ definirana na $(a - r, a + r) \setminus \{a\}$. "Stevilo $L \in \RR$ imenujemo \emph{limita} funkcije $f$, ko gre $x$ proti $a$, "ce
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x \in D_f: 0 < |x - a| < \delta \Rightarrow |f(x) - L| < \varepsilon
+\end{equation*}
+%
+\textsc{Trditev:} Naj bo $f$ definirana v okolici to"cke $a$. Funkcija $f$ je zvezna v to"cki $a$ natanko tedaj, kadar je
+\begin{equation*}
+\lim_{x \to a} f(x) = f(a)
+\end{equation*}
+to pomeni: $\lim_{x \to a} f(x)$ obstaja in je enaka $f(a)$.
+
+\textsc{Dokaz:} napi"semo obe definiciji in je o"citno, zato je bil za DN.
+
+\textsc{Posledica:} Naj bo funckija $f$ definirana v prebodeni okolici $D_f$ fo"cke $a$. "Ce obstaja $\lim_{x \to a} f(x) = L$, potem je funkcija
+\begin{equation*}
+\widetilde{f}(x) = \begin{cases}
+f(x) & x \in D_f \setminus \{a\} \\
+L & x = a
+\end{cases}
+\end{equation*}
+zvezna funkcija v to"cki $a$.
+
+\textsc{Dokaz:} $\lim_{x \to a} \widetilde{f} (x) = \lim_{x \to a} f(x) = \widetilde{f}(a)$
+
+\textsc{Izrek:} Naj bo funkcija $f$ definirana v prebodeni okolici $\mathcal{U}$ to"cke $a$. Potem obstaja $\lim_{x \to a} f(x) = L$ natanko tedaj, kadar za vsako zaporedje $x_n \in \mathcal{U}$, ki konvergira proti $a$, zaporedje $f(x_n)$ konvergira proti $L$.
+
+\textsc{Dokaz:} Posledica trditve (zvezna $\Rightarrow$ po izreku za zveznost).
+
+\textsc{Izrek:} Naj bosta $f$ in $g$ definirani v prebodeni okolici to"cke $a$ in denimo, da obstaja $\lim_{x \to a} f(x)$ in $\lim_{x \to a} g(x)$. Potem obstajajo $\lim_{x \to a} (f + g)(x), \lim_{x \to a} (f - g)(x), \lim_{x \to a} (f \cdot g) (x)$ in velja:
+\begin{align*}
+\lim_{x \to a} (f \pm g) (x) &= \lim_{x \to a} f(x) \pm \lim_{x \to a} g(x) \\
+\lim_{x \to a} (f \cdot g) (x) &= \left(\lim_{x \to a} f(x)\right) \cdot \left(\lim_{x \to a} g(x)\right)
+\end{align*}
+"Ce je $\lim_{x \to a} g(x) \neq 0$, potem obstaja $\lim_{x \to a} \frac{f(x)}{g(x)}$ in velja
+\begin{equation*}
+\lim_{x \to a} \left(\dfrac{f}{g}\right)(x) = \dfrac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}
+\end{equation*}
+\textsc{Dokaz:} Imamo zveznost po trditvi in delamo z zaporedji.
+
+\deff Naj bo funkcija $f$ definirana na $(a - r, a)$ za nek $r > a$. Pravimo, da je $L \in \RR$ \emph{leva limita} funkcije $f$, ko gre $x$ proti $a$ "ce
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x \in D_f: x \in (a - \delta, a) \Rightarrow |f(x) - L| < \varepsilon
+\end{equation*}
+\textbf{Oznaka:}
+\begin{equation*}
+L = \lim_{x \nearrow a} f(x) = f(a-) = \lim_{x \uparrow a} f(x)
+\end{equation*}
+Podobno definiramo \emph{desno limito} in ozna"cimo 
+\begin{equation*}
+D = \lim_{x \searrow a} f(x) = f(a + ) = \lim_{x \downarrow a} f(x)
+\end{equation*}
+%
+\textsc{Trditev:} Naj bo $f$ definirana v prebodeni okolici to"cke $a$. Limita funkcije $f$< ko gre $x$ proti $a$ obstaja natanko tedaj, kadar obstajata leva ind esna limita in sta enaki.
+
+\textsc{Dokaz:} Potrebno je lepo zlo"ziti definicije, zato je bil dokaz za DN.
+
+\textsc{Izrek:} Naj bo $f$ monotona funkcija na $[a, b]$. Potem za vsak $c \in (a, b)$ obstajata $f(c-)$ in $f(c+)$. Funkcija $f$ je zvezna v to"cki $c$ natanko tedaj, kadar $f(c-)= f(c+)$. "Ce je nara"s"cajo"ca, potem je $f(c-) \leq f(c) \leq f(c+)$> "Ce je $f$ padajo"ca, potem je $f(c+) \leq f(c) \leq f(c-)$.
+
+\deff "Ce monotona funckija $f$ na $[a, b]$ ni zvezna v to"cki $c$, potem $f(c+) - f(c-)$ imenujemo \emph{skok} funkcije $f$ v to"cki $c$.
+
+\textsc{Dokaz:} (izreka) Naj bo $f$ nara"s"cajo"ca, $c \in (a, b)$. Vemo
+\begin{equation*}
+\forall x \in [a, c]: f(x) \leq f(c)
+\end{equation*}
+Mno"zica $\{f(x): x \in [a, c)\}$ je navzgor omejena, zato ima supremum $S$. Dokazujemo \dashuline{$f(c-) = S$}
+
+Izberemo $\varepsilon > 0$. Obstaja $x_0 \in [a, c)$, da je $f(x_0) > S - \varepsilon$.
+
+Za $x \in [x_0, c)$ velja: ker je $f$ nara"s"cajo"ca: $S - \varepsilon < f(x_0) \leq f(x) \leq S$. Torej $f(x) \in (S - \varepsilon, S + \varepsilon)$. Vzamemo $\delta := c - x_0$. Podobno naredimo za desno limito in padajo"ce zaporedje.
+
+\hfill $\square$
+
+\textsc{Izrek:} Monotona funkcija $f$ na $[a, b]$ ima kve"cjemo "stevno mnogo to"ck nezvenznosti.
+
+\textsc{Dokaz:} Vemo: v to"ckah nezveznosti ima funkcija monotona skok. Naj bo
+\begin{equation*}
+\mathcal{N} = \text{ mno"zica to"ck nezveznosti}
+\end{equation*}
+Velja
+\begin{equation*}
+\forall c \in \mathcal{N} \exists f(c-), f(c+): f(c-) \neq f(c+)
+\end{equation*}
+"Ce je $f$ nara"s"cajo"ca: obstaja $r_c \in (f(c-), f(c+)) \cap \QQ$. Naj bo
+\begin{equation*}
+g: \mathcal{N} \to \QQ \qquad g(c) = r_c
+\end{equation*}
+$g$ je injektivna, zato je $\mathcal{N}$ kve"cjemu "stevna.
+
+\hfill $\square$

@@ -1109,4 +1109,130 @@ Naj bosta $V, U$ kon"cno razse"zna vektorksa prostora nad $\OO$ in $\A \in \LL(V
 \end{equation*}
 \textsc{Posledica:} Matrika $A \in \OO^{n \times n}$ je obrnljiva natanko takrat, kadar je $\rang A = n$.
 
-\textsc{Dokaz:} V prej"snji trditvi vzamemo $V = \OO^n$ in $A$ razumemo kot endomorfizem vektorskih prostorov $\OO^n$. $A$ obrnljiva $\iff A$ bijekcija, t.j.: $(1) \iff (4)$ po prej"snji trditvi.
+\textsc{Dokaz:} V prej"snji trditvi vzamemo $V = \OO^n$ in $A$ razumemo kot endomorfizem vektorskih prostorov $\OO^n$. 
+
+$A$ obrnljiva $\iff A$ bijekcija, t.j.: $(1) \iff (4)$ po prej"snji trditvi.
+
+\textsc{Trditev:} Naj bo $\A \in \LL(V, U)$ in $A$ matrika, ki pripada $\A$ gelde na dai baz $\mathcal{V} \in V, \mathcal{U} \in U$. Potem velja:
+\begin{equation*}
+\rang \A = \rang A
+\end{equation*}
+\textsc{Dokaz:}
+Nari"semo si diagram in opazimo, da komutira.
+\begin{gather*}
+\Phi_{\mathcal{U}} \A =  A \Phi_{\mathcal{V}} \\
+(\Phi_{\mathcal{U}} \underbrace{\A) V}_{\im \A} = (A \underbrace{\Phi_{\mathcal{V}}) V}_{\OO^n} \Rightarrow \\
+\Rightarrow \Phi_{\mathcal{U}} (\im \A) = \im A
+\end{gather*}
+$\Phi_{\mathcal{U}}$ je izomorfizem, zato je
+\begin{gather*}
+\begin{aligned}
+\dim (\im \A) &= \dim (\im A) \\
+\rang \A &= \rang A
+\end{aligned}
+\end{gather*}
+%
+Naj bo $A \in \OO^{m \times n} \equiv \LL(\OO^n, \OO^m)$. Velja
+\begin{gather*}
+\begin{aligned}
+\im A &= \{Ax: x \in \OO^n\} = \\
+&= \{A(x_1 e_1 + \cdots + x_n e_n): x \in \OO^n\} = \\
+&= \{x_1Ae_1 + \cdots + x_n A e_n\} = \\
+&= \{x_1 A^{(1)} + \cdots + x_n A^{(n): x_j \in \OO \forall j} = \\
+& = \Lin \{A^{(1)}, \ldots, A^{(n)}\}
+\end{aligned}
+\end{gather*}
+\textsc{Trditev:} Stolpci matrike $A$ tvorijo ogrodje vektorskega prostora $\im A$.
+
+\textsc{Posledica:} Rang matrike $A$ je najve"cje "stevilo linearno neodvisnih stolpcev te matrike.
+
+Operacije na matrkah, ki ohranjujejo rang:
+\begin{enumerate}[S1)]
+	\item  med sabo zamenjamo dva stolpca
+	\item stolpec pomno"zimo z neni"celnim skalarjem
+	\item Stolpci pri"stejemo ve"ckratnik kak"snega drugega stolpca
+\end{enumerate}
+V1, V2, V3 so analogne operacije na vrsticah.
+
+\textsc{Trditev:} S1, S2, S3 in V1, V2, V3 ohranjajo rang.
+
+\textsc{Dokaz:}
+\begin{enumerate}[S1)]
+	\item o"citno
+	\item  Dokazati moramo, da velja
+	\begin{equation*}
+	L1 = \Lin \{\alpha A^{(1)}, A^{(2)}, \ldots, A^{(n)}\} = \Lin \{A^{(1)}, A^{(2)}, \ldots, A^{(n)}\} = L2
+	\end{equation*}
+	Torej morajo biti vsi vektorji, ki so linearne kombinacije vektorjev L1 tudi linearne kombinacije vektorjev L2 in obratno. Zado"s"ca
+	\begin{equation*}
+	A^{(1)} = \alpha^{-1} (\alpha A^{(1)})
+	\end{equation*}
+	To velja, ker $\alpha \neq 0$. Torej lahko vsak vektor, ki je zapisan z linearno kombinacijo L1 pretvorimo v linearno kombinacijo vektorjev L2 in obratno, zato se ohranja slika preslikave $A$ in posledi"cno tudi rang.
+	
+	\item Dokazati moramo
+	\begin{equation*}
+	\Lin \{A^{(1)} + \alpha A^{(2)}, A^{(2)}, \ldots, A^{(n)}\} = \Lin \{A^{(2)}, A^{(2)}, \ldots, A^{(n)} \}
+	\end{equation*}
+	Velja podoben razmislek kot pri S2, zato zado"s"ca
+	\begin{equation*}
+	A^{(1)} = \left(A^{(1)} + \alpha A^{(2)}\right) + (- \alpha) A^{(2)}
+	\end{equation*}
+\end{enumerate}
+\dashuline{V1, V2, V3 ohranjajo $\ker A$}
+\begin{equation*}
+x \in \ker A \iff Ax = 0 \iff A_{i} x = 0, \quad i = 1, \ldots, m
+\end{equation*}
+\begin{enumerate}[V1)]
+	\item o"citno iz zgornje enakosti
+	\item \begin{equation*}
+	A \to 
+	\begin{bmatrix}
+	\alpha A_{(1)} \\
+	A_{(2)} \\
+	\vdots \\
+	A_{(m)}
+	\end{bmatrix}
+	\end{equation*}
+	Pokazati moramo, da $\alpha A_{(1)} x = 0 \quad \forall x \in \OO^n$. Ker $\alpha \neq 0$, velja
+	\begin{equation*}
+	\alpha A_{(1)} x = 0 \iff A_{(1)} x = 0
+	\end{equation*}
+	Torej operacija ohranja $\ker A$.
+	
+	\item
+	\begin{equation*}
+	A \to 
+	\begin{bmatrix}
+	A_{(1)} +  \alpha A_{(2)} \\
+	A_{(2)} \\
+	\vdots \\
+	A_{(m)}
+	\end{bmatrix}
+	\end{equation*}
+	Pokazati moramo
+	\begin{equation*}
+	\begin{Bmatrix}
+	(A_{(1)} + \alpha A_{(2)}) x = 0 \\
+	A_{(2)} x = 0 \\
+	\cdots \\
+	A_{(n)} x = 0
+	\end{Bmatrix}
+	\iff
+	\begin{Bmatrix}
+	A_{(1)}x = 0 \\
+	A_{(2)} x = 0 \\
+	\cdots \\
+	A_{(n)} x = 0
+	\end{Bmatrix}
+	\end{equation*}
+	\begin{itemize}
+		\item[($\Leftarrow$)] o"citno
+		\item [($\Rightarrow$)] vemo $(A_{(1)} + \alpha A_{(2)}) x = 0$. Dokazati moramo, da je $A_{(1)} x = 0$.
+		\begin{gather*}
+			(A_{(1)} + \alpha A_{(2)}) x = 0 \\
+			A_{(1)} x + \alpha \underbrace{A_{(2)} x}_{0} = 0 \\
+			\Rightarrow A_{(1)} x = 0
+		\end{gather*}
+	\end{itemize}
+\end{enumerate}
+Ker se ohranja jedro, se ohranja rang ($= n - \dim (\ker A)$).

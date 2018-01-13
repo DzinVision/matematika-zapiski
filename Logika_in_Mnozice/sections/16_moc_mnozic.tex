@@ -32,3 +32,164 @@ Mo"c $A$ ozna"cimo z $|A|$
 \begin{equation*}
 |A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
 \end{equation*}
+
+\textsc{Definicija:} $A$ je \emph{neskon"cna}, "ce ni kon"cna.
+
+\textsc{Izrek:} $A$ je nekson"cna $\iff$ obstaja injektivna $\NN \to A$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Rightarrow$)] Denimo, da je $A$ neskon"cna. Ideja dokaza: injektivno $e: \NN \to A$ definiramo po korakih.
+	
+	Zaporedje $e(0), e(1), e(2), \ldots$ definiramo rekurzivno: "ce smo "ze definirali $e(0), \ldots, e(n-1)$, potem lahko dodamo "se $e(n)$.
+	
+	Definiramo $e(0)$: ker $A \neq [0], A \neq \varnothing$, torej lahko izberemo $e(0) \in A$.
+	
+	Denimo, da "ze imamo $e(0), \ldots, e(n-1)$ in da so $e(0), \ldots, e(n-1)$ paroma razli"cni ($e$ je injektivna). I"s"cemo element $A \setminus \{e(0), \ldots, e(n-1)\}$. "Ce bi veljajo $A \setminus \{e(0), \ldots, e(n-1)\} = \varnothing$, bi imeli $A \cong [n]$, kar ni res. Torej lahko izberemo $e(n) \in A \setminus \{e(0), \ldots, e(n-1)\}$.
+	
+	\item[($\Leftarrow$)] Denimo $e: \NN \to A$ injektivna. Dokazujemo, da je $A$ neskon"cna, t.j.: $\neq \exists n \in \NN: A \cong [n]$.
+	
+	Predpostavimo, da je $n \in \NN$ in $A \cong [n]$, ter i"s"cemo protislovje.
+	
+	Potem bi imeli $\NN \stackrel{e}{\to} A \stackrel{\text{bijekcija}}{\longrightarrow}[n]$ injekcijo, kar ni mo"zno. Na predavanjih nismo dokazali, vendar v smo dobili za premislek: $\NN$ je neskon"cna, t.j.: $\neq \exists m \in \NN : \NN \cong [m]$).
+\end{itemize}
+%
+"Ce je $A$ kon"cna, je mo"c $|A|$ naravno "stevilo. V splo"snem je mo"c $|A|$ \emph{kardinalno "stevilo}.
+
+\textsc{Definicija:} Naj bosta $A$ in $B$ mno"zici.
+\begin{enumerate}
+	\item $A$ ima enako mo"c kot $B$ ($A$ in $B$ sta \emph{ekvipolentni}), ko velja $A \cong B$. Pi"semo $|A| = |B|$.
+	
+	\item $A$ ima manj"so ali enako mo"c kot $B$, ko obstaja injektivna preslikava $A \to B$. Pi"semo $|A| \leq |B|$.
+	
+	\item $A$ ima manj"so mo"c kot $B$, ko velja
+	\begin{equation*}
+	|A| \leq |B| \land |A| \neq |B|
+	\end{equation*}
+	Pi"semo $|A| < |B|$.
+\end{enumerate}
+\textsc{Primer:}
+\begin{gather*}
+S = \{n \in \NN: \text{$n$ je sodo}\} \\
+|S| \leq |\NN| \text{ ker $n \mapsto n$ injektivna $S \to |NN$} \\
+|S| = |NN| \text{ ker $n \mapsto 2n$ bijektivna $\NN \to S$}
+\end{gather*}
+%
+\textsc{Izrek:} $|A| \leq |B| \iff A \neq \varnothing$ ali obstaja surjektivna $B \to A$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Rightarrow$)] Denimo $f: A \to B$ injektivna in $A \neq \varnothing$. Potem obstaja $x_0 \in A$. Surjekcijo $g: B \to A$ definiramo s predpisom
+	\begin{equation*}
+	g(y) = \begin{cases}
+	x, & f(x) = y \\
+	x_0, & \forall z \in A: f(z) \neq y
+	\end{cases}
+	\end{equation*}
+	
+	\item[($\Leftarrow$)] Denimo $A$ prazna ali obstaja surjektivna $f: B \to A$.
+	
+	"Ce $A = \varnothing$, je $\varnothing \to B$ injektivna.
+	
+	"Ce $f: B \to A$ surjektivna, potem ima prerez $g: A \to B$. $f \circ g = id_A$, torej je $g$ injektivna.
+\end{itemize}
+\hfill $\square$
+
+\textsc{Izrek:} (Cantor) $|A| < |\mathcal{P}(A)|$.
+
+\textsc{Dokaz:} Najprej doka"zimo $|A| \leq |\mathcal{P}(A)|$.
+
+I"s"cemo injektivno preslikavo $f: A \to \mathcal{P}(A)$.
+\begin{equation*}
+f (x) = \{x\}
+\end{equation*}
+Ta je injektivna, ker iz $\{x\} = \{y\}$ sledi $x \in \{y\}$ sledi $x = y$.
+
+Doka"zimo $|A| \neq |\mathcal{P}(A)|$. Dokazujemo
+\begin{align*}
+\lnot \exists g : A \to \mathcal{P}(A)&: g \text{ bijekcija} \\
+\forall g: A \to \mathcal{P}(A)&: g \text{ ni bijekcija}
+\end{align*}
+Naj bo $g: A \to \mathcal{P}(A)$. Dokazujemo, da $g$ ni surjektivna ali $g$ ni injektivna. Doka"zimo, da $g$ ni surjektivna.
+
+Trdimo, da mno"zica
+\begin{equation*}
+S := \{x \in A: x \notin g(x)\} \in \mathcal{P}(A)
+\end{equation*}
+ni v sliki $g$ (in torej $g$ ni surjektivna).
+\begin{align*}
+\lnot \exists y \in A&: g(y) = S \\
+\forall y \in A&: g(y) \neq S
+\end{align*}
+Naj bo $y \in A$. Dokazujemo $g(y) \neq S$. Predpostavimo $g(y) = S$ in i"s"cemo protislovje
+\begin{enumerate}
+	\item velja $y \notin S$
+	
+	"Ce $y \in S$, bi sledilo $y \notin g(y) = S$. $\rightarrow \leftarrow$
+	
+	\item velja $\lnot (y \notin S)$
+	
+	"Ce $y \notin S$, bi sledilo $y \notin g(y) = S$. Po definiciji $S$ sledi, $y \in S$. $\rightarrow \leftarrow$
+\end{enumerate}
+Torej $(1) \rightarrow \leftarrow (2)$
+%
+\subsection{"Stevne in ne"stevne mno"zice}
+Moc mno"zice $\NN$ ozna"cimo z $\aleph_0$.
+\begin{equation*}
+|\NN| = \aleph_0
+\end{equation*}
+%
+\textsc{Definiicija:} Mno"zica je \emph{"stevna}, "ce je njea mo"c $\leq \aleph_0$. Mno"zica je \emph{ne"stevna} "ce ni "stevna.
+
+\textsc{Izrek:} Za mno"zico $A$ je ekvivalentno:
+\begin{enumerate}
+	\item $A$ je "stevna
+	\item obstaja injektivna $A \to \NN$
+	\item $A$ je prazna ali obstaja surjektvina $\NN \to A$
+	\item obstaja preslikava $\NN \to 1 + A$, katere slika vsebuje $A$
+	\item $A$ je kon"cna ali izomorfna $\NN$
+\end{enumerate}
+\textsc{Dokaz:} (1) in (2) sta ekvivalentni po definiciji. (2) in (3) sta ekvivalentni po izreku. (1) in (5) sta ekvivalentni po definiciji.
+
+\textsc{Izjava:} $\NN \cong \NN \times \NN$
+
+\textsc{Dokaz:} Da je $\NN \times \NN$ "stevna lahko doka"zemo na podoben na"cin, kot dokazujemo, da je $\QQ$ "stevna. Urejene pare $(x, y), x, y \in \NN$ uredimo v kvadrat, in jih navedemo po diagonalah. Bolj korekten dokaz smo pokazali na vajah.
+
+\textsc{Izrek:} "Stevna unija "stevnih mno"zic je "stevna.
+
+\textsc{Dokaz:} Imamo $I$ "stevna, $A: I \to \set$ in $A_i$ je "stevna za vsak $i \in I$. Dokazujemo, da je $\bigcup_{i \in I} A_i$ "stevna. Iz dokaza za posebene primer lahko izpeljemo splo"sen dokaz, zato smo na vajah dokazali samo za poseben primer.
+
+\textbf{Poseben primer:} $I = \NN$ in $A_i$ "stevna neprazna.
+
+Imamo $A: \NN \to Set$, $A_n \neq \varnothing$ "stevna.
+
+Vemo $\forall n \in \NN: A_n \neq \varnothing$ "stevna. Po to"cki (3) v prej"snjem izreku, velja
+\begin{equation*}
+\forall n \in \NN \exists e : \NN\to A_n \text{ surjektivna}
+\end{equation*}
+Po aksiomu izbire obstaja $f$ preslikava
+\begin{equation*}
+f \in \prod_{n \in \NN} \{g: \NN \to A_n: g \text{ surjekcija}\}
+\end{equation*}
+Se pravi: za $\forall n \in \NN$ smo izbrali surjekcijo
+\begin{equation*}
+f_n : \NN \to A_n
+\end{equation*}
+Definiramo $h: \NN \times \NN \to \bigcup_{n \in \NN} A_n, \quad h(i, j) = f_i (j)$
+
+Trdimo, da je $h$ surjekcija.
+
+Naj bo $x \in \bigcup_{n \in \NN} A_n$. Torej obstaja $m \in \NN$, da je $x \in A_m$.
+
+Ker je $f_m: \NN \to A_m$ surjektivna, obstaja $l \in \NN$, da je $f_m(l) = x$, torej
+\begin{equation*}
+h(m, l) = f_m(l) = x
+\end{equation*}
+Imamo Surjekcijo $\NN \stackrel{\text{bijektivna}}{\longrightarrow} \NN \times \NN \stackrel{h}{\longrightarrow} \bigcup_{n \in \NN} A_n$
+
+\hfill $\square$
+
+\textsc{Izrek:} (Cantor-Schr\"oder-Bernstein) "Ce obstaja injektivni preslikavi $A \to B$ in $B \to A$, potem obstaja bijektivna preslikava $A \to B$.
+\begin{equation*}
+|A| \leq |B| \land |B| \leq |A| \Rightarrow |A| = |B|
+\end{equation*}

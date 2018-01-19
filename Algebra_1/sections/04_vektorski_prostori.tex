@@ -1236,3 +1236,154 @@ x \in \ker A \iff Ax = 0 \iff A_{i} x = 0, \quad i = 1, \ldots, m
 	\end{itemize}
 \end{enumerate}
 Ker se ohranja jedro, se ohranja rang ($= n - \dim (\ker A)$).
+
+\textsc{Trditev:} Naj bo $A \in \OO^{m \times n}$. Z uporabo operacij S1 - S3, V1 - V3 lahko postopoma pridemo iz matrike $A$, do matrike $A_0$ oblike
+\begin{equation*}
+A_0 = \begin{bmatrix}
+1 &  &  &  \\
+ & \ddots &  & \\
+ &  & 1 & 
+\end{bmatrix} \in \OO^{m \times n}
+\end{equation*}
+Kjer je $\rang A$ "stevilo stolpcev z eno enico. Natan"cna shema postopka je v zvezku.
+
+\textsc{Primer}
+\begin{equation*}
+A = \begin{bmatrix}
+1 & 2 & 3 & 4 \\
+3 & 2 & 1 & 0 \\
+2 & 3 & 4 & 5
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -4 & -8 & -12 \\
+0 & -1 & -2 & -3
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 2 & 3 \\
+0 & 0 & 0 & 0
+\end{bmatrix} \sim
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix} = A_0
+\end{equation*}
+Torej je $\rang A = \rang A_0 = 2$.
+
+\textsc{Posledica} Rang matrike je enak rangu njene \emph{transponiranke}.
+\begin{equation*}
+\rang A = \rang A^\intercal
+\end{equation*}
+"Ce je $A = [a_{ij}] \in \OO^{m \times n}$, transponiranko $B = A^\intercal$, t.j.: $B = [b_{ij}] \in \OO^{n \times m}$ tvorimo na nasleden na"cin:
+\begin{equation*}
+b_{ij} = a_{ji} \quad \forall i, j
+\end{equation*}
+\textsc{Dokaz:} O"citno je, da "ce na matriki $A$ izvedemo operaijo S$i$, se bo ta pretvorila v V$i$ na matriki $A^\intercal$. Analogno za operacije V$i$.
+
+\textsc{Posledica:} Najve"cje "stevilo linearno neodvisnih stolpcev matrike je enako najve"cjemu "stevilu njenih linearno neodvisnih vrstic.
+
+\subsubsection{Sistemi linearnih ena"cb}
+Naj bo
+\begin{gather*}
+a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n = b_1 \\
+a_{21} x_1 + a_{22} x_2 + \cdots + a_{2n} x_n = b_2 \\
+\vdots \\
+a_{m1} x_1 + a_{m2} x_2 + \cdots + a_{mn} x_n = b_m \\
+\end{gather*}
+sistem linearnih ena"cb. Zapi"semo lahko $A \in \OO^{m \times n}, \quad A = [a_{ij}]$. Za $b$ lahko zapi"semo
+\begin{equation*}
+b \in \OO^m, \quad b = \begin{bmatrix}
+b_1 \\
+\vdots \\
+b_m
+\end{bmatrix}
+\end{equation*}
+Podobno lahko $x$ zapi"semo kot
+\begin{equation*}
+x = \begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix} \in \OO^n
+\end{equation*}
+I"s"cemo $x \in \OO^n$, da bo veljalo
+\begin{equation*}
+Ax = b
+\end{equation*}
+"Ce gledamo na $A$ kot na preslikavo, velja $A \in \LL(\OO^n, \OO^m)$. Naj bo $\mathcal{R}$ mno"zica vseh re"sitev sistema $Ax = b$, t.j.:
+\begin{equation*}
+\mathcal{R} = \{x \in \OO^n: Ax = b\}
+\end{equation*}
+$[A|b] \in \OO^{m \times (n + 1)}$ je \emph{raz"sirjena matrika} sistema $Ax = b$. 
+
+"Ce je $b = 0$, potem imamo \emph{homogen sistem} $Ax = 0$, potem
+\begin{equation*}
+\mathcal{R} = \ker A
+\end{equation*}
+
+"Ce je $b \neq 0$. imamo \emph{nehomogen sistem} $Ax = b$. Sistem je \emph{protisloven}, kadar je $\mathcal{R} = \varnothing$, sicer pa je \emph{neprotisloven}. Naj bo sistem $Ax = b$ neprotisloven in $w$ ena od re"sitev ($w \in \mathcal{R}$). Pravimo, da je $w$ \emph{partikularna re"sitev}.
+
+Naj bo 
+\begin{gather*}
+A w = b, \quad x \in \mathcal{R} \Rightarrow Ax = b \\
+\Rightarrow A(x - w) = \underbrace{Ax}_{b} - \underbrace{Aw}_{b} = 0 \Rightarrow x - w \in \ker A \\
+\Rightarrow x \in w + \ker A
+\end{gather*}
+Torej velja $\mathcal{R} \subseteq w + \ker A$.
+
+Naj bo $x \in w + \ker A$. Potem je $x = w + y, y \in \ker A$.
+\begin{equation*}
+\Rightarrow Ax = A(w + y) = \underbrace{Aw}_{b} + \underbrace{Ay}_{0} = b \\
+\Rightarrow x \in \mathcal{R}
+\end{equation*}
+Torej velja $w + \ker A \subset \mathcal{R}$
+
+Iz $(1) \& (2)$ sledi
+\begin{equation*}
+\mathcal{R} = w + \ker A
+\end{equation*}
+\textsc{Trditev:} "Ce je $w$ partikularna re"sitev sistema $Ax = b$, je 
+\begin{equation*}
+\mathcal{R} = w + \ker A
+\end{equation*}
+\textsc{Izrek} (Kronecker, Capelli): $\mathcal{R} \neq \varnothing$ natanko takrat, kadar je
+\begin{equation*}
+\rang [A | b] = \rang[A]
+\end{equation*}
+\textsc{Dokaz:} $\mathcal{R} \neq \varnothing \iff b \in \im A$ (ker $Ax = b$ pomeni, da je $b \in \im A$)
+\begin{gather*}
+\begin{aligned}
+\im [A | b] &= \Lin \{A^{(1)}, \ldots, A^{(n)}, b\} \\
+\im A = &= \Lin \{A^{(1)}, \ldots, A^{(n)}\}
+\end{aligned}\\
+\dim (\im [A | b]) = \dim (\im A) \iff \im A = \im [A | b] \iff b \in \im A
+\end{gather*}
+ker $\im A \subseteq \im [A | b]$, preveriti je treba "se $\im [A | b] \subseteq \im A \iff b \im A$.
+%
+\subsubsection{Gaussov algoritem za re"sevanje sistema}
+Dovoljene operacije so V1 - V3 in S1. S1 je dovoljena operacija samo za prvih $n$ stolpcev in paziti je treba, da med seboj ustrezno zamenjamo spremenljivke. S temi operacijami bo mno"zica re"sitev ostala ista.
+
+Skica poteka je v zvezku. Na za"cetku leta sem opozoril, da tu ne bo skic. "Ce si pri"cakoval spremembo toplo priporo"cam da zniza"s pri"cakovanja. Ko pridemo do kon"cne matrike, katere skica nje je v prej omenjenem zvezku, velja
+\begin{gather*}
+Ax = b \iff\\
+1 x_{i1} + 0 x_{i2} + \cdots + 0 x_{ir} + \ast x_{ir+1} + \cdots + \ast x_{in} = \ast \\
+0 x_{i1} + 1 x_{i2} + \cdots + 0 x_{ir} + \ast x_{ir + 1} + \cdots + \ast x_{in} = \ast \\
+\vdots \\
+0 x_{i1} + 0 x_{i2} + \cdots + 1 x_{ir} + \ast x_{ir + 1} + \cdots + \ast x_{in} = \ast \\
+0 x_{i1} + 0 x_{i2} + \cdots + 0 x_{ir} + 0 x_{ir + 1} + \cdots + 0 x_{in} = \delta
+\end{gather*}
+"Ce je $\delta = 1$, je sistem protisloven, "ce pa je $\delta = 0$, ima sistem $n - r$ parametri"cno dru"zino re"sitev. Prametri so
+\begin{gather*}
+x_{ir+1} = \alpha _1 \\
+\vdots \\
+x_{in} = \alpha_{n-r}
+\end{gather*}
+re"sitve ena"cbe pa so
+\begin{gather*}
+x_{i1} = \ast + \ast \alpha_1 + \cdots + \ast \alpha_{n-r} \\
+x_{i2} = \ast + \ast \alpha_1 + \cdots + \ast \alpha_{n-r} \\
+\vdots \\
+x_{ir} = \ast + \ast \alpha_1 + \cdots + \ast \alpha_{n-r}
+\end{gather*}

@@ -754,3 +754,251 @@ g: \mathcal{N} \to \QQ \qquad g(c) = r_c
 $g$ je injektivna, zato je $\mathcal{N}$ kve"cjemu "stevna.
 
 \hfill $\square$
+
+\deff Naj bo funkcija $f$ definirana na $(a, \infty)$, $a \in \RR$. "Stevilo $L \in \RR$ je limita funkcije $f$, ko po"sljemo $x$ "cez vse meje, "ce velja:
+\begin{equation*}
+\forall \varepsilon > 0 \exists M  \in \RR, M > a \forall x \in \RR: x \geq M \Rightarrow |f(x) - L| < \varepsilon
+\end{equation*}
+V tem primeru pi"semo
+\begin{equation*}
+\lim_{x \to \infty} f(x) = L
+\end{equation*}
+Podobno definiramo
+\begin{equation*}
+\lim_{x \to - \infty} f(x) = L
+\end{equation*}
+
+\deff Naj bo funkcija $f$ definirana na prebodeni okolici to"cke $a$. Pravimo, da $f$ izpolnjuje \emph{Cauchyjev pogoj} pri $a$, "ce
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta >0 \forall x, x' \in (a - \delta, a + \delta) \setminus \{a\}: |f(x) - f(x')| < \varepsilon
+\end{equation*}
+
+\textsc{Trditev:} Naj bo funkcija $f$ definirana na prebodeni okolici to"cke $a$. Funkcija $f$ izplonjuje Cauchyjev pogoj pri $a$ natanko takrat, kadar obstaja limita funkcije $f$, ko gre $x$ proti $a$.
+
+\textsc{Dokaz:} Za DN.
+
+\textbf{Opomba:} Cauchyjev pogoj ima smisel tudi pri $a = \pm \infty$ in trditev velja tudi pri $a = \pm \infty$.
+
+\deff Naj bo funkcija $f$ definirana v prebodeni okolici to"cke $a$. Pravimo, da je limita funkcije $f$ ,ko gre $x$ proti $a$ enaka neskon"cno "ce
+\begin{equation*}
+\forall M \in \RR \exists \delta > 0, \forall x \in (a - \delta, a + \delta) \setminus \{a\}: f(x) > M
+\end{equation*}
+Ozna"cimo z $\lim_{x \to a} f(x) = \infty$
+
+Podobno definiramo:
+\begin{itemize}
+	\item $\lim_{x \to a} f(x) = -\infty$
+	\item $\lim_{x \uparrow a} f(x) = \pm \infty$
+	\item $\lim_{x \downarrow a} f(x) = \pm \infty$
+	\item $\lim_{x \to \pm \infty} f(x) = \pm \infty$
+\end{itemize}
+%
+\textsc{Primer:}
+\begin{enumerate}[1)]
+	\item $\lim_{x \to 0} \frac{\sin x}{x} = 1$
+
+	"Ce si nari"semo kro"zni izsek enotske kro"znice, lahko z malo geometrije pridemo do ocene $\frac{1}{2} \sin x \leq \frac{x}{2} \leq \frac{1}{2} \tan x$. Nato izraz nekoliko preuredimo in dobimo $\cos x \leq \frac{\sin x}{x} \leq 1$. Uporabimo lahko izrek o sendvi"cu in pridemo do kon"cnega rezultata.
+	
+	\item $f(x) = (1 + \frac{1}{x}) ^ x$
+	
+	\dashuline{$\lim_{x \to \infty} f(x) = e$}
+	
+	Vemo:
+	\begin{gather*}
+	\lim_{n \to \infty} \left(1 + \frac{1}{n}\right) ^ n = e \\
+	\lim_{n \to -\infty} \left(1 - \frac{1}{n}\right) ^{-n} = e
+	\end{gather*}
+	Za $x \in [n, n+1)$ velja:
+	\begin{equation*}
+	\left(1 + \dfrac{1}{n+1}\right)^n \leq \left(1 + \dfrac{1}{x}\right)^x \leq \left(1 + \dfrac{1}{n}\right)^{n+1}
+	\end{equation*}
+	Po izreku o sendvi"cu torej velja $\lim_{x \to \infty} f(x) = e$
+	
+	\item $\lim_{h \to 0} \dfrac{a^h - 1}{h}$, $a > 0, a \neq 1$
+	\begin{gather*}
+	a^h = 1 + \dfrac{1}{x} \\
+	\begin{aligned}
+	h > 0 &: h \to 0, x \to \infty\\
+	h < 0 &: h \to 0, x \to -\infty
+	\end{aligned} \\
+	h = \log_a \left(1 + \dfrac{1}{x}\right) \\
+	\dfrac{a^h - 1}{h} = \dfrac{1}{x \log_a \left(1 + \dfrac{1}{x}\right)} = \dfrac{1}{\log_a \left(1 + \dfrac{1}{x}\right)^x} \to \dfrac{1}{\log_a e} = \ln a
+	\end{gather*}
+\end{enumerate}
+%
+\subsection{Odvod}
+\deff Naj bo funkcija $f$ definirana v okolici to"cke $a$. "Ce obstaja
+\begin{equation*}
+\lim_{h \to 0} \dfrac{f(a + h) - f(a)}{h}
+\end{equation*}
+jo imenujemo \emph{odvod} funcije $f$ v to"cki $a$ in jo ozna"cimo s $f'(a)$ in pravimo, da je $f$ \emph{odvadljiva} v to"cki $a$.
+
+\textbf{Opomba:} "Ce je $f$ odvadljiva v to"cki $a$: $f'(a) = \lim_{h \to 0} \dfrac{f(a + h) - f(a)}{h} = \lim_{x \to a} \dfrac{f(x) - f(x)}{x - a}$
+\begin{gather*}
+\begin{aligned}
+&\Delta f = f(x) - f(a) \\
+&\Delta x = x - a
+\end{aligned}
+\end{gather*}
+razliki ali \emph{diferenca}. $x = a + h, \quad h = x-a$
+
+Kvoceint $\dfrac{f(x) - f(x)}{x - a}$ se imenuje \emph{diferen"cni kvoecient}.
+
+\textsc{Geometrijski pomen:} Naklonski koeficient sekante skozi $(a, f(a)), (x, f(x))$ je $\frac{f(x) - f(a)}{x-a}$. V limiti $x \to a$ dobimo naklonski koeficient tangente.
+
+\textsc{Primer:} $f(x) = x^2 + 1$. Izra"cunaj $f'(2)$.
+\begin{gather*}
+f'(2) = \lim_{x \to 2} \dfrac{f(x) - f(2)}{x - 2} = \lim_{x \to 2} \dfrac{x^2 + 1 - 5}{x - 2} = \lim_{x \to 2} \dfrac{(x + 2)(x-2)}{x-2} = 4
+\end{gather*}
+%
+\textsc{Izrek:} Naj bo funkcija $f$ definirana v okolici to"cke $a$. "Ce je $f$ \emph{odvadljiva} v to"cki $a$, potem je $f$ zvezna v to"cki $a$.
+
+\textsc{Dokaz:} Denimo, da je $f$ odvadljiva v to"cki $a$.
+\begin{multline*}
+\lim_{x \to a} f(x) = \lim_{x \to a} \left(f(a) + (f(x) - f(a)) \dfrac{x-a}{x-a}\right) = \\
+= \lim_{x \to a} f(a) + \lim_{x \to a} \dfrac{f(x) - f(a)}{x - 1} \lim_{x \to a} (x - 1) = \\
+= f(a) + f'(a) \cdot 0 = f(a)
+\end{multline*}
+\textsc{Primer:}
+\begin{enumerate}[1)]
+	\item $f(x) = \sqrt[3]{x}$ je zvezna na $\RR$. Ali je odvadljiva v 0?
+	\begin{equation*}
+	\lim_{h \to 0} \dfrac{f(h) - f(0)}{h} = \lim_{h \to 0} \dfrac{\sqrt[3]{h} - 0}{h} = \lim_{h \to 0} h^{-\frac{2}{3}} = \infty
+	\end{equation*}
+	ni odvadljiva.
+	
+	\item \begin{equation*}
+	f(x) = \begin{cases}
+	x \sin \frac{1}{x} & x \neq 0 \\
+	0 & x = 0
+	\end{cases}
+	\end{equation*}
+	\begin{equation*}
+	\lim_{h \to 0} \dfrac{f(h) - f(0)}{h} = \lim_{h \to 0} \dfrac{h \sin \dfrac{1}{h}}{h} = \lim_{h \to 0} \sin \dfrac{1}{h}
+	\end{equation*}
+	ne obstaja
+	
+	\item $g(x) = |x|$
+	\begin{equation*}
+	\lim_{h \to 0} \dfrac{g(h) -  g(0)}{h} = \lim_{h \to 0} \dfrac{|h|}{h}
+	\end{equation*}
+	ne obstaja, ker $\lim_{h \downarrow 0} \dfrac{|h|}{h} = 1$, $\lim_{h \uparrow 0} \dfrac{|h|}{h} = -1$
+\end{enumerate}
+%
+\deff Naj bo funcija $f$ definirana na $[a, a + r)$ za nek $r > 0$. "Ce obstaja $\lim_{x \downarrow a} \dfrac{f(x) - f(a)}{x - a}$, jo imenujemo \emph{desni odvod} funcije $f$ v to"cki $a$. Podobno definiramo \emph{levi odvod}.
+
+\textsc{Trditev:} Naj bo funkcija $f$ definirana v okolici to"cke $a$. Funcija $f$ je odvavljiva v to"cki $a$ natanko tedaj, kadar obstaja levi in desni odvod funcije $f$ v to"cki $a$ in sta enaka.
+
+\deff Pravimo, da je funcija $f$ odvadljiva na $(a, b)$, "ce je $f$ odvadljiva v vsaki to"cki iz $(a, b)$.
+
+Funkcija $f$ je odvadljiva na $[a, b]$, "ce je $f$ odvadljiva na $(a, b)$, v kraji"s"cu $a$ ima desni odvod in v kraji"s"cu $b$ ima levi odvod.
+
+\deff Naj bo funkcija $f$ definirana na intervalu $I$ in naj bo $f$ odvedljiva vsaj v kak"sni to"cki iz $I$. Ozna"cimo z
+\begin{equation*}
+I' = \{x \in I: f \text{ je odvedljiva v to"cki $x$}\}
+\end{equation*}
+Funkcijo $f': I' \to \RR$ in je definirana s predpisom $x \mapsto f'(x)$ imenujemo \emph{odvod} funkcije $f$.
+
+\deff Naj bo funkcija $f$ definirana na intervalu $I$.
+
+Pravimo, da je $f$ \emph{zvezno odvedljiva} na $I$, "ce je $f$ odvedljiva na $I$ in je njen odvod $f'$ zvezna funkcija na $I$.
+
+\deff Naj bo $f: [a, b] \to \RR$ zvezna funkcija. Pravimo, da je $f$ \emph{odsekoma zvezno odvedljiva}, "ce je odvedljiva povsod, razen v kon"cno mnogo to"ckah $c_1, \ldots, c_k$, $a < c_1 < \cdots < c_k < b$ v katerih ima $f$ levi in desni odvod, na vsakem podintervalu $[a, c_1], [c_1, c_2], \ldots, [c_k, b]$, pa je $f$ zvezno odvedljiva.
+
+Primer: $f(x) = |x|$./
+%
+\subsection{Diferencial}
+Naj bo $f$ odvadljiva v to"cki $a$
+\begin{equation*}
+f'(a) = \lim_{h \to 0} \dfrac{f(a + h) - f(a)}{h}
+\end{equation*}
+Velja:
+\begin{equation*}
+\lim_{h \to 0} \dfrac{f(a + h) - f(a) - h f'(a)}{h} = 0
+\end{equation*}
+Ozna"cimo "stevec $o(h) = f(a+h) - f(a) - f'(a) h$, kjer je $\lim_{h \to 0} \dfrac{o(h)}{h} = 0$.
+
+Velja:
+\begin{equation*}
+f(a+h) - f(a) = f'(a)h + o(h)
+\end{equation*}
+Izpeljali smo, da je odvadljivo funkcijo v to"cki $a$ v okolici to"cke $a$ mogo"ce ,,dobro'' aproksimirati z ,,linearno'' funkcijo.
+
+\deff Naj bo funkcija $f$ definirana v okolici to"cke $a$. Pravimo, da je $f$ \emph{diferenciabilna} v to"cki $a$, "ce obstaja linearna preslikava $\LL: \RR \to \RR$, za katero velja
+\begin{equation*}
+f(a+h) - f(a) = \LL(h) + o(h)
+\end{equation*}
+kjer je $\lim_{h \to 0} \dfrac{o(h)}{h} = 0$. Linearno preslikavo $\LL$ imenujemo \emph{diferencial} funkcije $f$ v $a$ in jo ozna"cimo $df(a)$.
+
+\textbf{Opombe:}
+\begin{enumerate}
+	\item "Ce je $f$ odvedljiva v to"cki $a$, potem je $f$ diferenciabilna v to"cki $a$ in $\LL(h) = f'(a)h$.
+	\item Vse linearne preslikave $\LL: \RR \to \RR$ so oblike $h \mapsto kh, k \in \RR$.
+\end{enumerate}
+%
+\textsc{Izrek:} Naj bo funkcija $f$ definirana v okolici to"cke $a$. Potem je $f$ diferenciabilna v to"cki $a$ natanko tedaj, kadar je $f$ odvedljiva v to"cki $a$. V tem primeru velja $df(a)h = f'(a)h$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Leftarrow$)] "ze vemo
+	\item[($\Rightarrow$)] Po predpostavki obstaja $\LL: \RR \to \RR$ linearna preslikava, da je
+	\begin{equation*}
+	f(a+h) - f(a) = \LL(h) + o(h)
+	\end{equation*}
+	kjer $\lim_{h \to 0} \dfrac{o(h)}{h} = 0$.
+	\begin{equation*}
+	0 = \lim_{h \to 0} \dfrac{o(h)}{h} = \lim_{h \to 0} \dfrac{f(a+h) - f(a) - \LL(h)}{h}
+	\end{equation*}
+	Ker je $\LL$ linearna, obstaja $a \in \RR: \LL(h) = ah, \quad \forall h \in \RR$.
+	\begin{multline*}
+	\lim_{h \to 0} \dfrac{f(a+h) - f(a) - \LL(h)}{h} = \lim_{h \to 0} \dfrac{f(a+h) - f(a) - ah}{h} =\\
+	= \lim_{h \to 0} \dfrac{f(a+h) - f(a)}{h} - a
+	\end{multline*}
+	Po pravilih za ra"cunanje z limitami torej obstaja $\lim_{h \to 0} \dfrac{f(a +h) - f(a)}{h}$ in je enaka $a$.
+\end{itemize}
+\textsc{Zapis:} Naj bo $f$ odvedljiva v $x \quad h = \Delta x$.
+\begin{equation*}
+f(x + \Delta x) - f(x) = f'(x) \Delta x + o(\Delta x)
+\end{equation*}
+kjer je $\lim_{\Delta x \to 0} \dfrac{o(\Delta x)}{\Delta x} = 0$
+
+Vemo $df(x) \Delta x = f'(x) \Delta x$. Vzamemo $f(x)= x \quad dx = \Delta x$. $df = f' dx \quad f'(x) = \frac{df}{dx} (x)$.
+%
+\subsection{Pravila za odvajanje}
+\subsubsection{Konstante}
+$f(x) = c$
+\begin{equation*}
+f'(x) = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} = \lim_{h \to 0} \dfrac{c - c}{h} = 0
+\end{equation*}
+%
+\subsubsection{}
+"Ce sta $f$ in $g$ odvedljivi funkciji v to"cki $a$, potem so tudi $f + g$, $f - g$, $f \cdot g$ odvedljive v to"cki $a$ in velja
+\begin{gather*}
+\begin{aligned}
+(f \pm g)' (a) &= f'(a) \pm g'(a) \\
+(f g)'(a) &= f'(a) g(a) + f(a)g'(a)
+\end{aligned}
+\end{gather*}
+"Ce je $g(a) \neq 0$, potem je $\frac{f}{g}$ odvedljiva v $a$ in velja
+\begin{equation*}
+\left(\dfrac{f}{g}\right)'(a) = \dfrac{f'(a) g(a) - f(a)g'(a)}{g^2(a)}
+\end{equation*}
+\textsc{Dokaz:}
+\begin{multline*}
+(fg)'(a) = \lim_{h \to 0} \dfrac{(fg)(a + h) - (fg)(a)}{h} = \\
+= \lim_{h \to a} \dfrac{f(a + h)g(a+h) - f(a)g(a) - f(a)g(a+h) + f(a)g(a+h)}{h} = \\
+= \lim_{h \to 0} \dfrac{f(a+h)g(a+h)-f(a)g(a+h)}{h} + \lim_{h \to a}\dfrac{f(a)g(a+h) - f(a)g(a)}{h} = \\
+=\lim_{h \to 0} g(a+h) \lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h} + f(a)\lim_{h \to 0}\dfrac{g(a+h) - g(a)}{h} = \\
+= g(a)f'(a) + f(a)g'(a)
+\end{multline*}
+\textsc{Posledica:} "Ce je $f$ odvedljiva v to"cki $a$ in $\lambda \in \RR$, potem velja
+\begin{equation*}
+(\lambda f)'(a) = \lambda f'(a)
+\end{equation*}
+Dokaz z uporabo formule za produkt in $g(x) = \lambda$.
+
+\textsc{Posledica:} "Ce so funkcije $f_1, \ldots, f_n$ odvedljive v to"cki $a$, potem velja
+\begin{equation*}
+(f_1 f_2 \cdots f_n') (a) = f_1'(a) f_2(a)\ldots f_n(a) + f_1(a)f_2'(a) f_3(a)\ldots f_n(a) + \cdots + f_1(a) \ldots f_n'(a)
+\end{equation*}
+Dokaz z indukcijo in formulo za produkt.

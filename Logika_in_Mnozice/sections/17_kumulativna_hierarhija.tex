@@ -1,0 +1,120 @@
+\subsection{Kodiranje matemati"cnih objektov z mno"zicami}
+\begin{itemize}
+	\item Preslikavo $A \to B$ lahko predstavimo kot funkcijsko relacijo, t.j. $\subseteq A \times B$.
+	\item Kvocientna mno"zica $A/_R$ je mno"zica ekvivalen"cnih razredov in vsak ekvivalen"cni razred je tudi mno"zica.
+\end{itemize}
+\textbf{Kodiranje:}
+\begin{itemize}
+	\item urejeni par $(x, y) = \{\{x\}, \{x, y\} \}$
+	\begin{gather*}
+	\begin{aligned}
+	\{\{2, 3\}, \{2\} \} &= (2, 3) \\
+	\{\{7\}, \{7\} \} &= (7, 7)
+	\end{aligned}
+	\end{gather*}
+
+	\item vsota $A + B$:
+	\begin{align*}
+	\iota_1 &:= (x, \varnothing) \\
+	\iota_2 &:= (y, \{\varnothing\})
+	\end{align*}
+	
+	\item naravna "stevila:
+	\begin{align*}
+	0 &:= \varnothing\\
+	x^+ &:= x \cup \{x\}
+	\end{align*}
+	Primer:
+	\begin{align*}
+	1 &= 0^+ = \varnothing \cup \{\varnothing\} = \{\varnothing\} = \{0\} \\
+	2 &= 1^+ = \{0\} \cup \{\{0\}\} = \{0, \{0\}\} = \{0, 1\} \\
+	3 &= \cdots = \{0, 1, 2\}
+	\end{align*}
+	
+	\item $\ZZ = \NN \times \NN/_\sim$, kjer je 
+	\begin{equation*}
+	\underbrace{(a, b)}_{a-b} \sim (c, d) \iff a + d = c + b
+	\end{equation*}
+	
+	\item $\QQ = \ZZ \times \{n \in \NN: n > 0\} /_\simeq$, kjer je
+	\begin{equation*}
+	(k, a) \simeq (l, b) \iff kb = al
+	\end{equation*}
+	
+	\item $\RR \subseteq \mathcal{P}(\QQ)$, kjer je $x \in \RR$ Dedekindov rez, torej $\subseteq \QQ$.
+\end{itemize}
+Razred vseh mno"zic $V$ je sestavljen:
+\begin{itemize}
+	\item $V_0 = \varnothing$
+	\item $V_1 = \mathcal{P}(V_0) = \{\varnothing\}$
+	\item $V_2 = \mathcal{P}(V_1)$
+	\item $\vdots$
+	\item $V_\omega = \bigcup_{k < \omega}V_k$
+	\item $V_{\omega + 1} = \mathcal{P}(V_\omega)$
+	\item $V_{\omega + \omega}$ \emph{ordinalna "stevila}
+\end{itemize}
+Temu pravimo \emph{transfinitna konstrukcija.}
+
+\textsc{Definicija:}(von Neumann) Mno"zica $A$ je \emph{ordinalno "stevilo}, "ce je tranzitivna in vsak njen element je tranzitivne.
+
+Mno"zica $A$ je \emph{tranzitivna}, "ce $\forall x \in A: x \subseteq A$.
+
+\textbf{Ideja:} Ordinalno "stevilo je mno"zica svojih prednikov
+\begin{itemize}
+	\item $0 = \varnothing$
+	\item $1 = \{0\}$
+	\item $2 = \{0, 1\}$
+	\item $\omega = \{0, 1, 2, 3, \ldots\} = \NN$
+	\item $\omega + 1 = \omega \cup \{\omega\}$
+	\item $\omega + 2 = \{0, 1, 2, \ldots, \omega, \omega + 1\}$
+\end{itemize}
+%
+\subsection{Zermelo-Fraenkelovi aksiomi teorije mno"zic}
+\begin{enumerate}
+	\item \emph{Ekstenzionalnost:} mno"zici sta enaki, "ce imata iste elemente.
+
+	\item \emph{Neurejeni par:} za vsak $x$ in $y$ (mno"zici) je $\{x, y\}$ mno"zica, ki vsebuje natanko $x$ in $y$.
+	
+	\item \emph{Unije:} Za vsako dru"zino $A: I \to \set$ je $\bigcup_{i \in I} A_i$ mno"zica, ki vsebuje natanko tiste $x$, ki so v nekem $A_i$.
+	
+	\item \emph{Prazna mno"zica:} $\varnothing$ nima elementa.
+
+	\item \emph{Poten"cna mno"zica:} Za vsak $A$ je $\mathcal{P}(A)$ mno"zica, ki ima za elemente natanko podmno"zice $A$.
+	
+	\item \emph{Neskon"cna mno"zica:} Obstaja mno"zica, ki vsebuje $\varnothing$ in je zaprta za operacijo naslednik.
+	\begin{equation*}
+	\exists A : \varnothing \in A \land \forall x \in A: x \cup \{x\} \in A
+	\end{equation*}
+	(sledi, da imamo $\omega$)
+
+	\item \emph{Podmno"zica:} "Ce je $A$ mno"zica in $\varphi$ lastnost, je $\{x \in A: \varphi(x)\}$ mno"zica tistih $x \in A$, za katere velja $\varphi(x)$.
+	
+	\item \emph{Dobra osnovanost:} Relacija $\in$ je dobro osnovana (se pravi, da nima padajo"ce verige: $\cdots \in x_3 \in x_2 \in x_1 \in x_0$ ne gre)
+	
+	\item \emph{Zamenjava:} Slika preslikave $f: A \to \set$, kjer je $A$ mno"zica je mno"zica. 
+	
+	Po doma"ce: ,,Slika mno"zice je mno"zica (ni pravi razred)''.
+	
+	\item \emph{Aksiom izbire:} Dru"zina nepraznih ima funkcijo izbire.
+\end{enumerate}
+%
+\subsection{Aksiom izbire}
+\textsc{Definicija:} \emph{Veriga} v delni urejenosti $(P, \leq)$ je $C \subseteq P$, ki je linearno urejena s $\leq$.
+\begin{equation*}
+\forall x, y \in C: x \leq y \lor y \leq x
+\end{equation*}
+\textsc{Primer:} ne"stevna veriga v $(\mathcal{P}(\QQ), \subseteq)$ - Dedekindov razred.
+
+\subsubsection{Zornova lema}
+"Ce ima v delni ureditvi $(P, \leq)$ vsaka veriga zgornjo mejo, ima $P$ maksimalni element.
+
+\textsc{Dokaz:} glej \href{https://github.com/andrejbauer/ucbenik-logika-in-mnozice}{profesorjeve zpiske na GitHubu}.
+
+\textsc{Izrek:} V teoriji mno"zic brez aksioma izbire so ekvivalentne izjave:
+\begin{enumerate}
+	\item aksiom izbire
+	\item zornova lema
+	\item Princip dobre ureditve (vsaka mno"zica ima dobro ureditev)
+	\item Vsak vektorski prostor ima bazo
+\end{enumerate}
+\textsc{Dokaz:} Del dokaza smo naredili na vajah.

@@ -193,3 +193,37 @@ Imamo Surjekcijo $\NN \stackrel{\text{bijektivna}}{\longrightarrow} \NN \times \
 \begin{equation*}
 |A| \leq |B| \land |B| \leq |A| \Rightarrow |A| = |B|
 \end{equation*}
+\textsc{Dokaz:} Denimo, da sta $f: A \ to B$ in $g: B \to A$ injektivni. Dokazujemo, da obstaja bijekcija $A \to B$.
+
+\emph{Orbita} za $x \in A$ je zaporedje
+\begin{equation*}
+\ldots, f^{-1}\left(g^{-1}(x)\right), x, f(x), g(f(x)), f(g(f(x))), \ldots
+\end{equation*}
+Na levi se orbita kon"ca, "ce dobimo element, ki ni v sliki $f$ oziroma ni v sliki $g$ (ker potem ne moremo uporabiti $f^{-1}$ oziroma $g^{-1}$).
+
+Na desni se orbita ne kon"ca.
+
+Imamo tri mo"znosti:
+\begin{enumerate}
+	\item Orbita se na levi ne kon"ca
+	\item Na levi se orbita kon"ca z elementom iz $A$
+	\item Na levi se orbita kon"ca z elementom iz $B$
+\end{enumerate}
+Trdimo, da orbite tvorijo razbitje $A$ in $B$:
+\begin{itemize}
+	\item element orbite "ze dolo"ca celotno orbito
+	\item "ce je element v dveh orbitah sta enaki
+	\item vsak element je v natanko eni orbiti
+\end{itemize}
+\begin{enumerate}
+	\item "Ce se orbita ne kon"ca na levi:
+	
+	Vsak $x \in A$ se preslika s $f$ v svojega soseda ne desni (za skico glej zvezek).
+	\item "Ce se orbita kon"ca na levi z $A$:
+	
+	$x \in A$ v tej orbiti preslikamo z $f$ v sosede na desni (za skico ponovno glej zvezek).
+	\item  "Ce se orbita kon"ca z $B$:
+	
+	$\forall x \in A$ v orbiti slikamo z $g^{-1}$ v levega soseda (v tretje gre rado: skica je v zvezku).
+\end{enumerate}
+\hfill $\square$

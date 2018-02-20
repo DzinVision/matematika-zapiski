@@ -1387,3 +1387,167 @@ x_{i2} = \ast + \ast \alpha_1 + \cdots + \ast \alpha_{n-r} \\
 \vdots \\
 x_{ir} = \ast + \ast \alpha_1 + \cdots + \ast \alpha_{n-r}
 \end{gather*}
+%
+\textsc{Primer:} Obravnavaj sistem linearnih ena"cb:
+\begin{align*}
+x_1 + 2x_2 + 3x_3 + 4x_4 &= 1\\
+5x_1 + 4x_2 + 3x_3 + 2x_4 &= -1 \\
+3x_1 + 4x_2 + 5x_3 + 6x_4 &= p
+\end{align*}
+glede na realen parameter $p$.
+
+\begin{gather*}
+\begin{bmatrix}
+1 & 2 & 3 & 4 & | & 1 \\
+5 & 4 & 3 & 2 & | & -1 \\
+3 & 4 & 5 & 6 & | & p
+\end{bmatrix} \to
+\begin{bmatrix}
+1 & 2 & 3 & 4 & | & 1 \\
+0 & -6 & -12 & -18 & | & -6 \\
+0 & -2 & -4 & -6 & | & p-3
+\end{bmatrix} \to
+\begin{bmatrix}
+1 & 2 & 3 & 4 & | & 1 \\
+0 & 1 & 2 & 3 & | & 1 \\
+0 & -2 & -4 & -6 & | & p-3
+\end{bmatrix} \to \\
+\begin{bmatrix}
+1 & 2 & 3 & 4 & | & 1 \\
+0 & 1 & 2 & 3 & | & 1 \\
+0 & 0 & 0 & 0 & | & p - 1
+\end{bmatrix} \to
+\begin{bmatrix}
+1 & 0 & -1 & -2 & | & -1 \\
+0 & 1 & 2 & 3 & | & 1 \\
+0 & 0 & 0 & 0 & | & p-1
+\end{bmatrix}
+\end{gather*}
+Sistem je neprotisloven natanko takrat, kadar je $p-1 = 0$, torej $p=1$.
+\begin{align*}
+x_1 - x_3 - 2x_4 &= -1 \\
+x_2 + 2x_3 + 3x_4 &= 1 \\
+x_3 &= \alpha_1 \\
+x_4 &= \alpha_2
+\end{align*}
+Za $p=1$ torej velja:
+\begin{align*}
+x_1 &= -1 + \alpha_1 + 2\alpha_2 \\
+x_2 &= 1 - 2\alpha_1 - 3\alpha_2 \\
+x_3 &= \alpha_1 \\
+x_4 &= \alpha_2
+\end{align*}
+kjer sta $\alpha_1$ in $\alpha_2$ realna parametra.
+
+V resnici re"sujemo sistem $Ax = b$, kjer je $x = \begin{bmatrix}x_1 \\ x_2 \\ x_3 \\ x_4\end{bmatrix}$
+
+Spomnimo se, da za mno"zico re"sitev $R$ velja $R = w + \ker A$, kjer je $w$ partikularna re"sitev. Torej velja
+\begin{gather*}
+x \in R \iff x = \begin{bmatrix}-1 \\ 1 \\ 0 \\ 0\end{bmatrix}
++ \alpha_1 \begin{bmatrix}1 \\ -2 \\ 1 \\ 0\end{bmatrix}
++ \alpha_2 \begin{bmatrix}2 \\ -3 \\ 0 \\ 1\end{bmatrix}
+\\
+R = \begin{bmatrix}-1 \\ 1 \\ 0 \\ 0\end{bmatrix}
++ \Lin \left\{
+\begin{bmatrix}1 \\ -2 \\ 1 \\ 0\end{bmatrix},
+\begin{bmatrix}2 \\ -3 \\ 0 \\ 1\end{bmatrix}
+ \right\}
+\end{gather*}
+$\Rightarrow \begin{bmatrix}1 \\ -2 \\ 1 \\ 0\end{bmatrix}$ in $\begin{bmatrix}2 \\ -3 \\ 0 \\ 1\end{bmatrix}$ tvorita bazo jedra $\ker A$.
+%
+\subsubsection{Simultano re"sevanje sistemov z isto matriko koeficienotv}
+\begin{gather*}
+\begin{aligned}
+AX^{(1)} &= B^{(1)}\\
+AX^{(2)} &= B^{(2)} \\
+&\cdots \\
+AX^{(p)} &= B^{(p)}
+\end{aligned}
+\end{gather*}
+Zapi"semo lahko
+\begin{align*}
+X &= \begin{bmatrix}X^{(1)} & \ldots & X^{(p)}\end{bmatrix} \in \OO^{n \times p} \\
+B &= \begin{bmatrix}B^{(1)} & \ldots & B^{(p)}\end{bmatrix} \in \OO^{m \times p}
+\end{align*}
+Torej re"sujemo sistem $AX = B$.
+
+Z Gaussom dobimo $\begin{bmatrix}A & | & B\end{bmatrix} \to \begin{bmatrix}A' & | & B'\end{bmatrix}$.
+
+\textsc{Poseben primer:}
+
+$A \in \OO^{n \times n}$, $A$ obrnljiva ($\Rightarrow \rang A = n$).
+
+$A' = I$.
+\begin{align*}
+AX = B \iff IX = B' \Rightarrow B' &= X = A^{-1}B \\
+B' &= A^{-1}B
+\end{align*}
+Vzamemo $B = I$, dobimo $B' = A^{-1}$.
+\begin{equation*}
+\begin{bmatrix}A & | & I\end{bmatrix} \to
+\begin{bmatrix}I & | & A^{-1}\end{bmatrix}
+\end{equation*}
+%
+\subsubsection{Sprememba baze}
+$V$ v.p. nad $\OO$.
+
+$\mathcal{V} = \{v_1, \ldots, v_n\}$ urejena baza
+
+$\mathcal{V'} = \{v_1', \ldots, v_n'\}$ urejena baza
+\begin{gather*}
+v_j' = p_{1j} v_1 + p_{2j}v_2 + \cdots + p_{nj}v_n \\
+P = \begin{bmatrix}p_{ij}\end{bmatrix} i,j = 1, \ldots, n \quad \in \OO^{n \times n}
+\end{gather*}
+$P$ je \emph{prehodna matrika} med $\V$ in $\V'$.
+
+Skica, ki naj bi bila v zvezku zelo pomaga pri naslednjem sklepu
+\begin{gather*}
+P = \Phi_\V (\Phi_V')^{-1} \\
+id_V v_j' = v_j' = p_{1j}v_1 + \cdots + p_{nj}v_n
+\end{gather*}
+%
+\textsc{Poseben primer:}
+
+$V = \OO^n$
+
+$\V = \{e_1, e_2, \ldots, e_n\}$ standardna baza
+
+$P$ - prehodna matrika
+\begin{gather*}
+\Rightarrow v_j' = p_{1j}e_1 + p_{2j}e_2 + \cdots + p_{nj}e_n = \begin{bmatrix}p_{1j} \\ p_{2j} \\ \vdots \\ p_{nj}\end{bmatrix} = P^{(j)} \\
+\Rightarrow \V' = \{P^{(1)}, P^{(2)}, \ldots, P^{(n)}\}
+\end{gather*}
+
+Naj bo $\A \in \LL (V, U)$ in naj bosta $\V , \V '$ bazi $V$ in $\U, \U'$  bazi $U$. Naj $A \in \OO^{m \times n}$ pripada $\A$ glede na $\V, \U$ in naj $\A' \in \OO^{m \times n}$ pripada $\A$ glede na $\V', \U'$.
+
+$P$ naj bo prehodna matrika med $\V$ in $\V'$, $Q$ pa naj bo prehodna matrika med $\U$ in $\U'$.
+
+$P \in \OO^{n \times n}, \quad Q \in \OO^{m \times m}$
+
+Zanima nas zveza med $A'$ in $A$.
+
+V zvezku na tem mestu stoji (ali pa le"zi, odvisno v kak"sni poziciji bere"s zvezek) en velik diagram, ki komutira. Iz tega diagrama razberemo
+\begin{equation*}
+A' = Q^{-1}AP
+\end{equation*}
+%
+\textsc{Poseben primer:}
+
+$\A = A$, $\V, \U$ standardni bazi v $V = \OO^n$ in $U = \OO^m$
+
+$\Rightarrow A' = Q^{-1}AP$ je matrika, ki pripada $A$ glede na urejeni bazi $\V' = \{P^{(1)}, \ldots, P^{(n)}\}$ in $\U = \{Q^{(1)}, \ldots, Q^{(m)}\}$
+%
+\subsubsection{Ekivalentnost matrik}
+Naj bosta $A, B \in \OO^{m \times n}$
+
+\textsc{Definicija:} $B$ je \emph{ekvivalentna} $A$ ($B \sim A$), kadar obstajata taki obrnljivi matriki $P, Q$, da velja
+\begin{equation*}
+B = Q^{-1}AP
+\end{equation*}
+%
+$\sim$ je ekvivalen"cna relacija:
+\begin{itemize}
+	\item $A \sim A$ (refleksivnost) (za $Q, P$ vzamemo $I$)
+	\item $A \sim B \Rightarrow B \sim A$ (simetri"cnost) ($B = Q^{-1}AP \Rightarrow A = \underbrace{QBP^{-1}}_{(Q^{-1})^{-1}B(P^{-1})}$)
+	\item $A \sim B \land B \sim C \Rightarrow A \sim C$ (tranzitivnost) (dokaz za DN)
+\end{itemize}

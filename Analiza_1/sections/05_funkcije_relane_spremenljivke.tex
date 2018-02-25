@@ -965,13 +965,13 @@ kjer je $\lim_{\Delta x \to 0} \dfrac{o(\Delta x)}{\Delta x} = 0$
 Vemo $df(x) \Delta x = f'(x) \Delta x$. Vzamemo $f(x)= x \quad dx = \Delta x$. $df = f' dx \quad f'(x) = \frac{df}{dx} (x)$.
 %
 \subsection{Pravila za odvajanje}
-\subsubsection{Konstante}
+\begin{enumerate}
+\item
 $f(x) = c$
 \begin{equation*}
 f'(x) = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h} = \lim_{h \to 0} \dfrac{c - c}{h} = 0
 \end{equation*}
-%
-\subsubsection{}
+\item 
 "Ce sta $f$ in $g$ odvedljivi funkciji v to"cki $a$, potem so tudi $f + g$, $f - g$, $f \cdot g$ odvedljive v to"cki $a$ in velja
 \begin{gather*}
 \begin{aligned}
@@ -1002,3 +1002,200 @@ Dokaz z uporabo formule za produkt in $g(x) = \lambda$.
 (f_1 f_2 \cdots f_n') (a) = f_1'(a) f_2(a)\ldots f_n(a) + f_1(a)f_2'(a) f_3(a)\ldots f_n(a) + \cdots + f_1(a) \ldots f_n'(a)
 \end{equation*}
 Dokaz z indukcijo in formulo za produkt.
+\item Odvod kompozituma
+
+Naj bo funkcija $f$ odvedljiva v to"cki $a$ in naj bo $g$ odvedljiva v to"cki $f(a)$. Potem je $g \circ f$ odvedljiva v to"cki $a$ in velja
+\begin{equation*}
+(g \circ f)'(a) = g'(f(a)) \cdot f'(a)
+\end{equation*}
+\textsc{Dokaz:} Ker je $f$ odvedljiva v to"cki $a$, je $f$ diferenciabilna v to"cki $a$ in velja:
+\begin{equation}
+f(a+h) = f(a) + hf'(a) + o_f(h) \quad \text{kjer } \lim_{h \to 0} \dfrac{o_f(h)}{h} = 0
+\end{equation}
+Podobno za $g$:
+\begin{equation}
+g(f(a) + k) = g(f(a)) + k g'(f(a)) + o_g(k) \quad \text{kjer } \lim_{k \to 0} \dfrac{o_g(k)}{k} = 0
+\end{equation}
+Po definiciji velja:
+\begin{equation*}
+(g \circ f)'(a) = \lim_{h \to 0} \dfrac{g(f(a+h)) - g(f(a))}{h}
+\end{equation*}
+"Ce razpi"semo z zgornjima dvema en"cabama dobimo:
+\begin{multline*}
+g(f(a+h)) \stackrel{(4)}{=} g(f(a) + \underbrace{hf'(a) + o_f(h)}_{k}) \stackrel{(5)}{=} \\
+= g(f(a)) + (hf'(a) + o_f(h)) + g'(f(a)) + o_g(k(h)) = \\
+= g(f(a)) + hg'(f(a)) \cdot f'(a) + o_f(h) g'(f(a)) + o_g(k(h))
+\end{multline*}
+Sledi:
+\begin{equation*}
+\dfrac{g(f(a+h)) - g(f(a))}{h} = g'(f(a))f'(a) + \underbrace{\dfrac{o_f(h)}{h} g'(f(a))}_{\stackrel{h \to 0}{\longrightarrow} 0} + \dfrac{o_g(k(h))}{h}
+\end{equation*}
+%
+\begin{equation*}
+\lim_{h \to 0} \dfrac{o_g(k(h))}{h} = \lim_{k \to 0} \underbrace{\dfrac{o_g(k(h))}{k(h)}}_{\to 0} \underbrace{\dfrac{k(h)}{h}}_{\to f'(a)} = 0 \\
+\end{equation*}
+ker:
+\begin{gather*}
+\lim_{h \to 0} k(h) \lim_{h \to 0} \left(hf'(a) + \dfrac{o_f(h) h}{h}\right) = 0 \\
+\lim_{h \to 0} \dfrac{k(h)}{h} = \lim_{h \to 0} \dfrac{hf'(a) + o_f(h)}{h} = \lim_{h \to 0} \left(f'(a) + \dfrac{o_f(h)}{h}\right) = f'(a)
+\end{gather*}
+\begin{equation*}
+\Rightarrow \lim_{h \to 0} \dfrac{g(f(a+h)) - g(f(a))}{h} = g'(f(a)) \cdot f'(a) = (g \circ f)'(a)
+\end{equation*}
+\hfill $\square$
+\end{enumerate}
+%
+\textsc{Izrek:} Naj bo $f$ zvezna, strogo monotona na $[a, b]$, $c \in (a, b)$ in denimo, da je $f$ odvedljiva v to"cki $c$. "Ce je $f'(c) \neq 0$, potem je inverzna funkcija $f^{-1}$ odvedljiva v to"cki $f(c) = d$ in velja:
+\begin{equation*}
+(f^{-1})'(d) = \dfrac{1}{f'(c)} = \dfrac{1}{f'(f^{-1}(d))}
+\end{equation*}
+\textsc{Dokaz:} Za strogo nara"s"cajo"ce:
+
+$f^{-1}$ je zvezna na $[f(a), f(b)]$
+\begin{multline*}
+\lim_{y \to d} \dfrac{\overbrace{f^{-1}(y)}^x - \overbrace{f^{-1}(d)}^c}{y-d} = \text{ker je $f^{-1}$ zvezna, gre $x \to c$, ko gre $y \to d$}\\
+= \lim_{x \to c} \dfrac{x - c}{f(x) - f(c)} = \lim_{x \to c} \dfrac{1}{\dfrac{f(x) - f(x)}{x - c}} = \\
+= \dfrac{1}{f'(c)}
+\end{multline*}
+\textbf{Geometrijski pomen:} graf $f^{-1}$ dobimo z zrcaljenjem grafa $f$ preko simetrale lihih kvadrantov. "Ce prezrcalimo premico preko simetrale lihih kvadrantov, je koeficient zrcaljenje premice obratna vrednost koeficienta dane premice.
+
+\textbf{Opomba:} "Ce vemo, da je $f^{-1}$ odveljiva, potem izpeljano formulo dobimo tudi takole:
+\begin{gather*}
+f^{-1}(f(x)) = x \\
+(f^{-1})'(f(x)) f'(x) = 1 \\
+(f^{-1})'(\underbrace{f(x)}_y) = \dfrac{1}{x} \\
+(f^{-1})'(y) = \dfrac{1}{f'(x)} = \dfrac{1}{f'(f^{-1}(y))}
+\end{gather*}
+%
+\subsection{Odvodi elementarnih funkcij}
+\begin{table}[!htbp]
+	\centering
+	\begin{tabular}{c|c|c}
+		$f$ & $f'$ & Dokaz \\ \hline
+		$c$ & $0$ & po definiciji \\
+		$x$ & $1$ & po definiciji \\
+		$x^n$ & $n x^{n-1}$ & \hyperref[proof:1]{(1)}\\
+		$\log_a x$ & $\frac{1}{\ln a} \frac{1}{x}$ &  \hyperref[proof:2]{(2)} \\
+		$\ln x$ & $\frac{1}{x}$ & $(\log_a x)'$ s prehodom na novo osnovo\\
+		$a^x$ & $a^x \ln a$ &  \hyperref[proof:3]{(3)} \\
+		$e^x$ & $e^x$ & Uporabimo pravilo za $a^x$ \\
+		$\sin x$ & $\cos x$ & \hyperref[proof:4]{(4)} \\
+		$\cos x$ & $- \sin x$ & $\cos x = \sin(\frac{\pi}{2} - x)$, odvajamo kompozitum\\
+		$\tan x$ & $\frac{1}{\cos^2 x}$ & $\tan x = \frac{\sin x}{\cos x}$, odvajamo ulomek\\
+		$\arcsin x$ & $\frac{1}{\sqrt{1 - x^2}}$ & \hyperref[proof:5]{(5)} \\
+		$\arccos x$ & $- \frac{1}{\sqrt{1 - x^2}}$ & Uporabimo zvezo $\arcsin x + \arccos x = \frac{\pi}{2}$\\
+		$\arctan x$ & $\frac{1}{1 + x^2}$ & \hyperref[proof:6]{(6)} 
+	\end{tabular}
+	\caption{Tabela odvodov}
+\end{table}
+
+\begin{itemize}
+\item $f(x) = x^n$
+\label{proof:1}
+Za $n \in \NN$:
+\begin{equation*}
+f'(x) = (xx\ldots x)' = 1 x^{n-1} + x 1 x^{n-1} + xx1x^{n-3} + \cdots + x^{n-1}1 = nx^{n-1}
+\end{equation*}
+Za cela "stevila nastavimo $f(x) = x^{-n}, \quad n \in \NN$
+\begin{equation*}
+(x^{-n})' = \left(\dfrac{1}{x^n}\right)' = \dfrac{-nx^{n-1} 1}{x^{2n}} = -nx^{-n-1}
+\end{equation*}
+Za racionaln "stevila si najprej poglejmo $f(x) = x^{\frac{1}{n}}, n \in \NN$. "Ce je $n$ sod, je odvedljiva na $(0, \infty)$, "ce je $n$ lih, je odvedljiva na $\RR \setminus \{0\}$
+\begin{gather*}
+(f(x))^n = x \\
+n (f(x))^{n-1} f'(x) = 1\\
+f'(x) = \dfrac{1}{n (x^{\frac{1}{n}})^{n-1}}  = \dfrac{1}{n} x^{- \frac{n - 1}{n}} = \frac{1}{n} x^{\frac{1}{n} - 1}
+\end{gather*}
+%
+$f(x) = x^{\frac{m}{n}}, \quad m \in \ZZ, n \in \NN$ lahko zapi"semo kot:
+\begin{multline*}
+f'(x) = \left(\left(x^{\frac{1}{n}}\right)^m\right)' = \\
+= m \left(x ^ {\frac{1}{n}}\right)^{m-1} \cdot \dfrac{1}{n} x^{\frac{1}{n}-1} = \dfrac{m}{n} x^{\frac{m}{n} - \frac{1}{n} + \frac{1}{n} - 1} = \\
+=\dfrac{m}{n} x^{\frac{m}{n}-1}
+\end{multline*}
+"Ce poznamo odvod poten"cne funkcije, lahko naredimo "se za realne eksponente. Naj bo $h(x) = x^r, \quad r \in \RR, x > 0$:
+\begin{gather*}
+x^r = e^{\ln x^r} = e^{r \ln x} \\
+(x^r)' = (e ^{r \ln x})' = e^{r \ln x} r \dfrac{1}{x} = x^r \cdot r \cdot \dfrac{1}{x} = r \cdot x^{r-1}
+\end{gather*}
+
+\item $\log_a x$
+\label{proof:2}
+\begin{multline*}
+(\log_a x)' = \lim_{h \to 0} \dfrac{\log_a (x+h) - \log_a x}{h} = \\
+= \lim_{h \to 0} \dfrac{\log \dfrac{x + h}{x}}{h} = \lim_{h \to 0} \log_a \left(\dfrac{x+h}{x}\right)^\frac{1}{h} = \log_a \lim_{h \to 0} \left(\left(1+ \dfrac{h}{x}\right)^{\frac{x}{h}}\right)^{\frac{1}{x}} = \\
+= \log_a e^\frac{1}{x} = \frac{1}{x} \log_a e = \dfrac{1}{x} \dfrac{\ln e}{\ln a} = \\
+= \dfrac{1}{x \ln a}
+\end{multline*}
+
+\item $a^x$ je inverzna funkcija strogo monotone funkcije $\log_a x$, ki ima povsod neni"celen odvod, zato je odvedljiva.
+\label{proof:3}
+\begin{gather*}
+\log_a (a^x) = x \\
+\dfrac{1}{\ln a}\dfrac{1}{x^x} (a^x)' = 1 \\
+(a^x)' = (\ln a) a^x = a^x \ln a
+\end{gather*}
+
+\item $f(x) = \sin x$
+\label{proof:4}
+\begin{multline*}
+f'(x) = \lim_{h \to 0} \dfrac{\sin (x+h) - \sin x}{h} = \\
+= \lim_{h \to 0} \dfrac{2\sin \frac{h}{2}\cos(x + \frac{h}{2})}{h} = \lim_{h \to 0} \dfrac{\sin \frac{h}{2}\cos(x + \frac{h}{2})}{\frac{h}{2}} = \\
+\cos x
+\end{multline*}
+
+\item 
+\label{proof:5}
+$f(x) = \arcsin x$ je inverzna funkcija $\sin x|_{[- \frac{\pi}{2}, \frac{\pi}{2}]}$, ki je strogo monotona, odvedljiva z neni"celnim odvodom na $(- \frac{\pi}{2}, \frac{\pi}{2})$. Zato je $\arcsin$ odvedljiva na $(-1, 1)$.
+\begin{gather*}
+\sin (\arcsin x) = x \\
+\cos ( \arcsin x) (\arcsin x)' = 1 \\
+(\arcsin x)' = \frac{1}{\cos (\arcsin x)} = \dfrac{1}{\sqrt{1 - \sin^2 (\arcsin x)}} = \dfrac{1}{\sqrt{1 - x^2}}
+\end{gather*}
+
+\item 
+\label{proof:6}
+$\arctan x$ je inverz zo"itve strogo nara"s"cajo"ce odveljive funkcije $\tan x$ z neni"celnim odvodm, zato je odvedljiva.
+\begin{gather*}
+\tan(\arctan x) = x \\
+\dfrac{1}{\cos^(\arctan x)} (\arctan x)' = 1 \\
+(\arctan x)' = \cos^x (\arctan x) = \dfrac{1}{1 + \tan^2 (\arctan x)} = \dfrac{1}{1 + x^2}
+\end{gather*}
+\end{itemize}
+%
+\subsection{Odvodi vi"sjega reda}
+Denimo, da je $f$ odvedljiva funkcija na intervalu $I$. Potem za $x \in I$ poznamo $f'(x)$, kar nam definira funkcijo:
+\begin{align*}
+f': I &\to \RR \\
+x &\mapsto f'(x)
+\end{align*}
+"Ce je funkcija $f'$ odvedljiva na $I$, potem njen odvod ozna"cimo z $f''$ in imenujemo \emph{drugi odvod} funkcije $f$ na $I$.
+
+Vi"sje odvode definiramo induktivno. Torej, $n$-ti odvod funkicje $f$ je odvod $(n-1)$-tega odvoda
+\begin{equation*}
+f^{(n)} = (f^{(n-1)})', \quad \forall n \in \NN
+\end{equation*}
+%
+\textsc{Oznake:} Naj bo $I$ (zaprti) interval:
+\begin{itemize}
+	\item $C(I) = C^0(I)$ mno"zica vseh zveznih funkcij na $I$.
+	\item $C^1(I)$ mno"zica vseh zvezno odveljivih funkcij na $I$, to so funkcije, ki so odveljive na $I$ in je njihov odvod $f'$ zvezna funkcija na $I$.
+	\item $C^r(I)$ mno"zica vseh $r$-krat zvezno odvedljivih funkcij na $I$, to so funkcije, ko so $r$-krat odvedljive in je $f^{(r)}$ zvezna funkcija na $I$.
+	\item $C^\infty(I) = \bigcap_{r \in \NN}C^r(I)$ neskon"cnokrat odvedljive funkcije
+\end{itemize}
+\textbf{Vemo:} $f, g \in C^r(I)$, potem $f+g, \lambda f \in C^r(I)$ za vsak $\lambda \in \RR.$ Torej je $C^r(I)$ \emph{vektorski prostor}.
+
+Oglejmo si preslikavo:
+\begin{align*}
+D: f &\mapsto f' \\
+C^r(I) &\to C^{r-1}(I)
+\end{align*}
+%
+\textsc{Trditev:} $D$ je linearna preslikava
+
+\textsc{Dokaz:} Doma. Ni te"zak, "se posebej "ce si v zadnjem mesecu bil/a prisoten na algebri.
+
+\textsc{Oznaka:}
+\begin{align*}
+D^2 = \dfrac{d^2}{dx^2} && D^k = \dfrac{d^k}{dx^k}
+\end{align*}

@@ -1199,3 +1199,318 @@ C^r(I) &\to C^{r-1}(I)
 \begin{align*}
 D^2 = \dfrac{d^2}{dx^2} && D^k = \dfrac{d^k}{dx^k}
 \end{align*}
+%
+\textsc{Primeri:}
+\begin{enumerate}
+\item $f(x) = x \sin \dfrac{1}{x}$ na $\RR \setminus \{0\}$
+\begin{gather*}
+\lim_{x \to 0} f(x) = \lim_{x \to 0} x \sin \dfrac{1}{x} = 0 \\
+%
+\widetilde{f}(x) = \begin{cases}
+f(x) & x \neq 0 \\
+0 & x = 0
+\end{cases} \qquad \widetilde{f} \in C(\RR)
+\end{gather*}
+Za $x \neq 0$:
+\begin{equation*}
+f'(x) = \sin \dfrac{1}{x} - \dfrac{1}{x} \cos \dfrac{1}{x}
+\end{equation*}
+Za $x = 0$:
+\begin{equation*}
+\widetilde{f}'(0) = \lim_{h \to 0} \dfrac{\widetilde{f}(h) - \widetilde{f}(0)}{h} = \lim_{h \to 0} \dfrac{h \sin \dfrac{1}{h}}{h}
+\end{equation*}
+ne obstaja.
+
+$\Rightarrow \widetilde{f}$ v to"cki 0 ni odvedljiva. torej $\widetilde{f} \in C^1(I)$, "ce $0 \notin I$, sicer $\widetilde{f} \notin C^1(I)$.
+
+\item $g(x) = x^2 \sin\dfrac{1}{x}$.
+
+Za $x \neq 0$:
+\begin{equation*}
+g'(x) = 2x \sin \dfrac{1}{x} - \cos \dfrac{1}{x}
+\end{equation*}
+Za $x = 0$:
+\begin{equation*}
+g'(0) = \lim_{h \to 0} \dfrac{h^2 \sin \dfrac{1}{h}}{h} = 0
+\end{equation*}
+Torej:
+\begin{equation*}
+g'(x) = \begin{cases}
+2x \sin \dfrac{1}{x} - \cos \dfrac{1}{x} & x \neq 0 \\
+0 & x = 0
+\end{cases}
+\end{equation*}
+$g'$ je gotovo zvezna na $\RR \setminus \{0\}$. $g'$ je zvezna v 0 $\iff \lim_{x \to 0} g'(x) = g'(0)$.
+\begin{equation*}
+\lim_{x \to 0} g'(x) = \lim_{x \to 0} (\underbrace{2x \sin \dfrac{1}{x}}_{\to 0} - \underbrace{\cos \dfrac{1}{x}}_{\text{oscilira}}) \quad \text{ne obstaja}
+\end{equation*}
+$g'$ ni zvezna v 0. Torej je $g$ odvedljiva na $\RR$, njen odvod $g'$ pa ni zvezna funkcija na $\RR$.
+\end{enumerate}
+%
+\subsection{Rollov in Lagrageev izrek}
+\deff Naj bo $S \subset \RR$ in naj bo $f: S \to \RR$ funkcija. Pravimo, da ima $f$ v to"cki $c \in S$ \emph{lokalni maksimum}, "ce:
+\begin{equation*}
+\exists \delta > 0: \forall x \in S: |x - c| < \delta \Rightarrow f(x) \leq f(c)
+\end{equation*}
+Funkcija $f$ ima v to"cki $c \in S$ \emph{lokalni minimum}, "ce:
+\begin{equation*}
+\exists \delta > 0: \forall x \in S: |x - c| < \delta \Rightarrow f(x) \geq f(c)
+\end{equation*}
+\emph{Lokalni ekstrem} je skupno ime za lokalni minimum in lokalni maksimum.
+
+\textsc{Trditev:} Naj bo $f: [a, b] \to \RR$ odvedljiva v to"cki $c \in (a, b)$. "Ce je $c$ lokalni ekstrem od $f$, potem velja
+\begin{equation*}
+f'(c) = 0
+\end{equation*}
+\textsc{Dokaz:} Recimo, da je $c$ lokalni maksimum. Poglejmo si sekante skozi $(c, f(c))$. Vzemimo $\delta$ iz definicije lokalnega maksimuma. Potem velja
+\begin{equation*}
+|x - c| < \delta \Rightarrow f(x) \leq f(c)
+\end{equation*}
+Lo"cimo primera:
+\begin{itemize}
+	\item $x > c$
+	\begin{equation*}
+	\dfrac{f(x) - f(c)}{x - c} \leq 0 \tag{*}
+	\end{equation*}
+	
+	\item $x < c$
+	\begin{equation*}
+	\dfrac{f(x) - f(c)}{x - c} \geq 0 \tag{**}
+	\end{equation*}
+\end{itemize}
+Poglejmo si odvod:
+\begin{equation*}
+f'(c) = \lim_{x \to c} \dfrac{f(x) - f(c)}{x - c}
+\end{equation*}
+Iz (*) sledi:
+\begin{equation*}
+\lim_{x \downarrow c} \dfrac{f(x) - f(c)}{x - c} \leq 0
+\end{equation*}
+Iz (**) sledi:
+\begin{equation*}
+\lim_{x \uparrow c} \dfrac{f(x) - f(c)}{x - c} \geq 0
+\end{equation*}
+Torej velja $f'(c) = 0$.
+
+\deff Naj bo funkcija $f$ odvedljiva na intervalu $I$. "Ce je za nek $c \in I$ $f'(c) = 0$, imenujemo $c$ \emph{stacionarna to"cka} funckija $f$.
+
+Trditev pove, da so lokalni ekstremi stacionarne to"cke funkcije $f$.
+
+\textsc{Rollov izrek:} Naj bo $f: [a, b] \to \RR$ zvezna funkcija, odvedljiva na $(a, b)$ in $f(a) = f(b)$. Potem obstaja $c \in (a, b)$, da velja $f'(c) = 0$.
+
+\textsc{Dokaz:} Ker je $f$ zvezna na $[a, b]$ dose"ze minimum in maksimum. Ozna"cimo z $x_m \in [a, b]$ to"cke, v katerih dose"ze minimum in z $x_M \in [a, b]$ to"cke v katerih dose"ze maksimum.
+\begin{itemize}
+	\item "Ce je $f(x_m) = f(x_M)$, potem je $f$ konstanta, zato je $f' \equiv 0$.
+	
+	\item "Ce je $f(x_m) \neq f(x_M)$:
+	
+	Ker je $f(a) = f(b)$, vsaj ena od to"ck $x_m, x_M$ ni kraji"s"ce intervala $[a, b]$. Ozna"cimo jo s $c$. V $c$ je dose"zen lokalni ekstrem, zato je po prej"snji trditvi $f'(c) = 0$.
+\end{itemize}
+%
+\textsc{Lagrangeev izrek:} Naj bo $f: [a, b] \to \RR$ zvezna funkcija, odvedljiva na $(a, b)$. Potem obstaja tak $c \in (a, b)$, da velja
+\begin{equation*}
+f(b) - f(a) = f'(c) (b-a)
+\end{equation*}
+\textbf{Opomba:} $f'(c) = \dfrac{f(b) - f(a)}{b - a}$
+
+\textsc{Dokaz:} Definirajmo $F(x) = f(x) - f(a) + d(x - a)$ Funkcija $F$ je zvezna na $[a, b]$, odvedljiva na $(a, b)$.
+
+$d$ dolo"cimo tako, da bo veljalo $F(a) = F(b)$
+\begin{gather*}
+F(a) = 0, \quad F(b) = f(b) - f(a) + d(b - a) \\
+d = - \dfrac{f(b) - f(a)}{b - a}
+\end{gather*}
+Funkcija $F$ ustreza pogojem Rollovega izreka, zato obstaja $c \in (a, b): F'(c) = 0$.
+\begin{gather*}
+F'(x) = f'(x) + d \\
+f'(c) + d = 0 \\
+ f'(c) = -d = \dfrac{f(b) - f(a)}{b - a}
+\end{gather*}
+\hfill $\square$
+
+\textbf{Opomba:} $a = x, \quad b = x+h$. "Ce $c \in (a, b)$, potem obstaja $\vartheta \in (0, 1)$, tako da $c = x + \vartheta h$. V tem primerju velja
+\begin{equation*}
+f(x + h) - f(x) = f'(x + \vartheta h) h
+\end{equation*}
+za nek $\vartheta \in (0, 1)$
+
+\textsc{Posledica:} Naj bo $f$ odvedljiva funkcija na intervalu $I$. Tedaj velja:
+\begin{enumerate}[(i)]
+	\item $f'(x) \geq 0 \quad \forall x \in I \iff f$ nara"s"cajo"ca na $I$
+	\item $f'(x) \leq 0 \quad \forall x \in I \iff f$ padajo"ca na $I$
+	\item $f'(x) > 0 \quad \forall x \in I \Rightarrow f$ strogo nara"s"cajo"ca na $I$
+	\item $f'(x) < 0 \quad \forall x \in I \Rightarrow f$ strogo padajo"ca na $I$
+\end{enumerate}
+\textbf{Opomba:} $f(x) = x^3$ strogo nara"scajo"ca na $\RR$, vendar $f'(0) = 0$.
+
+\textsc{Dokaz:}
+\begin{enumerate}[(i)]
+\item
+\begin{itemize}
+	\item[$(\Rightarrow)$] denimo, da $f'(x) \geq 0 \quad \forall x \in I$. Dokazujemo \dashuline{$f$ je nara"s"cajo"ca na $I$}
+	
+	Izberemo $a, b \in I, a < b$ in dokazujemo $f(a) \leq f(b)$. Ker je $f$ zvezna na $[a, b]$ in odvedljiva na $(a, b)$, izpolnjuje pogoje za Lagrangeev izrek. Torej velja
+	\begin{equation*}
+	\exists c \in (a, b): f(b) - f(a) = \underbrace{f'(c)}_{\geq 0} \underbrace{(b - a)}_{> 0} \Rightarrow f(b) \geq f(a)
+	\end{equation*}
+	
+	\item[$(\Leftarrow)$] Denimo, da je $f$ nara"s"cajo"ca na $I$.
+	\begin{equation*}
+	x \in I: f'(x) = \lim_{h \to 0} \dfrac{f(x+h) - f(x)}{h}
+	\end{equation*}
+	"Ce je $x$ notranja to"cka, lo"cimo primera:
+	\begin{itemize}
+		\item[$h>0$] in dovolj majhen, da $x + h \in I$:
+		\begin{equation*}
+		f(x+h) - f(x) \geq 0 \Rightarrow \dfrac{f(x+h) - f(x)}{h} \geq 0
+		\end{equation*}
+		
+		\item[$h < 0$] in dovolj majhen, da $x + h \in I$:
+		\begin{equation*}
+		f(x+h) - f(x) \leq 0 \Rightarrow\dfrac{f(x+h) - f(x)}{h} \geq 0
+		\end{equation*}
+	\end{itemize}
+	$\Rightarrow f'(x) \geq 0$.
+	\hfill $\square$
+\end{itemize}
+\end{enumerate}
+Ostalo se doka"ze po istem kopitu, tako da je za DN.
+
+\textsc{Posledica:} "Ce za odvedljivo funkcijo $f$ na intervalu $I$ velja $f'(x) = 0 \quad \forall x \in I$, potem je $f$ konstanta.
+
+\textbf{Opombe:}
+\begin{itemize}
+	\item Vemo "ze, da je $(c)' = 0$
+	\item \begin{gather*}
+		f(x) = \begin{cases}
+		1 & x \in [0, 1] \\
+		2 & x \in [2, 3]
+		\end{cases}
+	\end{gather*}
+	$f'(x) = 0$ za vse $x \in [0, 1] \cup [2, 3]$
+\end{itemize}
+%
+\textsc{Posledica:} Naj bo $f: (a, b) \to \RR$ zvezvna funkcija $c \in (a, b)$ in naj bo $f$ odvedljiva na $(a, b) \cup (c, b)$.
+\begin{enumerate}[(i)]
+	\item "Ce je $f'(x) \leq 0$ za vse $x \in (a, b)$ in $f'(x) \geq 0$ za vse $x \in (c, b)$, potem ima $f$ v to"cki $c$ minimum.
+	\item "Ce je $f'(x) \geq 0$ za vse $x \in (a, b)$ in $f'(x) \leq 0$ za vse $x \in (c, b)$, potem ima $f$ v to"cki $c$ maksimum.
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[(i)]
+	\item Vemo, da je $f$ padajo"ca na $(a, c)$ in nara"s"cajo"ca na $(c, b)$. $f$ je zvezna v $c$. Izberimo poljubno nara"s"cajo"ce zaporedje $y_n \uparrow c$.
+	
+	"Ce $y_n \geq x$ za vse $n: f(x) \geq f(y_n)$. 
+	
+	Sledi: $f(x) \geq f(c)$ velja $\forall x < c$.	
+	
+	Simetri"cno na desni: $x > c \Rightarrow f(x) \geq f(c)$
+	
+	$\Rightarrow f$ ima v $c$ minimum.
+	
+	\item Podobno
+	
+	\hfill $\square$
+\end{enumerate}
+\textsc{Posledica:} Naj bo $f: (a, b) \to \RR$ odvedljiva funkcija in $c \in (a, b)$ stacionarna to"cka funkcije $f$.
+\begin{enumerate}[(i)]
+	\item "Ce obstaja $\delta > 0$ za katerega velja
+	\begin{gather*}
+	\begin{aligned}
+		f'(x) \leq 0& \quad \forall x \in (c - \delta, c) \quad \land \\
+		f'(x) \geq 0& \quad \forall x \in (c, c + \delta)
+	\end{aligned}
+	\end{gather*}
+	potem ima $f$ v $c$ lokalni minimum.
+	
+	\item "Ce obstaja $\delta > 0$, za katerega velja
+	\begin{gather*}
+	\begin{aligned}
+		f'(x) \geq 0& \quad \forall x \in (c - \delta, c) \quad \land \\
+		f'(x) \leq 0& \quad \forall x \in (c, c + \delta)
+	\end{aligned}
+	\end{gather*}
+	potem ime $f$ v $c$ lokalni maksimum.
+	
+	\item "Ce obstaja $\delta > 0$, da velja bodisi $f'(x) > 0 \quad \forall x \in (c - \delta, c + \delta) \setminus \{c\}$, bodisi $f'(x) < 0 \quad \forall x \in (c - \delta, c + \delta) \setminus \{c\}$, potem $f'$ v to"cki $c$ nima lokalnega ekstrema.
+\end{enumerate}
+%
+\subsection{Iskanje ekstremov odvedljive funkcije na $[a, b]$}
+\begin{itemize}
+	\item Dolo"cimo stacionarne to"cke $x_1, x_2, \ldots, x_k$
+	\item Izra"cunamo vrednosti $f(x_1), f(x_2), \ldots, f(x_k)$ in $f(a), f(b)$
+	\item Dolo"cimo najmanj"so in najve"cjo vrednost
+\end{itemize}
+"Ce funkcija $f$ ni povsod odvedljiva na $[a, b]$, potem med kandidate za ekstrem dodaamo "se to"cke v katerih $f$ ni odvedljiva.
+
+Pri obravnavanju lokalnih ekstremov analiziramo predznak odvoda.
+
+\textsc{Primer:} Dolo"ci lokalne ektreme
+\begin{gather*}
+f(x) = \dfrac{x^5}{5} - \dfrac{x^4}{4} - \dfrac{x^3}{3} + \dfrac{x^2}{2} + 1 \\
+f'(x) = x^4 - x^3 -x^2 + x = x (x-1)^2 (x+1)
+\end{gather*}
+Stacionarne to"cke so: $-1, 0, 1$. "Ce se nari"semo skico predznaka $f'(x)$ vidimo:
+\begin{itemize}
+	\item V -1 je lokalni maksimum
+	\item V 0 je lokalni minimum
+	\item V 1 nima lokalnega ekstrema
+\end{itemize}
+%
+\textsc{Trditev:} Denimo, da je $f$ dvakrat odvedljiva v okolici to"cke $a$ in denimo, da je $a$ stacionarna to"cka od $f$.
+\begin{enumerate}[(i)]
+	\item "Ce je $f''(x) \leq 0$ za vse $x$ v neki okolici to"cke $a$, potem ima $f$ v $a$ lokalni maksimum.
+	\item "Ce je $f''(x) \geq 0$ za vse $x$ v neki okolici to"cke $a$, potem ima $f$ v $a$ lokalni minimum.
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[(i)]
+	\item $f''(x) \leq 0$ za $x \in (a - \delta, a + \delta)$, zato je $f'$ padajo"ca na $(a - \delta, a + \delta)$. Vemo tudi, da je $f'(a) = 0$, ker je $a$ stacionarna to"cka. Sledi:
+	\begin{align*}
+	f'(x) \geq 0& \quad \forall x \in (a- \delta, a) \quad \land \\
+	f'(x) \leq 0& \quad \forall x \in (a, a + \delta)
+	\end{align*}
+	Po posledici ima $f$ v $a$ lokalni maksimum.
+	
+	\item Podobno
+\end{enumerate}
+%
+\textsc{Posledica:} Naj bo$f$ dvakrat odvedljiva v okolkici to"cke $a$ in $f''$ zvezna v to"cki $a$, ter naj bo $a$ stacionarna to'cka od $f$. Velja:
+\begin{enumerate}[(i)]
+	\item "Ce je $f''(a) < 0$, potem ima $f$ v $a$ lokalni maksimum.
+	\item "Ce je $f''(a) > 0$, potem ima $f$ v $a$ loklani minimum.
+\end{enumerate}
+\textsc{Dokaz:} "Ce je $f''(a) < 0$, zaradi zveznosti $f''$ v $a$ velja $f''(x) < 0$ za vse $x$ v neki okolici to"cke $a$. Nato uporabimo trditev.
+
+\textsc{Trditev:} Naj bo $f$ odvedljiva na $[a, b]$.
+\begin{enumerate}[(i)]
+	\item "Ce je $f'(a) > 0$, potem ima $f$ v $a$ lokalni minimum.
+	\item "Ce je $f'(a) < 0$, potem ima $f$ v $a$ lokalni maksimum.
+	\item "Ce je $f'(b) > 0$, potem ima $f$ v $b$ lokalni maksimum.
+	\item "Ce je $f'(b) < 0$, potem ima $f$ v $b$ lokalni minimum.
+\end{enumerate}
+\textbf{Opomba:} Strogi ena"caj je zato, ker "ce $f'(a) = 0$, se lahko funkcija ,,obrne'' v katerokoli smer.
+%
+\subsection{Konveksnost in konkavnost}
+\deff Naj bo funkcija $f$ definirana na intervalu $I$. Pravimo, da je $f$ \emph{konveksna} na $I$, "ce velja:
+\begin{equation*}
+\forall a, b \in I, a < b \forall x \in [a, b]: f(x) \leq f(a) + \dfrac{f(b) - f(a)}{b - a} (x - a) \tag{*}
+\end{equation*}
+\textsc{Geometrijsko:} $\forall a, b \in I, a < b$ graf funkcije $f$ na $[a, b]$ le"zi pod daljico skozi $(a, f(a))$ in $(b, f(b))$.
+
+"Ce pi"semo $t = \dfrac{x - a}{b - a}$: ko $x \in [a, b]$ bo $t\in [0, 1]$.
+\begin{align*}
+x - a =& t (b - a) \\
+x =& (1 - t) a + tb
+\end{align*}
+(*) se prepi"se v
+\begin{equation*}
+f((1 - t)a + tb) \leq (1-t) f(a) + t f(b)
+\end{equation*}
+za vse $t \in [0, 1]$.
+
+\deff Naj bo $f$ definirana na intervalu $I$. Pravimo, da je $f$ \emph{konkavna} na$I$, "ce
+\begin{equation*}
+\forall a, b \in I, a < b \forall x \in [a, b]: f(x) \geq f(a) + \dfrac{f(b) - f(a)}{b-a}(x-a)
+\end{equation*}
+\textsc{Geometrijsko:} $\forall a, b \in I, a < b$ graf funkcija $f$ na $[a, b]$ le"zi nad daljico skozi $(a, f(a))$ in $(b, f(b))$.
+
+\textbf{Opomba:} Velja: $f$ konveksna $\iff -f$ konkavna.

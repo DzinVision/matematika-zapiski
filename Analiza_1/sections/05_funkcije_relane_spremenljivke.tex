@@ -1514,3 +1514,123 @@ za vse $t \in [0, 1]$.
 \textsc{Geometrijsko:} $\forall a, b \in I, a < b$ graf funkcija $f$ na $[a, b]$ le"zi nad daljico skozi $(a, f(a))$ in $(b, f(b))$.
 
 \textbf{Opomba:} Velja: $f$ konveksna $\iff -f$ konkavna.
+
+\textsc{Izrek:} Naj bo $f$ odvedljiva funkcija na intervalu $I$. Potem je $f$ konveksna natanko tedaj, kadar velja
+\begin{equation*}
+\forall a, x \in I : f(x) \geq f(a) + f'(a) (x-a) \tag{*}
+\end{equation*}
+\textbf{Opomba:} Graf funkcije le"zi nad tangento v poljubni to"cki iz $I$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[$(\Rightarrow)$] Denimo, da je $f$ konveksna na $I$. Izberemo poljubni $a, x \in I$. "Ce je $a = x$, ocean (*) velja. "Ce $a \neq x$, velja
+	\begin{equation*}
+	f(y) \leq f(a) + \dfrac{f(x) - f(a)}{x-a} (y-a)
+	\end{equation*}
+	za vse $y$ med $a$ in $x$.
+	\begin{gather*}
+	\begin{aligned}
+	f(y) - f(a) &\leq (f(x) - f(a)) \dfrac{y - a}{x - a} \\
+	\underbrace{\dfrac{f(y) - f(a)}{y - a}}_{f'(a) \text{ ko gre $y$ proti $a$}} (x-a) &\leq f(x) - f(a) \\
+	f'(a) (x - a) &\leq f(x) - f(a)
+	\end{aligned}
+	\end{gather*}
+	
+	\item[$(\Leftarrow)$] Denimo, da je $f(x) \geq f(a) + f'(a)(x-a)$ za vse $a, x \in I$. Izberemo $a, b \in I, a < b$ in $x \in (a, b)$. Potem to"cki $(a, f(a))$ in $(b, f(b))$ le"zita nad tangento na graf v to"cki $(x, f(x))$.
+	
+	\begin{align*}
+	f(a) &\geq f(x) + f'(x) (a - x)  \quad / \underbrace{(b - x)}_{> 0} \\
+	f(b) &\geq f(x) + f'(x) (b - x) \quad / - \underbrace{(a - x)}_{< 0} \\
+	f(a) (b-x) - f(b) (a-x) &\geq f(x) (b-x - (a - x)) \\
+	f(x) &\leq \dfrac{1}{b-a} (f(a) (b-a) + f(a) (a-x) - f(b) (a-x)) \\
+	f(x) & \leq f(a) + \dfrac{f(b) - f(a)}{b-a} (x-a)
+	\end{align*}
+	za vse $x \in (a, b)$
+	
+	\hfill $\square$
+\end{itemize}
+%
+\textsc{Izrek:} Naj bo $f$ odvedljiva funkcija na intervalu $I$. Potem je $f$ konveksna natanko tedaj, kadar je $f'$ nara"s"cajo"ca na $I$.
+
+"Ce je $f$ dvakrat odvedljiva na intervalu $I$, potem je $f$ konveksna na $I$ natanko tedaj, kadar velja
+\begin{equation*}
+\forall x \in I: f''(x) \geq 0
+\end{equation*}
+\textsc{Dokaz:} Dovolj je dokazati prvo ekvivalenco, saj druga sledi iz prve z uporabo izreka o tem, kdaj je funkcija nara"s"cajo"ca.
+\begin{itemize}
+	\item[$(\Rightarrow)$] Denimo, da je $f$ konveksna na $I$. Dokazujemo, da je $f'$ nara"s"cajo"ca funkcija na $I$.
+	
+	\dashuline{$a, b \in I, a < b \Rightarrow f'(a) \leq f'(b)$}
+	
+	Za kraji"s"ce $a$ velja:
+	\begin{align*}
+	f(x) & \leq f(a) + \underbrace{\dfrac{f(b) - f(a)}{b-a}}_k (x-a) \quad \forall x \in (a, b) \\
+	f(x) &\leq f(a) + k(x-a) \Rightarrow f(x) - f(a) \leq k(x-a) \\
+	\end{align*}
+	Podobno velja za kraji"s"ce $b$:
+	\begin{equation*}
+	f(x) \leq f(b) + k(x-b) \Rightarrow f(x) - f(b) \leq k(x - b)
+	\end{equation*}
+	Iz tega sledi:
+	\begin{gather*}
+		\dfrac{f(x) - f(a)}{x-a} \leq k \text{ ko po"sljemo $x$ proti $a$ dobimo } f'(a) \leq k\\
+		\dfrac{f(x) - f(b)}{x-b} \geq k \text{ ko po"sljemo $x$ proti $b$ dobimo } f'(b) \geq k
+	\end{gather*}
+	Sledi:
+	\begin{equation*}
+	f'(a) \leq k \leq f'(b) \Rightarrow f'(a) \leq f'(b)
+	\end{equation*}
+	
+	\item[$(\Leftarrow)$] Denimo, da je $f'$ nara"s"cajo"ca funkcija na $I$. Izberemo $a, x \in I, a < x$. Po Lagrangeevem izreku za $f$ na $[a, x]$ obstaja $c \in (a, x)$, da velja:
+	\begin{equation*}
+	f'(c) = \dfrac{f(x) - f(a)}{x-a}
+	\end{equation*}
+	Ker je $f'$ nara"s"cajo"ca, velja $f'(a) \leq f'(c)$. Iz tega sledi:
+	\begin{align*}
+	f(x) - f(a) &\geq f'(a) (x-a) \\
+	f(x) &\geq f(a) + f'(a) (x-a) \quad \text{(ena"cba tangente skozi to"cko $a$)}
+	\end{align*}
+	Podobno lahko naredimo za $a > x$. Po prej"snjem izreku je $f$ konveksna.
+	
+	\hfill $\square$
+\end{itemize}
+%
+\deff Naj bo funkcija $f$ definirana na intervalu $I$. "Ce za to"cko $a \in I$ obstaja taka okolica, da je na eni strani to"cke $a$ funkcija konveksna in na drugi strani konkavna, potem ima $f$ v to"cki $a$ \emph{prevoj}.
+
+\textsc{Primer:} Natan"cno nari"si graf funkcija $f(x) = \arctan \frac{1 - x}{1 + x}$.
+
+Dolo"cimo:
+\begin{itemize}
+	\item $D_f$, ni"cle, simetrija (sodost, lihost), periodi"cnost
+	\item prvi odvod (intervali nara"s"canja in padanja, lokalni ekstremi)
+	\item obna"sanje na robovih $D_f$ (limite, asimptote)
+	\item drugi odvod (intervali konveksnosti in konkavnosti, prevoji)
+\end{itemize}
+\textbf{Opomba:} Drugi odvod je drugotnega pomena.
+
+Pora"cunati in narisata zna"s verjetno sam/a. "Ce ne, pridi kdaj na vaje.
+%
+\subsection{L'H\^{o}pitalovi izreki}
+\textsc{Lema:} (posplo"seni Lagrangeev izrek)
+
+Naj bosta $f$ in $g$ zvezni funkciji na $[a, b]$, odvedljivi na $(a, b)$. Denimo, da je $g'(x) \neq 0$ za vse $x \in (a, b)$. Potem obstaja $c \in (a, b)$, da velja
+\begin{equation*}
+\dfrac{f(b) - f(a)}{g(b) - g(a)} = \dfrac{f'(c)}{g'(c)}
+\end{equation*}
+\textbf{Opomba:} "Ce za $g$ vzamemo funkcijo $g(x) = x$, dobimo Lagrangeev izrek.
+
+\textsc{Dokaz:} Velja $g(b) - g(a) \neq 0$, ker po Lagrangeevem izreku obstaja $d \in (a, b)$, da velja
+\begin{equation*}
+g(b) - g(a) = \underbrace{g'(d)}_{\neq 0} \underbrace{(b-a)}_{\neq 0}
+\end{equation*}
+Ozna"cimo $k = \frac{f(b) - f(a)}{g(b) - g(a)}$ in definiramo funkcijo:
+\begin{equation*}
+F(x) = f(x) - f(a) - k(g(x) - g(a))
+\end{equation*}
+$F$ je zvezna na $[a, b]$ in odveljiva na $(a, b)$. Velja $F(a) = 0, \quad F(b) = 0$. Po Rollovem izreku za $F$ obstaja $c \in (a, b): F'(c) = 0$.
+\begin{gather*}
+F'(x) = f'(x) - kg'(x) \\
+f'(c) - kg'(c) = 0 \\
+k = \dfrac{f'(c)}{g'(c)}
+\end{gather*}
+\hfill $\square$

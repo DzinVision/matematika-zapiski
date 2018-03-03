@@ -1551,3 +1551,220 @@ $\sim$ je ekvivalen"cna relacija:
 	\item $A \sim B \Rightarrow B \sim A$ (simetri"cnost) ($B = Q^{-1}AP \Rightarrow A = \underbrace{QBP^{-1}}_{(Q^{-1})^{-1}B(P^{-1})}$)
 	\item $A \sim B \land B \sim C \Rightarrow A \sim C$ (tranzitivnost) (dokaz za DN)
 \end{itemize}
+%
+\textsc{Trditev:} Naj bo $\A \in \LL(V, U)$. Potem obstajata v $V$ in $U$ taki urejeni bazi, da ima matrika, ki pripada $\A$ v teh dveh bazah obliko
+\begin{equation*}
+A_0 = \begin{bmatrix}
+1 & & & &\\
+& \ddots && & \\
+&& 1 & &\\
+&&&&&
+\end{bmatrix}
+\end{equation*}
+kjer je $r = \rang \A$.
+
+\textsc{Dokaz:} I"s"cemo bazi $\{v_1, \ldots, v_n\}$ v $V$ in $\{u_1, \ldots, u_n\}$ v $U$, tako da bo veljalo:
+\begin{align*}
+\A v_1 &= u_1 \\
+\A v_2 &= u_2 \\
+&\cdots \\
+\A v_r &= u_r \\
+\A v_{r+1} &= 0 \\
+&\cdots \\
+\A v_n &= 0
+\end{align*}
+V $\im \A$ izberemo bazo $\{u_1, \ldots, u_r\}$. Izberemo "se praslike teh elementov $\{v_1, \ldots, v_r\} \in V$. Velja $\A v_j = u_j$ za $j = 1, \ldots, r$.
+
+Raz"sirimo $\{u_1, \ldots, u_r\}$ do baze $\{u_1, \ldots, u_r, \ldots, u_m\}$ v. p. $U$.
+
+Spomnimo se: $\dim (\ker \A) = n - \dim (\im \A) = n - r$.
+
+Izberemo bazo $\ker \A: \{\underbrace{v_{r+1}, \ldots, v_n}_{n-r \text{ vektorjev}}\}$.
+
+Trdimo, da je $\{v1, \ldots, v_n\}$ baza $V$. Zado"s"ca ugotoviti, da so ti vektorji linearno neodvisni (ker je $\dim V = n$).
+\begin{gather*}
+\alpha_1 v_1 + \cdots + \alpha_r v_r + \alpha_{r+1} v_{r+1} + \cdots + \alpha_n v_n = 0 \\
+\alpha_1 \underbrace{\A v_1}_{u_1} + \cdots + \alpha_r \underbrace{\A v_r}_{u_r} + \alpha_{r+1} \underbrace{\A v_{r+1}}_0 + \cdots + \alpha_n \underbrace{\A v_n}_0 = 0 \tag{*} \\
+\alpha_1 u_1 + \cdots + \alpha_r u_r = 0 \Rightarrow \alpha_1 = \cdots = \alpha_r = 0
+\end{gather*}
+"Ce to vstavimo v (*) dobimo:
+\begin{equation*}
+\alpha_{r+1} v_{r+1} + \cdots + \alpha_n v_n = 0 \Rightarrow \alpha_{r+1}  = \cdots = \alpha_n = 0
+\end{equation*}
+Torej so $v_1, \ldots, v_n$ res linearno neodvisni.
+
+\hfill $\square$
+
+\textsc{Posledica:} Vsaka matrika je ekvivalentna matriki oblike $A_0$.
+
+\textsc{Dokaz:} $A$ razumemo kot prelikavo. Matrika, ki pripada $A$ glede na bazi $\{P^{(1)}, \ldots, P^{(n)}\}$ in $\{Q^{(1)}, \ldots, Q^{(m)}\}$, naj bo $A_0$. Ker je $A_0 = Q^{-1} A P$, sta matriki $A$ in $A_0$ ekvivalentni.
+
+\textbf{Opomba:} 
+\begin{gather*}
+A_0 = Q^{-1}AP \iff AP = Q A_0 \\
+AP = [Q^{(1)}, \ldots, Q^{(r)}, 0, \ldots, 0] \\
+[AP^{(1)}, \ldots, AP^{(r)}, \ldots AP^{(n)}] = [Q^{(1)}, \ldots, Q^{(r)}, 0, \ldots, 0] \\
+\iff AP^{(j)} = Q^{(j)} \text{ za } j = 1, \ldots r \\
+AP^{(j)} = 0 \text{ za } j = r+1, \ldots, n
+\end{gather*}
+%
+\textsc{Trditev:} Matriki $A, B \in \OO^{m \times n}$ sta ekvivalentni natanko takrat, kadar velja
+\begin{equation*}
+\rang A = \rang B
+\end{equation*}
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[$(\Rightarrow)$] Naj bosta $A, B$ ekvivalentni. Vemo, da velja
+	\begin{equation*}
+	B = Q^{-1}AP
+	\end{equation*}
+	kjer sta $P$ in $Q$ obrnljivi matriki. Torej $B$ pripada preslikavi $A: \OO^n \to \OO^m$ glede na bazi $\{P^{(1)}, \ldots, P^{(n)}\}$ in $\{Q^{(1)}, \ldots, Q^{(m)}\}$. Po neki trditvi velja $\rang B = \rang A$.
+	
+	\item[$(\Leftarrow)$] Naj velja $\rang A = \rang B = r$. Vemo, da je $A$ ekvivalentna $A_0$. Prav tako je $B$ ekvivalentna $B_0$. Ker $A, B \in \OO^{m \times n}$ imata isti rang, zato je $A_0 = B_0$. Torej velja $A \sim A_0 = B_0 \sim B$. Iz tranzitivnosti sledi $A \sim B$.
+\end{itemize}
+\hfill $\square$
+%
+\subsubsection{Podobnost matrik}
+Naj bo $\A \in \LL(V), \dim V = n$. In naj bosta $\V, \V'$ urejeni bazi $V$, ter $P$ prehodna matrika. Matrika $A \in \OO^{n \times n}$ naj pripada preslikavi $\A$ glede na bazo $\V$, matrika $A' \in \OO^{m \times n}$ pa naj pripada preslikavi $\A$ glede na bazo $\V'$. Vemo, da je zveza med $A'$ in $A$
+\begin{equation*}
+A' = P^{-1}AP
+\end{equation*}
+%
+\textsc{Definicija:} Matrika $B \in \OO^{n \times n}$ je \emph{podobna} matriki $A \in \OO^{n \times n}$, kadar obstaja taka obrnljiva matrika $P \in \OO^{n \times n}$, da velja
+\begin{equation*}
+B = P^{-1}AP
+\end{equation*}
+Ozna"cimo z $B \mpod A$.
+
+Relacija podobnosti je ekvivalen"cna relacija
+\begin{itemize}
+	\item refleksivnost: $A \mpod A$, za $P$ vzamemo $I$.
+	\item simetri"cnost $B = P^{-1}AP \Rightarrow A = PBP^{-1} = (P^{-1})^{-1}BP^{-1}$
+	\item tranzitivnost: $B \mpod B, B \mpod C \Rightarrow A = P^{-1} BP, B = Q^{-1} CQ \Rightarrow A = P^{-1} Q^{-1} CQP = (QP)^{-1} C (QP) \Rightarrow A \mpod C$
+\end{itemize}
+Vse matrike, ki pripadajo danemu endomorfizmu so med seboj podobne.
+
+\subsubsection{Diagonalne matrike in diagonalizacija}
+Naj bo $A \in \OO^{n \times n}, A = [a_{ij}] \quad i, j = 1, \ldots, n$. Pravimo, da je $A$ \emph{diagonalna}, kadar je $a_{ij} = 0$ za vsak $i \neq j$. Oblika $A$:
+\begin{equation*}
+A = \begin{bmatrix}
+a_{11}&&&&& \\
+&a_{22}&&&& \\
+&&a_{33}&&& \\
+&&& a_{44}&& \\
+&&&& \ddots & \\
+&&&&& a_{nn}
+\end{bmatrix}
+\end{equation*}
+\textbf{Zapis:} $A = \diag (a_{11}, a_{22}, \ldots, a_{nn}) = \diag (b_1, b_2, \ldots, b_n)$.
+
+Velja:
+\begin{gather*}
+\diag (a_1, \ldots, a_n) + \diag (b_1, \ldots, b_n) = \diag (a_1 + b_1, \ldots, a_n + b_n) \\
+\diag (a_1, \ldots, a_n)  \diag (b_1, \ldots, b_n) = \diag(a_1 b_1, \ldots, a_n b_n)
+\end{gather*}
+%
+\textsc{Definicija:} Endomorfizem $\A \in \LL(V)$ se da \emph{diagonalizirati}, kadar obstaja taka baza $\V \in V$, da je matrika $A$, ki pripada $\A$ v tej bazi, diagonalna.
+
+Naj preslikavi $\A$ v bazi $\V$ pripada matrika $A = \diag (a_1, \ldots, a_n)$ in naj bo $\V = \{v_1, \ldots, v_n\}$. Takrat velja:
+\begin{equation*}
+\A v_j = 0 v_1 + 0 v_2 + \cdots + a_j v_j + \cdots + 0 v_n = a_j v_j \qquad j = 1, \ldots, n
+\end{equation*}
+Torej velja:
+\begin{equation*}
+\A v_j = a_j v_j \quad \forall j
+\end{equation*}
+%
+\textsc{Definicija:} Vektor $x \in V \setminus \{0\}$ imenujemo \emph{lastni vektor} endomorfizma $\A \in \LL(V)$, kadar velja
+\begin{equation*}
+\A x = \lambda x
+\end{equation*}
+za kak"sen $\lambda \in \OO$. Velja, da je $\lambda$ enoli"cno dolo"cen z $\A$ in lastnim vektorjem $x$. $\lambda$ imenujemo \emph{lastna vrednost} endomorfizma $\A$, ki pripada danemu vektorju $x$.
+
+\textsc{Dokaz} enoli"cnosti $\lambda$:
+
+Naj velja $\A x = \lambda x$ in $\A x = \mu x$. Potem velja
+\begin{equation*}
+\lambda x = \mu x \Rightarrow (\lambda - \mu) \underbrace{x}_{\neq 0} = 0 \Rightarrow \lambda - \mu = 0 \Rightarrow \lambda = \mu
+\end{equation*}
+
+Naj bo $\A \in \LL(V), \lambda \in \OO$. $\lambda$ je lastna vrednost end. $\A$, kadar obstaja kak"sen lasten vektor $x$, da je 
+\begin{equation*}
+\A x = \lambda x
+\end{equation*}
+%
+Poglejmo si mno"zico $\{x \in V: \A x = \lambda x\}$ za fiksiran $\lambda \in \OO$.
+\begin{equation*}
+\{x \in V: \A x = \lambda x\} = \{x \in V: (\A - \lambda \I) x = 0\} = \ker (\A - \lambda \I)
+\end{equation*}
+kjer je $\I = id_V$.
+
+$\ker (\A - \lambda \I)$ se imenuje \emph{lastni podprostor} end. $\A$, ki pripada l. vrednosti $\lambda$.
+
+"Ce je $x$ lastni vektor (za $\A$ in $\lambda$), potem je $\alpha x$ lastni vektor, "ce je $\alpha \neq 0$.
+
+V $\ker (\A - \lambda \I)$ so vsi lastni vektorji end. $\A$, ki pripadajo l. vrednosti $\lambda$, poleg njih pa "se vektor 0.
+
+\textsc{Trditev:} Endomorfizem $\A$ se da diagonalizirati natanko takrat, kadar obstaja baza v. p. $V$, sestavljena iz lastnih vektorjev end. $\A$. Pripadajo"ca diagonalna matrika ima na diagonali lastne vrednosti $\A$.
+
+\textsc{Dokaz:} Naj se da $\A$ diagonaliziragi v $\{v_1, \ldots, v_n\} \Rightarrow \A v_j = a_j v_j \quad \forall j$. 
+
+$A = \diag (a_1, \ldots, a_n)$
+
+$v_j$ je l. vektor $\forall j (v_j \neq 0)$. $a_j$ je lastna vrednost za $\A$ in $v_j$.
+
+Obratno: $\{v_1, \ldots, v_n\}$ je baza iz l. vektorjev $Av_j = \lambda_j v_j$. $A = \diag (\lambda_1, \ldots, \lambda_n)$
+
+\textsc{Trditev:} Naj bodo $\lambda_1, \ldots, \lambda_h$ razli"cne lastne vrednosti endomorfizma $\A \in \LL(V)$ in $x_1, \ldots, x_h$ pripadajo"ci vektorji. Potem so $x_1, \ldots x_h$ linearno neodvisni.
+
+\textsc{Dokaz:} Recimo, da so $x_1, \ldots, x_h$ linearno odvisni. Izberemo najmanj"si $j > 1$, tako da je $x_j = \alpha_1 x_1 + \cdots + a_{j-1} x_{j-1}$. Preslikamo z $\A$:
+\begin{gather*}
+\A x_j = \alpha_1 \A x_1 + \cdots + \alpha_{j-1} \A x_{j-1} \\
+\Rightarrow \lambda_j x_j = \alpha_1 \lambda_1 x_1 + \cdots + a_{j-1} \lambda_{j-1} x_{j-1} \\
+\end{gather*}
+Velja tudi:
+\begin{equation*}
+\lambda_j x_j = \lambda_j \alpha_1 x_1 + \cdots + \lambda_j \alpha_{j-1}x_{j-1}
+\end{equation*}
+"Ce te ena"cbi od"stejemo dobimo:
+\begin{gather*}
+(\alpha_1 \lambda_1 - \lambda_j \alpha_1) x_1 + \cdots + (\alpha_{j-1} \lambda_{j-1} - \lambda_j \alpha_{j-1})x_{j-1} = 0 \\
+\alpha_1 (\lambda_1 - \lambda_j) x_1 + \alpha_2 (\lambda_2 - \lambda_j) x_2 + \cdots + \alpha_{j-1} (\lambda_{j-1} - \lambda_j) x_{j-1} = 0
+\end{gather*}
+Zaradi izbire $j$ (minimalnost) so $x_1, \ldots, x_{j-1}$ linearno neodvisni.
+\begin{gather*}
+\Rightarrow \alpha_1 \underbrace{(\lambda_1 - \lambda_j)}_{\neq 0} = \cdots = \alpha_{j-1} \underbrace{(\lambda_{j-1} - \lambda_j)}_{\neq 0} = 0 \\
+\Rightarrow \alpha_1 = \cdots = \alpha_{j-1} = 0
+\end{gather*}
+Torej je $x_j = 0$ $\rightarrow \leftarrow$.
+
+Zato so $x_1, \ldots, x_h$ linearno neodvisni.
+
+\textsc{Posledica:} "Ce ima endomorfizem $\A \in \LL(V)$ $n$ razli"cnih lastnih vrednosti, kjer je $n = \dim (V)$, potem se da $\A$ diagonalizirati.
+
+\textsc{Dokaz:} $\lambda_1, \ldots, \lambda_n$ razli"cne lastne vrednosti.
+\begin{gather*}
+\A x_j = \lambda_j x_j, \qquad j = 1, \ldots, n \\
+x_j \neq 0 \quad \forall j
+\end{gather*}
+$\Rightarrow \{x_1, \ldots, x_n\}$ je baza $V$ sestavljena iz lastnih vektorjev. Zato se da $\A$ diagonalizirati.
+
+Naj bo $A \in \OO^{n \times n} = \LL(\OO^{n})$. $A$ se da diagonalizirati, kadar je $A$ podobna diagonalni matriki:
+\begin{equation*}
+\exists P \in \OO^{n \times n} \text{ obrnljiva}: P^{-1}AP = D = \diag(d_1, \ldots, d_n)
+\end{equation*}
+Velja:
+\begin{gather*}
+AP = PD \\
+\Rightarrow AP^{(j)} = PD^{(j)} \quad j = 1, \ldots, n \\
+PD^{(j)} = P(d_j e_j) = d_j Pe_j \\
+\Rightarrow AP^{(j)} = d_jP^{(j)} \quad \forall j
+\end{gather*}
+$\Rightarrow P^{(1)}, \ldots, P^{(n)}$ so lastni vektorji matrike $A$. $d_1, \ldots, d_n$ so pripadajo"ce lastne vrednosti.
+%
+\subsubsection{Iskanje lastnih vrednosti in lastnih vektorjev}
+Naj bo $\A \in \LL(V), \dim V = n$
+
+$Ax = \lambda x \iff x \in \ker (\A - \lambda \I)$
+
+$\lambda$ je lastna vrednost endomorfizma $\A \iff \ker (\A - \lambda \I) \neq \{0\} \iff \A - \lambda \I$ ni bijekcija (nima inverza) $\iff \rang(\A - \lambda \I) < n$.

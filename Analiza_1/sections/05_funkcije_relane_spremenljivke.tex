@@ -1634,3 +1634,229 @@ f'(c) - kg'(c) = 0 \\
 k = \dfrac{f'(c)}{g'(c)}
 \end{gather*}
 \hfill $\square$
+
+\textsc{Izrek} (L'H\^{o}pitalovo pravilo) Naj bosta $f$ in $g$ odvedljivi funkciji na $(a, b)$. Denimo da velja
+\begin{enumerate}[(i)]
+	\item $g(x) \neq 0, \quad g'(x) \neq 0 \qquad \forall x \in (a, b)$
+	\item $\lim_{x \downarrow a} f(x) = 0, \quad \lim_{x \downarrow a} g(x) = 0$
+\end{enumerate}
+"Ce obstaja limitia $\lim_{x \downarrow a} \frac{f'(x)}{g'(x)}$, potem obstaja $\lim_{x \downarrow a} \frac{f(x)}{g(x)}$ in velja
+\begin{equation*}
+\lim_{x \downarrow a} \frac{f(x)}{g(x)} = \lim_{x \downarrow a} \frac{f'(x)}{g'(x)}
+\end{equation*}
+\textbf{Opombe:}
+\begin{enumerate}
+	\item "Ce sta oba odvoda $f'$ in $g'$ v to"cki $a$ definirana in zvezna, potem velja
+	\begin{equation*}
+	\lim_{x \downarrow a} \frac{f(x)}{g(x)} = \dfrac{f'(a)}{g'(a)}
+	\end{equation*}
+
+	\item "Stevilo $b$ je lahko blizu $a$.
+	\item Analogen izrek velja za leve in obojestranske limite.
+\end{enumerate}
+\textsc{Primera:}
+\begin{gather*}
+\lim_{x \to 0} \dfrac{\sin x}{x} = \lim_{x \to 0} \dfrac{\cos x}{1} = 1 \\
+\lim_{x \to 0} \left(\dfrac{1}{x^2} - \dfrac{\cos 2x}{x^2}\right) = \lim_{x \to 0} \dfrac{1 - \cos 2x}{x^2} = \lim_{x \to 0} \dfrac{2\sin 2x}{2x} = \cdots = 2
+\end{gather*}
+\textsc{Dokaz:} Definiramo $f(a) = g(a) = 0$: $f$ in $g$ sta na $[a, b)$ zvezni funkciji in odvedljivi na $(a, b)$. 
+
+Izberemo poljuben $x \in (a, b)$. $f$ in $g$ sta zvezni na $[a, x]$ in odvedljivi na $(a, x)$. Po lemi (posplo"sen Lagrangeev izrek) obstaja to"cka $c_x \in (a, x)$, za katero velja
+\begin{align*}
+\dfrac{f(x) - f(a)}{g(x) - g(a)} &= \dfrac{f'(c_x)}{g'(c_x)} \\
+\dfrac{f(x)}{g(x)} &= \dfrac{f'(c_x)}{g'(c_x)}
+\end{align*}
+Denimo, da je $L = \lim_{x \downarrow a} \frac{f'(x)}{g'(x)}$. Dokazujemo $\lim_{x \downarrow a} \frac{f(x)}{g(x)} = L$.
+
+Izberemo $\varepsilon > 0$. Obstaja $\delta > 0: \frac{f'(x)}{g'(x)} \in (L - \varepsilon, L + \varepsilon)$ za vse $x \in (a, a+ \delta)$.
+
+Za $x \in (a, a+ \delta)$ velja $\frac{f(x)}{g(x)} = \frac{f'(c_x)}{g'(c_x)} = L$ za nek $c_x \in (a, x) \Rightarrow c_x \in (a, a + \delta)$.
+
+\textsc{Izrek:} Naj bosta $f$ in $g$ odvedljivi funkciji na $(a, b)$ in $g'(x) \neq 0$ za vsak $x \in (a, b)$ in naj bo $\lim_{x \to a}g(x) = \infty$. "Ce obstaja $\lim_{x \downarrow a} \frac{f'(x)}{g'(x)}$, potem obstaja $\lim_{x \downarrow a} \frac{f(x)}{g(x)}$ in velja
+\begin{equation*}
+\lim_{x \downarrow a} \dfrac{f(x)}{g(x)} = \lim_{x \downarrow a} \dfrac{f'(x)}{g'(x)}
+\end{equation*}
+\textsc{Opombe:}
+\begin{itemize}
+	\item Izrek velja tudi za leve in obojestranske limite.
+	\item Uporaba je smiselna npr.\,v primeru $\lim_{x \downarrow a} f(x) = \pm \infty$.
+\end{itemize}
+\textsc{Dokaz:} Denimo, da $\lim_{x \downarrow a} \frac{f'(x)}{g'(x)} = L$ obstaja. Za poljuben $\varepsilon > 0$ obstaja $\delta > 0$ da velja
+\begin{equation*}
+\forall x \in (a, a + \delta): L - \varepsilon < \dfrac{f'(x)}{g'(x)} < L + \varepsilon
+\end{equation*}
+Izberimo poljuben $x \in (a, a + \delta)$. Uporabimo lemo na intervalu $[x, a + \delta)$ in velja
+\begin{equation*}
+\dfrac{f(x) - f(a + \delta)}{g(x) - g(a + \delta)} = \dfrac{f'(c)}{g'(c)}
+\end{equation*}
+za nek $c \in (x, a + \delta)$. Sledi:
+\begin{equation*}
+L - \varepsilon < \dfrac{f(x) - f(a + \delta)}{g(x) - g(a + \delta)} < L + \varepsilon
+\end{equation*}
+za vsak $x \in (a, a + \delta)$. Ker je $\lim_{x \downarrow a} g(x) = \infty$, velja
+\begin{gather*}
+g(x) > 0 \\
+g(x) - g(a + \delta) > 0
+\end{gather*}
+zas vse $x$ dovolj blizu $a$. Neenakost pomno"zimo z $\frac{g(x) - g(a + \delta)}{g(x)}$
+\begin{gather*}
+(L - \varepsilon) \left( 1 - \dfrac{g(a + \delta)}{g(x)} \right) < \dfrac{f(x) - f(a + \delta)}{g(x)} < (L + \varepsilon) \left( 1 - \dfrac{g(a + \delta)}{g(x)} \right) \\
+\underbrace{(L - \varepsilon) \left( 1 - \underbrace{\dfrac{g(a + \delta)}{g(x)}}_{\to 0} \right) + \underbrace{\dfrac{f(a + \delta)}{g(x)}}_{\to 0}}_{\to L - \varepsilon} < \dfrac{f(x)}{g(x)} < \underbrace{(L + \varepsilon) \left( 1 - \underbrace{\dfrac{g(a + \delta)}{g(x)}}_{\to 0} \right) + \underbrace{\dfrac{f(a + \delta)}{g(x)}}_{\to 0}}_{\to L + \varepsilon}
+\end{gather*}
+Ker je limita leve strani neena"cbe $L - \varepsilon$, se nahaja na $(L - 2\varepsilon, L)$ za vse $x \in (a, a + \delta')$. Podobno lahko re"cemo, da ker je limita desne strani neena"cbe $L + \varepsilon$, se desna stran nahaja na $(L, L + 2\varepsilon)$ za vse $x \in (a, \delta'')$. Zato se $\frac{f(x)}{g(x)}$ nahaja na intervalu $(L - 2\varepsilon, L + 2\varepsilon)$ za $x \in (a, a + \delta') \cap (a, a + \delta'')$.
+
+\textsc{Posledica:} Naj bosta $f$ in $g$ odvedljivi funkciji na $(M, \infty)$ za nek $M \in \RR$. Denimo, da $g(x) \neq 0, g'(x) \neq 0$ za vse $x \in (M, \infty)$. Naj bo $\lim_{x \to \infty} f(x) = 0, \lim_{x \to \infty} g(x) = 0$. "Ce obstaja $\lim_{x \to \infty} \frac{f'(x)}{g'(x)}$, potem obstaja $\lim_{x \to \infty} \frac{f(x)}{g(x)}$ in velja
+\begin{equation*}
+\lim_{x \to \infty} \dfrac{f(x)}{g(x)} = \lim_{x \to \infty} \dfrac{f'(x)}{g'(x)}
+\end{equation*}
+\textsc{Dokaz:} Definiramo
+\begin{gather*}
+F(t) = f\left(\dfrac{1}{t}\right) \\
+G(t) = g\left(\dfrac{1}{t}\right)
+\end{gather*}
+Vzamemo $M > 0$: $F$ in $G$ sta definirani na $\left(0, \frac{1}{M}\right)$. Izrek velja za $F$ in $G$, ko $t \downarrow 0$. Takrat gre $\frac{1}{t} \to \infty$.
+\begin{gather*}
+\dfrac{F'(t)}{G'(t)} = \dfrac{f'\left(\frac{1}{t}\right) \left(- \frac{1}{t^2}\right)}{g'\left(\frac{1}{t}\right) \left(- \frac{1}{t^2}\right)} \\
+\lim_{t \downarrow 0} \dfrac{F'(t)}{G'(t)} = \lim_{t \downarrow 0} \dfrac{f'\left(\frac{1}{t}\right)}{g'\left(\frac{1}{t}\right)} = \lim_{x \to \infty} \dfrac{f'(x)}{g'(x)}
+\end{gather*}
+Po L.P.\,velja
+\begin{gather*}
+\lim_{t \downarrow 0} \dfrac{F(t)}{G(t)} = \lim_{t \downarrow 0} \dfrac{F'(t)}{G(t)} \\
+\lim_{t \downarrow 0} \dfrac{F(t)}{G(t)} = \lim_{t \downarrow 0} \dfrac{f \left(\frac{1}{t}\right)}{g \left(\frac{1}{t}\right)} = \lim_{x \to \infty} \dfrac{f(x)}{g(x)}
+\end{gather*}
+\hfill $\square$
+
+Podobna posledica velja za drugi izrek.
+
+Kdaj uporabljamo L'H\^{o}pitalovo pravilo?
+\begin{itemize}
+	\item $\frac{ 0}{0}, \frac{\infty}{\infty}$ ("ce so izpolnjeni pogoji v izreku)
+	\item 
+	\begin{gather*}
+		0 \infty = \dfrac{0}{\frac{1}{\infty}} = \dfrac{0}{0} \\
+		0 \infty = \dfrac{\infty}{\frac{1}{0}} = \dfrac{\infty}{\infty}
+	\end{gather*}
+\end{itemize}
+%
+\subsection{Uporaba odvoda v geometriji}
+\subsubsection{Podajanje krivulj}
+V kartezi"cnem koordinatnem sistemu:
+\begin{enumerate}
+	\item \textbf{Eksplicitno:} Krivulja $K$ je dana kot graf funkcije $f: [a, b] \to \RR$, torej
+	\begin{equation*}
+	K = \Gamma_f = \{(x, f(x)): x \in [a, b]\}
+	\end{equation*}
+	
+	\item \textbf{Implicitno:} Krivulja $K$ je dana kot mno"zica re"sitev ena"cbe $g(x, y) = 0$, kjer je $g: \RR^2 \to \RR$ dana funkcija
+	\begin{equation*}
+	K = \{(x, y) \in \RR^2: g(x, y) = 0\}
+	\end{equation*}
+	Primer: $g(x, y) = x^2 + y^2 - 1$ (enotska kro"znica)
+	
+	\item \textbf{Parametri"cno:} Krivulja $K$ je dana kot mno"zica to"ck $(x, y)$, ki so dolo'cene z $x = \alpha(t), y = \beta(t)$, kjer sta $\alpha, \beta: [t_0, t_1] \to \RR$ funkciji.
+	\begin{equation*}
+	K = \{(\alpha(t), \beta(t)): t \in [t_0, t_1]\}
+	\end{equation*}
+	$t \mapsto (\alpha(t), \beta(t))$ je \emph{vektorska funkcija}.
+\end{enumerate}
+Implicitni na"cin podajanja krivulj je bolj splo"sen od eksplicitnega.
+
+\textsc{Primeri:}
+\begin{enumerate}
+	\item enotska kro"znica $x^2 + y^2 = 1$. Parametri"cno:
+	\begin{gather*}
+		x(t) = \cos t \\
+		y(t) = \sin t \\
+		x^2(t) + y^2 (t) = 1
+	\end{gather*}
+	
+	\item Elipsa $\underbrace{\frac{(x - x_0)^2}{a^2}}_{\cos^2 t} + \underbrace{\frac{(y - y_0)^2}{b^2}}_{\sin^2 t} = 1$
+	
+	Parametri"cno:
+	\begin{gather*}
+	x = x_0 + a \cos t \\
+	y = y_0 + b \sin t
+	\end{gather*}
+	
+	\item "Se dva primera kjer smo veliko risali (na enem smo se nau"cili risati grafe parametri"cnih krivulj). Veliko risanja pomeni, da si poglej zvezek.
+\end{enumerate}
+%
+V polarnem koordinatnem sistemu:
+
+Krivulja $K$ je podana kot mno"zica to"ck s polarnima koordinatama $(r, \varphi)$, kjer je $r = h(\varphi)$, kjer je $h: [\varphi_0, \varphi_1] \to \RR$ realna funkcija.
+
+\textsc{Primera:}
+\begin{enumerate}
+	\item $h(\varphi) = c$, kjer je $c \in \RR$. "Ce nari"ses pride kro"znica.
+	\item $h(\varphi) = k\varphi, k > 0$. "Ce nari"ses pride spirala.
+\end{enumerate}
+%
+\deff \emph{Pot v ravnini} je preslikava $F = (\alpha, \beta): I \to \RR^2$, kjer je $I$ interval, $\alpha$ in $\beta$ pa zvezni funkciji na $I$.
+
+\emph{Tir poti} je mno"zica
+\begin{equation*}
+C = F(I) = \{F(t): t \in I\}
+\end{equation*}
+$F$ imenujemo \emph{parametrizacija} krivulje $C$. Isto krivuljo $C$ lahko podamo z razli'cnimi parametrizacijami.
+
+\deff Pot $F = (\alpha, \beta): I \to \RR^2$ je odvedljiva, "ce sta $\alpha$ in $\beta$ odvedljivi na $I$. Pot $F$ je razred $C^1$ (zvezno odvedljiva), "ce sta $\alpha$ in $\beta$ razreda $C^1$.
+
+\textbf{Opomba:} Preslikava $F$ je zvezna, oziroma $\alpha$ in $\beta$ sta zvezni.
+
+"Ce je $F$ odvedljiva pot:
+\begin{equation*}
+\dot{F}(t) = (\dot{\alpha}(t) \dot{\beta}(t))
+\end{equation*}
+%
+\textsc{Izrek:} Naj bo $F: I \to \RR^2$ zvezno odvedljiva pot, $t_0 \in I$ in denimo, da je $\dot{F}(t_0) = (\dot{\alpha(t_0)}, \dot{\beta(t_0)}) \neq 0$. "Ce je $\dot{\alpha(t_0)} \neq 0$, potem obstaja tak $\delta > 0$, da lahko krivuljo
+\begin{equation*}
+K = \{F(t): |t - t_0| < \delta\}
+\end{equation*}
+zapi"semo kot graf neke odvedljive funkcije $y = f(x)$ med intervalom $U$ okrog to"cke $x_0 = \alpha(t_0)$:
+\begin{equation*}
+K = \{(x, f(x)): x \in U\}
+\end{equation*}
+in velja
+\begin{equation*}
+f'(\alpha(t)) = \dfrac{\dot{\beta}(t)}{\dot{\alpha}(t)}
+\end{equation*}
+za vse $t \in (t_0 - \delta, t_0 + \delta)$
+
+\textsc{Dokaz:} Denimo, da je $\dot{\alpha}(t_0) > 0$.
+
+Ker je $\dot{\alpha}$ zvezna funkcija, je $\dot{\alpha} > 0$ na neki okolici $t_0$, zato je $\alpha$ na neki okolici $t_0$ strogo nara"s"cajo"ca funkcija
+
+Zato obstaja $\delta > 0$, da $\alpha$ preslika interval $(t_0 - \delta, t_0 + \delta)$ bijektivno v $(\alpha(t_0 - \delta), \alpha(t_0 + \delta)) =: U$.
+
+Potem ima $\alpha$ inverzno funkcijo $\alpha^{-1}: U \to (t_0 - \delta, t_0 + \delta)$, ki je odvedljiva. Definiramo
+\begin{equation*}
+f(x) = \beta(\alpha^{-1}(x)), \quad x \in U
+\end{equation*}
+Velja:
+\begin{equation*}
+(x, f(x)) = (\alpha(t), \beta(\alpha^{-1}(\alpha(t))) = (\alpha(t), \beta(t))
+\end{equation*}
+za $x \in U$. Torej velja
+\begin{equation*}
+f'(x) = \beta'(\alpha^{-1}(x)) \dfrac{1}{\alpha'(\alpha^{-1}(x))}
+\end{equation*}
+kjer je $x = \alpha(t)$.
+
+\hfill $\square$
+
+\textsc{Posledica:} Naj bosta $\alpha$ in $\beta$ dvakrat odvedljivi na $(t_0, t_1)$. Denimo, da je $\dot{\alpha}(t) \neq 0$ za vse $t \in (t_0, t_1)$. Potem je funkcija $f$ iz izreka dvakrat odvedljiva in velja:
+\begin{equation*}
+f''(\alpha(t)) = \dfrac{\dot{\alpha}(t)\ddot{\beta}(t) - \ddot{\alpha}(t)\dot{\beta}(t)}{(\dot{\alpha}(t))^3}
+\end{equation*}
+\textsc{Dokaz:} Velja $f'(\alpha(t)) = \frac{\dot{\beta}(t)}{\dot{\alpha(t)}}$. $f$ je dvakrat odvedljiva, ker je kompozitum dvakrat odvedljivih funkcij.
+\begin{equation*}
+f''(\alpha(t)) \dot{\alpha}(t) = \dfrac{\dot{\alpha}(t)\ddot{\beta}(t) - \ddot{\alpha}(t)\dot{\beta}(t)}{(\dot{\alpha}(t))^2}
+\end{equation*}
+\hfill $\square$
+
+\deff Naj bo $F: I \to \RR^2$ odvedljiva pot
+\begin{enumerate}[(i)]
+	\item "Ce za nek $t \in I$ velja $\dot{F}(t) = 0$, potem $t$ imenujemo \emph{kriti"cna to"cka} preslikave $F$.
+	\item "Ce za nek $t \in I$ velja $\dot{F}(t) \neq 0$, potem $t$ imenujemo \emph{regularna to"cka} preslikave $F$.
+	\item "Ce so vse to"cke $t \in I$ regularne, potem $F$ imenujemo \emph{regularna parametrizacija} gladkega tira poti $F$.
+\end{enumerate}

@@ -1860,3 +1860,146 @@ f''(\alpha(t)) \dot{\alpha}(t) = \dfrac{\dot{\alpha}(t)\ddot{\beta}(t) - \ddot{\
 	\item "Ce za nek $t \in I$ velja $\dot{F}(t) \neq 0$, potem $t$ imenujemo \emph{regularna to"cka} preslikave $F$.
 	\item "Ce so vse to"cke $t \in I$ regularne, potem $F$ imenujemo \emph{regularna parametrizacija} gladkega tira poti $F$.
 \end{enumerate}
+%
+Naj bo $F: I \to \RR^2$ odvedljiva pot v ravnini in naj bo $t$ regularna to"cka od $F$. Potem je $\dot{F}(t)$ smerni vektor tangente skozi to"cko $F(t)$ in ena"cba tangente je
+\begin{equation*}
+\vec{r} = \vec{r_F(t)} + s \dot{F}(t)
+\end{equation*}
+v vektorski obliki. V parametri"cni obliki je ena"cba smernega vektorja
+\begin{align*}
+x &= \alpha(t) + s \dot{\alpha}(t) \\
+y &= \beta(t) + s \dot{\beta}(t)
+\end{align*}
+V segmenti obliki je to
+\begin{equation*}
+(x - \alpha(t)) \dot{\beta}(t) - (y - \beta(t)) \dot{\alpha}(t) = 0
+\end{equation*}
+ali
+\begin{equation*}
+\dfrac{x - \alpha(t)}{\dot{\alpha}(t)} = \dfrac{y - \beta(t)}{\dot{\beta}(t)}
+\end{equation*}
+V regularni to"cki je smerni vektor normale $(-\dot{\beta}(t), \dot{\alpha}(t))$. Ena"cba normale je torej
+\begin{equation*}
+(x - \alpha(t)) \dot{\alpha}(t) + (y - \beta(t)) \dot{\beta}(t) = 0
+\end{equation*}
+%
+\textsc{Trditev:} Tangenta je odvisna samo od tira poti, ni pa odvisna od izbire regularne parametrizacije.
+
+\textsc{Dokaz:} Denimo, da je $t_2$ regularna to"cka parametrizacije $F = (\alpha, \beta)$ in da je $s_2$ regularna to"cka parametrizacije $G = (\alpha_1, \beta_1)$ in da velja $F(t_2) = G(s_2)$. Naj bo $\alpha'(t_2) \neq 0$. Potem obstaja odvedljiva funkcija $\varphi$ v okolici $s_2$ za katero velja
+\begin{equation*}
+\varphi(s_2) = t_2, \quad \varphi'(s_2) \neq 0
+\end{equation*}
+Funkcijo definiramo kot
+\begin{equation*}
+\varphi = \alpha^{-1} \circ \alpha_1
+\end{equation*}
+Smerna koeficienta tangent sta
+\begin{gather*}
+(\dot{\alpha}(t_2), \dot{\beta}(t_2)) \\
+(\dot{\alpha_1}(s_2), \dot{\beta_1}(s_2))
+\end{gather*}
+Parametrizacijo $G$ lahko zapi"semo kot $G = F \circ \varphi$. Potem velja
+\begin{gather*}
+(\alpha_1, \beta_1) = (\alpha \circ \varphi, \beta \circ \varphi) \\
+(\dot{\alpha_1}(s_2), \dot{\beta_1}(s_2)) = (\dot{\alpha}(t_2) \varphi'(s_2), \dot{\beta}(t_2) \varphi'(s_2)) = \underbrace{\varphi'(s_2)}_{\neq 0} (\dot{\alpha}(t_2), \dot{\beta}(t_2))
+\end{gather*}
+Ker sta vektorja kolinearna, dolo"cata isto premico.
+%
+\subsection{Integral}
+\subsubsection{Primitivna funkcija in nedolo"cen integral}
+\textsc{Motivacija:} Vsaka odvedljiva funkcija $f$ na intervalu $I$ dolo"ca funkcijo $f'$ na $I$. Denimo, da poznamo $f'$. Kako dobimo $f$? Ali je vsaka funkcija $g$ na $I$ odvod neke funkcije?
+
+\deff Naj bo funckija $f$ definirana na mno"zici $I \subset \RR$. "Ce obstaja odvedljiva funkcija $F: I \to \RR$, za katero velja $F' = f$ na $I$, potem jo imenujemo \emph{primitivna funkcija} od $f$.
+
+\textsc{Primer:} $f(x) = x$ na $\RR$
+
+$F(x) = \frac{1}{x} x^2$ je primitivna funkcija od $f$.
+
+$G(x) = \frac{1}{x} x^2 + 100$ je primitivna funkcija od $f$.
+
+\textsc{Lema:} Naj bo $f$ funkcija definirana na intervalu $I$.
+\begin{enumerate}
+	\item "Ce je $F$ primitivna funkcija od $f$ na $I$, potem je za vsak $c \in \RR$ tudi funkcija $G(x) = F(x) + c$ primitivna funkcija od $f$.
+	\item "Ce sta $F$ in $G$ primitivni funkciji od $f$ na intervalu $I$, potem obstaja $c \in \RR$, da velja
+	\begin{equation*}
+	\forall x \in I: G(x) = F(x) + c
+	\end{equation*}
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}
+	\item $F' = f$ po definiciji
+	
+	$G' = F' = f$
+	
+	\item $h(x) = F(x) - G(x)$ je odvedljiva funkcija na intervalu $I$.
+	\begin{equation*}
+	h'(x) = F'(x) - G'(x) = f(x)  - f(x) = 0 \quad \forall x \in I
+	\end{equation*}
+	Zato je $h$ konstanta funkcija.
+	
+	\hfill $\square$
+\end{enumerate}
+%
+\deff \emph{Nedolo"cen integral} funkcije $f$ je skupek vseh njenih primitivnih funkcij. Ozna"cimo ga s
+\begin{equation*}
+\int f(x) dx
+\end{equation*}
+Funkcijo $f$ imenujemo \emph{integrand}.
+
+\textsc{Primer:}
+\begin{equation*}
+\int \frac{1}{x} dx = \begin{cases}
+\ln |x| + c_1 & x > 0 \\
+\ln |x| + c_2 & x < 0
+\end{cases}
+\end{equation*}
+%
+\textsc{Primer:}
+\begin{equation*}
+f(x) = \begin{cases}
+1 & -1 < x \leq 0 \\
+-1 & 0 < x < 1
+\end{cases}
+\end{equation*}
+\dashuline{$f$ nima primitivne funkcije na $(-1, 1)$}
+
+Denimo, da je $F$ primitivna funkcija od $f$ na $(-1, 1)$. Torej je $F'(x) = f(x)$ za vse $x \in (-1, 1)$. Naj bo $a \in (0, 1)$. Potem je $F$ odvedljiva funkcija na $[-a, a]$, zatoje $F$ zvezna na $[-a, a]$ in zato dose"ze maksimum.
+\begin{itemize}
+	\item $F$ nima stacionarne to"cke.
+	\item $F'(-a) = f(-a) = 1$, zato v $-a$ ni dose"zen maksimum
+	\item $F'(a) = f(a) = -1$, zato v $a$ ni dose"zen maksimum.
+\end{itemize}
+$\rightarrow \leftarrow$
+
+\textbf{Opomba:} Funkcija $f$ ni zvezna. Dokazali bomo, da ima vsaka zvezna funkcija primitivno funkcijo.
+
+\textsc{Tabela osnovnih integralov:}
+\begin{table}[!htbp]
+	\centering
+	\begin{tabular}{c | c}
+		\textbf{Funkcija} & \textbf{Primitivna funkcija} \\ \hline
+		$x^n$ & $\frac{x^n+1}{n + 1}, \quad n \neq 0$ \\
+		$\frac{1}{x}$ & $\ln |x|$ \\
+		$a^x$ & $\frac{1}{\ln a} a^x$ \\
+		$e^x$ & $e^x$ \\
+		$\sin x$ & $- \cos x$ \\
+		$\cos x$ & $\sin x$ \\
+		$\sinh x$ & $\cosh x$ \\
+		$\cosh x$ & $\sinh x$ \\
+		$\frac{1}{1+x^2}$ & $\arctan x$ \\
+		$\frac{1}{\sqrt{1 - x^2}}$ & $\arcsin x$ \\
+		$\frac{1}{\sqrt{x^2 \pm 1}}$ & $\ln (x + \sqrt{x^2 \pm 1})$
+	\end{tabular}
+\end{table}
+%
+\subsubsection{Pravila za integriranje}
+\textsc{Trditev:} Za poljubni funkciji $f$ in $g$, ki imata primitivni funkcija na intervalu $I$ velja
+\begin{enumerate}
+	\item $\int (f(x) \pm g(x)) dx = \int f(x) dx \pm \int g(x) dx$
+	\item $\int \lambda f(x) dx = \lambda \int f(x) dx, \quad \lambda \in \RR$
+\end{enumerate}
+\textsc{Dokaz:} $F' = f$ in $G' = g$, potem velja $(F + G)' = f + g$
+
+Podobno za mno"zenje s konstantno.
+
+\hfill $\square$

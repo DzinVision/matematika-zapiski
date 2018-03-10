@@ -1768,3 +1768,74 @@ Naj bo $\A \in \LL(V), \dim V = n$
 $Ax = \lambda x \iff x \in \ker (\A - \lambda \I)$
 
 $\lambda$ je lastna vrednost endomorfizma $\A \iff \ker (\A - \lambda \I) \neq \{0\} \iff \A - \lambda \I$ ni bijekcija (nima inverza) $\iff \rang(\A - \lambda \I) < n$.
+
+\textsc{Primer:} $n = 3, \quad \OO = \RR$. Kdaj je $\rang(A - \lambda I) < 3$?
+
+$\iff$ stolpci oziroma vrstice matrike $A - \lambda I$ so linearno odvisni \\
+$\iff$ me"sani produkt vseh vrstic matrike $A - \lambda I$ je enak 0 \\
+$\iff \det(A - \lambda I) = 0$
+\begin{equation*}
+\det(A - \lambda I) = 
+\begin{vmatrix}
+a_{11} - \lambda & a_{12} & a_{13} \\
+a_{21} & a_{22} - \lambda & a_{23} \\
+a_{31} & a_{32} & a_{33} - \lambda
+\end{vmatrix}
+= a_0 + a_1 \lambda + a_2 \lambda^2 + a_3 \lambda^3
+\end{equation*}
+Hitro lahko razberemo, da je $a_3 = -1$. Torej je $\lambda$ lastna vrednost $A \iff \Delta_A(\lambda) = 0$, kjer je
+\begin{equation*}
+\Delta_A(\lambda) = a_0 + a_1 \lambda + a_2 \lambda^2 - \lambda^3
+\end{equation*}
+Ni"cle polinoma $\Delta_A(\lambda)$, $\alpha_1, \alpha_2, \alpha_3 \in \RR$, so lastne vrednosti matrike $A$. Pravimo, da je $\Delta_A(\lambda)$ \emph{karakteristi"cni polinom} matrike $A$.
+%
+\subsubsection{Determinante}
+Naj bosta $V$ in $U$ vektorska porstora nad $\OO$. Definiramo
+\begin{equation*}
+V^n = \underbrace{V \times V \times \cdots \times V}_n
+\end{equation*}
+Velja
+\begin{align*}
+(v_1, v_2, \ldots, v_n) &\in V^n \\
+\forall j \quad v_j &\in V
+\end{align*}
+%
+\textsc{Definicija:} $F: V^n \to U$ je \emph{$n$-linearna}, kadar so za vsak $(v_1, \ldots, v_n) \in V^n$ preslikave $F_j: V \to U \quad (j = 1, \ldots n)$, definirane s predpisom
+\begin{equation*}
+F_j(x) = F(v_1, \ldots, v_{j-1}, x, v_{j+1}, \ldots, v_n)
+\end{equation*}
+linearne.
+
+"Ce je $n = 2$ pravimo da je preslikava \emph{bilinearna}, "ce je $n=3$ pa pravimo, da je preslikava \emph{trilinearna}.
+
+\textsc{Primeri:}
+\begin{enumerate}[(1)]
+	\item Skalarni produkt na $\RR^3$
+	\begin{gather*}
+	F: \RR^3 \times \RR^3 \to \RR \\
+	V = \RR^3, \quad U= \RR \\
+	F(\vec{a}, \vec{b}) = \vec{a} \cdot \vec{b}
+	\end{gather*}
+	$F$ je bilinearna preslikava
+	\begin{equation*}
+	F_1(\vec{x}) = F(\vec{x}, \vec{b}) = \vec{x} \cdot \vec{b} \\
+	F_1(\vec{x} + \vec{y}) = (\vec{x} + \vec{y}) \cdot \vec{b} = \vec{x} \vec{b} + \vec{y} \vec{b} = F_1(\vec{x}) + F_1(\vec{y})
+	\end{equation*}
+	Torej je $F_1$ aditivna. Podobno hitro se preveri, da je tudi homogena. Zato je $F_1$ linearna. Podobno velja tudi za $F_2$, zato je $F$ bilinearna.
+	
+	\item Vektroski produkt v $\RR^3$
+	\begin{gather*}
+	F: \RR^3 \times \RR^3 \to \RR^3 \\
+	V = \RR^3, \quad U = \RR^3 \\
+	F(\vec{a}, \vec{b}) = \vec{a} \times \vec{b}
+	\end{gather*}
+	Podbno kot v prvem primeru preverimo linearnost preslikav $F_1$ in $F_2$ in opazimo, da je tudi v tem primeru $F$ bilinearna.
+	
+	\item Me"sani produkt v $\RR^3$
+	\begin{gather*}
+	F: \RR^3 \times \RR^3 \times \RR^3 \to \RR \\
+	V = \RR^3, \quad U = \RR \\
+	F(\vec{a}, \vec{b}, \vec{c}) = (\vec{a} \times \vec{b}) \cdot \vec{c}
+	\end{gather*}
+	Podobno kot v prvih dveh primerih preverimo linearnost preslikav $F_1, F_2$ in $F_3$ in opazimo, da je $F$ trilinearna preslikava.
+\end{enumerate}

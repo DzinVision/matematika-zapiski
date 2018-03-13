@@ -2003,3 +2003,109 @@ $\rightarrow \leftarrow$
 Podobno za mno"zenje s konstantno.
 
 \hfill $\square$
+
+\textsc{Trditev:} "Ce je $F$ odvedljiva funkcija na $I$, potem velja
+\begin{equation*}
+\int F'(x)dx = F(x) + c
+\end{equation*}
+\textsc{Dokaz:} Po definiciji primitivne funkcije.
+
+\textbf{Opomba:} $F$ je primitivna funkcija do$f$ na $I$, "ce je $F$ odvedljiva in velja $F' = f$ na $I$. Denimo, da je $F$ primitivna funkcija od $f$.
+\begin{gather*}
+dF(x) = F'(x)dx = f(x)dx \\
+\int f(x)dx = F(x) + c
+\end{gather*}
+%
+\textsc{Trditev:} (uvedba nove spremenljivke)
+
+Naj bo funkcija $g$ odvedljiva na intervalu $I$. Naj ima funkcija $f$ primitivno funkcijo $F$, definirano na $g(I) = \{g(x): x \in I\}$. Potem je $F \circ g$ primitivna funkcija od $(f\circ g) g'$ na intervalu $I$. Torej:
+\begin{equation*}
+\int (f\circ g)(x) g'(x) dx = F(g(x)) + C, \quad x \in I
+\end{equation*}
+\textbf{Opomba:} "Ce ozna"cimo $t = g(x)$, dobimo:
+\begin{gather*}
+dt = g'(x) dx \\
+\int f(\underbrace{g(x)}_t) \underbrace{g'(x)dx}_{dt} = \int f(t) dt = F(t) + C = F(g(x)) + C
+\end{gather*}
+\textsc{Dokaz:} $F \circ g$ je odvedljivak, ker je  kompozitum odvedljivih
+\begin{equation*}
+(F \circ g)' (x) = F'(g(x)) g'(x) = f(g(x)) g'(x) = (f \circ g) g'
+\end{equation*}
+\hfill $\square$
+
+\textsc{Trditev:} (integriranje po delih - per partes)
+
+Naj bosta $f$ in $g$ odvedljivi funkciji na $I$. Potem velja
+\begin{equation*}
+\int f(x) g'(x) dx = f(x) g(x) - \int f'(x) g(x) dx, \quad x \in I
+\end{equation*}
+"Ce ozna"cimo $u = f(x)$ in $v = g(x)$, potem velja
+\begin{equation*}
+\int u dv = uv - \int v du
+\end{equation*}
+\textsc{Dokaz:}
+\begin{equation*}
+(f(x) g(x))' = f'(x) g(x) + f(x) g'(x)
+\end{equation*}
+Zato je $fg$ primitivna funkcija od $f'g + fg'$ in zato formula velja.
+%
+\subsubsection{Dolo"ceni integral}
+Naj bo $f: [a, b] \to \RR$ nenegativna funkcija. Potem graf funkcije $f$ omejuje obmo"cje $A$ nad intervalom $[a, b]$: $A$ je navzgor omejeno z $\Gamma_f$, navzdol z abscisno osjo, na levi s premico $x = a$ in na desni s premico $x = b$.
+
+"Ce je $f$ konstanta, znamo izra"cunat plo"s"cino, ki jo dolo"ca.
+
+V splo"snem:
+\begin{itemize}
+	\item Interval $[a, b]$ razdelimo na podintervali in na vsakem podintervalu funkcijo $f$ zamenjamo s primerno konstanto.
+	\item Ne vemo kako dobra je aproksimacija.
+	\item "Ce namesto poljubne to"cke na grafu na vsakem podintervalu izberemo to"cki, va keterih je dose"zen infimum $f$ oziroma supremum $f$, dobimo zgornjo mejo in spodnjo mejo za plo"s"cino $A$.
+\end{itemize}
+\textsc{Primer:} $f(x) = x^2$ izra"cunaj plo"s"cino pod grafom na $[0, 1]$.
+
+Interval $[0, 1]$ razdelimo na $n$ enakih delov (\emph{ekvidistan"cna delitev}).
+
+Zgornja meja plo"s"cine lika
+\begin{multline*}
+\sup A = \dfrac{1}{n} \left(\dfrac{1}{n}\right)^2 + \dfrac{1}{n} \left(\dfrac{2}{n}\right)^2 + \cdots + \dfrac{1}{n} 1^2 = \\
+= \dfrac{1}{n^3} (1 + 2^2 + 3^2 + \cdots + n^2) = \dfrac{1}{n^3} \dfrac{n (n+1) (2n + 1)}{6} = \\
+= \dfrac{(n + 1) (2n + 1)}{6n^2} \stackrel{n \to \infty}{\longrightarrow} \dfrac{1}{3}
+\end{multline*}
+Spodnja meja plo"s"cine lika
+\begin{multline*}
+\inf A = \dfrac{1}{n} 0 + \dfrac{1}{n} \dfrac{1}{n^2} + \dfrac{1}{n} \left(\dfrac{2}{n}\right)^2+ \cdots + \dfrac{1}{n} \left(\dfrac{n-1}{n}\right)^2 = \\
+= \dfrac{1}{n^3} (1 + 2^2 + 3^2 + \cdots + (n-1)^2) = \\
+= \dfrac{(n - 1) (2n - 1)}{6n^2} \stackrel{n \to \infty}{\longrightarrow} \dfrac{1}{3}
+\end{multline*}
+%
+\subsubsection*{Riemannov integral}
+\deff Naj bo $[a, b]$ dan interval. \emph{Delitev} $D$ intervala $[a, b]$ je mno"zica $\{x_1, x_1, \ldots, x_n\}$ \emph{delilnih to"ck}, za katere velja:
+\begin{equation*}
+a = x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n = b
+\end{equation*}
+in $n \in \NN$. Dol"zino $i$-tega intervala $[x_{i-1}, x_i]$ ozna"cimo z $\delta_i = x_i - x_{i-1}$.
+
+\emph{Velikost} delitve $D$ je dol"zina najdalj"sega podintervala v delitvi $D$
+\begin{equation*}
+\delta(D) = \max \{\delta_1, \delta_2, \ldots, \delta_n\}
+\end{equation*}
+Na vsakem podintervalu izberemo \emph{testno to"cko} $t_i \in [x_{i-1}, x_i]$ in z
+\begin{equation*}
+T_D = \{t_1, t_2, \ldots, t_n\}
+\end{equation*}
+ozna"cimo nabor testnih to"ck. Denimo, da je nabor testnih to"ck $T_D$ \emph{usklajen} z delitvijo $D$, ker smo na vsakem podintervalu delitve $D$ izbrali eno testno to"cko.
+
+\emph{Reimannova vsota} funkcije $f: [a, b] \to \RR$, pridru"zena delitvi $D$ in usklajeni izbiri testnih to"ck $T_D$ je
+\begin{equation*}
+R(f, D, T_D) = \sum_{k=1}^{n} \delta_k f(t_k)
+\end{equation*}
+\textbf{Opomba:} Pri"cakujemo, da Riemannove vsote bolje aproksimirajo prlo"s"cino, "ce je $\delta(D)$ manj"si.
+
+\deff Riemannov itnegral ali dolo"ceni integral funkcije $f: [a, b] \to \RR$ je limita Rimeannove vsote, kjer limito vzamemo po vseh delitvah $D$ zaprtega intervala $[a, b]$ in po vseh usklajenih izbirah testnih to"ck $T_D$, ko gre $\delta_D$ proti 0, "ce ta limita obstaja. Pi"semo:
+\begin{equation*}
+\int_{a}^{b} f(x) dx = \lim_{\stackrel{D, T_D}{\delta(D) \to 0}} R(f, D, T_D)
+\end{equation*}
+Torej: $I = \lim_{\stackrel{D, T_D}{\delta(D) \to 0}} R(f, D, T_D)$ pomeni, da za vsak $\varepsilon > 0$ obstaja $\delta > 0$, da za vse delitve $D$, kjer $\delta(D) < \delta$ in vsako usklajeno izbiro testnih to"ck $T_D$ velja
+\begin{equation*}
+\left| R(f, D, T_D) - I \right| < \varepsilon
+\end{equation*}
+"Ce Riemannov integral $f$ na $[a, b]$ obstaja, pravimo, da je $f$ na $[a, b]$ \emph{Riemannovo integrabilna}.

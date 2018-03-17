@@ -1839,3 +1839,161 @@ linearne.
 	\end{gather*}
 	Podobno kot v prvih dveh primerih preverimo linearnost preslikav $F_1, F_2$ in $F_3$ in opazimo, da je $F$ trilinearna preslikava.
 \end{enumerate}
+\textsc{Primer ra"cunanja:} Naj bo $F: V^2 \to U$ bilinearna
+\begin{multline*}
+F(u, w) = F(\alpha_1 v_1 + \cdots + \alpha_n v_n, \beta_1 w_1 + \cdots + \beta_n w_n) = \\
+= \alpha_1 F(v_1, w) + \alpha_2 F(v_2, w) + \cdots + \alpha_n F(v_n, w) = \\
+= \alpha_1 F(v_1, \beta_1 w_1 + \cdots + \beta_n w_n) + \cdots = \\
+= \alpha_1 (\beta_1 F(v_1, w_1) + \beta_2 F(v_1, w_2) + \cdots + \beta_n (v_1, w_n)) = \\
+= \sum_{1 \leq i, j \leq n} \alpha_i \beta_j F(v_1, w_j)
+\end{multline*}
+%
+\textsc{Definicija:} $F: V^n \to U$ je \emph{antisimetri"cna}, kadar velja za vsak $(v_1, \ldots, v_n) \in V^n$ enakost
+\begin{equation*}
+F(v_1, \ldots, v_j, \ldots, v_k, \ldots, v_n) = - F(v_1, \ldots, v_k, \ldots, v_j, \ldots, v_n)
+\end{equation*}
+\textsc{Primera:} Vektorski in me"sani produkt.
+
+Naj bo $\OO$ obseg, kjer $1 + 1 \neq 0$. Potem je $F(v_1, \ldots, v_n) = 0$, "ce je $v_j = v_k$ za kak"sen $j \neq k$.
+\begin{gather*}
+F(v_1, \ldots, v_n) = - F(v_1, \ldots, v_n) \Rightarrow \\
+2F(v_1, \ldots, v_n) = 0 \Rightarrow F(v_1, \ldots, v_n) = 0
+\end{gather*}
+
+Naj bo $\pi \in S_n, \pi = \begin{pmatrix}
+1 & 2 & \ldots & n \\
+i_1 & i_2 & \ldots & i_n
+\end{pmatrix}$ Potem velja:
+\begin{equation*}
+F(v_{i_1}, v_{i_2}, \ldots, v_{i_n}) = s(\pi) F(v_1, \ldots, v_n)
+\end{equation*}
+Kjer je
+\begin{equation*}
+s(\pi) = \begin{cases}
+1 & \text{$\pi$ soda}\\
+-1 & \text{$\pi$ liha}
+\end{cases}
+\end{equation*}
+%
+Determinanta reda 3 je trilinearna in antisimetri"cna. "Ce "zelimo to posplo"siti, i"s"cemo $n$-linearen antisimetri"cen funkcional. 
+
+Naj bo $V = \OO^n, U = \OO$ in naj bo $F: V^n \to U$, to je $F: (\OO^n)^n \to \OO$. Poglejmo si $(\OO^n)^n$.
+\begin{equation*}
+(\OO^n)^n = \underbrace{\OO^n \times \OO^n \times \cdots \times \OO^n}_n
+\end{equation*}
+Torej lahko matriko $\OO^{n \times n}$ identificiramo z $(\OO^n)^n$, to je $(A^{(1)}, \ldots, A^{(n)}) \equiv A$.
+ 
+Torej i"s"cemo $n$-linearen antisimetri"cen funkcional $F: \OO^{n \times n} \equiv (\OO^n)^n \to \OO$. Recimo, da je $F$ tak funkcional.
+\begin{multline*}
+F(A) = F(A^{(1)}, A^{(2)}, \ldots, A^{(n)}) = \\
+= F(\underbrace{a_{11} e_1 + a_{21} e_2 + \cdots + a_{n1}e_n}_{A^{(1)}}, \underbrace{a_{12} e_1  + \cdots + a_{n2} e_n}_{A^{(2)}}, \ldots, \underbrace{a_{1n} e_1  + \cdots + a_{nn} e_n}_{A^{(n)}}) = \\
+= \sum_{1 \leq i_1, i_2, \ldots, i_n \leq n} F(a_{{i_1}1} e_{i_1}, a_{{i_2}2} e_2, \ldots, a_{{i_n}n}e_n) = \\
+= \sum_{1 \leq i_1, i_2, \ldots, i_n \leq n} a_{i_11} a_{i_22} \cdots a_{i_nn} F(e_{i_1}, e_{i_2}, \ldots, e_{i_n}) = \\
+= \sum_{\pi \in S_n} s(\pi) a_{i_11} a_{i_22} \cdots a_{i_nn} F(e_1, \ldots, e_n)
+\end{multline*}
+kjer je $\pi = \begin{pmatrix}
+1 & 2 & \ldots & n \\
+i_1 & i_2 & \ldots & i_n
+\end{pmatrix}$. $i_1, i_2, \ldots, i_n$ so razli"cni. Ostali sumandi so $s_0 = 0$ zaradi antisimetri"cnosti.
+
+Determinatno definiramo kot
+\begin{equation*}
+\det A = \sum_{\pi \in S_n} s(\pi) a_{i_11} a_{i_22} \cdots a_{i_nn}
+\end{equation*}
+kjer je $\pi = \begin{pmatrix}
+1 & 2 & \ldots & n \\
+i_1 & i_2 & \ldots & i_n
+\end{pmatrix}$. Torej je
+\begin{align*}
+\det: \OO^{n \times n} &\to \OO \\
+A &\mapsto \det A
+\end{align*}
+Ugotovili smo, da "ce je $F: \OO^{n \times n} \to \OO$ $n$-linearen antisimetri"cen funkcional, potem velja
+\begin{equation*}
+F(A) = F(I) \cdot \det A
+\end{equation*}
+\textsc{Trditev:} $\det: \OO^{n \times n} \to \OO$ je $n$-linearen antisimetri"cen funkcional.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item $n$-linearnost (na prvem faktorju, ker zaradi antisimetri"cnosti velja na ostalih)
+	
+	\textbf{Homogenost:}
+	\begin{multline*}
+		\det(\alpha A^{(1)}, A^{(2)}, \ldots, A^{(n)}) = \\
+		= \sum_{\pi \in S_n} s(\pi) (\alpha a_{i_11}) a_{i_22} \cdots a_{i_nn} = \\
+		= \alpha \det A
+	\end{multline*}
+	\textbf{Aditivnost:}
+	\begin{multline*}
+		\det (B^{(1)} + C^{(1)}, A^{(2)}, \ldots, A^{(n)}) = \\
+		= \sum_{\pi \in S_n} s(\pi) (b_{i_11} + c_{i_11}) a_{i_22} \cdots a_{i_nn} = \\
+		= \sum_{\pi \in S_n} s(\pi) b_{i_11} a_{i_22} \cdots a_{i_nn} + \sum_{\pi \in S_n} c_{i_11} a_{i_22} \cdots a_{i_nn} = \\
+		= \det(B^{(1)}, A^{(2)}, \ldots, A^{(n)}) + \det (C^{(1)}, A^{(2)}, \ldots, A^{(n)})
+	\end{multline*}
+	
+	\item antisimetri"cnost:
+	\begin{multline*}
+		\det(A^{(2)}, A^{(1)}, A^{(3)}, \ldots, A^{(n)}) = \\
+		= \sum_{\pi \in S_n} a_{i_12} a_{i_21} a_{i_33} \cdots a_{i_nn} = \\
+		= \sum_{\pi \in S_n} a_{i_21} a_{i_12} a_{i_33} \cdots a_{i_nn} = \\
+		= \sum_{\rho \in S_n} s(\rho) a_{i_21} a_{i_12} a_{i_33} \cdots a_{i_nn} = -\det A
+	\end{multline*}
+	kjer je $\rho = \begin{pmatrix}
+	1 & 2 & 3 & \ldots & n \\
+	i_2 & i_1 & i_3 & \ldots & i_n
+	\end{pmatrix}$, torej je $s(\rho) = - s(\pi)$.
+\end{itemize}
+Torej so $n$-linearni antisimetri"cni funkcionali $F: \OO^{n \times n} \to \OO$ to"cno vsi funkcionali oblike $F(A) = \alpha \det(A)$, kjer je $\alpha \in \OO$. Pri tem je $\alpha = F(I)$.
+
+\textsc{Trditev:} Velja $\det (A^\intercal)  = \det A$. 
+
+\textsc{Dokaz:} Naj bo $B = A^\intercal, B = [b_{ij}]$ kjer je $b_{ij} = a_{ji}, \quad \forall i, j$.
+\begin{gather*}
+\det B = \sum_{\pi \in S_n} s(\pi) b_{i_11} b_{i_22} \cdots b_{i_nn} = \\
+= \sum_{\pi \in S_n} s(\pi) a_{1i_1} a_{2i_2} \cdots a_{ni_n} = \sum _{\rho \in S_n} s(\rho) a_{j_11} a_{j_22} \cdots a_{j_nn}
+\end{gather*}
+Ustrezna permutacija $\rho = \begin{pmatrix}
+1 & 2 & \ldots &n \\
+j_1 & j_2 & \ldots &j_n
+\end{pmatrix}$ je enaka $\rho = \begin{pmatrix}
+i_1 & i_2 & \ldots & i_n \\
+1 & 2 & 2 & \ldots & n
+\end{pmatrix} = \pi^{-1}$. Ker velja $s(\rho) = s(\pi)$, dobimo
+\begin{equation*}
+\det B = \det A
+\end{equation*}
+Torej je
+\begin{equation*}
+\det A^\intercal = \det A
+\end{equation*}
+%
+\subsubsection*{Determinanta in operacije za ra"cunanje ranga}
+\begin{itemize}
+	\item Pri medsebojni zamenjavi dveh stolpcev (vrstic), se determinanta pomno"zi z  $-1$ zaradi antisimetri"cnosti. Za vrstice velja $\det A^\intercal = \det A$.
+
+	\item Pri mno"zenju stolpca (vrstice) z $\alpha$, se determinanta pomno"zi z $\alpha$, ker je $n$-linearen funkcional.
+	
+	\item "Ce stolpcu pri"stejemo ve"ckratnik kakega drugega stolpca (analogno za vrstice), se determinanta ohrani.
+	\begin{gather*}
+		\det(A^{(1)} + \alpha A^{(2)}, A^{(2)}, \ldots, A^{(n)}) = \\
+		= \det(A^{(1)}, A^{(2)}, \ldots, A^{(n)}) + \alpha \det(A^{(2)}, A^{(2)}, \ldots, A^{(n)}) = \det A
+	\end{gather*}
+\end{itemize}
+Iz definicije determinante sledi, da "ce ima $A$ kak stolpec (ali vrstico) enak 0, je $\det A = 0$.
+
+"Ce stolpcu pri"stejemo linearno kombinacijo drugih stolpcev, se determinanta ohrani.
+
+Recimo, da so stolpci matrike $A$ linearno odvisni. Npr $A^{(1)} = \alpha_2 A^{(2)} + \cdots + \alpha_n A^{(n)}$. $A^{(1)}$ pri"stejemo $(-\alpha_2)A^{(2)} + \cdots + (-\alpha_n)A^{(n)}$ in dobimo stolpec 0. Ker se determinanta ohrani, je $\det A = 0$.
+
+\textsc{Trditev:} "Ce matrika ni obrnljiva je $\det A = 0$ ($\det A \neq 0 \Rightarrow \exists A^{-1}$).
+
+\textsc{Dokaz:} $A$ ni obrnljiva $\Rightarrow \rang A < n \Rightarrow$ stolpci matrike $A$ so linearno odvisni $\Rightarrow \det A = 0$.
+
+Naj bo $A$ zgornje ali spdnje trikotna matrika. Potem velja
+\begin{equation*}
+\det A = \prod_{i=1}^{n} a_{ii}
+\end{equation*}
+To hitro vidimo, "ce si nari"semo shemo matrike, kar je v zvezku.
+
+"Ce je v zgornje trikotni matriki $a_{ii} \neq 0$ za $i = 1, \ldots n$, je ta matrika obrnljiva.

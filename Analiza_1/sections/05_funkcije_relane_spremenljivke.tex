@@ -2109,3 +2109,173 @@ Torej: $I = \lim_{\stackrel{D, T_D}{\delta(D) \to 0}} R(f, D, T_D)$ pomeni, da z
 \left| R(f, D, T_D) - I \right| < \varepsilon
 \end{equation*}
 "Ce Riemannov integral $f$ na $[a, b]$ obstaja, pravimo, da je $f$ na $[a, b]$ \emph{Riemannovo integrabilna}.
+
+\textsc{Trditev:} "Ce je funkcija $f: [a, b] \to \RR$ Riemannovo integrabilna, potem je $f$ omejena.
+
+\textsc{Dokaz:} Denimo, da je $f$ Riemannovo integrabilna in da ni omejena. 
+
+Po definiciji integrabilnosti obstaja $I \in \RR$, da za vsak $\varepsilon > 0$, obstaja $\delta > 0$ da za vsako delitev $D$, kjer je $\delta(D) < \delta$ in za vsako usklajeno izbiro testnih to"ck $T_D$, velja $|R(f, D, T_D) - I| < \varepsilon$. Torej obstaja $I$, da za $\varepsilon = 1$ obstaja $\delta > 0$.
+
+Naj bo delitev $D$ taka, da je $\delta(D) < \delta$. Obstaja podinterval $[x_{i-1}, x]$, na katerem je $f$ neomejena.
+\begin{equation*}
+R(f, \underbrace{D}_{\text{fiksiramo}}, T_D) = \sum_{j = 1}^{n} \delta_j f(t_j)
+\end{equation*}
+$T_D = \{t_1, \ldots, t_n\}$ fiksiramo to"cke $t_1, t_2, \ldots, t_{i-1}, t_{i+1}, \ldots, t_n$. Vsota se torej zapi"ce kot
+\begin{equation*}
+R(f, D, T_D^K) = \sum_{j \neq i} f(t_j) \delta_j + f(t_i^k)\delta_i
+\end{equation*}
+Ker je $f$ neomjena, lahko privzamemo, da je $f$ navzgor neomejena na $[x_{i-1}, x_i]$. Torej za vsak $k \in \NN$ obstaja $s_k \in [x_{i-1}, x_i]$, da je $f(s_k) > k$. Za $t_i^k$ vzamemo $t_i^k = s_k$. $\rightarrow \leftarrow$
+
+\textbf{Opomba:} Ni vsaka omejena funkcija na $[a, b]$ Riemannovo integrabilna
+\begin{equation*}
+f(x) = \begin{cases}
+1 & x \in \QQ \cap [0, 1] \\
+0 & x \in \RR \setminus \QQ \cap [0, 1].
+\end{cases}
+\end{equation*}
+$f$ je omejana. \dashuline{$f$ ni Riemannovo integrabilna}
+\begin{equation*}
+R(f, D, T_D) = \sum_{i = 1}^n f(t_i) \delta_i = \sum_{i = 1}^{n} \delta_i = 1
+\end{equation*}
+Za testne to"cke, kjer je $t_i \in \QQ \cap [x_{i-1}, x_i]$
+\begin{equation*}
+R(f, D, T_D) = \sum_{i = 1}^n f(t_i) \delta_i = 0
+\end{equation*}
+Za testne to"cke, kjer je $t_i \in \RR \cap [x_{i-1}, x_i]$.
+
+Za poljubno drobne delitve lahko izberemo $T_D^1$ in $T_D^2$, da je $R(f, D, T_D^1) = 1$ in $R(f, D, T_D^2) = 0$, torej limita ne obstaja.
+
+\hfill $\square$
+%
+\subsubsection{Darbouxove vsote}
+Odslej naj bo $f: [a, b] \to \RR$ omejena funkcija. Naj bo $D$ delitev intervala $[a, b]$ za delilnimi to"ckami $x_i$. Ozna"cimo:
+\begin{align*}
+m_k &= \inf \{f(x): x \in [x_{k-1}, x_k]\} \\
+M_k &= \sup \{f(x): x \in [x_{k-1}, x_k]\} \\
+m &= \inf \{f(x): x \in [a, b]\} \\
+M &= \sup \{f(x): x \in [a, b]\}
+\end{align*}
+Velja:
+\begin{equation*}
+m \leq m_k \leq M_k \leq M
+\end{equation*}
+za vse $k = 1, \ldots, n$
+
+\deff "Stevilo $s(D) = \sum_{i = 1}^n m_i \delta_i$ imenujemo \emph{spodnja Darbouxova vsota} prirejena delitvi $D$.
+
+"Stevilo $S(D) = \sum_{i = 1}^{n} M_i \delta_i$ imenujemo \emph{zgornja Darbouxova vsota} prirejena delitvi $D$.
+
+\textsc{Velja:}
+\begin{equation*}
+m(b-a) \leq s(D) \leq S(D) \leq M(b-a)
+\end{equation*}
+"se ve"c
+\begin{equation*}
+s(D) \leq R(f, D, T_D) \leq S(D)
+\end{equation*}
+za vsako usklajeno izbiro testnih to"ck.
+
+\deff Pravimo, da je delitev $D'$ \emph{finej"sa} od delitve $D$, kadar je $D \subset D'$.
+
+\textsc{Trditev 1:} Naj bo delitev $D'$ finej"sa od delitve $D$. Tedaj velja:
+\begin{equation*}
+s(D) \leq s(D') \quad \text{in} \quad S(D') \leq S(D)
+\end{equation*}
+\textsc{Dokaz:} Od $D$ do $D'$ pridemo z dodajanjem (ve"ckrat) ene to"cke naenkrat. Zato je dovolj dokazati v primeru $D' = D \cup \{y\}, y \in (x_{i-1}, x_i)$. Za $m_i$ velja
+\begin{align*}
+m_i' &= \inf \{f(x): x \in [x_{k-1}, y]\} \geq m_i \\
+m_i'' &= \inf \{f(x): x \in [y, x_k]\} \geq m_i
+\end{align*}
+Torej velja
+\begin{equation*}
+s(D) = \sum_{j \neq i} m_j \delta_j + m_i \delta_i \leq \sum_{j \neq i} m_i \delta_i + m_i' (y- x_{k-1}) + m_i'' (x_k - y) = s(D'')
+\end{equation*}
+Podobno naredimo za zgornjo vsoto.
+
+\hfill $\square$
+
+\textsc{Trditev 2:} Naj bosta $D_1$ in $D_2$ poljubni delitvi intervala $[a, b]$. Potem velja
+\begin{equation*}
+s(D_1) \leq S(D_2)
+\end{equation*}
+\textbf{Opomba:} Poljubna spodnja Darbouxova vsota je pod poljubno zgornjo Darbouxovo vsoto.
+
+\textsc{Dokaz:} Naj bo $D = D_1 \cup D_2$. $D$ je finej"sa od $D_1$ in od $D_2$. Po trditvi 1 velja
+\begin{equation*}
+s(D_1) \leq s(D) \leq S(D) \leq S(D_2)
+\end{equation*}
+\hfill $\square$
+
+Mno"zica spodnjih Darbouxovih vsot je navzgor omejena (z $M(b-a)$), mno"zica zgornjih Darbouxovih vsot pa je navzdol omejena (z $m(b-a)$). Zato obstajata
+\begin{align*}
+s &= \sup \{s(D): D \text{ delitev } [a, b]\} \\
+S &= \inf \{S(D): D \text{ delitev } [a, b]\}
+\end{align*}
+Po trditvi 2 velja $s \leq S$.
+\begin{align*}
+s(D_1) &\leq S(D_2) \quad \forall D_1, D_2 \\
+\sup D_1 = s &\leq S(D_2) \quad \forall D_2 \\
+s &\leq S = \inf D_2
+\end{align*}
+%
+\deff Naj bo $f: [a, b] \to \RR$ omejena funkcija. Pravimo, da je $f$ \emph{Darbouxovo integrabilna} na $[a, b]$, "ce velja
+\begin{equation*}
+s = S
+\end{equation*}
+V tem primeru "stevilo $s$ imenujemo \emph{Darbouxov integral} funkcije $f$ na $[a, b]$.
+
+\textsc{Trditev 3:} Omejena funkcija $f$ na $[a, b]$ je Darbouxovo integrabilna natanko tedaj, kadar za vsak $\varepsilon > 0$ obstaja delitev $D$, za katero velja
+\begin{equation*}
+S(D) - s(D) < \varepsilon
+\end{equation*}
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Leftarrow$)] Izberemo poljuben $\varepsilon$. Po predpostavki obstaja delitev $D$, da velja
+	\begin{equation*}
+	S(D) - s(D) < \varepsilon
+	\end{equation*}
+	Po definiciji velja
+	\begin{equation*}
+	s(D) \leq s \leq S \leq S(D)
+	\end{equation*}
+	Iz tega sledi, da je $\underbrace{S - s}_{\geq 0} < \varepsilon$ za poljuben $\varepsilon > 0$. Torej je $s = S$.
+	
+	\item[($\Rightarrow$)] Denimo, da je $f$ Darbouxovo integrabilna, torej $s = S$. Izberemo poljuben $\varepsilon > 0$
+	
+	Obstaja delitev $D_1: s(D_1) \in (s-\varepsilon, s]$
+	
+	Obstaja delitev $D_2: s(D_2) \in [S, S+ \varepsilon]$
+	
+	Naj bo $D = D_1 \cup D_2$. 
+	\begin{equation*}
+	\underbrace{S(D)}_{\leq S(D_2)} - \underbrace{s(D)}_{\geq S(D_1)} \leq S(D_2) - s(D_1) < \varepsilon
+	\end{equation*}
+\end{itemize}
+\hfill $\square$
+
+\textsc{Izrek 4:} Zvezna funkcija $f: [a, b] \to \RR$ je Darbouxovo integrabilna.
+
+\textsc{Dokaz:}
+\begin{multline*}
+S(D) - s(D) = \\
+= \sum_{i = 1}^{n} M_i \delta_i - \sum_{i = 1}^{n} m_i \delta_i = \sum_{i=1}^{n} \delta_i (\underbrace{M_i - m_i}_{\leq \frac{\varepsilon}{b-a}}) \leq \\
+\leq \sum_{i = 1}^{n} \dfrac{\varepsilon}{b-a} \delta_i = \varepsilon 
+\end{multline*}
+Ker je $f$ zvezna na $[a, b]$, je na $[a, b]$ enakomerno zvezna. Torej za $\frac{\varepsilon}{b-a}$ obstaja $\delta > 0: |x - x'| < \delta \Rightarrow |f(x) - f(x')| < \frac{\varepsilon}{b-a}$ za $x, x' \in [a, b]$.
+
+Izberemo delitev $D$, da je $\delta(D) < \delta$. Potem velja $M_i - m_i \leq \frac{\varepsilon}{b-a}$.
+
+\hfill $\square$
+
+\textsc{Izrek 5:} Vsaka monotona funkcija na $[a, b]$ je Darbouxovo integrabilna.
+
+\textsc{Dokaz:} Denimo, da je $f$ nara"s"cajo"ca. Naj bo $D$ ekvidistan"cna delitev na $n$ enakih delov. Potem velja
+\begin{multline*}
+S(D) - s(D) = \\
+= \sum_{i = 1}^{n} M_i \delta_i - \sum_{i= 1}^{n} m_i \delta_i = \sum_{i = 1}^{n}f(x_i) \delta_i - \sum_{i = 1}^{n}f(x_{i-1}) \delta_i = \\
+= \dfrac{b-a}{n} \left( \sum_{i = 1}^{n} f(x_i) - \sum_{i = 1}^{n} f(x_{i-1}) \right) = \\
+= (f(b) - f(a)) \dfrac{b-a}{n} < \varepsilon
+\end{multline*}
+za dovolj velike $n$.
+
+\hfill $\square$

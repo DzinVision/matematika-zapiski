@@ -2279,3 +2279,161 @@ S(D) - s(D) = \\
 za dovolj velike $n$.
 
 \hfill $\square$
+
+\textsc{Izrek (aditivnost domene):} Naj bo $f$ omejena funkcija na $[a, b]$ in $c \in [a, b]$. $f$ je Darbouxovo integrabilna na $[a, b]$ natanko tedaj, kadar je Darbouxovo integrabilna na $[a, c]$ in $[c, b]$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Rightarrow$)] Ker je $f$ Darbouxovo integrabilna, za poljuben $\varepsilon > 0$ obstaja delitev $D$ intervala $[a, b]$, da velja
+	\begin{equation*}
+	S(D) - s(D) < \varepsilon
+	\end{equation*}
+	Ozna"cimo $\widetilde{D} = D \cup \{c\}$ je delitev intervala $[a, b]$. Vemo
+	\begin{equation*}
+	S(\widetilde{D}) - s(\widetilde{D}) \leq S(D) - s(D) < \varepsilon
+	\end{equation*} 
+	Ozna"cimo $D_1 = \{x_0, x_1, \ldots, x_k\}$ je delitev intervala $[a, c]$ in $D_2 = \{x_k, x_{k+1}, \ldots, x_n\}$ je delitev $[c, b]$, kjer je $x_0 = a, x_k = c, x_n = b$. Potem velja
+	\begin{gather*}
+	S(\widetilde{D}) - s(\widetilde{D}) = S(D_1) + S(D_2) - s(D_1) - s(D_2) = \\
+	=(S(D_1) - s(D_1)) + (S(D_2) - s(D_2)) < \varepsilon
+	\end{gather*}
+	Torej velja $S(D_i) - s(D_i) < \varepsilon$ za $i = 1, 2$. Zato je $f$ integrabilna na $[a, c]$ in $[c, b]$.
+	
+	\item[($\Leftarrow$)] $f$ je integrabilna na $[a, c]$ in $[c, b]$. Za poljuben $\varepsilon > 0$ obstajata delitev $D_1$ intervala $[a, c]$ in delitev $D_2$ intervala $[c, b]$ da velja
+	\begin{equation*}
+	S(D_i) - s(D_i) < \varepsilon \quad i = 1, 2
+	\end{equation*}
+	Ozna"cimo $D = D_1 \cup D_2$ je delitev intervala $[a, b]$ in velja
+	\begin{equation*}
+	S(D) - s(D) = (\underbrace{S(D_1) - s(D_1)}_{< \varepsilon}) + (\underbrace{S(D_2) - s(D_2)}_{< \varepsilon}) < 2\varepsilon
+	\end{equation*}
+	Torej je $f$ integrabilna na $[a, b]$.
+\end{itemize}
+\hfill $\square$
+
+\textbf{Opomba:} Denimo, da je $f$ Darbouxovo integrabilna na $[a, b]$. "Ce se funkcija $\widetilde{f}$ razlikuje od $f$ samo v eni to"cki, potem je tudi $\widetilde{f}$ Darbouxovo integrabilna na $[a, b]$.
+
+\textsc{Posledica:} Naj bo $f$ omejena funkcija na $[a, b]$. "Ce obstajajo to"cke
+\begin{equation*}
+a = c_0 < c_1 < c_2 < \cdots < c_r = b
+\end{equation*}
+da je $f$ zvezna na $(c_{i-1}, c_i)$ za vse $i = 1, \ldots, r$, potem je $f$ Darbouxovo integrabilna na $[a, b]$.
+
+\textsc{Posledica:} Vsaka odsekana zvezna funkcija je integrabilna.
+
+\deff Pravimo, da je funkcija $f: [a, b] \to \RR$ \emph{odsekoma zvezna}, "ce je zvezna povsod razen v kon"cno mnogo to"ckan na $[a, b]$ in v to"ckah kjer ni zvezna ima skok, t.j. obstajata leva in desna limita.
+
+\textsc{Trditev:} Naj bo $f$ Darobuxovo integrabilna na $[a, b]$. Potem za vsak $\varepsilon > 0$ obstaja $\delta > 0$, da za vsako delitev $D$ za katero je $\delta(D) < \delta$, velja
+\begin{equation*}
+S(D) - s(D) < \varepsilon
+\end{equation*}
+\textsc{Dokaz:} "Ce je $M = m$, ni kaj dokazovati, zato naj bo $M \neq m$. Izberemo poljuben $\varepsilon > 0$. Ker je $f$ integrabilna, obstaja delitev $D_0$, da velja
+\begin{equation*}
+S(D_0) - s(D_0) < \varepsilon
+\end{equation*}
+Naj bo $D_0 = \{x_0, x_1, \ldots, x_n\}$. Ozna"cimo $\delta := \frac{\varepsilon}{n(M-m)}$\footnote{na predavanjih smo ozna"cili $\delta := \frac{\varepsilon}{2n(M-m)}$, vendar bodo tako pri"sle lep"se "stevilke. Trust me.} Izberemo delitev $D$, za katero je $\delta(D) < \delta$. Zapi"semo lahko
+\begin{equation*}
+S(D) - s(D) = \sum_k (M_k - m_k) \delta_k = \sum' + \sum''
+\end{equation*}
+kjer je $\sum'$ vsota po tistih podintervalih v delitvi $D$, ki ne vsebujejo nobene to"cke $x_i \in D_0$ v svoji notranjosti, $\sum''$ pa je vsota po vseh ostalih podintervalih. 
+
+Za $\sum''$ vemo, da je v njej najve"c $n$ "clenov. Torej lahko zapi"semo
+\begin{equation*}
+(M_k - m_k) \underbrace{\delta_k}_{\leq \delta(D) < \delta} \leq \underbrace{(M_k - m_k)}_{\leq M - m} \dfrac{\varepsilon}{n (M - m)} \leq \dfrac{\varepsilon}{n}
+\end{equation*}
+Ker je v $\sum''$ najve"c $n$ "clenov, velja
+\begin{equation*}
+\sum'' < \varepsilon
+\end{equation*}
+Za $\sum'$: vemo, da je $D \cup D_0$ finej"sa od $D_0$, zato velja
+\begin{equation*}
+S(D \cup D_0) - s(D \cup D_0) < \varepsilon
+\end{equation*}
+Po drugi strani bodo vsi "cleni iz vsote $\sum'$ vsebovani v $S(D \cup D_0) - s(D \cup D_0)$, zato velja
+\begin{equation*}
+\sum' < S(D \cup D_0) - s(D \cup D_0) < \varepsilon
+\end{equation*}
+zato je $\sum' < \varepsilon$. Torej velja
+\begin{equation*}
+\sum = \sum' + \sum'' < 2\varepsilon
+\end{equation*}
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $f$ omejena funkcija na $[a, b]$. Tedaj je $f$ Riemannovo integrabilna natanko tedaj, kadar je $f$ Darbouxovo integrabilna. V tem primeru sta integrala enaka.
+
+\textbf{Opomba:} Odsel bomo Riemannovo ali Darbouxovo integrailne funkcije imenovali kar \emph{integrabilne funkcije}. Obstajajo "se druge definicije integrabilnosti, ki se ne ujemajo z na"so definicijo.
+
+\textsc{Dokaz:}
+\begin{itemize}
+	\item[($\Leftarrow$)] Denimo, da je $f$ Darbouxovo integrabilna. Izberemo poljuben $\varepsilon > 0$. Obstaja $\delta > 0$, da za vsako delitev $D$, kjer je $\delta(D) < \delta$ velja
+	\begin{equation*}
+	S(D) - s(D) < \varepsilon
+	\end{equation*}
+	Dokazujemo, da za poljuben $\varepsilon > 0$ obstaja $\delta > 0$, da za vsako delitev $D$, kjer je $\delta(D) < \delta$ velja, da za poljubno izbiro usklajenih testnih to"ck $T_D$, velja
+	\begin{equation*}
+	|\underbrace{I}_{S = s} - R(f, D, T_D)| < \varepsilon
+	\end{equation*}
+	Vemo, da za vsako usklajeno izbiro $T_D$ velja
+	\begin{equation*}
+	s(D) \leq R(f, D, T_D) \leq S(D)
+	\end{equation*}
+	in vemo
+	\begin{equation*}
+	s(D) \leq s = S \leq S(D)
+	\end{equation*}
+	Sledi
+	\begin{equation*}
+	|S - R(f, D, T_D)| < \varepsilon
+	\end{equation*}
+	za vsako uklajeno izbiro $T_D$. Torej ej $f$ Riemannovo integrabilna in $I = S = s$.
+	
+	\item[($\Rightarrow$)] Denimo, da je $f$ Riemannovo integrabilna in ozna"icmo z $I$ njen Riemannov integral. Za vsak $\varepsilon > 0$ obstaja $\delta > 0$, da za vsako delitev $D$, kjer je $\delta(D) < \delta$ velja
+	\begin{equation*}
+	|I - R(f, D, T_D)| < \varepsilon
+	\end{equation*}
+	za vse usklajene izbire $T_D$.
+	
+	Ideja: $T_D$ dobimo tako, da je $f(t_k) \approx M_k$ in potem bo $R(f, D, T_D) \approx S(D)$.
+	
+	Izberemo poljuben $\varepsilon > 0$ in dobimo $\delta$ iz definicije Riemannovega itnegrala. Naj bo $D$ delitev, da je $\delta(D) < \delta$. Za vsak $k$ obstajata
+	\begin{align*}
+	t_k &\in [x_{k-1}, x_k]: 0 \leq M_k - f(t_k) < \dfrac{\varepsilon}{b-a} \\
+	s_k &\in [x_{k-1}, x_K]: 0 \leq f(t_k) - m_k < \dfrac{\varepsilon}{b-a}
+	\end{align*}
+	Torej velja
+	\begin{multline*}
+	|S(D) - I| = \left| \sum_k M_k \delta_k - I \right| = \\
+	= \left| \sum_k f(t_k)\delta_k - I + \sum_k(M_k - f(t_k))\delta_k \right| \leq \\
+	\leq \underbrace{\left| \sum_k f(t_k)\delta_k - I \right|}_{< \varepsilon} + \overbrace{\sum_k (\underbrace{M_k - f(t_k)}_{< \frac{\varepsilon}{b-a}})\delta(k)}^{< \varepsilon} < 2 \varepsilon
+	\end{multline*}
+	Na podoben na"cin dobimo $|s(D) - I| < 2 \varepsilon$. Sledi
+	\begin{equation*}
+	S(D) - s(D) < 4 \varepsilon
+	\end{equation*}
+\end{itemize}
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo funkcija $f$ integrabilna na $[a, b]$. Ozna"cimo $m = \inf_{[a, b]} f$, $M = \sup_{[a, b]}f$ in naj bo $g$ zvezna na $[m, M]$. Potem je $g \circ f$ integrabilna na $[a, b]$.
+
+\textsc{Posledica:} "Ce je $f$ integrabilna na $[a, b]$, potem so $|f|, f^n (n \in \NN)$ integrabilne.
+
+\textsc{Dokaz:} Izberemo poljuben $\varepsilon > 0$. Ker je $g$ enakomerno zvezna na $[m, M]$, obstaja $\delta > 0$, da za $u, u' \in [m, M]$ velja
+\begin{equation*}
+|u - u'| < \delta \Rightarrow |g(u) - g(u')| < \varepsilon
+\end{equation*}
+Ker je $f$ integrabilna na $[a, b]$, obstaja delitev $D$ intervala $[a, b]$, da velja
+\begin{align*}
+S_f(D) - s_f(D) &< \varepsilon \delta \\
+S_f(D) - s_f(D) &= \sum_k (M_k - m_k) \delta_k = \sum'(M_k - m_k) \delta_k + \sum''(M_k - m_k) \delta_k
+\end{align*}
+kjer je so v $\sum'$ "cleni za katere velja $M_k - m_k < \delta$, v $\sum''$, pa so "cleni za katere velja $M_k - m_k \geq \delta$.
+
+Ozna"cimo
+\begin{align*}
+\overline{m_k} &= \inf \{g \circ f (x): x \in [x_{k-1}, x_k]\} \\
+\overline{M_k} &= \sup \{g \circ f (x): x \in [x_{k-1}, x_k]\}
+\end{align*}
+Ker je $M_k - m_k < \delta$, zaradi enakomerne zveznosti velja, da je $\overline{M_k} - \overline{m_k} \leq \varepsilon$. Torej velja
+\begin{equation*}
+S_{g \circ f} (D) - s_{g \circ f}(D) = \sum_k'(\overline{M_k} - \overline{m_k}) \delta_k \leq \varepsilon \sum_k \delta_k \leq \varepsilon (b-a)
+\end{equation*}

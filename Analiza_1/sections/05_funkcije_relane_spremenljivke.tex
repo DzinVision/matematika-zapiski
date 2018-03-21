@@ -2437,3 +2437,200 @@ Ker je $M_k - m_k < \delta$, zaradi enakomerne zveznosti velja, da je $\overline
 \begin{equation*}
 S_{g \circ f} (D) - s_{g \circ f}(D) = \sum_k'(\overline{M_k} - \overline{m_k}) \delta_k \leq \varepsilon \sum_k \delta_k \leq \varepsilon (b-a)
 \end{equation*}
+Za $\sum''$ velja
+\begin{equation*}
+\sum' + \sum'' < \varepsilon \delta \Rightarrow \sum'' (\underbrace{M_k - m_k}_{\geq \delta}) \delta_k < \varepsilon \delta
+\end{equation*}
+Iz tega sledi
+\begin{gather*}
+\sum'' \delta \delta_k \leq \sum'' (M_k - m_k) \delta_k < \varepsilon \delta \\
+\delta \sum'' \delta_k \leq \varepsilon \delta \\
+\sum '' \delta_k \leq \varepsilon
+\end{gather*}
+Po drugi strani velja
+\begin{equation*}
+\sum'' (\overline{M_k} - \overline{m_k}) \delta_k \leq \sum''(\overline{M} - \overline{m}) \delta_k = (\overline{M} - \overline{m}) \sum''\delta_k \leq (\overline{M} - \overline{m}) \varepsilon
+\end{equation*}
+"Ce to dvoje zdru"zimo dobimo
+\begin{multline*}
+S_{g \circ f}(D) - s_{g \circ f}(D) = \sum_k(\overline{M_k} - \overline{m_k}) \delta_k  = \\
+= \underbrace{\sum' (\overline{M_k} - \overline{m_k}) \delta _k }_{\leq \varepsilon (b-a)} + \underbrace{\sum'' (\overline{M_k} - \overline{m_k}) \delta_k}_{\leq \varepsilon(\overline{M} - \overline{m})} \leq \\
+\leq \varepsilon((b-a) + (\overline{M} - \overline{m}))
+\end{multline*}
+Torej je $g \circ f$ integrabilna na $[a, b]$.
+
+\hfill $\square$
+%
+\subsubsection{Lastnosti dolo"cenega integrala}
+\textsc{Trditev:} Naj bosta $f$ in $g$ integrabilni funkciji na $[a, b]$ in naj bo $\lambda \in \RR$. Potem velja:
+\begin{enumerate}[(i)]
+	\item $f+g$ in $f-g$ sta integrabilni na $[a, b]$ in velja
+	\begin{align*}
+	\int_{a}^{b} (f(x) + g(x)) dx &= \int_{a}^{b} f(x)dx + \int_{a}^{b} g(x)dx \\
+	\int_{a}^{b} (f(x) - g(x)) dx &= \int_{a}^{b} f(x)dx - \int_{a}^{b} g(x)dx
+	\end{align*}
+	
+	\item $\lambda f$ je integrabilna na $[a, b]$ in velja
+	\begin{equation*}
+	\int_{a}^{b} \lambda f(x) dx = \lambda \int_{a}^{b} f(x) dx
+	\end{equation*}
+	
+	$\Rightarrow$ integrabilne funkcije na $[a, b]$ sestavljajo vektorski prostor.
+	
+	\item $f \cdot g$ je integrabilna na $[a, b]$.
+	
+	\item "Ce je $f(x) \leq g(x)$ za vse $x \in [a, b]$, potem velja
+	\begin{equation*}
+	\int_{a}^{b} f(x) \leq \int_{a}^{b} g(x)
+	\end{equation*}
+	Tej lastnosti pravmo \emph{monotonost integrala}. Posledica je $\forall x \in [a, b]: f(x) \geq x \Rightarrow \int_{a}^{b} f(x) dx \geq 0$
+	
+	\item 
+	\begin{equation*}
+	\left| \int_{a}^{b} f(x) dx \right| \leq \int_{a}^{b} \left| f(x) \right| dx
+	\end{equation*}
+	
+	\item Naj bo $c \in (a, b)$. Potem velja
+	\begin{equation*}
+	\int_{a}^{b} f(x) dx = \int_{a}^{c} f(x) dx + \int_{c}^{b} f(x) dx
+	\end{equation*}
+\end{enumerate}
+%
+\textsc{Dogovor:} 
+\begin{enumerate}
+	\item Naj bo $f$ integrabilna na $[a, b]$. Velja
+	\begin{equation*}
+	\int_{b}^{a} f(x) dx = - \int_{a}^{b} f(x) dx
+	\end{equation*}
+	
+	\item 
+	\begin{equation*}
+	\int_{a}^{a} f(x) dx = 0
+	\end{equation*}
+\end{enumerate}
+\textsc{Posledica dogovora:} "Ce je $f$ integrabilna na $I$ in vzememo $a, b, c \in I$, potem velja
+\begin{equation*}
+\int_{a}^{b} f(x) dx = \int_{a}^{c} f(x) dx + \int_{c}^{b} f(x) dx
+\end{equation*}
+%
+\textsc{Dokaz:}
+\begin{enumerate}[(i)]
+	\item 
+	\begin{gather*}
+	R(f+g, D, T_D) = R(f, T, T_D) + R(g, D, T_D) \\
+	\sum(f+g) (t_k) \delta_k = \sum f(t_k) \delta_k + \sum g(t_k) \delta_k
+	\end{gather*}
+	Ker $R(f, D, T_D)$ limitira proti $\int_{a}^{b} f(x) dx$ in $R(g, D, T_D)$ limitira proti $\int_{a}^{b} g(x) dx$, tudi njuna vsota limitira proti $\int_{a}^{b} (f+g) (x) dx$. Da je vsota limit enaka limiti vsot je potrebno "se dokazati (bilo je za DN). Osnovna ideja je, da naredimo podobno kot pri zaporedjih ($\lim_{n \to \infty} (a_n + b_n) = \lim_{n\to \infty} a_n + \lim_{n \to \infty} b_n$).
+	
+	Podobno doka"zemo razliko.
+	
+	\item Doka"zemo na enak na"cin kot to"cko (i).
+	
+	\item Dokazujemo \dashuline{$f g$ je integrabilna}. Vemo, da sta $f$ in $g$ integrabilni. Torej velja:
+	\begin{equation*}
+	\underbrace{(\underbrace{f + g}_{\text{integrabilna po (i)}})^2}_{\text{integrabilna po izreku}} = \underbrace{f^2}_{\text{integrabilna po izreku}} + 2fg + \underbrace{g^2}_{\text{integrabilna po izreku}}
+	\end{equation*}
+	Zato lahko zapi"semo
+	\begin{equation*}
+	fg = \underbrace{\frac{1}{2} ( \underbrace{(f+g)^2 - f^2 - g^2}_\text{integrabilna po (i)})}_{\text{integrabilna po (ii)}}
+	\end{equation*}
+	Torej je tudi $fg$ integrabilna.
+	
+	\item $f(x) \leq g(x)$ za vse $x \in [a, b]$. Sledi $\underbrace{R(f, D, T_D)}_{\to I} \leq \underbrace{R(g, D, T_D)}_{\to J}$ za isto velja. Zato velja zveza v limiti.
+	
+	Dokazati moramo, da je $I \leq J$ ne glede na izbiro delitve. Ideja dokaza je, da doka"zemo, da za vsak $\varepsilon > 0$ velja $J - I \geq - \varepsilon$ ne glede na delitev.
+	
+	\item Ker je $f$ integrabilna je $|f|$ integrabilna. Velja
+	\begin{gather*}
+	-|f(x)| \leq f(x) \leq |f(x)| \\
+	\underbrace{- \int_{a}^{b} |f(x)| dx}_{-I} \leq \int_{a}^{b} f(x) dx \leq \underbrace{\int_{a}^{b} |f(x)| dx}_I
+	\end{gather*}
+	Iz tega sledi
+	\begin{equation*}
+	\left| \int_{a}^{b} f(x) dx \right| \leq I = \int_{a}^{b} |f(x)| dx
+	\end{equation*}
+	
+	\item Ta lastnost je posledica aditivnosti domene.
+\end{enumerate}
+%
+\subsubsection{Povpre"cna vrednost}
+Do sedaj vemo, da "ce so $x_1, x_2, \ldots, x_n \in \RR$, je povpre"cna vrednost $\frac{1}{n} (x_1 + x_2 + \cdots + x_n)$. "Ce za $[a, b]$ vzamemo $[0, 1]$ in za $D$ vzamemo ekvidistan"cno delitev, da je $\delta_k  = \frac{1}{n}$, potem velja
+\begin{equation*}
+R(f, D, T_D) = \frac{1}{n} (f(t_1) + f(t_2) + \cdots + f(t_n))
+\end{equation*}
+%
+\deff Naj bo $f$ integrabilna funkcija na $[a, b]$. \emph{Povpre"cna vrednost} funkcije $f$ na $[a, b]$ je
+\begin{equation*}
+\dfrac{1}{b - a} \int_{a}^{b} f(x) d_x = \mu
+\end{equation*}
+\textbf{Opomba:} Za nenegativne integrabilne funkcije $f$ je povpre"cna vrednost $\mu$ tisto "stevilo, da je plo"s"cina pod grafom $f$ enaka plo"s"cini pravokotnika z vi"sino $\mu$.
+
+\textsc{Izrek:} Naj bo $f$ integrabilna na $[a, b]$ in naj bo
+\begin{align*}
+m = \inf f && M = \sup f
+\end{align*}
+Potem za povpre"cno vrednost $\mu$ funkcije $f$ velja
+\begin{equation*}
+m \leq \mu \leq M
+\end{equation*}
+"Ce je $f$ zvezna na $[a, b]$, potem obstaja $c \in [a, b]$, da velja
+\begin{equation*}
+f(c) = \mu
+\end{equation*}
+\textsc{Dokaz:} Vemo $m \leq f(x) \leq M$ za vsak $x \in [a, b]$. Zaradi monotonosti dolo"cenega integrala velja
+\begin{gather*}
+m(b-a) = \int_a^b m dx \leq \int_a^b f(x) dx \leq \int_a^b M dx = M(b-a) \\
+m \leq \mu \leq M
+\end{gather*}
+"Ce je $f$ zvezna na $[a, b]$, potem dose"ze vse vrednosti med $m$ in $M$, torej tudi $\mu$.
+%
+\subsubsection{Osnovni izrek analize}
+\deff Naj bo $f: [a, b] \to \RR$ integrabilna funkcija. Funkcijo $F: [a, b] \to \RR$ definiramo s predpisom
+\begin{equation*}
+F(x) = \int_a^x f(t) dt
+\end{equation*}
+in jo imenujemo \emph{integral kot funkcija zgornje meje.}
+
+%
+\textsc{Izrek} (osnovni izrek analize):
+
+Naj bo $f$ integrabilna funkcija na $[a, b]$. Tedaj je $F(x) = \int_a^x f(t) dt$ zvezna na $[a, b]$. "Ce je $f$ zvezna v to"cki $x \in (a, b)$, potem je $F$ v to"cki $x$ odvedljiva in $F'(x) = f(x)$.
+
+\textsc{Posledica:} Vsaka zvezna funkcija na $[a, b]$ ima primitivno funkcija na $[a, b]$. Natan"cneje: "ce je $f$ zvezna na $[a, b]$, potem je $F(x) = \int_a^x f(t) dt$ odvedljiva na $[a, b]$ in $F' = f$.
+
+\textsc{Dokaz:} \dashuline{"Ce je $f$ integrabilna je $f$ zvezna.}
+
+Vemo, da je $f$ omejena. Torej obstaja $M \in \RR: |f(x)| \leq M$ za vsak $x \in [a, b]$. Torej velja
+\begin{equation*}
+F(x) - F(x') = \int_a^x f(t) dt - \int_a^{x'} f(t) dt = \int_{x'}^{x} f(t) dt
+\end{equation*}
+"Ce je $x > x'$ velja
+\begin{equation*}
+|F(x) - F(x')| = \left| \int_{x'}^{x} f(t) dt \right| \underbrace{\leq}_{x > x'} \int_{x'}^x |\underbrace{f(t)}_{\leq M} dt| \leq \int_{x'}^{x} M dt = M (x - x') < \varepsilon
+\end{equation*}
+"Ce je $|x - x'| < \delta = \frac{\varepsilon}{M}$.
+
+"Ce je $x < x'$, potem po podobnem izra"cunu dobimo
+\begin{equation*}
+|F(x) - F(x')| \leq M(x' - x) < \varepsilon
+\end{equation*}
+Torej velja, da "ce je $|x - x'| < \frac{\varepsilon}{M}$, potem je $|F(x) - F(x')| < \varepsilon$, zaradi "cesar je $F$ enakomerno zvezna.
+
+Denimo, da je $f$ zvezna v to"cki $x$. Velja
+\begin{multline*}
+\dfrac{F(x + h) - F(x)}{h} = \dfrac{1}{h} \left( \int_{a}^{x+h} f(t) dt - \int_{a}^{x} f(t) dt \right) = \\
+= \dfrac{1}{h} \int_{x}^{x + h} f(t) dt = \dfrac{1}{h} \int_{x}^{x+h} f(x) dt + \dfrac{1}{h} \int_{x}^{x+h} (f(t) - f(x)) dt = \\
+= f(x) + \dfrac{1}{h} \int_{x}^{x + h} (f(t) - f(x)) dt
+\end{multline*}
+Dokazati je potrebno, da je limita $\frac{1}{h} \int_{x}^{x + h} (f(t) - f(x)) dt$ enaka 0.
+
+Ker je $f$ zvezna v to"cki $x$ velja
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0: |t - x| < \delta \Rightarrow |f(t) - f(x)| < \varepsilon
+\end{equation*}
+"Ce je $|h| < \delta$, potem velja $|t - x| < \delta$, ker $t$ le"zi med $x$ in $x + h$. Zato velja
+\begin{multline*}
+\left| \dfrac{1}{h} \int_{x}^{x+h} (f(t) - f(x)) dt \right| \leq \dfrac{1}{|h|} \int_{x}^{x+h} \underbrace{|f(t) - f(x)|}_{< \varepsilon} dt \leq \\
+\leq \dfrac{1}{|h|} \int_{x}^{x+h} \varepsilon dt = \dfrac{1}{h} \varepsilon h = \varepsilon
+\end{multline*}
+\hfill $\square$

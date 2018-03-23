@@ -1946,54 +1946,216 @@ F(A) = F(I) \cdot \det A
 \end{itemize}
 Torej so $n$-linearni antisimetri"cni funkcionali $F: \OO^{n \times n} \to \OO$ to"cno vsi funkcionali oblike $F(A) = \alpha \det(A)$, kjer je $\alpha \in \OO$. Pri tem je $\alpha = F(I)$.
 
-\textsc{Trditev:} Velja $\det (A^\intercal)  = \det A$. 
+\subsubsection{Lastnosti determinante}
+\begin{enumerate}
 
-\textsc{Dokaz:} Naj bo $B = A^\intercal, B = [b_{ij}]$ kjer je $b_{ij} = a_{ji}, \quad \forall i, j$.
-\begin{gather*}
-\det B = \sum_{\pi \in S_n} s(\pi) b_{i_11} b_{i_22} \cdots b_{i_nn} = \\
-= \sum_{\pi \in S_n} s(\pi) a_{1i_1} a_{2i_2} \cdots a_{ni_n} = \sum _{\rho \in S_n} s(\rho) a_{j_11} a_{j_22} \cdots a_{j_nn}
-\end{gather*}
-Ustrezna permutacija $\rho = \begin{pmatrix}
-1 & 2 & \ldots &n \\
-j_1 & j_2 & \ldots &j_n
-\end{pmatrix}$ je enaka $\rho = \begin{pmatrix}
-i_1 & i_2 & \ldots & i_n \\
-1 & 2 & 2 & \ldots & n
-\end{pmatrix} = \pi^{-1}$. Ker velja $s(\rho) = s(\pi)$, dobimo
-\begin{equation*}
-\det B = \det A
-\end{equation*}
-Torej je
-\begin{equation*}
-\det A^\intercal = \det A
-\end{equation*}
-%
-\subsubsection*{Determinanta in operacije za ra"cunanje ranga}
-\begin{itemize}
-	\item Pri medsebojni zamenjavi dveh stolpcev (vrstic), se determinanta pomno"zi z  $-1$ zaradi antisimetri"cnosti. Za vrstice velja $\det A^\intercal = \det A$.
 
-	\item Pri mno"zenju stolpca (vrstice) z $\alpha$, se determinanta pomno"zi z $\alpha$, ker je $n$-linearen funkcional.
+	\item Velja $\det (A^\intercal)  = \det A$. 
 	
-	\item "Ce stolpcu pri"stejemo ve"ckratnik kakega drugega stolpca (analogno za vrstice), se determinanta ohrani.
+	\textsc{Dokaz:} Naj bo $B = A^\intercal, B = [b_{ij}]$ kjer je $b_{ij} = a_{ji}, \quad \forall i, j$.
 	\begin{gather*}
-		\det(A^{(1)} + \alpha A^{(2)}, A^{(2)}, \ldots, A^{(n)}) = \\
-		= \det(A^{(1)}, A^{(2)}, \ldots, A^{(n)}) + \alpha \det(A^{(2)}, A^{(2)}, \ldots, A^{(n)}) = \det A
+	\det B = \sum_{\pi \in S_n} s(\pi) b_{i_11} b_{i_22} \cdots b_{i_nn} = \\
+	= \sum_{\pi \in S_n} s(\pi) a_{1i_1} a_{2i_2} \cdots a_{ni_n} = \sum _{\rho \in S_n} s(\rho) a_{j_11} a_{j_22} \cdots a_{j_nn}
 	\end{gather*}
-\end{itemize}
-Iz definicije determinante sledi, da "ce ima $A$ kak stolpec (ali vrstico) enak 0, je $\det A = 0$.
+	Ustrezna permutacija $\rho = \begin{pmatrix}
+	1 & 2 & \ldots &n \\
+	j_1 & j_2 & \ldots &j_n
+	\end{pmatrix}$ je enaka $\rho = \begin{pmatrix}
+	i_1 & i_2 & \ldots & i_n \\
+	1 & 2 & 2 & \ldots & n
+	\end{pmatrix} = \pi^{-1}$. Ker velja $s(\rho) = s(\pi)$, dobimo
+	\begin{equation*}
+	\det B = \det A
+	\end{equation*}
+	Torej je
+	\begin{equation*}
+	\det A^\intercal = \det A
+	\end{equation*}
+	%
+	\item \textbf{Determinanta in operacije za ra"cunanje ranga}
+	\begin{itemize}
+		\item Pri medsebojni zamenjavi dveh stolpcev (vrstic), se determinanta pomno"zi z  $-1$ zaradi antisimetri"cnosti. Za vrstice velja $\det A^\intercal = \det A$.
+	
+		\item Pri mno"zenju stolpca (vrstice) z $\alpha$, se determinanta pomno"zi z $\alpha$, ker je $n$-linearen funkcional.
+		
+		\item "Ce stolpcu pri"stejemo ve"ckratnik kakega drugega stolpca (analogno za vrstice), se determinanta ohrani.
+		\begin{gather*}
+			\det(A^{(1)} + \alpha A^{(2)}, A^{(2)}, \ldots, A^{(n)}) = \\
+			= \det(A^{(1)}, A^{(2)}, \ldots, A^{(n)}) + \alpha \det(A^{(2)}, A^{(2)}, \ldots, A^{(n)}) = \det A
+		\end{gather*}
+	\end{itemize}
+	Iz definicije determinante sledi, da "ce ima $A$ kak stolpec (ali vrstico) enak 0, je $\det A = 0$.
+	
+	"Ce stolpcu pri"stejemo linearno kombinacijo drugih stolpcev, se determinanta ohrani.
+	
+	Recimo, da so stolpci matrike $A$ linearno odvisni. Npr $A^{(1)} = \alpha_2 A^{(2)} + \cdots + \alpha_n A^{(n)}$. $A^{(1)}$ pri"stejemo $(-\alpha_2)A^{(2)} + \cdots + (-\alpha_n)A^{(n)}$ in dobimo stolpec 0. Ker se determinanta ohrani, je $\det A = 0$.
+	
+	\textsc{Trditev:} "Ce matrika ni obrnljiva je $\det A = 0$ ($\det A \neq 0 \Rightarrow \exists A^{-1}$).
+	
+	\textsc{Dokaz:} $A$ ni obrnljiva $\Rightarrow \rang A < n \Rightarrow$ stolpci matrike $A$ so linearno odvisni $\Rightarrow \det A = 0$.
+	
+	Naj bo $A$ zgornje ali spdnje trikotna matrika. Potem velja
+	\begin{equation*}
+	\det A = \prod_{i=1}^{n} a_{ii}
+	\end{equation*}
+	To hitro vidimo, "ce si nari"semo shemo matrike, kar je v zvezku.
+	
+	"Ce je v zgornje trikotni matriki $a_{ii} \neq 0$ za $i = 1, \ldots n$, je ta matrika obrnljiva.
+	
+	\item \textbf{Multiplikativnost}
+	Za $A, B \in \OO^{n \times n}$ velja
+	\begin{equation*}
+	\det (A B) = \det A \cdot \det B
+	\end{equation*}
+	\textsc{Dokaz:} Naj bo $F: \OO^{n \times n} \to \OO$ in $A \in \OO^{n \times n}$. $F$ definiramo kot
+	\begin{equation*}
+	F(X) = \det(AX)
+	\end{equation*}
+	$F$ je $n$-linearna antisimetri"cna preslikava. Velja
+	\begin{equation*}
+	F(X) = F(X^{(1)}, \ldots, X^{(n)}) = \det(A X^{(1)}, \ldots, AX^{(n)})
+	\end{equation*}
+	Vemo, da velja
+	\begin{align*}
+	F(X) &= F(I) \det X \\
+	F(I) &= \det (AI) = \det A
+	\end{align*}
+	Od tod sledi
+	\begin{equation*}
+	\det (AX) = (\det A) (\det X)
+	\end{equation*}
+	\hfill $\square$
+	
+	Recimo, da je $A$ obrnljiva. Potem velja
+	\begin{equation*}
+	A A^{-1} = I \Rightarrow \underbrace{\det (A A^{-1})}_{(\det A) (\det A^{-1})} = \det I = 1 \Rightarrow \det(A^{-1}) = (\det A)^{-1}
+	\end{equation*}
+	Torej velja, da "ce je $A$ obrnljiva, je $\det A \neq 0$. Vemo "ze, da velja obratno, torej velja
+	\begin{equation*}
+	\exists A^{-1} \iff \det A \neq 0
+	\end{equation*}
+	
+	\item \textbf{Razvoj determinante}
+	
+	\textsc{Definicija:} Naj bo $A \in \OO^{n \times n}$ in $n > 0$.. $A_{ij} \in \OO^{(n-1) \times (n-1)}$ dobimo tako, da iz $A$ odstranimo $i$-to vrstico in $j$-ti stolpec. Pravimo, da je $A_{ij}$ \emph{podmatrika}.
+	
+	\emph{Poddeterminanto} matrike $A$ definiramo kot
+	\begin{equation*}
+	(-1)^{i + j} \det A_{ij} \equiv \widetilde{a_{ij}}
+	\end{equation*}
+	
+	Matrika $\widetilde{A} = [\widetilde{a_{ij}}]\ i,j = 1, \ldots, n \in \OO^{n \times n}$ je \emph{prirejenka} matrike $A$.
+	
+	Poglejmo si naslednjo determinanto
+	\begin{multline*}
+	\det \begin{bmatrix}A^{(1)} & \ldots & A^{(n-1)} & e_n\end{bmatrix} = \\
+	\sum_{\pi \in S_n} s(\pi) a_{i_11} a_{i_22} \cdots a_{i_{n-1}n-1} = \sum_{\rho \in S_{n-1}} s(\rho) a_{i_11} \cdots a_{i_{n-1}n-1} = \det A_{nn}
+	\end{multline*}
+	Kjer je $\pi = \begin{pmatrix}
+	1 & 2 & \cdots & n-1 & n \\
+	i_1 & i_2 & \cdots & i_{n-1} & n
+	\end{pmatrix}$, ker je druga"ce $a_{i_nn} = 0$. $\rho$ definiramo kot $\rho = \begin{pmatrix}
+	1 & \cdots & n-1 \\
+	i_1 & \cdots & i_{n-1}
+	\end{pmatrix} \in S_{n-1}$. Velja $s(\pi) = s(\rho)$.
 
-"Ce stolpcu pri"stejemo linearno kombinacijo drugih stolpcev, se determinanta ohrani.
+	Poglejmo si "se
+	\begin{equation*}
+	\det \begin{bmatrix}A^{(1)} & \ldots & e_i & \ldots & A^{(n)}\end{bmatrix}
+	\end{equation*}
+	Kjer je $e_i$ na $j$-tem mestu. "Zeleli bi si matriko preoblikovati v tak"sno obliko, kot smo jo obravnavali v prej"snjem primeru. "Zal ne moremo kar zamenjati $i$-te in $n$-te vrstice, ter $j$-tega in $n$-tega stolpca, ker bi s tem spremenili vsrtni red stolpcev in vrstic v matriki. Lahko pa postopoma premikamo stolpec/vrstico, tako da delamo neke vrste transpozicije (skica v zvezku). S tem pridelamo podmatriko $A_{ij}$, ki ima v zadnjem stolpcu enotski vektor $e_n$. Zaradi antisimteri"cnosti se nam spremeni predznak determinante. Torej dobimo
+	\begin{multline*}
+	\det \begin{bmatrix}A^{(1)} & \ldots & e_i & \ldots & A^{(n)}\end{bmatrix} = \\
+	= (-1)^{(n - i) + (n-j)} \det A_{ij} = (-1)^{i + j} \det A_{ij} = \widetilde{a_{ij}}
+	\end{multline*}
+	
+	Poglejmo si, \emph{razvoj} determinante po $j$-tem stolpcu.
+	\begin{multline*}
+	\det A = \det \begin{bmatrix}
+	A^{(1)} &
+	\cdots &
+	\underbrace{a_{1j} e_1 + a_{2j} e_2 + \cdots + a^{nj} e_n}_{A^{(j)}} &
+	\cdots &
+	A^{(n)}
+	\end{bmatrix} = \\
+	= \sum_{i = 1}^n a_{ij} \det \begin{bmatrix}A^{(1)} & \cdots & e_i & \cdots & A^{(n)}\end{bmatrix} = \sum_{i = 1}^{n} a_{ij} \widetilde{a_{ij}}
+	\end{multline*}
+	Torej velja
+	\begin{equation*}
+	\sum_{i=1}^{n} a_{ij} \widetilde{a_{ij}} = \det A \quad \forall j
+	\end{equation*}
+	"Ce zamenjamo $A$ z $A^\intercal$, dobimo podobno formulo za razvoj determinante po $i$-it vrstici
+	\begin{equation*}
+	\sum_{j=1}^{n} a_{ij} \widetilde{a_{ij}} = \det A \quad \forall i
+	\end{equation*}
+	%
+	Za $j \neq k$ velja
+	\begin{equation*}
+	\sum_{i = 1}^{n} a_{ij} \widetilde{a_{ik}} = \det \begin{bmatrix}
+	A^{(1)} & \cdots & \underbrace{A^{(j)}}_{\text{$j$-to mesto}} & \cdots & \underbrace{A^{(j)}}_{\text{$k$-to mesto}} & \cdots & A^{(n)}
+	\end{bmatrix} = 0
+	\end{equation*}
+	Torej velja
+	\begin{equation*}
+	\sum_{i = 1}^{n} a_{ij} \widetilde{a_{ik}} = 0 \quad \forall j, k: j \neq k
+	\end{equation*}
+	"Ce $A$ zamenjamo z $A^\intercal$ dobimo podobno za vrstice
+	\begin{equation*}
+	\sum_{j=1}^n a_{ij} \widetilde{a_{kj}} = 0 \quad \forall i, k: i \neq k
+	\end{equation*}
+	%
+	Te formule lahko zdru"zimo v naslednje
+	\begin{equation*}
+	A \widetilde{A}^\intercal =
+	\begin{bmatrix}
+	\det A	&	0	 &	\cdots	&	0 \\
+	0		  &\det A&              & \vdots \\
+	\vdots &   		 &  \ddots  &  0 \\
+	0         &\cdots&   0        & \det A
+	\end{bmatrix} = (\det A) I
+	\end{equation*}
+	Podobno lahko zapi"semo
+	\begin{equation*}
+	\widetilde{A}^\intercal A = (\det A) I
+	\end{equation*}
+	To dvoje lahko zdru"zimo v
+	\begin{equation*}
+	\widetilde{A}^\intercal A = A \widetilde{A}^\intercal = (\det A) I
+	\end{equation*}
+	
+	\textsc{Posledica:} "Ce je $\det A \neq 0$ velja
+	\begin{equation*}
+	A^{-1} = (\det A) ^{-1} \widetilde{A}^\intercal
+	\end{equation*}
+	
+	\textsc{Determinante nekatirh matrik posebne oblike:}
+	\begin{equation*}
+	\det \begin{bmatrix}
+	A & \varhexstar \\
+	0 & B
+	\end{bmatrix} = (\det A) (\det B)
+	\end{equation*}
+	kjer sta $A$ in $B$ kvadratni matriki.
+	
+	\textsc{Osnovna ideja dokaza}:
+	
+	Delamo indukcijo glede na velikost matirke $A$ in razvoj determinante po prvem stolpcu.
 
-Recimo, da so stolpci matrike $A$ linearno odvisni. Npr $A^{(1)} = \alpha_2 A^{(2)} + \cdots + \alpha_n A^{(n)}$. $A^{(1)}$ pri"stejemo $(-\alpha_2)A^{(2)} + \cdots + (-\alpha_n)A^{(n)}$ in dobimo stolpec 0. Ker se determinanta ohrani, je $\det A = 0$.
-
-\textsc{Trditev:} "Ce matrika ni obrnljiva je $\det A = 0$ ($\det A \neq 0 \Rightarrow \exists A^{-1}$).
-
-\textsc{Dokaz:} $A$ ni obrnljiva $\Rightarrow \rang A < n \Rightarrow$ stolpci matrike $A$ so linearno odvisni $\Rightarrow \det A = 0$.
-
-Naj bo $A$ zgornje ali spdnje trikotna matrika. Potem velja
-\begin{equation*}
-\det A = \prod_{i=1}^{n} a_{ii}
-\end{equation*}
-To hitro vidimo, "ce si nari"semo shemo matrike, kar je v zvezku.
-
-"Ce je v zgornje trikotni matriki $a_{ii} \neq 0$ za $i = 1, \ldots n$, je ta matrika obrnljiva.
+	Za $k = 1$ velja:
+	\begin{equation*}
+	\det \begin{bmatrix}
+	a_{11} & \varhexstar \\
+	0 & B
+	\end{bmatrix} = a_{11} \det B
+	\end{equation*}
+	Za $k = 2$ veja:
+	\begin{multline*}
+	\det \begin{bmatrix}
+	a_{11} & a_{12} & \\
+	a_{21} & a_{22} & \\
+	   		  &            & B
+	\end{bmatrix} = a_{11} (a_{22} \det B) - a_{21} (a_{12} \det B) = \\
+	= \det B (a_{11} a_{22} - a_{12} a_{21}) = (\det A) (\det B)
+	\end{multline*}
+	Sorodno naredimo za $k \rightsquigarrow k + 1$.
+\end{enumerate}

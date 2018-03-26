@@ -2634,3 +2634,150 @@ Ker je $f$ zvezna v to"cki $x$ velja
 \leq \dfrac{1}{|h|} \int_{x}^{x+h} \varepsilon dt = \dfrac{1}{h} \varepsilon h = \varepsilon
 \end{multline*}
 \hfill $\square$
+
+\textsc{Posledica:} Vsaka zvezna funkcija $f$ na $[a, b]$ ima primitivno funkcijo na $[a, b]$. Natan"cneje $F(x) = \int_{a}^{x} f(t)dt$ je odvedljiva in $F'(x) = f(x)$, $F$ je primitivna funkcija od $f$.
+
+\textbf{Opomba:} Nima vsaka integrabilna funkcija primitivne funkcije. Npr.\,funkcija, ki ima skok.
+
+\textsc{Izrek:} (osnovni izrek interalnega ra"cuna - Leibnizova formula)
+
+Najbo $f$ taka integrabilna funkcija na $[a, b]$, ki ima na $[a, b]$ primitivno funkcijo $F$, to je $F' = f$ na $[a, b]$. Potem velja Leibnizova formula
+\begin{equation*}
+\int_{a}^{b} f(x) dx = F(b) - F(a) = F(X) \rvert_a^b
+\end{equation*}
+\textsc{Dokaz:}
+\begin{enumerate}
+	\item "Ce je $f$ zvezna, potem je $F(X) = \int_{a}^{x}F(t)dt$ njena primitivna funkcija
+	\begin{equation*}
+	F(b) - F(a) = \int_a^b f(t) dt
+	\end{equation*}
+	izrek za $F$ velja. "Ce je $G$ kak"sna druga primitivna funkcija za $f$, potem velja $F' = G' = f$ na $[a, b]$ in zato obstaja $C \in \RR$, da velja
+	\begin{equation*}
+	G(X) = F(X) + C
+	\end{equation*}
+	Sledi
+	\begin{equation*}
+	G(b) - G(a) = F(b) - F(a)
+	\end{equation*}
+	torej izrek velja
+	
+	\item V splo"snem:
+	
+	Naj bo $D$ poljubna delitev intervala $[a, b]$. Potem po Lagrangeevem izreku obstaja tak $c_i \in (x_{i-1}, x_i)$, da velja
+	\begin{equation*}
+	F(x_i) - F(x_{i-1}) = F'(c_i) (x_i - x_{i-1}) = f(c_i) (x_i - x_{i-1})
+	\end{equation*}
+	Zapi"semo lahko tudi
+	\begin{equation*}
+	F(b) - F(a) = \sum_{i=1}^{n} (F(x_i) - F(x_{i-1}) = \sum_{i=1}^{n} f(c_i) (x_i - x_{i-1}) = R(f, D, T_D)
+	\end{equation*}
+	Vemo, da je $f$ integrabilna in zato obstaja limita Riemannovih vsot, to je Riemannov integral. Vemo, da si lahko za vsako delitev izberemo testne to"cke za katere bo $F(b) - F(a)$ enaka Riemannovi vsoti. Torej smo na"sli podzaporedje konvergentnega zaporedja Riemannovih vsot, ki konvergira proti $F(b) - F(a)$, torej tudi zaporedje Riemannovih vsto konvergira proti $F(b) - F(a)$, zato je integral enak $F(b) - F(a)$.
+	
+	\hfill $\square$
+\end{enumerate}
+
+\textsc{Primer:} Obstaja funkcija, ki ni zvezna, je integrabilna in ima primitivno funkcijo.
+Naj bo $F(x) = x^2 \sin \frac{1}{x}$ primitivna funkcija, $F(0) = 0$. Vemo
+\begin{align*}
+F'(x) &= 2 x \sin \frac{1}{x} - \cos \frac{1}{x} \\
+F'(0) &= \lim_{h \to 0} \dfrac{h^2 \sin \frac{1}{g}}{h} = 0
+\end{align*}
+Torej je $F$ zvezna in odvedljiva na $\RR$. Definiramo
+\begin{align*}
+f(x) &= F'(x) \\
+f(x) &= \begin{cases}
+2x \sin \dfrac{1}{x} - \cos \dfrac{1}{x} & x \neq 0 \\
+0 & x = 0
+\end{cases}
+\end{align*}
+$\lim_{x \to 0} f(x)$ ne obstaja, $f$ je zvezna na $\RR \setminus \{0\}$. Ker je omejena na $[a, b]$, je integrabilna. Sledi
+\begin{equation*}
+\int_{0}^{a} f(x) dx = F(a) - F(0) = F(a)
+\end{equation*}
+%
+\subsubsection{Uvedba nove spremenljivke in integracija po delih v dolo"cenem integralu}
+\textsc{Izrek:}
+\begin{enumerate}[(i)]
+	\item  Naj bo $\varphi: [a, b] \to \RR$ zvezno odvedljiva funkcija in $f: Z_\varphi \to \RR$ zvezna funkcija. Potem velja
+	\begin{equation*}
+	\int_{a}^{b} f(\varphi(t)) \varphi'(t) dt = \int_{\varphi(a)}^{\varphi(b)} f(x) dx
+	\end{equation*}
+	
+	\item Naj bosta $f, g: [a, b] \to \RR$ zvezno odvedljivi funkciji. Potem velja
+	\begin{equation*}
+	\int_a^b f(x) g'(x) dx = (f(x) g(x)) \rvert_a^b - \int_a^b f'(x) g(x) dx
+	\end{equation*}
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[(i)]
+	\item Naj bo $F$ primitivna funkcija od $f$ (obstaja, ker je $f$ zvezna). Potem je
+	\begin{equation*}
+	G(t) = F(\varphi(t))
+	\end{equation*}
+	zvezno odvedljiva funkcija. Torej je
+	\begin{equation*}
+	G'(t) = F'(\varphi(t))\varphi'(t) = f(\varphi(t)) \varphi'(t)
+	\end{equation*}
+	zvezna funkcija. Zato je $G$ primitivna funkcija od $(f \circ \varphi) \varphi'$ in velja
+	\begin{equation*}
+	\int_a^b f(\varphi(t)) \varphi'(t) dt = G(b) - G(a) = F(\varphi(b)) - F(\varphi(a)) = \int_{\varphi(a)}^{\varphi(b)} f(x) dx
+	\end{equation*}
+	
+	\item Velja
+	\begin{equation*}
+	(f(x) g(x))' = f'(x)g(x) + f(x) g'(x)
+	\end{equation*}
+	Zato je $fg$ primitivna funkcija od $f'g + fg'$, odtod po Leibnizovi formuli
+	\begin{equation*}
+	\int_a^b (f'(x)g(x) + f(x) g'(x))dx = (f(x) g(x)) \rvert_a^b
+	\end{equation*}
+	\hfill $\square$
+\end{enumerate}
+%
+\textsc{Izrek:} Naj bo $\varphi$ zvezno odvedljiva, nara"s"cajo"ca funkcija na $[a, b]$ in $f$ integrabilna na $[\varphi(a), \varphi(b)]$. Tedaj je funkcija $(f \circ \varphi) \varphi'$ integrabilna na $[a, b]$ in velja
+\begin{equation*}
+\int_{\varphi(a)}^{\varphi(b)} f(x) dx = \int_{a}^{b} f(\varphi(t)) \varphi'(t) dt
+\end{equation*}
+\textsc{Dokaz:} $f$ je integrabilna, zato za vsak $\varepsilon > 0$ obstaja $\delta > 0$, da za vsako delitev $D$, $\delta(D) < \delta$, velja
+\begin{equation*}
+\left| \underbrace{\int_{\varphi(a)}^{\varphi(b)} f(x) dx}_I - R(f, D, T_D) \right| < \varepsilon
+\end{equation*}
+za vsako usklajeno izbiro $T_D$.
+
+Delitev $D$ intervala $[\varphi(a), \varphi(b)]$ dolo"ca delitev $\{t_0, t_1, \ldots, t_n\}$ intervala $[a, b]$ (ker je $\varphi$ nara"s"cajo"ca).
+
+Ker je $\varphi$ zvezna na $[a, b]$, je enakomerno zvezna na $[a, b]$, zato za vsak $\delta > 0$ obstaja $\delta' > 0$ da za $t, t' \in [a, b]$ velja
+\begin{equation*}
+|t - t'| < \delta' \Rightarrow |\varphi(t) - \varphi(t')| < \delta
+\end{equation*}
+Oglejmo si Riemannovo vsoto $\int_a^b f(\varphi(t)) \varphi'(t) dt$.
+
+Naj bo $\overline{D}$ delitev intervala $[a, b]$. Velja
+\begin{equation*}
+R((f \circ \varphi) \varphi', \overline{D}, T_{\overline{D}}) = \sum_{j = 1}^{n} f(\varphi(c_j)) \varphi'(c_j) (t_j - t_{j-1})
+\end{equation*}
+Po Lagrangeevem izreku obstaja tak $\overline{c_j} \in (t_{j-1}, t_j)$, da velja
+\begin{equation*}
+\varphi(t_j) - \varphi(t_{j-1}) = \varphi(\overline{c_j}) (t_j - t_{j-1})
+\end{equation*}
+Upo"stevajmo "se enakomerno zveznost funkcije $\varphi'$. Obstaja $\delta'' > 0$, da za $t, t' \in [a, b]$ velja
+\begin{equation*}
+|t - t'| < \delta'' \Rightarrow |\varphi'(t) - \varphi'(t')| < \varepsilon
+\end{equation*}
+Ozna"cimo "se $M = \sup |f|$. Sedaj lahko zapi"semo
+\begin{multline*}
+R((f \circ \varphi) \varphi', \overline{D}, T_{\overline{D}}) = \sum_{j=1}^n f(\varphi(c_j)) \varphi'(c_j) (t_j - t_{j-1}) = \\
+= \sum_{j=1}^n f(\varphi(c_j)) \varphi'(\overline{c_j}) (t_j - t_{j-1}) - \underbrace{\sum_{j=1}^n f(\varphi(c_j)) (t_j - t_{j-1}) (\varphi'(c_j) - \varphi'(\overline{c_j}))}_o = \\
+= \sum_{j=1}^n f(\varphi(c_j))(\varphi(t_j) - \varphi(t_{j-1})) + o = \\
+= R \left( f, \{\varphi(t_1), \ldots, \varphi(t_n)\}, \{\varphi(c_1), \ldots, \varphi(c_n)\} \right) + o
+\end{multline*}
+Poglejmo kako je z $o$
+\begin{equation*}
+|o| \leq \sum_{j=1}^n \underbrace{|f(\varphi(c_j))|}_{\leq M} \cdot |t_j - t_{j-1}| \cdot \underbrace{|\varphi'(c_j) - \varphi'(\overline{c_j})|}_{\text{$\leq \varepsilon$ "ce $|c_j - \overline{c_j}| < \delta''$}} \leq \varepsilon M \sum_{j=1}^n |t_j - t_{j-1}| = \varepsilon M (b-a)
+\end{equation*}
+Iz tega sledi
+\begin{multline*}
+|R((f \circ \varphi) \varphi', \overline{D}, T_{\overline{D}}) -I| = |R(f, D, T_D) +o -I| \leq \\
+ \leq \underbrace{|R(f, D, T_D) -I|}_{< \varepsilon} + \underbrace{|o|}_{\leq \varepsilon M (b-a)} \leq \varepsilon (1 + M (b-a))
+\end{multline*}
+\hfill $\square$

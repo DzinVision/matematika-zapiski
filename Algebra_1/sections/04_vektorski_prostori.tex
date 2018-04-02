@@ -2158,4 +2158,254 @@ Torej so $n$-linearni antisimetri"cni funkcionali $F: \OO^{n \times n} \to \OO$ 
 	= \det B (a_{11} a_{22} - a_{12} a_{21}) = (\det A) (\det B)
 	\end{multline*}
 	Sorodno naredimo za $k \rightsquigarrow k + 1$.
+	
+	"Ce imamo blo"cno zgornje trikotno matriko velja
+	\begin{equation*}
+	\det \begin{bmatrix}
+	A_1 & & &\\
+	& A_2 & &\\
+	& & \ddots & \\
+	&&& A_k
+	\end{bmatrix} = (\det A_1) (\det A_2) \cdots (\det A_k)
+	\end{equation*}
+	Podobno velja tudi za blo"cno spodnje trikotne.
+	
+	Blo"cno diagonalno matriko lahko zapi"semo kot
+	\begin{equation*}
+	\begin{bmatrix}
+	A_1 & & &\\
+	& A_2 & &\\
+	& & \ddots & \\
+	&&& A_k
+	\end{bmatrix} = \diag (A_1, A_2, \ldots, A_k)
+	\end{equation*}
+	in velja
+	\begin{equation*}
+	\det (\diag (A_1, \ldots, A_k)) = (\det A_1) \cdots (\det A_k)
+	\end{equation*}
 \end{enumerate}
+
+\subsubsection{Determinanta endomorfizma}
+Naj bo preslikava $\A \in \LL(V)$ in naj bosta $A, A'$ matriki, ki pripada preslikavi $\A$. Ker sta si $A$ in $A'$ podobni, velja
+\begin{align*}
+A' &= P^{-1} AP \\
+P A' &= AP
+\end{align*}
+Od tod sledi
+\begin{gather*}
+\det (PA') = \det (AP) \\
+(\det P) (\det A') = (\det A) (\det P) \\
+\exists P^{-1} \Rightarrow \det P \neq 0 \\
+\Rightarrow \det A' = \det A
+\end{gather*}
+Podobni matriki imata enako determinanto. Zato je smiselno definirati
+\begin{equation*}
+\det \A = \det A
+\end{equation*}
+(neodvisno od izbire baze v $V$)
+
+\textsc{Cramerjeva formula:}
+
+Naj bo $Ax = b, A \in \OO^{n \times n}$ sistem ena"cb innaj bo $\det A \neq 0$. Vemo, da je $x = \begin{bmatrix}x_1 \\ \vdots \\ x_n\end{bmatrix}$. Definiramo
+\begin{equation*}
+A_j = \begin{bmatrix}A^{(1)}, \ldots, A^{(j-1)}, b, A^{(j+1)}, \ldots, A^{(n)}\end{bmatrix}
+\end{equation*}
+Cramerjeva formula pravi, da velja
+\begin{equation*}
+x_j = \dfrac{\det A_j}{\det A}, \quad j = 1, \ldots, n
+\end{equation*}
+\textsc{Dokaz:}
+
+Ker $\det A \neq 0$, obstja $A^{-1}$. Vemo, da velja
+\begin{equation*}
+A^{-1} = \dfrac{1}{\det A} \widetilde{A}^\intercal
+\end{equation*}
+Zato velja
+\begin{gather*}
+Ax = b \Rightarrow x = A^{-1} b = \dfrac{1}{\det A} \widetilde{A}^\intercal b \Rightarrow \\
+\Rightarrow x_j = \dfrac{1}{\det A} \left( \widetilde{A}^\intercal b \right)_j = \dfrac{1}{\det A} \underbrace{(\widetilde{a_{1j}} b_1 + \widetilde{a_{2j}} b_2 + \cdots + \widetilde{a_{nj}} b_n)}_\text{razvoj determinante po $j$-tem stolpcu} = \\
+\dfrac{1}{\det A} \det \begin{bmatrix}
+A^{(1)}, \ldots, b, \ldots, A^{(n)}
+\end{bmatrix}
+\end{gather*}
+
+\subsubsection{Karakteristi"cni polinom in minimalni polinom}
+Naj bo $A \in \OO^{n \times n}$. Potem je
+\begin{equation*}
+\Delta_A(\delta) = \det (A - \lambda I)
+\end{equation*}
+\emph{karakteristi"cni polinom} matrike $A$ (glej $A \in \RR^3$). $\Delta_A(\delta)$ je polinom $n$-te stopnje s koeficienti v $\OO$.
+\begin{gather*}
+\Delta_A(\delta) = \det \begin{bmatrix}
+a_{11} - \lambda & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} - \lambda & \cdots & a_{2n} \\
+\vdots & \vdots & & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} - \lambda
+\end{bmatrix} = \\
+= (a_{11} - \lambda) (a_{22} - \lambda) \cdots (a_{nn} - \lambda) + \underbrace{p(\lambda)}_\text{st $\leq n-2$} = a_0 + a_1 \lambda + \cdots + a_{n-1} \lambda^{n-1} + a_n \lambda^n
+\end{gather*}
+Iz tega zapisa lahko hitro razberemo, da veljajo naslednje ena"cbe
+\begin{align*}
+a_n &= (-1)^n \\
+a_{n-1} &= (-1)^{n-1} \overbrace{(a_{nn} + a_{22} + \cdots + a_{nn})}^{sl A} \\
+a_0 &= \det A
+\end{align*}
+\textsc{Izrek:} Naj bo $A \in \OO^{n \times n}$ in $\Delta_A(\delta)$ njen karakteristi"cni polinom. Potem je $\alpha \in \OO$ lastna vrednost matrike $A$ natanko takrat, kadar je
+\begin{equation*}
+\Delta_A(\alpha) = 0
+\end{equation*}
+\textsc{Dokaz:} $\alpha \in \OO:$
+
+$\alpha$ je lastna vrednost $A \iff A- \alpha I$ ni obrnljiva $\iff \det (A - \alpha I) = 0 \iff \Delta_A(\alpha) = 0$
+
+\hfill $\square$
+
+Za lastne vektorje re"sujemo homogen sistem $(A - \alpha I)x = 0$.
+
+Naj bo preslikava $\A \in \LL(V)$ in naj ji pripadata matriki $A, A'$. Vemo $A' = P^{-1} AP$. Velja
+\begin{multline*}
+\Delta_{A'} = \det (A' - \lambda I) = \\
+= \det (P^{-1} AP - \lambda I) = \det (P^{-1}(A - \lambda I)P) = \\
+= \underbrace{(\det (P^{-1}))}_{(\det P)^{-1}} \det (A - \lambda I) (\det P) = \\
+= \det (A - \lambda I) = \Delta_A
+\end{multline*}
+Torej velja
+\begin{equation*}
+\Delta_{A'}(\lambda) = \Delta_A(\lambda)
+\end{equation*}
+Zato je smiselno definirati
+\begin{equation*}
+\Delta_{\A}(\lambda) = \Delta_A(\lambda)
+\end{equation*}
+Torej je $\alpha$ lastna vrednost endomorfizma $\A$ natanko takrat, ko je $\Delta_{\A}(\alpha) = 0$.
+
+\textsc{Polinom z matri"cnimi koeficienti}
+
+Naj bo
+\begin{equation*}
+p(\lambda) = A_0 + A_1 \lambda + \cdots + A_k \lambda^k, \quad A_j \in \OO^{n \times n}
+\end{equation*}
+To lahko zapi"semo v matriko kot
+\begin{equation*}
+p(\lambda) = \begin{bmatrix}
+p_{11}(\lambda) & \cdots & \cdots \\
+\vdots & & \vdots \\
+\cdots & \cdots & p_{nn} (\lambda)
+\end{bmatrix} = [p_{ij}(\lambda)], \quad i, j = 1, \ldots, n
+\end{equation*}
+kjer je $p_{ij}(\lambda)$ polinom s koeficienti v $\OO$ in stopnja $p_{ij}(\lambda) \leq k$.
+
+Naj bo $B \in \OO^{n \times n}$. Potem je
+\begin{equation*}
+p(B) = A_0 + A_1 B + A_2 B^2 + \cdots + A_k B^k
+\end{equation*}
+in $B$ je ni"cla polinoma $p(\lambda)$, "ce je $p(B) = 0$.
+
+Naj bo
+\begin{equation*}
+q(\lambda) = a_0 + a_1 \lambda + \cdots + a_k \lambda^k
+\end{equation*}
+in $a_i \in \OO, \quad i = 0, 1, \ldots, k$. Naj bo $B \in \OO^{n \times n}$. Potem je
+\begin{equation*}
+q(B) = a_0 I + a_1 B + a_2 B^2 + \cdots + a_k B^k
+\end{equation*}
+$B$ je ni"cla polinoma $q(\lambda)$, "ce je $q(B) = 0$.
+
+\textsc{Izrek} (Cayley, Hamilton): Kvadratna matrika je ni"cla svojega karakteristi"cnega polinoma.
+
+\textsc{Dokaz:}
+\begin{gather*}
+(A - \lambda I) \widetilde{(A - \lambda I)}^\intercal = (\det (A - \lambda I)) I \\
+\widetilde{(A - \lambda I)}^\intercal = [p_{ij}(\lambda)] \quad i, j = 1, \ldots, n \\
+= B_0 + B_1 \lambda + \cdots + B_{n-1} \lambda^{n-1} \\
+\Rightarrow (A - \lambda I) (B_0 + B_1 \lambda + \cdots + B_{n-1} \lambda^{n-1}) = \\
+= \Delta_A(\lambda) I = (a_0 + a_1 \lambda + \cdots + a_n \lambda^{n}) I
+\end{gather*}
+Zmno"zimo in uredimo po potencah $\lambda$, nato izena"cimo keoficiente:
+\begin{align*}
+AB_0 &= a_0 I \\
+A B_1 - B_0 &= a_1 I  && \cdot A\\
+A B_2 - B_1 &= a_2 I  && \cdot A^2 \\
+\vdots \\
+A B_{n-1} - B_{n-2} &= a_{n-1} I && \cdot A^{n-1}\\
+- B_{n-1} &= a_n I && \cdot A^n
+\end{align*}
+"Ce te ena"cbe "se"stejemo, dobimo
+\begin{gather*}
+0 = \underbrace{a_0 I + a_1 A + a_2 A^2 + \cdots + a_n A^n}_{\Delta_A(A)} \\
+\Rightarrow \Delta_A(A) = 0
+\end{gather*}
+%
+Naj bo $A \in \OO^{n \times n}$. Ozna"cimo
+\begin{equation*}
+P = \{p(\lambda): p(A) = 0\}
+\end{equation*}
+in velja $\Delta(\lambda) \in P$.
+
+\textsc{Definicija:} \emph{Minimalni polinom} matrike $A$: 
+\begin{equation*}
+m_A (\lambda) \in P
+\end{equation*}
+Vodilni koeficient $m_A (\lambda)$ je 1 in velja
+\begin{equation*}
+\st m_A (\lambda) \leq \st p(\lambda), \quad p \in P \setminus \{0\}
+\end{equation*}
+\subsubsection*{Lastnosti:}
+\begin{enumerate}[(1)]
+	\item $m_A(\lambda) | \Delta_A(\lambda) \quad $ ($\exists q(\lambda): \Delta_A(\lambda) = q(\lambda) \cdot m_A(\lambda)$)
+	
+	Dokaz:
+	\begin{gather*}
+	\Delta_A(\lambda) = q(\lambda)m_A (\lambda) + o(\lambda) \\
+	\st o(\lambda) < \st m_A(\lambda)
+	\end{gather*}
+	$\lambda$ zamenjamo z $A$ in dobimo
+	\begin{equation*}
+	\underbrace{\Delta_A(A)}_0 = q(A) \underbrace{m_A(A)}_0 + o(A)
+	\end{equation*}
+	Od tod sledi
+	\begin{align*}
+	&\Rightarrow o(A) = 0 \\
+	& \Rightarrow o(\lambda) = 0 \quad \text{druga"ce protislovje z def.\,$m_A(\lambda)$} \\
+	& \Rightarrow \Delta_A(\lambda) = q(\lambda) m_A(\lambda)
+	\end{align*}
+	
+	\item $\alpha \in \OO: m_A(\alpha) = 0 \iff \Delta_A(\alpha) = 0$
+	
+	Dokaz:
+	\begin{itemize}
+	\item[$(\Rightarrow)$] Uporabimo (1).
+	\item[$(\Leftarrow)$] $\Delta_A(\alpha) = 0 \Rightarrow \alpha$ je lastna vrednost $A$, zato obstaja $x \in \OO^n, x \neq 0$, ki je lasten vektor matrike $A$, to je, $Ax = \alpha x$. Torej velja
+	\begin{gather*}
+	m_A(\lambda) = q(\lambda)(\lambda - \alpha) + m_A (\alpha) \\
+	\lambda \leftrightarrow A \\
+	\underbrace{m_A(A)}_0 = q(A) (A - \alpha I) + m_A(\alpha)I \qquad | \cdot x \\
+	\Rightarrow 0 = q(A) \underbrace{(A - \alpha I)x}_{Ax - \alpha x = 0} + m_A(\alpha)x \\
+	\Rightarrow m_A(\alpha)x = 0 \Rightarrow m_A(\alpha) = 0
+	\end{gather*}
+	\hfill $\square$
+	\end{itemize}
+\end{enumerate}
+
+Poglejmo si obseg kompleksni "stevil $\OO = \CC$.
+\begin{equation*}
+\Delta_A(\lambda) = (-1)^n (\lambda - \lambda_i)^{n_1} \cdots (\lambda - \lambda_k)^{n_k}
+\end{equation*}
+$\lambda_1, \ldots, \lambda_k$ so razli"cne ni"cle $\Delta_A(\lambda)$ in so edine lastne vrednosti matrike $A$. $n_j$ je \emph{algebrajska kratnost} lastne vrednost $\lambda_j$. Zapi"semo lahko
+\begin{equation*}
+m_A(\lambda) = (\lambda - \lambda_1)^{m_1} \cdots (\lambda - \lambda_k)^{m_k}
+\end{equation*}
+in velja $1 \leq m_j \leq n_j \quad \forall j$.
+
+\textsc{Primer:}
+\begin{gather*}
+A = \begin{bmatrix}
+0 & -1 \\
+1 & 0
+\end{bmatrix}  \\
+\Delta_A(\lambda) = \det (A - \lambda I) = \det \begin{bmatrix}
+-\lambda & -1 \\
+-1 & - \lambda
+ \end{bmatrix} = \lambda^2 + 1 = (\lambda - i) (\lambda + i)
+\end{gather*}
+Torej sta $i$ in $-i$ kompleksni lastni vrednosti matrike $A$.

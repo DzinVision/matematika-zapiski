@@ -2409,3 +2409,184 @@ A = \begin{bmatrix}
  \end{bmatrix} = \lambda^2 + 1 = (\lambda - i) (\lambda + i)
 \end{gather*}
 Torej sta $i$ in $-i$ kompleksni lastni vrednosti matrike $A$.
+
+\textsc{Trditev:} Podobni matriki imata isti minimalni polinom.
+
+\textsc{Dokaz:} 
+\begin{gather*}
+B = P^{-1} AP \\
+B^2 = (P^{-1}AP)(P^{-1}AP) = P^{-1} A^2 P \\
+B^j = \underbrace{(P^{-1}AP) \cdots (P^{-1}AP)}_j = P^{-1}A^jP \\
+p(\lambda) = a_0 + a_1 \lambda + \cdots + a_k \lambda^k \\
+p(B) = a_0 I + a_1 B + \cdots + a_k B^k = P^{-1} (a_0 I + a_1 A + \cdots + a_k A^k) P = P^{-1}p(A)P \\
+\Rightarrow p(B) = P^{-1}p(A)P \\
+\Rightarrow p(B) = 0 \iff p(A) = 0 \\
+\Rightarrow m_B(\lambda) = m_A(\lambda)
+\end{gather*}
+Zato definiramo minimalni polinom endomirfizma $\A$ s predpisom
+\begin{equation*}
+m_\A (\lambda) = m_A(\lambda)
+\end{equation*}
+kjer $A$ pripada $\A$ v katerikoli bazi.
+
+Velja 
+\begin{align*}
+m_\A (\A) &= 0 \\
+m_\A (\lambda) &= a_0 + a_1 \lambda + \cdots + \lambda^k \\
+m_\A (\A) &= a_0 id_V + a_1 \A + \cdots + \A^k = 0
+\end{align*}
+
+\subsubsection{Invariantni podprostori}
+$\A \in \LL(V)$, vektorski podprostor $U \subseteq V$ je \emph{invarianten} za $\A$, kadar velja
+\begin{equation*}
+x \in U \Rightarrow \A x \in U
+\end{equation*}
+
+$\lambda$ - lastna vrednost $\A$\\
+$\ker(\A - \lambda I)$ - lastni podprostor endomorfizma $\A$ \\
+\dashuline{$\ker(\A - \lambda I)$ je invarianten za $\A$}
+\begin{gather*}
+x \in \ker (\A - \lambda I) \Rightarrow (\A - \lambda I) (\A x) = \\
+= (\A^2 - \lambda \A) x = \A \underbrace{(\A - \lambda I)x}_0 = 0 \\
+\Rightarrow \A x \in \ker(\A - \lambda I)
+\end{gather*}
+%
+Naj bo $U$ invarianten za $\A$. Potem lahko definiramo preslikavo
+\begin{align*}
+&\A_U : U \to U \\
+&\A_U x = \A x \quad \forall x \in U
+\end{align*}
+$\A_U$ je zo"zitev $\A$ na $U$ in $\A_U \in \LL(U)$.
+
+Naj bo $\A \in \LL(V)$ Potem je
+\begin{equation*}
+V = V_1 \oplus V_2 \oplus \cdots \oplus V_k
+\end{equation*}
+kjer je $V_j$ invarianten za $\A$ za vse $j = 1, \ldots, k$. Ozna"cimo
+\begin{equation*}
+\A_j := \A_{V_j} \in \LL(V_j)
+\end{equation*}
+To zapi"semo v obliki
+\begin{equation*}
+\A = \A_1 \oplus \A_2 \oplus \cdots \oplus \A_k
+\end{equation*}
+%
+Naj bodo $\B_1, \B_2, \ldots, \B_k$ urejene baze $V_1, V_2, \ldots, V_k$ in $A_j$ matrika, ki pripada endomorfizmu $\A_j$ v bazi $\B_j$. Potem je 
+\begin{equation*}
+\B = \B_1 \cup \B_2 \cup \cdots \cup \B_k
+\end{equation*}
+urejena baza prostora $V$, ker $\B_i \cap \B_j = \varnothing$ za vsak $i \neq j$.
+
+Naj bo $A$ matirka, ki pripada endomorfizmu $\A$ v bazi $\B$. Velja
+\begin{equation*}
+A = \begin{bmatrix}
+A_1 & & & \\
+& A_2 & & \\
+& & \ddots & \\
+& & & A_k
+\end{bmatrix} = \diag(A_1, A_2, \ldots, A_k)
+\end{equation*}
+Ker dokaz vsebuje veliko skica in je relativno o"citen, obstaja samo v zvezku.
+
+Naj bo $V$ kompleksen kon"cno razse"zen vektorski prostor.
+\begin{gather*}
+\A \in \LL(V) \quad (\OO \in \CC) \\
+\Delta_\A (\lambda) = (-1)^n (\lambda - \lambda_1)^{n_1} \cdots (\lambda - \lambda_k)^{n_k} \\
+m_\A (\lambda) = (\lambda - \lambda_1)^{m_1} \cdots (\lambda - \lambda_k)^{m_k}
+\end{gather*}
+$\lambda_1, \ldots, \lambda_k$ so razli"cne lastne vrednosti $\A$ in velja $1 \leq m_j \leq n_j$ za vsak $j$.
+\begin{equation*}
+W_j = \ker(\A - \lambda_j I)^{m_j} \quad j = 1, \ldots, k
+\end{equation*}
+$W_j$ je \emph{korenski podprostor} endomorfizma $\A$ (pripada lastni vrednost $\lambda_j$).
+
+\textsc{Izrek:} Korenski podprostori $W_j, j = 1, \ldots, k$ so invariantni za $\A$, poleg tega pa velja
+\begin{equation*}
+V = W_1 \oplus \cdots \oplus W_k
+\end{equation*}
+\textsc{Dokaz:} \dashuline{invariantnost}
+\begin{gather*}
+x \in W_j \Rightarrow (\A - \lambda_j I)^{m_j} \A x = \A \underbrace{(\A - \lambda_jI)^{m_j}}_0 x = 0 \\
+\Rightarrow \A x \in W_j
+\end{gather*}
+Naj bo 
+\begin{equation*}
+p_j (\lambda) = \prod_{\stackrel{i = 1}{i \neq j}}^{k} (\lambda - \lambda_i)^{m_i}
+\end{equation*}
+$p_1(\lambda), p_2(\lambda), \ldots, p_k(\lambda)$ so tuji, ker nimajo nobene skupne ni"cle. Potem obstajajo taki polinomi $q_1(\lambda), q_2(\lambda), \ldots, q_k(\lambda)$, da velja
+\begin{equation*}
+p_1(\lambda) q_1(\lambda) + p_2(\lambda)q_2(\lambda) + \cdots + p_k(\lambda)q_k(\lambda) = 1
+\end{equation*}
+Torej velja
+\begin{equation*}
+\sum_{i =1}^{k}p_i(\A)q_i(\A) = \I \quad (\I = id_V)
+\end{equation*}
+\begin{equation*}
+x \in V \Rightarrow x = \I x = \sum_{i = 1}^{k}\underbrace{p_i(\A)q_i(\A)x}_{x_i} = \sum_{i=1}^k x_i
+\end{equation*}
+Trdimo, da je $x_i \in W_i$ (od tod sledi $V = W_1 + \cdots + W_k$).
+\begin{gather*}
+x_i \in \ker(\A - \lambda_i \I)^{m_i} \quad ? \\
+(\A - \lambda_i I)^{m_i} x_i = 0 \quad ? \\
+m_\A (\lambda) = p_i(\lambda) ( \lambda - \lambda_i)^{m_i} \\
+\underbrace{(\A - \lambda_i \I)^{m_i} p_i(\A)}_{m_\A(\A) = 0} q_i(\A) x = 0
+\end{gather*}
+\dashuline{$V = W_1 \oplus \cdots \oplus W_k$} \quad ,,direktnost''
+\begin{gather*}
+x \in V \\
+\begin{aligned}
+x &= x_1 + x_2 + \cdots + x_k, \quad x_i \in W_i \forall i \quad \text{(vemo)} \\
+x &= x_1' + x_2' + \cdots + x_k' \quad x_i \in W_i \forall i
+\end{aligned} \\
+\Rightarrow x_i = x_i' \forall i \quad ? \\
+\underbrace{(x_1 - x_1')}_{\in W_1} + \cdots + (\underbrace{x_k - x_k'})_{\in W_k} = 0 \\
+y_i = x_i - x_i' \in W_i \quad \forall i \\
+y_1 + y_2 + \cdots + y_k = 0 \\
+\Rightarrow y_i = 0 \quad \forall i \quad ? \\
+y_i \in W_i \Rightarrow (\A - \lambda_i I)^{m_i}y_i =0 \\
+p_j(\lambda) = \prod_{\stackrel{i = 1}{i \neq j}} (\lambda - \lambda_i)^{m_i} \\
+j \neq i \Rightarrow p_j(\lambda) \text{ vsebuje faktor $(\lambda - \lambda_i)^{m_i}$} \\
+\Rightarrow p_j(\A)y_i = 0 \quad \forall i \neq j \\
+y_1 + y_2 + \cdots + y_k = 0 \\
+\Rightarrow p_j(\A)(y_1 + y_2 + \cdots + y_k) = 0 \\
+\Rightarrow p_j(\A) y_j = 0 \\
+y_j = \I y_j = \left(\sum_{i = 1}^{k} p_i(\A) q_i(\A) \right) y_j = \sum_{i=1}^k q_i(\A) p_i(\A) y_j = 0 \quad \forall j
+\end{gather*}
+\hfill $\square$
+
+Torej velja
+\begin{gather*}
+\A \in \LL(V) \Rightarrow \A = \A_1 \oplus \A_2 \oplus \cdots \oplus \A_k \\
+\A_j := \A_{W_j}
+\end{gather*}
+\textsc{Izrek:} Za zo"zitve $\A_j \in \LL(W_j), j = 1, \ldots, k$, veljajo "se naslednje lastnosti:
+\begin{enumerate}[(i)]
+	\item $\lambda_j$ je edina lastna vrednost $\A_j$
+	\item $\Delta_{\A_j} (\lambda) = (-1)^{n_j} (\lambda - \lambda_j)^{n_j}$
+	\item $m_{\A_j} (\lambda) = (\lambda - \lambda_j)^{m_j}$
+\end{enumerate}
+\textsc{Posledica:}
+\begin{equation*}
+\dim W_j = n_j \quad \forall j
+\end{equation*}
+\textsc{Dokaz:}
+\begin{gather*}
+(\A_j - \lambda_j \I_j)^{m_j} x = (\A - \lambda_j \I)^{m_j} x = 0 \\
+\Rightarrow (A_j - \lambda_j \I_j)^{m_j} = 0 \Rightarrow \text{$\A_j$ je ni"cla polinoma $(\lambda - \lambda_j)^{m_j}$}
+\end{gather*}
+Zato je $m_{\A_j}(\lambda) = (\lambda - \lambda_j)^{t_j}, t_j \leq m_j \quad \forall j$.
+\begin{gather*}
+\Delta_{\A_j}(\lambda) = (-1)^{s_j} (\lambda - \lambda_j)^{s_j}, s_j \geq t_j \quad \forall j \\
+\Delta_{\A}(\lambda) = \Delta_A (\lambda) = \det(A - \lambda I) = \det(A_1 - \lambda I_1) \cdots \det (A_k - \lambda I_k) = \\
+= \Delta_{\A_1}(\lambda) \cdots \Delta_{\A_k} (\lambda) \\
+(-1)^n (\lambda - \lambda_1)^{n_1} \cdots (\lambda - \lambda_k)^{n_k} = (-1)^{s_1} (\lambda - \lambda_1)^{s_1} \cdots (-1)^{s_k} (\lambda - \lambda_k)^{s_k} \\
+\Rightarrow s_i = n_i \quad \forall i \\
+m_{\A_j} (\lambda) = (\lambda - \lambda_j)^{t_j} \quad t_j \leq m_j \\
+r(\lambda) = (\lambda - \lambda_1)^{t_1} \cdots (\lambda - \lambda_k)^{t_k} \\
+\st (r) = t_1 + t_2 + \cdots + t_k \leq m_1 + m_2 + \cdots + m_k = \st (m_\A (\lambda))
+\end{gather*}
+Ker je $(\A_j - \lambda \I_j)^{t_j} = 0$, velja 
+\begin{equation*}
+r(\A) = (\A - \lambda_1 \I_1)^{t_1}\cdots (\A - \lambda_k \I_k)^{t_k} = 0
+\end{equation*}
+Zato je $t_1 + \cdots + t_k = m_1 + \cdots + m_k$. Od tod dobimo $t_j = m_j \quad \forall j$.

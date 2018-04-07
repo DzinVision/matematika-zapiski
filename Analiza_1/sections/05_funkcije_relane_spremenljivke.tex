@@ -2783,3 +2783,206 @@ Iz tega sledi
 $|R((f \circ \varphi) \varphi', \overline{D}, T_{\overline{D}}) -I| < \varepsilon$, "ce velja $\delta(D) < \delta$. $D = \{\varphi(t_0), \ldots, \varphi(t_n)\}$, torej bo $\delta(D) < \delta$, ko bo $\delta(\overline{D}) < \delta'$.
 
 \hfill $\square$
+\subsubsection{Izrek o povpre"cjih}
+Naj bo $f$ integrabilna na $[a, b]$. Potem je povpre"cje $p$
+\begin{equation*}
+p = \dfrac{1}{b - a} \int_{a}^{b}f(x) dx
+\end{equation*}
+%
+\textsc{Izrek:} Naj bosta $f$ in $g$ integrabilni funkciji na $[a, b]$.
+\begin{align*}
+m = \inf_{[a, b]} f && M = \sup_{[a, b]} f
+\end{align*}
+Denimo, da je $g$ enakega predznaka na $[a, b]$ (bodisi $g \geq 0$, ali $g \leq 0$ na $[a, b]$). Tedaj velja
+\begin{equation*}
+\int_{a}^{b} f(x) dx = \mu \int_{a}^b g(x) dx
+\end{equation*}
+za nek $\mu \in [m, M]$. "Ce je $f$ zvezna funkcija, potem obstaja $c \in [a, b]$, da velja
+\begin{equation*}
+\int_{a}^{b} f(x) g(x) dx = f(c) \int_a^b g(x) dx
+\end{equation*}
+\textsc{Dokaz:} Denimo, da je $g(x) \geq 0$ za vse $x \in [a, b]$. Vemo:
+\begin{gather*}
+m \leq f(x) \leq M \quad \forall x \in [a, b] \\
+m g(x) \leq f(x) g(x) \leq M g(x) \quad \forall x \in [a, b]
+\end{gather*}
+Iz monotonosti integrala sledi
+\begin{equation*}
+m \int_{a}^{b} g(x) dx \leq \underbrace{\int_{a}^{b} f(x) g(x) dx}_{\mu \int_a^b g(x) dx \quad \mu \in [m, M]} \leq M \int_a^b g(x) dx
+\end{equation*}
+\begin{enumerate}
+	\item 
+	\begin{equation*}
+	\int_a^b g(x) dx \neq 0 \Rightarrow \mu = \dfrac{\int_a^b f(x) g(x) dx}{\int_a^b g(x) dx}
+	\end{equation*}
+	
+	\item
+	\begin{equation*}
+	\int_a^b g(x) dx = 0 \Rightarrow \mu \in [m, M]
+	\end{equation*}
+\end{enumerate}
+"Ce je $f$ zvezna dose"ze vse vrednosti na $[m, M]$, torej obstaja $c \in [a, b]$, da velja $f(c) = \mu$.
+
+\textsc{Izrek:} Naj bo $f$ zvezna funkcija na $[a, b]$, funkcija $g$ nenegativna, padajo"ca in zvezno odvedljiva na $[a, b]$. Potem velja
+\begin{equation*}
+\int_a^b f(x) g(x) dx = g(a) \int_a^c f(x) dx
+\end{equation*}
+kjer je $c \in [a, b]$.
+
+\textsc{Dokaz:} Naj bo $F(x) = \int_a^x f(t) dt$. $F$ je primitivna funkcija od $f$ (zvezno odvledljiva).
+\begin{gather*}
+I = \int_a^b f(x) g(x) dx = \int_a^b F'(x) g(x) dx = g(x) = g(x) F(x)|_a^b - \int_a^b F(x) g'(x) dx = \\
+= g(b) F(b) - g(x) \underbrace{F(a)}_0 + \int_a^b F(x) (\underbrace{-g'(x)}_{\geq 0}) dx
+\end{gather*}
+Ozna"cimo
+\begin{align*}
+m = \inf F && M = \sup F
+\end{align*}
+Velja
+\begin{equation*}
+m(-g'(x)) \leq F(x) (-g'(x)) \leq M(-g'(x))
+\end{equation*}
+Zaradi monotonosti integrala velja
+\begin{gather*}
+-m \int_a^b g'(x) dx \leq \int_a^b F(x) (-g'(x)) dx \leq -M \int_a^b g'(x) dx \\
+-m (g(b) - g(a)) \leq \int_a^b F(x) (-g'(x)) dx  \leq -M (g(b) - g(a))
+\end{gather*}
+Torej velja
+\begin{align*}
+I &\leq \underbrace{g(b)}_{\geq 0} \underbrace{F(b)}_{\leq M} - M(g(b) - g(a)) \leq M g(b) - M(g(b) - g(a)) = M g(a) \\
+I &\geq g(b) m - m (g(b) - g(a)) = m g(a)
+\end{align*}
+Izpeljali smo $mg(a) \leq I \leq M g(a)$. Iz tega sledi
+\begin{equation*}
+I = \mu g(a)
+\end{equation*}
+za nek $\mu \in [m, M]$. Ker je $F$ zvezna, obstyaja $c \in [a, b]$, da velja $F(c) = \mu$. Torej velja
+\begin{equation*}
+I = g(a) \int_a^c f(t)dt
+\end{equation*}
+\hfill $\square$
+
+\subsubsection{Posplo"seni integral}
+\deff Naj bo funkcija $f: (a, b] \to \RR$ integrabiln na vsakem intervalu $[t, b]$ za vsak $t \in (a, b)$. Potem je \emph{posplo"seni integral} funkcije $f$ na $[a, b]$
+\begin{equation*}
+\int_a^b f(x) dx = \lim_{t \downarrow a} \int_t^b f(x) dx
+\end{equation*}
+"ce t limita obstaja.
+
+"Ce ta limita obstaja, pravimo da je $f$ \emph{posplo"eno integrabilna} na $[a, b]$ in da je $\int_a^b f(x)dx$ \emph{konvergenten}. sicre pravimo, da je $\int_a^b f(x)dx$ \emph{divergenten}.
+
+\textsc{Opombe:}
+\begin{enumerate}[(i)]
+	\item Podobna definicija velja za funkcije $f: [a, b) \to \RR$.
+	\item Posplo"senemu integralu se re"ce tudi \emph{izlimitirani}, v"casih tudi \emph{nepravi} integral.
+	\item "Ce je $f$ integrabilna na $[a, b]$, je $f$ posplo"seno integrabilna na $[a, b]$ in integrala se ujemata, ker je integral kot funkcija zgornje meje zvezna funkcija.
+	\item Posplo"seni integral je smiselno obravnavati npr.\, za zvezna funkcije na $(a, b]$, ki so v okolici to"cke $a$ neomojene. Ni pa nujno, da je taka funkcija posplo"seno integrabilna.
+\end{enumerate}
+%
+\textsc{Izrek:} Naj bo $f: (a, b] \to \RR$ taka funkcija, ki je integrabilna na $[a, t]$ za vsak $t \in (a, b)$. "Ce obstaja posplo"seni integral $\int_a^b |f(x)| dx$, potem obstaja tudi $\int_a^b f(x) dx$.
+
+\textbf{Opomba:} "Ce je $f$ absolutno integrabilna, potem je $f$ integrabilna.
+
+\textsc{Dokaz:}
+\begin{align*}
+F(x) = \int_a^x f(t)dt && G(x) = \int_a^x |f(t)| dt
+\end{align*}
+"Ce je $x \in [a, b)$, sta $f, |f|$ integrabilni na $[a, x]$, zato sta $F$ in $G$ zvezni na $[a, b)$. 
+
+Po definiciji posplo"senega integrala velja
+\begin{gather*}
+\int_a^b |f(x)| dx = \lim_{t \uparrow b} \int_a^t |f(x)| dx = \lim_{t \uparrow b} G(t) \\
+x_1 < x_2: |F(x_2) - F(x_1)| = \left| \int_a^{x_2} f(t) dt - \int_a^{x_1} f(t)dt \right| = \left| \int_{x_1}^{x_2} f(t) dt \right| \leq \\
+\leq \int_{x_1}^{x_2} |f(t)| dt = |G(x_2) - G(x_1)|
+\end{gather*}
+Ker $G$ izpolnjuje Cauchyjev pogoj pri $b$, izplonjuje tudi $F$ Cauchyjev pogoj pri $b$. Zato obstaja $\lim_{x \uparrow b} F(x)$
+
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $f$ integrabilna na $[a, b]$.
+\begin{enumerate}[(a)]
+	\item "Ce je $s < 1$, potem
+	\begin{equation*}
+	\int_a^b \dfrac{f(x)}{(x-a)^s} dx
+	\end{equation*}
+	konvergira.
+	
+	\item "Ce je $s \geq 1$ in "ce je funkcija v okolici to"cke $a$ omejena stran od 0, t.j. $\exists m \in \RR, m > 0: |f(x)| \geq m$ za vse $x$ blizu $a$, potem
+	\begin{equation*}
+	\int_a^b \dfrac{f(x)}{(x-a)^s} dx
+	\end{equation*}
+	divergira.
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[(a)]
+	\item $s < 1$: vemo, da iz absolutne integrabilnosti sledi integrabilnost, zato je dovolj dokazati, da obstaja 
+	\begin{equation*}
+	\int_a^b \left| \dfrac{f(x)}{(x-a)^s} \right| dx
+	\end{equation*}
+	Ker je $f$ integrabilna, je omejena. Zato obstaja $M \in \RR$, da je $|f(x)| \leq M$ za vse $x \in [a, b]$.
+	\begin{equation*}
+	\int_t^b \left| \dfrac{f(x)}{(x - a)^s} \right| dx \leq \int_t^b \left| \dfrac{M}{(x-a)^s} \right| dx
+ 	\end{equation*}
+ 	za $t \in (a, b)$. Po definiciji posplo"senega integrala
+ 	\begin{equation*}
+ 	\int_a^b \left| \dfrac{f(x)}{(x-a)^s} \right| dx = \lim_{t \downarrow a} \underbrace{\int_t^b \left| \dfrac{f(x)}{(x-a)^s} \right| dx}_\text{nara"scajo, ko gre $t$ proti $a$}
+ 	\end{equation*}
+ 	Ko gre $t$ proti $a$, velja
+ 	\begin{equation*}
+ 	\int_a^b \dfrac{M}{(x-a)^s} = \int_0^{b-a} \dfrac{M}{u^s} du
+ 	\end{equation*}
+ 	kjer je $u = x-a$. Ta integral obstaja, ker je $s < 1$. Limita obstaja, ker so vsi integrali omejeni in nara"s"cajo.
+ 	
+ 	\item $f(x) \geq m > 0$ za vse $x$ blizu $a$ ($x \in (a, a+\delta)$ za nek $\delta > 0$).
+ 	\begin{equation*}
+ 	t \in (a, a+\delta): \int_t^{a + \delta} \dfrac{f(x)}{(x-a)^s} dx \geq \int_t^{a + \delta} \dfrac{m}{(x-a)^s} dx
+ 	\end{equation*}
+ 	Ko gre $t$ proti $a$, gre integral proti $\infty$.
+\end{enumerate}
+\hfill $\square$
+
+\textbf{Opomba:} Pogoj v to"cki (b) je gotovo izpolnjen, "ce je $\lim_{x \downarrow a} f(x) \neq 0$. Posebej, "ce je $f$ zvezna na $[a, b]$, potem je pogoj v (b) izpolnjen, "cim je $f(a) \neq 0$.
+
+\deff Naj bo funkcija $f: [a, c) \cup (c, b] \to \RR$ integrabilna na $[a, s]$ za vse $s \in (a, c)$ in na $[t, b]$ za vse $t \in (c, b)$. Potem je posplo"seni integral funkcije $f$ na $[a, b]$ definiran s
+\begin{equation*}
+\int_a^b f(x) dx = \lim_{s \uparrow c} \int_a^s f(x) dx + \lim_{t \downarrow c} \int_t^b f(x) dx
+\end{equation*}
+"ce obe limiti obstajata.
+
+\emph{Cauchyjeva glavna vrednost}:
+\begin{equation*}
+v.p. \int_a^b f(x) dx = \lim_{\delta \downarrow 0} \left( \int_a^{c - \delta} f(x) dx + \int_{c + \delta}^b f(x) dx\right)
+\end{equation*}
+\textbf{Opombe:}
+\begin{enumerate}
+	\item Podobno definiramo posplo"seni integral na ve"c (kon"cno mnogo) izjemnih to"ck.
+	\item "Ce obstaja posplo"seni integral, poitem obstaja glavna vrednost. Obratno pa v splo"snem ne velja.
+\end{enumerate}
+%
+\subsubsection{Posplo"seni integral na neomejenem intervalu}
+\deff Naj bo $f: [a, \infty) \to \RR$ (posplo"seno) integrabilna na vsakem $[a, s]$ za vse $s > a$. Potem je \emph{posplo"seni integral} funkcije $f$ na $[a, \infty)$ definiran
+\begin{equation*}
+\int_a^\infty f(x) dx = \lim_{s \to \infty} \int_a^s f(x) dx
+\end{equation*}
+"ce obstaja kon"cna limita. V tem primeru re"cemo, da je $f$ \emph{posplo"seno integrabilna} na $[a, \infty)$, in da je integral \emph{konvergenten}.
+
+"Ce kon"cna limita ne obstaja, pravimo, da integral \emph{divergira}.
+
+Podobno definiramo na $(-\infty, a]$ in na $(-\infty, \infty)$
+
+\textsc{Izrek:} Naj bo $f: [a, \infty) \to \RR$ integrabilna funkcija na $[a, b]$ za vsak $b > a$. "Ce obstaja $\int_a^\infty |f(x)| dx$, potem obstaja $\int_a^\infty f(x) dx$.
+
+\textsc{Dokaz:} Podoben kot zadnji"c, zato ga izpleji doma.
+
+\textsc{Izrek:} Naj bo $f: [a, \infty) \to \RR$ integrabilna funkcija na $[a, b]$  za vsak $b > a$. Tedaj $\int_a^\infty f(x) dx$ konvergira natanko tedaj, kadar
+\begin{equation*}
+\forall \varepsilon > 0 \exists M \in \RR \forall c, c' \geq M: \left| \int_c^{c'} f(x) dx \right| < \varepsilon
+\end{equation*}
+\textsc{Dokaz:} $F(x) = \int_a^x f(t) dt$
+
+$\int_a^\infty f(t) dt$ konvergira natanko tedaj, kadar obstaja (kon"cna) limita $\lim_{x \to \infty} F(x)$. To je natanko tedaj, kadar $F$ v $\infty$ izpolnjuje Cauchyjev pogoj:
+\begin{gather*}
+\forall \varepsilon > 0 \exists M \in \RR \forall c, c' \geq M: |F(c) - F(c')| < \varepsilon \\
+|F(c) - F(c')| = \left| \int_a^c f(t) dt - \int_a^{c'} f(t) dt \right| = \left| \int_c^{c'} f(t) dt \right|
+\end{gather*}
+\hfill $\square$

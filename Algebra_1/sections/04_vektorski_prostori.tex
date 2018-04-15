@@ -2590,3 +2590,182 @@ Ker je $(\A_j - \lambda \I_j)^{t_j} = 0$, velja
 r(\A) = (\A - \lambda_1 \I_1)^{t_1}\cdots (\A - \lambda_k \I_k)^{t_k} = 0
 \end{equation*}
 Zato je $t_1 + \cdots + t_k = m_1 + \cdots + m_k$. Od tod dobimo $t_j = m_j \quad \forall j$.
+
+\subsubsection{Endomorfizmi z eno samo lastno vrednostjo}
+(na $\OO = \CC$)
+
+Naj bo $\A \in \LL(V)$ in $\rho \in \CC$ edina lastna vrednost $\A$. Potem je
+\begin{align*}
+\Delta_{\A} (\lambda) &= (-1)^n (\lambda - \rho)^n \\
+m_\A (\lambda) &= (\lambda - \rho)^r, \quad 1 \leq r \leq n
+\end{align*}
+Po definiciji minimalnega polinoma velja
+\begin{align*}
+(\A - \rho \I)^r &= 0 \\
+(\A - \rho \I)^{r - 1} & \neq 0
+\end{align*}
+
+Definiramo
+\begin{equation*}
+\B = \A- \rho \I
+\end{equation*}
+kjer je $\B^r = 0$ in $\B^{r - 1} \neq 0$. Pravimo, da je $\B$ \emph{nilpotent} in $r$ \emph{indeks nilpotentnosti}. Potem velja
+
+\begin{align*}
+\Delta_\B (\lambda) &= (-1)^n \lambda^n \\
+m_\B (\lambda) &= \lambda^r
+\end{align*}
+Ozna"cimo
+\begin{equation*}
+V_i = \ker \B^i, \quad i = 0, 1, \ldots
+\end{equation*}
+in velja $\B^0 = \I$. "Ce $i \geq r$, potem $V_i = V$. in $V_0 = \{0\}$. Velja
+\begin{equation*}
+x \in V_i \Rightarrow B^i x = 0 \Rightarrow B^{i+1} x = B(B^i x) = 0 \Rightarrow x \in V_{i + 1}
+\end{equation*}
+zato velja
+\begin{equation*}
+\{0\} = V_0 \subseteq V_1 \subseteq \cdots \subseteq V_r = V
+\end{equation*}
+\textbf{Lastnosti:}
+\begin{enumerate}
+	\item $x \in V_i \iff Bx \in V_{i-1}$
+	
+	\textsc{Dokaz:}
+	\begin{equation*}
+	x \in V_i \iff B^i x = 0 \iff B^{i-1} (Bx) = 0 \iff Bx \in V_{i-1}
+	\end{equation*}
+	
+	\item "Ce so $v_1, \ldots, v_p \in V_i$ linearno neodvisni in velja $\Lin \{v_1, \ldots, v_p\} \cap V_{i-1} = \{0\}$, potem so tudi $\B v_1, \ldots \B v_p \in V_{i-1}$ linearno neodvisni in velja $\Lin \{\B v_1, \ldots, \B v_p\} \cap V_{i-2} = \{0\}$.
+	
+	\textsc{Dokaz:} 
+	\begin{gather*}
+		y \in \Lin \{\B v_1, \ldots, \B v_p\} \cap V_{i-2} \\
+		y = \alpha_1 \B v_1 + \cdots + \alpha_p \B v_p = \B (\alpha_1 v_1 + \cdots + \alpha_p v_p) \in V_{i-2} \\
+		\Rightarrow \alpha_1 v_1 + \cdots + \alpha_p v_p \in V_{i-1} \cap \Lin \{v_1, \ldots, v_p\} \\
+		\Rightarrow \alpha_1 = \cdots = \alpha_p = 0 \\
+		\Rightarrow y = 0
+	\end{gather*}
+	iz dokaza sledi tudi $\B v_1, \ldots, \B v_p$ so linearno neodvisni.
+\end{enumerate}
+
+Iz skice v zvezku sledi, da je baza vektorskega prostora $W$
+\begin{equation*}
+\mathcal{W} = \{\B^{q-1}x, \B^{q-2}x, \ldots, x\}
+\end{equation*}
+$W$ invarianten za $\B$, za kar zado"s"ca opaziti $\B w \subseteq W$.
+
+$J_q$ je matrika, ki pripada zo"zitvi $\B$ na $W$ glede na urejeno bazo $\mathcal{W}$.
+\begin{equation*}
+J_q  = \begin{bmatrix}
+0 & 1 & 0 \\
+0 & \ddots & 1 \\
+0 & 0 & 0
+\end{bmatrix} \in \CC^{q \times q}
+\end{equation*}
+Pravimo, da je $J_q$ \emph{Jordanova celica}. 
+
+Zapi"semo lahko Jordanovo bazo za $\B$:
+\begin{equation*}
+\{v_1^{(1)}, v_1^{(2)}, \ldots, v_1^{(r)}, v_2^{(1)}, \ldots, v_2^{(*)}, \ldots, v_{s_1}^{(1)}, \ldots, v_{s_1}^{(*)}\}
+\end{equation*}
+$J(B)$ je matrika, ki pripada $\B$ v Jodranovi bazi. Je blo"cno diagonalna, bloki pa so Jordanove celice
+\begin{equation*}
+J(B) = \diag (J_r, \ldots, J_t)
+\end{equation*}
+
+\subsubsection*{Splo"sna situacija}
+$\A \in \LL(V)$
+\begin{align*}
+\Delta_\A(\lambda) &= (-1)^n (\lambda - \lambda_)^{n_1} \cdots (\lambda - \lambda_k)^{n_k} \\
+m_\A (\lambda) &= (\lambda - \lambda_1)^{m_1} \cdots (\lambda - \lambda_k)^{m_k}
+\end{align*}
+Vemo
+\begin{gather}
+V = W_1 \oplus \cdots \oplus W_k \\
+W_j = \ker (\A - \lambda_j \I)^{m_j} \\
+\end{gather}
+Vemo tudi, da je $W_j$ invarianten za $\A$ in $\A_j := \A_{W_j} \in \LL(W_j)$.
+
+Poi"s"cemo Jordanove baze za endomorfizme $\A_j$ in jih razvrstimo po vrsti v bazo v.p.\,$V$. Dobimo Jordanovo bazo endomorfizma $\A$. $J(\A)$ je Jodranova matrika endomorfizma $\A$, ki pripada $\A$ v Jordanovi bazi.
+\begin{equation*}
+J(\A) = \diag( J(\A_1), \ldots, J(\A_k))
+\end{equation*}
+Pravimo, da je $n_j$ \emph{algebrajska kratnost} $\lambda_j$.
+\begin{equation*}
+J(\A_j) = \diag (J_{r_1}(\lambda_j), \ldots, J_{r_p}(\lambda_j))
+\end{equation*}
+kjer je $r_1 = m_j$ in $p = \dim (\ker (\A_j - \lambda_j \I_j)) = \dim(\ker(\A - \lambda_j \I))$. Pravimo, da je $p$ \emph{geometri"cna kratnost} $\lambda_j$.
+
+Jordanova matrika je do vrstenga reda blokov z isto lastno vrednostjo na diagonali enoli"cno dolo"cena.
+
+\textsc{Matri"cna verzija}
+
+$J(A)$ je Jordanova matrika za $A$ (Jordanova kanoni"cna forma matirke $A$). Jordanova baza za $A$ je
+\begin{equation*}
+\{P^{(1)}, \ldots, P^{(n)}\}
+\end{equation*}
+in velja zveza
+\begin{equation*}
+P^{-1}AP = J(A)
+\end{equation*}
+
+\subsubsection{Funkcije matrik}
+Vemo, da je $J = \rho I + N$. Zelo hitro se razbere
+\begin{align*}
+N^j e_1 &= 0 \\
+\vdots \\
+N^j e_j &= 0 \\
+N^j e_{j + 1} &= e_1 \\
+\vdots \\
+N^j e_r &= e_{r-r}
+\end{align*}
+Vemo "ze
+\begin{gather*}
+p(\lambda) = a_0 + a_1 \lambda + \cdots + a_s \lambda^s \\
+p(N) = a_0 I + a_1 N + \cdots + a_s N^s \\
+p(N) = \begin{bmatrix}
+a_0 & a_1 & \cdots & a_s & & \\
+& \ddots & \ddots & & \ddots & \\
+& & \ddots & \ddots & &  a_s \\
+&&& \ddots & \ddots & \\
+&&&& \ddots & a_1 \\
+&&&&& a_2
+\end{bmatrix}
+\end{gather*}
+,,Taylor'' za polinom $p(\lambda)$:
+\begin{equation*}
+p(\lambda) = p(\rho) + p'(\rho)(\lambda - \rho) + \dfrac{p''(\rho)}{2} (\lambda - \rho)^2 + \cdots + \dfrac{p^{(j)}(\rho)}{j!} (\lambda - \rho)^j + \cdots
+\end{equation*}
+Vemo $J - \rho I = N$. Od tod sledi
+\begin{equation*}
+p(J) = p(\rho)I + p'(\rho) N + \dfrac{p''(\rho)}{2} N^2 + \cdots + \dfrac{p^{(j)}(\rho)}{j!} N^j + \cdots
+\end{equation*}
+Naj bo $f$ povsod definirina in odvadljiva. Potem velja
+\begin{equation*}
+f(\lambda) = \sum_{j = 0}^\infty \dfrac{1}{j!} f^{(j)} (\rho) (\lambda - \rho)^j
+\end{equation*}
+Od tod sledi:
+\begin{equation*}
+f(J) = \sum_{j = 0}{r-1} \dfrac{1}{j!} f^{(j)} (\rho) N^j
+\end{equation*}
+Naj bo $A \in \CC^{n \times n}$. Potem je $J(A)$ Jordanova matrika za $A$. Potem je 
+\begin{equation*}
+J(A) = \diag(J_*, \ldots, J_*)
+\end{equation*}
+kjer so $J_*$ Jordanove celice. Definiramo
+\begin{equation*}
+f(J(A)) := \diag(f(J_*), \ldots, f(J_*))
+\end{equation*}
+$f$ se da razviti v Taylorjevo vrsto v okolici \emph{spektra} matrike $A$.
+\begin{equation*}
+\spec A = \{\lambda_1, \ldots, \lambda_k\}
+\end{equation*}
+Vemo $P^{-1}AP = J(A)$. Torej velja $A = PJ(A)P^{-1}$. Za polinome velja
+\begin{equation*}
+p(A) = P p(J(A)) P^{-1}
+\end{equation*}
+Definicijo je smiselno raz"siriti na vse funkcije in velja
+\begin{equation*}
+f(A) := Pf(J(A)) P^{-1}
+\end{equation*}

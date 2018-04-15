@@ -2972,7 +2972,7 @@ Podobno definiramo na $(-\infty, a]$ in na $(-\infty, \infty)$
 
 \textsc{Izrek:} Naj bo $f: [a, \infty) \to \RR$ integrabilna funkcija na $[a, b]$ za vsak $b > a$. "Ce obstaja $\int_a^\infty |f(x)| dx$, potem obstaja $\int_a^\infty f(x) dx$.
 
-\textsc{Dokaz:} Podoben kot zadnji"c, zato ga izpleji doma.
+\textsc{Dokaz:} Podoben kot zadnji"c, zato ga zpelji doma.
 
 \textsc{Izrek:} Naj bo $f: [a, \infty) \to \RR$ integrabilna funkcija na $[a, b]$  za vsak $b > a$. Tedaj $\int_a^\infty f(x) dx$ konvergira natanko tedaj, kadar
 \begin{equation*}
@@ -2986,3 +2986,96 @@ $\int_a^\infty f(t) dt$ konvergira natanko tedaj, kadar obstaja (kon"cna) limita
 |F(c) - F(c')| = \left| \int_a^c f(t) dt - \int_a^{c'} f(t) dt \right| = \left| \int_c^{c'} f(t) dt \right|
 \end{gather*}
 \hfill $\square$
+
+\textsc{Izrek} Naj bo $g: [a, \infty) \to \RR$ zvezna funkcija, $a > 0$.
+\begin{enumerate}[(1)]
+	\item "Ce je $g$ omejena na $[a, \infty)$ in $\alpha > 1$, potem
+	\begin{equation*}
+	\int_a^\infty \dfrac{g(x)}{x^\alpha} dx
+	\end{equation*}
+	konvergira.
+	
+	\item "Ce je $g$ omejena stran od 0 na $[a, \infty)$ (t.j.\,$\exists m \in \RR, m > 0: |g(x)| \geq m$ za vse $x \in [a, \infty)$) in je $\alpha \leq 1$, potem
+	\begin{equation*}
+	\int_a^\infty \dfrac{g(x)}{x^\alpha} dx
+	\end{equation*}
+	divergira.
+\end{enumerate}
+\textsc{Dokaz:} $\int_a^\infty \frac{g(x)}{x^\alpha}$ \quad $\frac{g(x)}{x^\alpha}$ je zvezna na $[a, \infty)$, zato je integrabilna na $[a, b]$ za vsak $b > a$. Za $M > a$ velja
+\begin{gather*}
+\int_a^M \dfrac{g(x)}{x^\alpha} dx = - \int_{\frac{1}{a}}^{\frac{1}{M}} \dfrac{g \left( \frac{1}{t} \right)}{t^{-\alpha + 2}} dt = \int_{\frac{1}{M}}^{\frac{1}{a}} \dfrac{g\left( \frac{1}{t} \right)}{t^{2 - \alpha}}dt 
+\end{gather*}
+Ali obstaja posplo"seni integral $\int_0^\frac{1}{a} \frac{g\left(\frac{1}{t}\right)}{t^{2 - \alpha}} dt$ ?
+
+$\frac{g \left(\frac{1}{t}\right)}{t^{2 - \alpha}}$ je zvezna na $(0, \frac{1}{a})$ in $g$ je omejena v okolici $0$. Po izreku iz preteklosti, integral konvergira, "ce je $2 - \alpha < 1$ ($1 < \alpha$), "ce pa je $2 - \alpha \geq 1$ in $g(\frac{1}{t})$ omejena stran od 0, potem integral divergira.
+
+\hfill $\square$
+
+\textsc{Izrek:} (integralski kirterij za konvergenco vrst)
+
+Naj bo $f: [1, \infty) \to \RR$ monotono padajo"ca in nenegativna. Potem $\int_1^\infty f(x) dx$ konvergira natanko tedaj, kadar konvergira $\sum_{n =1}^\infty f(n)$.
+
+\textsc{Dokaz:} Za $x \in [n, n+1)$ velja
+\begin{equation*}
+f(2) + f(3) + \cdots + f(n) \leq \int_1^n f(t) dt \leq \int_1^x f(t) dt \leq \int_1^{n+1} f(t) dt \leq f(1) + f(2) + \cdots f(n)
+\end{equation*}
+$\sum_{n=1}^{\infty} f(n)$ konvergira $\iff$ zaporedje $s_n$ konvergira $\iff$ zaporedje $s_n$ je navzgor omejeno (vemo, da je nara"s"cajo"ce) $\iff x \mapsto \int_1^x f(t) dt$ navzgor omejena (vemo, da je nara"s"cajo"ca) $\iff \int_1^\infty f(t) dt$ konvergira.
+%
+\subsubsection{Uporaba integrala v geometriji}
+\begin{enumerate}
+	\item \textbf{Plo"s"cina lika med grafoma zveznih funkcij}
+	\begin{enumerate}[(a)]
+		\item Naj bosta $f, g: [a, b] \to \RR$ zvezni funkciji in denimo, da je $f(x) \leq g(x)$ za vsak $x \in [a, b]$. Naj bo
+		\begin{equation*}
+		D = \{(x, y) \in \RR^2; a \leq x \leq b, f(x) \leq y \leq g(b)\}
+		\end{equation*}
+		Tedaj je plo"s"cina lika med grafoma
+		\begin{equation*}
+		pl(D) = \int_a^b (g(x) - f(x)) dx
+		\end{equation*}
+		
+		\item Naj bosta $f, g: [a, b] \to \RR$ zvezni funkciji.
+		\begin{equation*}
+		D = \{(x, y) \in \RR^2; a \leq x \leq b, \text{$y$ le"zi med $f(x)$ in $g(x)$}\}
+		\end{equation*}
+		Tedaj je plo"s"cina med grafoma
+		\begin{equation*}
+		pl(D) = \int_a^b |f(x) - g(x)| dx
+		\end{equation*}
+	\end{enumerate}
+
+	\item \textbf{Plo"s"cina obmo"cja, ki je dano s krivuljo}
+	\begin{enumerate}[(a)]
+		\item Naj bo $F: [a, b] \to \RR^2$ zvezno odvedljiva pot. Pi"simo $F = (x, y)$, kjer sta $x, y: [a, b] \to \RR$ zvezno odvedljivi.
+		\begin{enumerate}[(i)]
+			\item "Ce je $y(t) \geq 0$ za vse $t \in [a, b]$ in je 
+			\begin{align*}
+			x(a) &= \min_{t \in [a, b]} \{x(t)\} \\
+			x(b) &= \max_{t \in [a, b]} \{x(t)\}
+			\end{align*}
+			Potem plo"s"cino lika med krivuljo in abscisno osjo nad intervalom $[x(a), x(b)]$ izra"cunamo
+			\begin{equation*}
+			\int_a^b y(t) \dot{x}(t) dt
+			\end{equation*}
+			
+			\item "Ce je $x(t)\geq 0$ in je 
+			\begin{align*}
+			y(a) &= \min_{t \in [a, b]} \{t(t)\} \\
+			y(b) &= \max_{t \in [a, b]} \{t(t)\}
+			\end{align*}
+			Potem je plo"s"cina lika med krivuljo in ordinatno osjo na $[y(a), y(b)]$
+			\begin{equation*}
+			\int_a^b x(t) \dot{y}(t) dt
+			\end{equation*}
+		\end{enumerate}
+		\textsc{Dokaz:} Ideja dokaza v zvezku (vsebuje same skice).
+		
+		\deff Naj bo $F: [a, b] \to \RR^2$ regularna parametrizacija gladkega loka $K$. Potem $F$ dolo"ca orientacijo (usmerjenost) krivulje $K$. Ta je dolo"cena s smerjo v kateri se gilbje to"cka $F(t)$ po krivulji $K$, ko gre $t$ od $a$ do $b$.
+		
+		\emph{Gladka enostavna sklenjena krivulja} je gladka pot $K$, ki ima regularno paramterizacijo $F: [a, b] \to \RR^2$, za katero velja
+		\begin{equation*}
+		F(a) = F(b), \quad \dot{F}(a) = \dot{F}(b)
+		\end{equation*}
+		in $F|_{[a, b]}$ je injektivna.
+	\end{enumerate}
+\end{enumerate}

@@ -3069,13 +3069,133 @@ $\sum_{n=1}^{\infty} f(n)$ konvergira $\iff$ zaporedje $s_n$ konvergira $\iff$ z
 			\end{equation*}
 		\end{enumerate}
 		\textsc{Dokaz:} Ideja dokaza v zvezku (vsebuje same skice).
-		
-		\deff Naj bo $F: [a, b] \to \RR^2$ regularna parametrizacija gladkega loka $K$. Potem $F$ dolo"ca orientacijo (usmerjenost) krivulje $K$. Ta je dolo"cena s smerjo v kateri se gilbje to"cka $F(t)$ po krivulji $K$, ko gre $t$ od $a$ do $b$.
-		
-		\emph{Gladka enostavna sklenjena krivulja} je gladka pot $K$, ki ima regularno paramterizacijo $F: [a, b] \to \RR^2$, za katero velja
-		\begin{equation*}
-		F(a) = F(b), \quad \dot{F}(a) = \dot{F}(b)
-		\end{equation*}
-		in $F|_{[a, b]}$ je injektivna.
 	\end{enumerate}
 \end{enumerate}
+%
+\deff Naj bo $F: [a, b] \to \RR^2$ regularna parametrizacija gladkega loka $K$. Potem $F$ dolo"ca orientacijo (usmerjenost) krivulje $K$. Ta je dolo"cena s smerjo v kateri se gilbje to"cka $F(t)$ po krivulji $K$, ko gre $t$ od $a$ do $b$.
+
+\emph{Gladka enostavna sklenjena krivulja} je gladka pot $K$, ki ima regularno paramterizacijo $F: [a, b] \to \RR^2$, za katero velja
+\begin{equation*}
+F(a) = F(b), \quad \dot{F}(a) = \dot{F}(b)
+\end{equation*}
+in $F|_{[a, b]}$ je injektivna.
+
+\deff Naj bo $D$ obmo"cje, ki ga omejuje gladka sklenjena krivulja $K$. Regularna parametrizacija $F$ krivulje $K$ dolo"ca \emph{pozitivno usmerjenost} krivulje $K$ (pozitivno orientacijo), "ce je $D$ na levi strani, ko se vzdol"z $K$ premikamo v smeri, ki jo dolo"ca $F$.
+
+\textsc{Trditev:} Naj bo $F: [a, b] \to \RR^2$, $F = (x, y)$ regularna parametrizacija gladke enostavne sklenjene krivulje $K$, ki dolo"ca pozitivno usmerjenost $K$. Potem je plo"s"cina obmo"cja $D$ znotraj $K$ enaka
+\begin{equation*}
+pl = \int_a^b x(t) \dot{y}(t)dt = - \int_a^b \dot{x}(t) y(t) dt = \dfrac{1}{2} \int_a^b (x(t) \dot{y}(t) - x(t) \dot{y}(t))dt
+\end{equation*}
+\textsc{Dokaz:} V zvezku se nahaja skica. Naj bo $t_a$ vrednost parametra $t$, pri katerem je vrednost $x$ minimalna in $t_b$ vrednost parametra $t$, pri katerem je vrednost $x$ maksimalna. 
+
+To"cki $F(t_a)$ in $F(t_b)$ razdelita $K$ na dva loka.
+
+\begin{equation*}
+\int_a^b y(t) \dot{x}(t) dt = \int_{a}^{t_b} y(t) \dot{x}(t) dt + \int_{t_b}^{t_a} y(t) \dot{x}(t) dt + \int_{t_b}^{b} y(t) \dot{x}(t) dt = -pl
+\end{equation*}
+
+\textsc{Trditev:} Naj bo $r = r(\varphi), \varphi \in [\alpha, \beta]$ zvezno odvedljiva polarno podana krivulja. Potem je plo"s"cina obmo"cja, ki ga dolo"ca krivulja skupaj z daljicama $\varphi = \alpha, 0 \leq r \leq r(\alpha)$ in $\varphi = \beta, 0 \leq r \leq r(\beta)$ enaka
+\begin{equation*}
+pl = \dfrac{1}{2} \int_{\alpha}^{\beta} r^2 (\varphi) d\varphi
+\end{equation*}
+
+\textsc{Dokaz:} Krivuljo parametriziramo
+\begin{align*}
+x(\varphi) &= r(\varphi) \cos \varphi \\
+y(\varphi) &= r(\varphi) \sin \varphi
+\end{align*}
+
+\begin{multline*}
+\dfrac{1}{2} (x(\varphi) \dot{y} (\varphi) - \dot{x}(\varphi) y(\varphi)) = \\
+=\dfrac{1}{2} (r(\varphi) \cos \varphi (\dot{r}(\varphi) \sin \varphi + r(\varphi) \cos \varphi) - (\dot{r}(\varphi) \cos \varphi - r(\varphi) \sin \varphi) r(\varphi) \sin \varphi) = \\
+= \dfrac{1}{2} r^2 (\varphi) (\cos^2 \varphi + \sin^2 \varphi) = \dfrac{1}{2} r^2(\varphi)
+\end{multline*}
+"Ce parametriziramo daljici dobimo
+\begin{align*}
+x &= x  && \dot{x} = 1 \\
+y &= kx + n && \dot{y} = k
+\end{align*}
+Od tu sledi:
+\begin{equation*}
+x \dot{y} - \dot{x}y = kx - kx = 0
+\end{equation*}
+
+\subsubsection{Dol"zina loka}
+\deff Naj bo $F: [a, b] \to \RR^2$ pot, ki dolo"ca krivuljo $K, F= (\alpha, \beta)$. Izberemo delitev intervala $[a, b]$:
+\begin{equation*}
+a = t_0 < t_1 < \cdots < t_{n-1} < t_n = b
+\end{equation*}
+Pot $F$ na $j$-tem podintervalu zamenjamo z daljico od $F(t_{j-1})$ d0 $F(t_j)$. Dol"zina poligonalne krivulje, ki aproksimira $F$ je
+\begin{equation*}
+l(D) = \sum_{j=1}^{n} \sqrt{\left( \alpha(t_j) - \alpha(t_{j-1}) \right)^2 + (\beta(t_j) - \beta(t_{j-1}))^2}
+\end{equation*}
+Dol"zina poti $F$ je
+\begin{equation*}
+l(F) = \sup \{l(D), \text{$D$ delitev $[a, b]$}\}
+\end{equation*}
+Pravimo, da je pot $F$ \emph{izmerljiva}, "ce je $l(F) < \infty$.
+
+\textsc{Izrek:} Naj bo $F = (x, y): [a, b] \to \RR^2$ zvezno odvedljiva pot. Potem je dol"zina poti
+\begin{equation*}
+l(F) = \int_a^b \sqrt{\dot{x}^2(t) + \dot{y}^2(t)} dt
+\end{equation*}
+\textsc{Dokaz:} Naj bo $D$ delitev $[a, b]: a = t_0 < t_1 \cdots t_{n-1} < t_n = b$.
+\begin{equation*}
+l(D) = \sum_{j=1}^{n} \sqrt{(y(t_j) - y(t_{j-1}))^2 + (x(t_j) - x(t_{j-1}))^2}
+\end{equation*}
+Po Lagrangeevem izreku velja
+\begin{equation*}
+y(t_j) - y(t_{j-1}) = \dot{y}(s_j) (t_j - t_{j-1})
+\end{equation*}
+kjer je $s_j \in (t_{j-1}, t_j)$. Podobno velja za $x$
+\begin{equation*}
+x(t_j) - x(t_{j-1}) = x(v_j) (t_j - t_{j-1}) \quad v_j \in (t_{j-1}, t_j)
+\end{equation*}
+Dobimo
+\begin{multline*}
+l(D) = \sum_{j=1}^n \sqrt{\dot{y}^2(s_j) (t_j-t_{j-1})^2 + \dot{x}^2(v_j) (t_j - t_{j-1})^2} = \\
+= \sum_{j=1}^n \sqrt{\dot{y}^2(s_j) + \dot{x}^2(v_j)} (t_j - t_{j-1}) \approx R\left( \sqrt{\dot{x}^2 + \dot{y}^2}, D, T_D \right)
+\end{multline*}
+Ocenimo razliko
+\begin{multline*}
+\left| R\left( \sqrt{\dot{x}^2 + \dot{y}^2}, D, T_D \right) - l(D) \right| = \\
+= \left| \sum_{j=1}^n \sqrt{\dot{y}^2(c_j) + \dot{x}^2(c_j)} (t_j - t_{j-1}) - \sum_{j=1}^n \sqrt{\dot{y}^2(s_j) + \dot{x}^2(v_j)} (t_j - t_{j-1}) \right|
+\end{multline*}
+kjer je $T_D = \{c_1, \ldots, c_n\}$. Poglejmo si razliko enega "clena v vsoti
+\begin{multline*}
+\left| \sqrt{\underbrace{\dot{y}^2(c_j) + \dot{x}^2(c_j)}_{A}} - \sqrt{\underbrace{\dot{y}^2(s_j) + \dot{x}^2(v_j)}_{B}} \right| = 
+\left| \dfrac{\dot{x}^2(c_j) + \dot{y}^2(c_j) - \dot{x}^2(v_j) - \dot{y}^2(s_j)}{\sqrt{A} + \sqrt{B}} \right| \leq \\
+\leq \dfrac{|\dot{x}(c_j) - \dot{x}(v_j)| |\dot{x}(c_j) + \dot{x}(v_j)|}{\underbrace{\sqrt{A}}_{\geq |\dot{x}(c_j)|} + \underbrace{\sqrt{B}}_{\geq |\dot{x}(v_j)|}} +
+\dfrac{|\dot{y}(c_j) - \dot{y}(v_j)| |\dot{y}(c_j) + \dot{y}(v_j)|}{\underbrace{\sqrt{A}}_{\geq |\dot{y}(c_j)|} + \underbrace{\sqrt{B}}_{\geq |\dot{y}(v_j)|}} \leq \\
+\leq |\dot{x}(c_j) - \dot{x}(v_j)| + |\dot{y}(c_j) - \dot{y}(v_j)|
+\end{multline*}
+Dobili smo
+\begin{equation*}
+\left| R\left( \sqrt{\dot{x}^2 + \dot{y}^2}, D, T_D \right) - l(D) \right| \leq \sum_{j=1}^n ( |\dot{x}(c_j) - \dot{x}(v_j)| + |\dot{y}(c_j) - \dot{y}(v_j)| )(t_j - t_{j-1})
+\end{equation*}
+Ker sta $x$ in $y$ zvezno odvedljiva na $[a, b]$, sta funkciji $\dot{x}$ in $\dot{y}$ enakomerno zvezni na $[a, b]$, zato za $\varepsilon >0$ obstaja $\delta_0 > 0$, da "ce je $|s' - s''| < \delta_0$, potem je $|\dot{x}(s') - \dot{x}(s'')| < \varepsilon$ in $|\dot{y}(s') - \dot{t}(s'')| < \varepsilon$.
+
+"Ce je $\delta(D) < \delta_0$, potem sledi 
+\begin{equation*}
+\left| R\left( \sqrt{\dot{x}^2 + \dot{y}^2}, D, T_D \right) - l(D) \right| < \sum_{j=1}^n 2\varepsilon (t_j - t_{j-1}) = 2\varepsilon(b-a)
+\end{equation*}
+Ker je $\sqrt{\dot{x}^2 + \dot{y}^2}$ integrabilna (zvezna) funkcija, po definiciji Riemmanovega integrala za vsak $\varepsilon > 0$ obstaja $\delta_1 > 0$, da za vsako delitev $D$, kjer je $\delta(D) < \delta_1$ in za vsako izbiro $T_D$ velja
+\begin{equation*}
+|I -  R\left( \sqrt{\dot{x}^2 + \dot{y}^2}, D, T_D \right)| < \varepsilon
+\end{equation*}
+Torej za vsak $\varepsilon > 0$ in $\delta < \min \{\delta_0, \delta_1\}$ velja, da je $|I - l(D)| < \varepsilon$.
+
+\dashuline{$S = \sup\{l(D)\} = I$}
+
+Naj bo $D$ poljubna delitev. Naj bo $D'$ finej"sa delitev od delitve $D$, da bo
+\begin{equation*}
+\delta(D') < \min\{\delta_0, \delta_1\}
+\end{equation*}
+Velja $|I - l(D')| < \varepsilon + 2 \varepsilon(b - a)$.
+
+Obstaja delitev $D: |l(D) - s| < \varepsilon$
+\begin{multline*}
+|S - I| = |S - l(D') + l(D') - I| \leq \\
+\leq |S - l(D')| + |l(D') - I| \leq S - l(D) + (l(D') - I) < \varepsilon + \varepsilon + 2\varepsilon(b-a)
+\end{multline*}
+\hfill $\square$

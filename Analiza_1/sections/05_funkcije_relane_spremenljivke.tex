@@ -3199,3 +3199,124 @@ Obstaja delitev $D: |l(D) - s| < \varepsilon$
 \leq |S - l(D')| + |l(D') - I| \leq S - l(D) + (l(D') - I) < \varepsilon + \varepsilon + 2\varepsilon(b-a)
 \end{multline*}
 \hfill $\square$
+
+\subsubsection*{Dol"zina grafa funkcije $f$}
+Naj bo $f$ zvezno odvedljiva na intervalu $[a, b]$. Potem je dol"zina njenega grafa na intervalu $[a, b]$
+\begin{equation*}
+l(\Gamma_f) = \int_a^b \sqrt{1 + f'(x)^2} dx
+\end{equation*}
+Parametrizacja grafa $\Gamma_f$: 
+\begin{equation*}
+F(x) = (x, f(x)), \quad x \in D_f = [a, b]
+\end{equation*}
+
+\subsubsection*{Dol"zina polarno podane krivulje}
+\begin{align*}
+r = r(\varphi) && \varphi \in [\alpha, \beta]
+\end{align*}
+Dol"zina loka je
+\begin{equation*}
+l(r(\varphi)) = \int_\alpha^\beta \sqrt{r(\varphi)^2 + r'(\varphi)^2} d\varphi
+\end{equation*}
+Parametrizacija grafa je
+\begin{gather*}
+F(\varphi)  = (r(\varphi) \cos \varphi, r(\varphi) \sin \varphi) \\ 
+|\dot{F} (\varphi)| = \sqrt{r'(\varphi)^2 + r(\varphi)^2}
+\end{gather*}
+
+\deff Pravimo, da je pot $F: [a, b] \to \RR^2$ \emph{gladka}, "ce sta $x$ in $y$ zvezno odvedljivi in $\dot{x}^2 + \dot{y}^2 > 0$ (t.j.\,regularna parametrizacija). \emph{Gladek lok} je tir gladke injektivne poti.
+
+\textsc{Trditev:} Naj bosta $F$ in $G$ injektivni regularni parametrizaciji istega gladkega loka $K$, t.j.\,$F:[a,b] \to \RR^2, G: [c, d] \to \RR^2$ in velja
+\begin{equation*}
+F([a, b]) = G([c, d])
+\end{equation*}
+Potem je $l(F) = l(G)$.
+
+\textbf{Opomba:} Dol"zina gladkega loka $K$ je dol"zina njegove regularne parametrizacije.
+
+\emph{Dokaz:} Vemo, da obstaja $\varphi: [a, b] \to [c, d]$, za katero velja
+\begin{equation*}
+G \circ \varphi = F
+\end{equation*}
+in velja $\varphi$ odvedljiva in $\varphi'(x) \neq 0 \forall x$. Potem je
+\begin{align*}
+G = (\alpha, \beta) && F = (\alpha \circ \varphi, \beta \circ \varphi)
+\end{align*}
+Vemo
+\begin{equation*}
+l(G) = \int_c^d \sqrt{\dot{x}(s)^2 + \dot{y}(s)^2} ds
+\end{equation*}
+Za $l(F)$ pa velja
+\begin{multline*}
+l(F) = \int_a^b \sqrt{((\alpha \circ \varphi)' (t))^2 + ((\beta \circ \varphi)'(t))^2} dt = \\
+= \int_a^b \sqrt{(\dot{\alpha}(\varphi(t)))^2 + (\dot{\beta}(\varphi(t)))^2} |\dot{\varphi}(t)| dt = \int_d^c \sqrt{\dot{\alpha}(s)^2 + \dot{\beta}(s)^2} (-ds)
+\end{multline*}
+Kjer smo naredili substitucijo $s = \varphi(t) \Rightarrow ds = \dot{\varphi}(t) dt$. "Ce je $\dot{\varphi} > 0$ potem $\varphi(a) = c, \varphi(b) = d$, kar pomeni, da je $l(F) = l(G)$. "Ce je $\dot{\varphi} < 0$, potem je $\varphi(a) = d, \varphi(b) = c$.
+
+\hfill $\square$
+
+\subsubsection{Naravni parameter}
+Naj bo $F = (\alpha, \beta): [a, b] \to \RR^2$ injektivna regularna parametrizacija gladkega loka $K$. Potem funkcija
+\begin{equation*}
+\varphi(t) = \int_a^t \sqrt{\dot{\alpha}(s)^2 + \dot{\beta}(s)^2} ds
+\end{equation*}
+izmeri dol"zino loka $K$ med $F(a)$ in $F(t)$.
+
+Ker je $\dot{\varphi}(t) = \sqrt{\dot{\alpha}(s)^2 + \dot{\beta}(s)^2} ds$, je $\varphi$ zvezno odvedljiva, strogo nara"s"cajo"ca funkcija, ki slika $[a, b]$ na interval $[0, l(K)]$. Njen inverz ozna"cimo s $\varphi^{-1}$ in je zvezno odvedljiv.
+
+Potem je
+\begin{equation*}
+G := F \circ \varphi^{-1}: [0, l(K)] \to \RR^2
+\end{equation*}
+regularna parametrizacija loka $K$.
+
+Naj bo $G = (\tilde{\alpha}, \tilde{\beta})$. Potem velja
+\begin{equation*}
+\sqrt{\dot{\tilde{\alpha}}(s)^2 + \dot{\tilde{\beta}}(s)^2} = 1
+\end{equation*}
+Torej je $G$ regularna parametrizacija gladkega loka $K$, za katero velja
+\begin{equation*}
+\int_0^{s_0}  \sqrt{\dot{\tilde{\alpha}}(s)^2 + \dot{\tilde{\beta}}(s)^2}  ds = s_0
+\end{equation*}
+Torej: dol"zina dela $K$ od $G(0)$ do $G(s_0)$ je $s_0$.
+
+Parameter pri parametrizacija $G$ meri dol"zino loka, zato ga imenujemo \emph{naravni parameter}, parametrizacijo $G$ pa \emph{naravna parametrizacija}. FIzikalno je to taka parametrizacija, pri kateri se po krivulji premikamo s hitrostjo 1.
+
+\deff Diferencial dol"zine loka gladke krivulje ozna"cimo z $ds$ in ga imenujemo \emph{lo"cna dol"zina}.
+
+Za $F = (\alpha, \beta)$ je $ds = \sqrt{\dot{\alpha}(t)^2 + \dot{\beta}(t)^2} dt$ in $l = \int_a^s ds$. Zapi"semo lahko tudi
+\begin{equation*}
+ds = \sqrt{(\dot{\alpha}(t) dt)^2 + (\dot{\beta}(t)dt)^2} = \sqrt{(dx)^2 + (dy)^2}
+\end{equation*}
+
+\subsubsection{Prostornine in povr"sine vrtenin}
+\deff Ploskev, ki jo dobimo z vrtenjem grafa funkcija $f$ nad $[a, b]$ okrog abscisne osi imenujemo \emph{rotacijska ploskev}, telo, ki ga omejuje, pa \emph{vrtenina}.
+
+\subsubsection*{Prostornina vrtenine:}
+Naj bo $f: [a, b] \to [0, \infty)$ zvezna funkcija. Pribli'zek za prostornino vrtenine:
+
+"Ce je $D$ delitev intervala $[a, b]$, je vsote prostornin ,,valjev'' enaka
+\begin{equation}\label{key}
+\sum_{j = 1}^{n} \pi f(t_j)^2 (x_j - x_{j - 1}) = R(\pi f^2, D, T_D)
+\end{equation}
+Ta vsota pa limitira proti $\int_a^b f(x)^2 dx$. Torej velja
+\begin{equation*}
+V = \pi \int_a^b f(x)^2 dx
+\end{equation*}
+
+\subsubsection*{Plo"s"cina rotacijske ploskve}
+Valj je slaba aproksimacija za povr"sino. Bolj"sa je prisekani sto"zec.
+
+Naj bo $f: [a, b] \to [0, \infty)$ zvezno odvedljiva in naj bo $D$ delitev intervala $[a, b]$. Nad $[x_{j-1}, x_j]$ aproksimiramo graf funkcije z daljico od $(x_{j-1}), f(x_{j-1})$ do $(x_j, f(x_j))$. Ko daljico zavrtimo okrog abscisne osi, dobimo prisekani sto"zec s povr"sino
+\begin{equation*}
+\pi (f(x_j) + f(x_{j-1}) \sqrt{(x_j - x_{j-1})^2 + (f(x_j) - f(x_{j-1}))^2}
+\end{equation*}
+Torej je pribli"zek za povr"sino
+\begin{multline*}
+\sum_{j=1}^{n} \pi (f(x_j) + f(x_{j-1}) \sqrt{(x_j - x_{j-1})^2 + (\underbrace{f(x_j) - f(x_{j-1})}_{f'(t_j) (x_j - x_{j-1})}^2} = \\
+= \sum_{i=1}^n \pi ( f(x_{j-1}) + f(x_j)) \sqrt{1 + (f'(t_j))^2} (x_j - x_{j-1}) \stackrel{\delta(D) \downarrow 0}{\longrightarrow} 2\pi \int_a^b f(x) \sqrt{q + (f'(x))^2} dx
+\end{multline*}
+Torej velja
+\begin{equation*}
+P = 2\pi \int_a^b f(x) \sqrt{1 + (f'(x))^2} dx
+\end{equation*}

@@ -1,0 +1,41 @@
+\deff Naj bo $D \subseteq \RR$ in $f_n : D \to \RR$ funkcije za vsak $n \in \NN$. Potem pravimo, da je
+\begin{equation*}
+\{f_n\} = \{f_n: D \to \RR\}
+\end{equation*}
+\emph{funkcijsko zaporedje}.
+
+"Ce za vsak $x \in D$ "stevilsko zaporedje $\{f_n(x)\}$ konvergira, pravimo da funkcijsko zaporedje $f_n$ \emph{konvergira} na $D$ (konvergira po to"ckah). V tem primeru definirmao funkcijo $f: D \to \RR$ s predpisom
+\begin{equation*}
+f(x) = \lim_{n \to \infty} f_n(x)
+\end{equation*}
+in jo imenujemo \emph{limitna funkcija}.
+
+\deff Naj bo $D \subseteq \RR$ in $\{f_n: D \to \RR \}$ funkcijsko zaporedje. Pravimo, da $\{f_n\}$ \emph{konvergira enakomerno} proti funkciji $f: D \to \RR$ na $D$, "ce za vsak $\varepsilon > 0$ obstaja $n_0 \in \NN$, da za vse $n \geq n_0$ in vse $x \in D$ velja $|f_n (x) - f(x)| < \varepsilon$.
+
+\textbf{Opomba:} "Ce funkcijsko zaporedje $\{ f_n \}$ konvergira enakomerno na $D$ proti $f$, potem $\{ f_n \}$ konvergira proti $f$, t.j.\,$f$ je limitna funkcija $\{ f_n \}$.
+
+$f$ je limitna funkcija $\{ f_n \} \iff \forall x \in D: f(x) = \lim_{n \to \infty} f_n(x) \iff$
+\begin{equation*}
+\forall x \in D \forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0 : |f_n(x) - f(x)| < \varepsilon
+\end{equation*}
+$f_n$ enakomerno konvergira proti $f$ na $D \iff$
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0 \forall x \in D: |f_n(x) - f(x)| < \varepsilon
+\end{equation*}
+
+V definiciji enakomerne konvergence ozna"cimo
+\begin{equation*}
+M_n := \sup_{x \in D} |f_n (x) - f(x)|
+\end{equation*}
+Za obravnavo enakomerne konvergence moramo obravnavati $M_n$, ki pa je "stevilsko zaporedje. $f_n$ enakomerno konvergira proti $f$ natanko takrat, kadar zaporedje $M_n$ konvergira proti 0.
+
+\textbf{Geometrijska interpretacija:} $M_n < \varepsilon \iff$ graf funkcije $f_n$ le"zi v $\varepsilon$-pasu okrog grafa $f$. $f_n \to f$ enakomerno na $D \iff \forall \varepsilon > 0$ vsi grafi funkcije $f_n$ za dovolj velik $n$ le"zijo znotraj $\varepsilon$-pasu okrog grafa $f$.
+
+\deff Naj bo $D \subseteq \RR$ in $\{ f_n : D \to \RR \}$ funckijsko zaporedje. Pravimo, da je $\{ f_n \}$ \emph{enakomerno Cauchyjevo} na $D$, "ce velja
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0 \forall x \in D : |f_n(x) - f_m(x)| < \varepsilon
+\end{equation*}
+
+\textsc{Izrek:} Naj bo $D \subseteq \RR, \{f_n : D \to \RR \}$ funkcijsko zaporedje. Tedaj je $\{ f_n \}$ enakomerno konvergentno na $D$ natanko takrat kadar je $\{ f_n \}$ enakomerno Cauchyjevo na $D$.
+
+\textsc{Dokaz:} Doka"zemo podobno kot za zaporedja.

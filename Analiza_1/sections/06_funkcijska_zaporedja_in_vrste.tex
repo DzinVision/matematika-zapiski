@@ -39,3 +39,60 @@ Za obravnavo enakomerne konvergence moramo obravnavati $M_n$, ki pa je "stevilsk
 \textsc{Izrek:} Naj bo $D \subseteq \RR, \{f_n : D \to \RR \}$ funkcijsko zaporedje. Tedaj je $\{ f_n \}$ enakomerno konvergentno na $D$ natanko takrat kadar je $\{ f_n \}$ enakomerno Cauchyjevo na $D$.
 
 \textsc{Dokaz:} Doka"zemo podobno kot za zaporedja.
+
+\textsc{Izrek:} Naj bo $D \subset \RR$ in $\{ f_n : D \to \RR \}$ funkcijsko zaporedje. "Ce so vse funkcije $f_n$ zvezne na $D$ in $\{ f_n \}$ enakomerno konvergira proti $f$ na $D$, potem je $f$ zvezna na $D$.
+
+\textbf{Opomba:} Protiprimer je $f_n (x) = x^n$ na $[0, 1]$.
+
+\textsc{Dokaz:} Dokazujemo, da je $f$ zvezna na $D$. Izberemo poljuben $a \in D$ in dokazujemo, da je $f$ zvezna v to"cki $a$. Izberemo $\varepsilon > 0$ in i"s"cemo tak $\delta > 0$, da $\forall x \in D$ velja $|x - a| < \delta \Rightarrow |f(x) - f(a)| < \varepsilon$.
+\begin{multline*}
+|f(x) - f(a)| = |f(x) - f_{n_0}(x) + f_{n_0}(x) - f_{n_0}(a) + f_{n_0}(a) - f(a)| \leq \\
+\leq \underbrace{|f(x) - f_{n_0}(x)|}_{< \varepsilon/3} + \underbrace{|f_{n_0}(x) - f_{n_0}(a)|}_{< \varepsilon/3 \text{ za $|x - a| < \delta$}} + \underbrace{|f_{n_0}(a) - f(a)|}_{< \varepsilon/3} < \varepsilon
+\end{multline*}
+Ker $f_n$ enakomerno konvergira proti $f$, obstaja $n_0$, da za vsak $n \geq n_0$ velja, da za vsak $x \in D$
+\begin{equation*}
+|f_n(x) - f(x)| < \frac{\varepsilon}{3}
+\end{equation*}
+Ker je funkcija $f_{n_0}$ zvezna v to"cki $a$, obstaja $\delta > 0$, da za vsak $x \in D$ velja
+\begin{equation*}
+|x - a| < \delta \Rightarrow |f_{n_0}(x) - f_{n_0}(a)| < \dfrac{\varepsilon}{3}
+\end{equation*}
+\hfill $\square$
+
+\deff Naj bo $D \subset \RR$ in $\{ u_n : D \to \RR \}$ funkcijsko zaporedje.
+\begin{equation*}
+\sum_{n=1}^{\infty} u_n
+\end{equation*}
+pravimo \emph{funkcijska vrsta}. Funkcijska vrsta $\sum_{n=1}^\infty$ \emph{konvergira po to"ckah}, "ce za vsak $x \in D$ "stevilska vrsta
+\begin{equation*}
+\sum_{n=1}^\infty u_n(x)
+\end{equation*}
+konvergira.
+
+\textbf{Opomba:} Funkcijska vrsta konvergira po to"ckah natanko takrat, kadar funkcijsko zaporedje njenih delnih vsot konvergira po to"ckah. Torej za $x \in D$ vrsta $\sum_{n=1}^\infty u_n(x)$ konvergira $\iff \{ \sum_{n=1}^k u_n (x) \}_k$ konvergira $\iff s_k = \sum_{n=1}^k u_n$ konvergira v $x$.
+
+Naj bo $s$ vsota po to"ckah konvergentne funkcijske vrste $\sum_{n=1}^\infty u_n$, $s = \lim_{k \to \infty} s_k$. Pravimo, da $\sum_{n=1}^\infty$ \emph{konvergira proti $s$ enakomerno na $D$}, "ce funkcijsko zaporedje njenih delnih vsot $s_k = \sum_{n=1}^k u_n$ enakomerno konvergira proti $s$ na $D$.
+
+\textbf{Posledica:} "Ce je $\{ u_n: D \to \RR \}$ funkcijsko zaporedje zveznih funkcij in "ce $\sum_{n=1}^\infty u_n$ konvergira enakomerno na $D$ proti $s$, potem je $s$ zvezna funkcija na $D$.
+
+\textbf{Posledica:} Naj bo $\{ u_n : D \to \RR \}$ funkcijsko zaporedje. Tedaj velja $\sum_{n=1}^\infty u_n$ je enakomerno konvergentna na $D \iff \sum_{n=1}^\infty u_n$ je enakomerno Cauchyjeva na $D$, t.j.:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n > m \geq n_0 \forall x \in D: \left| \sum_{k=1}^n u_k(x) - \sum_{k=1}^m u_k(x) \right| = \left| \sum_{k = m+1}^n u_k(x) \right| < \varepsilon
+\end{equation*}
+
+\textsc{Izrek} (Weierstrassov kriterij za enakomerno konvergenco funkcijskih vrst, M-test):
+
+Naj bo $\{ u_n : D \to \RR \}$ funkcijsko zaporedje. Denimo, da obstaja konvergentna "stevilska vrsta $\sum_{n=1}^\infty c_n$ s pozitivnimi "cleni, za katero velja
+\begin{equation*}
+|u_n(x)| \leq c_n \quad \forall x \in D
+\end{equation*}
+Potem funkcijska vrsta $\sum_{n=1}^\infty u_n$ konvergira enakomerno (in absolutno) na $D$. "Ce se $u_n$ zvezne na $D$, potem je tudi vsota vrste zvezna na $D$.
+
+\textsc{Dokaz:} Iz $|u_n(x)| \leq c_n \forall x \in D$ z uporabo primerjalnega kriterija sledi, da $\sumalln{1} |u_n(x)|$ konvergira za vsak $x$. Torej vrsta $\sumalln{1} u_n$ po to"ckah absolutno konvergira, zato konvergira po to"ckah.
+
+Doka"zimo, da je $\sumalln{1} u_n$ enakomerno Cauchyjeva. Naj bo $k > m$, potem za vsak $x \in D$ velja
+\begin{equation*}
+\left| \sum_{n=1}^ku_n(x) - \sum{n=1}^m u_n(x) \right| = \left| \sum_{n= m+1}^{k} u_n(x) \right| \leq
+ \sum_{n = m+1}^k |u_n(x)| \leq \sum_{n = m+1}^k c_n < \varepsilon
+\end{equation*}
+Konvergentna "stevilska vrsta je Cauchyjeva, zato obstaja $n_0$, da za $k > m \geq n_0$ velja $\sum_{n = m+1}^k c_n < \varepsilon$

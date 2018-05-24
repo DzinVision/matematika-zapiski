@@ -96,3 +96,123 @@ Doka"zimo, da je $\sumalln{1} u_n$ enakomerno Cauchyjeva. Naj bo $k > m$, potem 
  \sum_{n = m+1}^k |u_n(x)| \leq \sum_{n = m+1}^k c_n < \varepsilon
 \end{equation*}
 Konvergentna "stevilska vrsta je Cauchyjeva, zato obstaja $n_0$, da za $k > m \geq n_0$ velja $\sum_{n = m+1}^k c_n < \varepsilon$
+
+\subsection{Integriranje in odvajanje funkcijskih zaporedij in vrst}
+\textsc{Izrek:} Naj bo $\{ f_n : [a, b] \to \RR \}$ funkcijsko zaporedje zveznih funkcij. "Ce funkcijsko zaporedje $\{ f_n \}$ konvergira proti funkciji $f: [a, b] \to \RR$ enakomernona $[a, b]$, potem velja
+\begin{equation*}
+\lim_{n \to \infty} \int_a^b f_n (x) dx = \int_a^b f(x) dx
+\end{equation*}
+\textsc{Dokaz:} Vemo, da je limitna funkcija zvezna na $[a, b]$. $f_n$ konvergira proti $f$ enakomerno na $[a, b]$:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0 \forall x \in [a, b] : |f_n(x) - f(x)| < \varepsilon
+\end{equation*}
+\begin{multline*}
+\left| \int_a^b f_n (x) dx - \int_a^b f(x) dx \right| = \left| \int_a^b (f_n(x) - f(x)) dx \right| \leq \\
+\leq \int_a^b | f_n(x) - f(x) | dx < \int_a^b \varepsilon dx = \varepsilon (b-a)
+\end{multline*}
+Torej zaporedje konvergira za $n \geq n_0$.
+
+\textsc{Posledica:} Naj bo $\{ u_n : [a, b] \to \RR \}$ funkcijsko zaporedje zveznih funkcij. Denimo, da $\sum_{n=1}^\infty u_n$ enakomerno konvergira na $[a, b]$. Potem velja
+\begin{equation*}
+\int_a^b \left( \sumalln{1} u_n (x) \right) dx = \sumalln{1} \left( \int_a^b u_n (x) dx \right)
+\end{equation*}
+\textbf{Opomba:} Enakomerno konvergentno funkcijsko vrsto iz zveznih funkcij lahko "clenoma integriramo.
+
+\textsc{Dokaz:} (skica) Funkcijsko zaporedje delnih vsot enakomerno konvergira in uporabimo prej"snji izrek.
+
+\textsc{Izrek:} Naj bo $\{ f_n : [a, b] \to \RR \}$ funkcijsko zaporedje zvezno odvedljivih funkcij. Denimo, da $\{ f_n' \}$ enakomerno konvergira na $[a, b]$ proti funkciji $g: [a, b] \to \RR$ in denimo, da obstaja $c \in [a, b]$, da $\{ f_n (c) \}$ konvergira. Potem $\{ f_n \}$ konvergira enakomerno na $[a, b]$ k neki funkciji $f$ in velja
+\begin{equation*}
+f' (x) = \lim_{n \to \infty} f_n'(x)
+\end{equation*}
+\textbf{Opomba:} Pri odvajanju izgubimo podatek o konstanti, zato potrebujemo da $\{ f_n(c) \}$ konvergira za nek $c$. Primer $f_n(x) = n$.
+
+\textsc{Dokaz:} Ker je $f_n'$ zvena funkcija, $f_n(x) = f_n(c) + \int_c^x f_n'(t) dt$ za vse $x \in [a, b]$. Po prej"snjem izreku $\int_a^b f_n'(t) dt$ konvergira in celotna funkcija konvergira proti
+\begin{equation*}
+\left( \lim_{n \to \infty} f_n (c) = L + \int_c^x g(t) dt \right) = f(x)
+\end{equation*}
+
+Torej za vsak $x \in [a, b]$ obstaja $\lim_{n \to \infty} f_n (x)$. Zato je $f_n$ konvergentna po to"ckah.
+
+Dokazati moramo "se,  da $f_n$ enakomerno konvergira. Izberemo poljuben $\varepsilon > 0$:
+\begin{multline*}
+|f_n(x) - f(x)| = \\
+= \left| f_n(c) + \int_c^x f_n'(t) dt - \lim_{n \to \infty} f_n(c) - \int_c^x g(t) dt \right| = \\
+= \left| f_n(c) - \lim_{n \to \infty} f_n (c) + \int_c^x (f_n'(t) - g(t)) dt \right| \leq \\
+\leq \underbrace{|f_n - \lim_{n \to \infty} f_n(c)|}_{< \varepsilon \text{ za velik $n$}} + \int_c^x \underbrace{|f_n'(t) - g(t)|}_{< \varepsilon \text{ za velik $n$}} dt < \varepsilon + \varepsilon(b-a)
+\end{multline*}
+\hfill $\square$
+
+\textsc{Posledica:} Naj bo $\{ u_n: [a, b] \to \RR \}$ funkcijsko zaporedje zvezno enakomernih funkcij. Denimo, da $\sumalln{0} u_n'$ konvergira enakomerno na $[a, b]$ in da obstaja $c \in [a, b]$, da $\sumalln{1} u_n(c)$ konvergira. Potem $\sumalln{1} u_n$ konvergira enakomerno na $[a, b]$ in velja
+\begin{equation*}
+\left( \sumalln{n=1} u_n (x) \right)' = \sumalln{1} u_n'(x) \quad \forall x \in [a, b]
+\end{equation*}
+\textsc{Dokaz:} Prej"senj izrek uporabimo na zaporedju delnih vsot.
+
+\subsection{Poten"cne vrste}
+\deff Poten"cna vrsta je vrsta oblike
+\begin{equation*}
+\sumalln{0} a_n (x-c)^n
+\end{equation*}
+kjer je $a_n$ "stevilsko zaporedje in $c \in \RR$. Re"cemo tudi poten"cna vrsta s \emph{sredi"s"cem} v $c$.
+
+\textsc{Izrek:} Naj bo $\sumalln{0} a_n (x - c)^n$ poten"cna vrsta. Obstaja $R \in [0, \infty) \cup \{ \infty \}$ z naslednjo lastnostjo:
+\begin{itemize}
+    \item $\forall x, |x - c| < R$,  je vrsta $\sumalln{0} a_n (x - c)^n$ konvergentna in absolutno konvergentna
+    \item $\forall x, |x - c| > R$, je vrsta $\sumalln{0} a_n (x - c)^n$ divergentna.
+\end{itemize}
+$R$ imanujemo \emph{konvergen"cni polmer}. "Ce je $r \in (0, R)$, potem poten"cna vrsta na $[c - r, c + r]$ enakomerno konvergira.
+\textsc{Dokaz:} za $c = 0$.
+
+Denimo, da poten"cna vrsta $\sumalln{0} a_n x^n$ konvergira pri $x = x_0 \neq 0$. Naj bo $r \in (0, |x_0|)$. Dokazujemo, da vrsta enakomerno konvergira na $[-r, r]$. Uporabimo Wirestrassov M-test.
+
+Vemo, da $\sumalln{0}a_n x_0^n$ konvergira, zato velja $\lim_{n \to \infty} |a_n x^n| = 0$. Zato obstaja $M \in \RR: |a_n x_0^n| < M$ za vsak $n \in \NN$.
+\begin{equation*}
+|a_n x^n| = |a_n| |x|^n \leq |a_n| |r|^n \leq \dfrac{M}{|x_0|^n} r^n = M \left( \dfrac{r}{|x_0|} \right)^n
+\end{equation*}
+$\sumalln{0} M \left( \frac{r}{|x_0|} \right)^n$ je geometrijska vrsta, z $q = \frac{r}{|x_0|} < 1$, zato konvergira. Po M-testu je $\sumalln{0} a_n x^n$ konvergenta in absolutno konvergentna in enakomerno konvergeira na $[-r, r]$. Velja
+\begin{equation*}
+R = \sup \{ |x_0|, \text{ $x_0$ vrsta konvergira} \}
+\end{equation*}
+"Ce za nek $y_0$ velja, da $\sum a_n y_0^n$ divergira, potem divergira za vse $y > y_0$. "Ce to ne bi veljalo, bi obstajal $y_1$,  za katerega vrsta konvergira in po prej"snjem dokazu konvergira tudi za vse $y < y_1$, torej tudi $y_0$, kar je protislovje. "Ce ne obstaja $y_0$, za katerega vrsta divergira, potem je $R = \infty$.
+
+\textsc{Posledica:} naj bo $\sumalln{0} a_n (x - c)^n$ poten"cna vrsta s konvergen"nim polmerom $R > 0$.
+\begin{enumerate}
+    \item Vsota poten"cne vrste je zvezna funkcija na $(c - R, c + R)$ (na $[c-r, c+r]$ konvergira enakomerno za vsak $r < R$.)
+    \item Vsoto poten"cne vrste lahko "clenoma integriramo in "clenoma odvajamo na $(c-R, c+R)$. Konvergen"cni polmer se ohrani.
+    \begin{gather*}
+     \left( \sumalln{0} a_n (x - c)^n \right)' = \sumalln{1} n a_n (x - c)^{n-1} \\
+     \int_c^x \left( \sumalln{0} a_n (t - c)^n \right)dt = \sumalln{0} \dfrac{a_n}{n+1} (x-c)^{n+1}
+    \end{gather*}
+    \item Vsota poten"cne vrste je funkcija $C^\infty ((c-R, c+R))$.
+\end{enumerate}
+
+\textsc{Izrek:} Naj bo $\sumalln{0} a_n (x - c)^n$ poten"cna vrsta in $R$ njen konvergen"cni polmer. Potem velja
+\begin{enumerate}
+    \item $\frac{1}{R} = \lim_{n \to \infty} \frac{|a_{n+1}|}{|a_n|}$, "ce ta limita obstaja
+    \item $\frac{1}{R} = \lim_{n \to \infty} \sqrt[n]{|a_n|}$, "ce ta limita obstaja
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}
+    \item Uporabimo kvocientni kriterij. Obravnavamo absolutno konvergenco $\sumalln{0} a_n (x - c)^n$:
+    \begin{gather*}
+    d_n = \dfrac{|a_{n+1}| |x-c|^{n+1}}{|a_n| |x-c|^n} = \dfrac{|a_{n+1}|}{|a_n|} |x-c| \\
+    \lim_{n \to \infty} d_n = \lim_{n \to \infty} \dfrac{|a_{n+1}|}{|a_n|} |x-c| = |x-c| \underbrace{\lim_{n \to \infty} \dfrac{|a_{n+1}|}{|a_n|}}_\text{obstaja po predp.} = |x-c| L
+    \end{gather*}
+    Po kvocientnem kriteriju velja
+    \begin{itemize}
+        \item $|x - c| L < 1 \iff | x - c| < \frac{1}{L}$ vrsta konvergira
+        \item $|x - c| L > 1 \iff |x - c| > \frac{1}{L}$ vrsta divergira
+    \end{itemize}
+    Torej je $\frac{1}{L} = R$ in velja
+    \begin{equation*}
+    \dfrac{1}{R} = L = \lim_{n \to \infty} \dfrac{|a_{n+1}|}{|a_n|}
+    \end{equation*}
+    
+    \item Podoben dokaz kot za to"cko (1).
+\end{enumerate}
+\hfill $\square$
+
+\textsc{Izrek:} (Cauchy -- Hadamart) Za konvergen"cni polmer $R$ poten"cne vrste $\sumalln{0} a_n (x - c)^n$ velja
+\begin{equation*}
+\dfrac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}
+\end{equation*}

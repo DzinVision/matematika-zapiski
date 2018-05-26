@@ -1,0 +1,71 @@
+Metri"cni prostor je mno"zica $M$, kjer je za vsak par to"ck $x, y \in M$ definirana razdalja $d(x, y)$. Lastnosti, ki jih od razdalje pri"cakujemo zdru"zimo v naslednji definiciji:
+
+\deff \emph{Metri"cni prostor} je neprazna mno"zica $M$ skupaj s preslikavo $d: M \times M \to \RR$, ki ustreza pogojem
+\begin{enumerate}
+    \item $d(x, y) \geq 0 \quad \forall x, y \in M \quad \text{in} \quad d(x, y) = 0 \iff x = y$
+    \item $d(x, y) = d(y, x)$
+    \item \emph{trikotni"ska neenakost:} $d(x, z) \leq d(x, y) + d(y, z) \quad \forall x, y, z \in M$
+\end{enumerate}
+Preslikavo $d$ imenujemo \emph{metrika} ali \emph{razdalja} na $M$, par $(M, d)$ imenujemo \emph{metri"cni prostor}.
+
+\deff Naj bo $(M, d)$ metri"cni prostor in naj bo $a \in M, r > 0$.
+
+\emph{Odprta krogla} s sredi"s"cem v $a$ in polmerom $r$ je mno"zica
+\begin{equation*}
+K(a, r) = \{x \in M, d(a, x) < r \}
+\end{equation*}
+\emph{Zaprta krogla} s sredi"s"cem v $a$ in polmerom $r$ je mno"zica
+\begin{equation*}
+\overline{K}(a, r) = \{ x \in M d(a, x) \leq r \}
+\end{equation*}
+\emph{Okolica to"cke} $a$ je vsaka taka podmno"zica $M$, ki vsebuje neko kroglo s sredi"s"cem v $a$ in pozitivnim polmerom.
+
+\deff Naj bo $(M, d)$ metri"cni prostor in naj bo $A \subset M$.
+\begin{enumerate}[(i)]
+    \item To"cka $a \in M$ je \emph{notranja to"cka} mno"zici $A$, "ce obstaja kak"sna okolica to"cke $a$, ki vsa le"zi v mno"zici $A$.
+    \begin{equation*}
+    \exists r > 0: K(a, r) \subset A
+    \end{equation*}
+    
+    \item To"cka $a \in M$ je \emph{zunanja to"cka} mno"zice $A$, "ce obstaja vsaj ena okoica to"cke $a$, ki ne vsebuje nobene to"cke iz $A$.
+    \begin{equation*}
+    \exists r > 0: K(a, r) \cap A = \varnothing
+    \end{equation*}
+    
+    \item To"cka $a \in M$ je \emph{robna to"cka} mno"zice $A$, "ce vsaka njena okolica seka $A$ in $A^c = M \setminus A$.
+    \begin{equation*}
+    \forall r > 0:(K(a, r) \cap A \neq \varnothing \land K(a, r) \cap (M \setminus A) \neq \varnothing)
+    \end{equation*}
+\end{enumerate}
+Mno"zico vseh notranjih to"ck ozna"cimo z $\mathring{A}$ ali z $\Int A$ in jo imenujemo \emph{notranjost} mno"zice $A$.
+
+Mno"zico vseh robnih to"ck ozna"cimo z $\partial A$ ali z $\Meja A$ in jo imenujemo \emph{rob} ali \emph{meja mno"zice} $A$.
+
+\textbf{Opombe:}
+\begin{enumerate}
+    \item Zunanje to"cke mno"zice $A$ so natanko notranje mno"zice $A^c$.
+    \item $M = \Int A \cup \Int(A^c) \cup \Meja A$, pri "cemer so te mno"zice paroma disjunktne.
+    \item Vsaka notranja to"cka mno"zice $A$ le"zi v $A$ ($\Int A \subset A$).
+    \item Nobena zunanja to"cka mno"zice $A$ ne le"zi v $A$.
+    \item Robne to"cke lahko le"zijo v $A$ ali v $A^c$.
+    \item Notranja to"cka mno"zice $A$ je zunanja to"cka mno"zice $A^c$.
+    \item Robna to"cka mno"zice $A$ je tudi robna to"cka mno"zice $A^c$ in obratno.
+\end{enumerate}
+%
+\deff Naj bo $(M, d)$ metri"cni prostor.
+
+ Pravimo, da je podmno"zica $O$ \emph{odprta}, "ce je vsaka njena to"cka notranja to"cka mno"zice $O$.
+
+Pravimo, da je podmno"zica $Z \subset M$ \emph{zaprta}, "ce vsebuje vse svoje robne to"cke.
+
+\textbf{Opombi:}
+\begin{gather*}
+O \subset M \text{ je odprta} \iff \Int O = O \\
+Z \subset M \text{ je zaprta} \iff \partial Z \subset Z
+\end{gather*}
+%
+\textsc{Trditev:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Potem je $A$ odprta natanko takrat, kadar je $A^c$ zaprt.
+
+\textsc{Dokaz:} Recimo, da je $O \subset M$ odprta. Torej $O = \Int O$. Zato le"zijo robne to"cke mno"zice $O$ v $O^c$. torej vse robne to"cke $O^c$ le"zijo v $O^c$. Zato je $O^c$ zaprta mno"zica.
+
+Reicmo, da je $Z \subset M$ zaprta. Potem $Z$ vsebuje svoje robne to"cke. Ker so robne to"cke $Z$ in $Z^c$ enake, $Z^c$ vsebuje samo notranje to"cke, torej je $Z^c$ opdrt.

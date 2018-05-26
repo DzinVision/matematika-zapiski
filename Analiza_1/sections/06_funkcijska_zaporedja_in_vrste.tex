@@ -216,3 +216,393 @@ R = \sup \{ |x_0|, \text{ $x_0$ vrsta konvergira} \}
 \begin{equation*}
 \dfrac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}
 \end{equation*}
+\textsc{Dokaz:} Omejimo se na vrste s sredi"s"cem 0 $\sumalln{0} a_n x^n$. Naj bo 
+\begin{equation*}
+a = \limsup_{n \to \infty} \sqrt[n]{|a_n|} \in [0, \infty) \cup \{ \infty \}
+\end{equation*}
+\begin{enumerate}
+    \item Denimo, da je $a = \infty$. Izberimo $x \neq 0$. $\infty$ je stekali"s"ce $\sqrt[n]{|a_n|}$. Torej obstajajo poljubno veliki indeksi $n$, da je $\sqrt[n]{|a_n|} > \frac{1}{|x|}$. Za te indekse $n$ velja
+    \begin{equation*}
+    |a_n| |x|^n > 1
+    \end{equation*}
+    Torej ne velja, da je $\lim_{n \to \infty} |a_n x^n| = 0$, zato vrsta $\sumalln{0} a_n x^n$ divergira. Sledi, da je $R = 0$.
+    
+    \item Denimo, da je $a \in [0, \infty)$. Izberimo poljuben $x, |x| < \frac{1}{a}$. Obstaja $q > 0$, da velja
+    \begin{equation*}
+    |x| < \frac{1}{q} < \frac{1}{a}
+    \end{equation*}
+    Ker je $a$ najve"cje stekali"s"ce $\sqrt[n]{|a_n|}$, obstaja $n_0 \in \NN$, da za vse $n \geq n_0$ velja
+    \begin{equation*}
+    \sqrt[n]{|a_n|} < q
+    \end{equation*}
+    Torej je $|a_n| \leq q^n$ za vse $n \geq n_0$. Zato je
+    \begin{equation*}
+    |a_n x^n| \leq |q x|^n
+    \end{equation*}
+    za vse $n \geq n_0$. Po definiciji $q$-ja vemo
+    \begin{equation*}
+    |qx| < 1
+    \end{equation*}
+    Po primerjalnem kriteriju vrsta $\sumalln{0} a_n x^n$ absolutno konvergira.
+    
+    Izberimo poljuben $x, |x| > \frac{1}{a}$, torej $a > \frac{1}{|x|}$. Obstajajo poljubno veliki indeksi, da je
+    \begin{equation*}
+    \sqrt[n]{|a_n|} > \dfrac{1}{|x|}
+    \end{equation*}
+    za te indekse $n$. Torej velja
+    \begin{equation*}
+    |a_n x|^n > 1
+    \end{equation*}
+    Zato ne velja, da bi $|a_n x^n|$ konvergiralo proti 0, torej vrsta $\sumalln{0} a_n x^n$ divergira.
+    
+    Sledi, da je
+    \begin{equation*}
+    a = \dfrac{1}{R}
+    \end{equation*}
+    \hfill $\square$.
+\end{enumerate}
+%
+\textsc{Izrek} (odvajanje in integriranj epoten"cnih vrst): Naj bo konvergen"cni polmer $R$ dane poten"cne vrste $\sumalln{0} a_n (x-c)^n = f(x)$ pozitiven. Potem imata vrsti, ki ju dobimo s "clenskim odvajanjem $\sumalln{1} n a_n (x - c)^{n-1}$ in s "clenskim integriranjem $\sumalln{0} \frac{a_n}{n + 1} (x - c)^{n+1}$ tudi konvergen"cen polmer $R$ in velja
+\begin{gather*}
+f'(x) = \sumalln{1} n a_n (x - c)^{n-1} \\
+\int_0^x f(t) dt = \sumalln{0} \frac{a_n}{n + 1} (x - c)^{n + 1} \quad x \in (-R, R)
+\end{gather*}
+\textsc{Dokaz:}
+\begin{align*}
+\limsup_{\toinf{n}} \sqrt[n]{|a_n|} &= \dfrac{1}{R} \\
+\limsup_{\toinf{n}} \sqrt[n]{\dfrac{|a_n|}{n+1}} &= \dfrac{1}{R} \\
+\limsup_{\toinf{n}} \sqrt[n]{n |a_n|} &= \dfrac{1}{R}
+\end{align*}
+\hfill $\square$
+
+\textsc{Izrek} (Abelov izrek): Naj bo $R > 0$ konvergen"cni polmer poten"cne vrste $\sumalln{0} a_n (x - c)^n$. "Ce vrsta v $x = R$ konvergira, potem je njena vstoa zvezna v $x = R$. Simetri"cno velja za $x = -R$.
+
+\subsubsection{Taylorjeva formula in Taylorjeva vrsta}
+Naj bo $p$ polinom stopnje $n$
+\begin{equation*}
+p(x) = a_0 + \cdots + a_n x^n
+\end{equation*}
+Za $a \in \RR$ velja
+\begin{align*}
+p(a+h) &= a_0 + a_1(a+h) + a_2 (a+h)^2 + \cdots + a_n (a+h)^n = \\
+&= b_0 + b_1 h + b_2 h^2 + \cdots + b_n h^n
+\end{align*}
+Za izra"cun koeficienta $b_0$, je o"citno da vstavimo $h=0$ in dobimo $b_0 = p(a)$. S pomo"cjo odvajanja lahko pridobimo "se ostale "clene
+\begin{align*}
+p'(a+h) &= b_1 + 2 b_2 h + \cdots + n b_n h^{n-1} \\
+p'(a) &= b_1 \\
+p''(a+h) &= 2 b_2 + 2 \cdot 3 b_3 h + \cdots + n \cdot (n-1) b_n h^{n-2} \\
+p''(a) &= 2 b_2
+\end{align*}
+Z nadaljevanjem tega postopka dobimo nasledenj polinom
+\begin{equation*}
+p(a+h) = p(a) + p'(a)h + \dfrac{p''(a)}{2} h^2 + \dfrac{p'''(a)}{3!} h^3 + \cdots + \dfrac{p^{(n)}(a)}{n!} h^n
+\end{equation*}
+%
+\deff Naj bo $f$ $n$-krat odvedljiva funkcija v okolici to"cke $a$. Polinom
+\begin{equation*}
+T_{n, a}(x) = f(a) + f'(a)(x-a) + \dfrac{f''(a)}{2}(x-a)^2 + \cdots + \dfrac{f^{(n)}(a)}{n!} (x-a)^n
+\end{equation*}
+imenujemo $n$-ti \emph{Taylorjev polinom} funkcije $f$ pri $a$.
+
+\textbf{Opomba:} Velja, "ce je $f$ polinom stopnje $n$, potem
+\begin{equation*}
+f(x) = T_{n, a} (x) \quad \forall x \in \RR
+\end{equation*}
+%
+V resnici nas zanima
+\begin{equation*}
+f(x) = T_{n, a}(x) + R_{n, a}(x)
+\end{equation*}
+kjer je $R_{n, a}$ ostanek. Za uporabo je pomembno oceniti ostanek. $T_{n, a}$ in $f$ imata v to"cki $a$ vse odvode do reda $n$ enake in aproksimacija bo ,,dobra'' blizu $a$, "ce je $n$ "cim ve"cji.
+
+\textsc{Taylorjev izrek:} Naj bo funkcija $f$ $(n+1)$-krat odvedljiva na odprtem intervalu $I$, ki vsebuje $a$. Potem za vsak $x \in I$ obstaja $c \in I$ med $a$ in $x$, da velja
+\begin{equation*}
+R_{n, a}(x) = \dfrac{f^{(n+1)}(c)}{(n+1)!} (x-a)^{n+1}
+\end{equation*}
+\textsc{Dokaz:} Po definiciji $R$ velja
+\begin{equation*}
+R_{n, a}(x) = f(x) - T_{n, a}(x)
+\end{equation*}
+Vemo, da $R_{n, a} (a) = 0$ in $R_{n, a}^{(k)} (a) = 0$ za $k \in \{ 1, 2, \ldots, n \}$.
+
+Fiksiramo $x$ in vemo, da obstaja $s \in \RR$, da velja
+\begin{equation*}
+R_{n, a} (x) = s(x - a)^{n+1}
+\end{equation*}
+Definiramo funkcijo
+\begin{equation*}
+G(y) = R_{n, a}(y)  - s(y-a)^{n+1}
+\end{equation*}
+Velja
+\begin{align*}
+G(x) = 0 && G^{(k)}(a) = 0 \quad k = 0, 1, \ldots, n
+\end{align*}
+Po Rollovem izrek obstaja $c_1$ med $a$ in $x$: $G'(c_1) = 0$. Ponovno uporabimo Rollov izrek in obstaja $c_2$ med $a$ in $c_1$: $G''(c_2) = 0$. Ta postopek nadaljujemo in obstaja $c$: $G^{(n+1)}(c) = 0$. Iz tu sledi
+\begin{multline*}
+G^{(n+1)} (y) = (R_{n, a}(y))^{(n+1)} - (s (y-a)^{n+1})^{(n+1)} = \\
+= (f(y) - T_{n, a}(y))^{(n+1)} - (n+1)!s = f^{(n+1)}(y) - s (n+1)!
+\end{multline*}
+Iz enakosti 
+\begin{equation*}
+R_{n, a}(x) = s(x - a)^{n+1}
+\end{equation*}
+sledi
+\begin{equation*}
+s = \dfrac{R_{n, a}(x)}{(x-a)^{n+a}}
+\end{equation*}
+Torej velja
+\begin{gather*}
+G^{(n+1)} (c) = 0 \\
+f^{(n+1)}(c)  - (n+1)! \dfrac{R_{n, a}(x)}{(x-a)^{n+1}} = 0 \\
+R_{n, a}(x) = \dfrac{f^{(n+1)} (c)}{(n+1)!} (x - a)^{n+1}
+\end{gather*}
+\hfill $\square$
+
+\deff "Ce je $f$ neskon"cnokrat odvedljiva v okolici to"cke $a$, ji lahko priredimo \emph{Taylorjevo vrsto}
+\begin{equation*}
+\sumalln{0} \dfrac{f^{(n)} (a)}{n!} (x-a)^n = \lim_{k \to \infty} T_{k, a} (x)
+\end{equation*}
+Za tiste $x$, za katere limita obstaja, t.j.\,za tiste $x$, za katere vrsta konvergira.
+
+\textbf{Opomba:} Taylorjeva vrsta je poten"cna vrsta s konvergen"cnim obmo"cjem.
+
+\textbf{Pozor:} Vsota Taylorjeve vrste, ki je prirejena $f$, ni nujno $f$.
+
+\textsc{Izrek:} Denimo, da je funkcija $f$ vsota konvergentne poten"cne vrste
+\begin{equation*}
+f(x) = \sumalln{0} c_n x^n \quad |x| < R \land R > 0
+\end{equation*}
+Potem za vsak $|a| < R$ velja
+\begin{equation*}
+f(x) = \sum_{k=0}^\infty \dfrac{f^{(k)}(a)}{k!} (x - a)^k
+\end{equation*}
+za vse $x, |x - a| < R - |a|$. T.j.\,$f$ je vsota prirejene Taylorjeve vrste.
+
+\textsc{Dokaz:} Za $a = 0$:
+\begin{equation*}
+f(x) = \sumalln{0} c_n x^n \quad f(0) = c_0
+\end{equation*}
+Na $(-R, R)$ poten"cno vrsto "clenoma odvajamo
+\begin{align*}
+f'(x) &= \sumalln{1} n c_n x^{n-1} \\
+f'(0) &= c_1\\
+f^{(k)}(x) &= \sumalln{k} n(n-1) \cdots (n - k + 1) c_n x^{n-k} \\
+f^{(k)}(0) &= k(k-1) \cdots 1 c_k = k! c_k \Rightarrow c_k = \dfrac{f^{(k)}(0)}{k!}
+\end{align*}
+Torej za $a = 0$ izrek velja.
+
+Za $a \neq 0$ definiramo $x = (x - a) + a$. Velja
+\begin{equation*}
+x^n = ((x-a) + a)^n = \sum_{k=0}^n \binom{n}{k} a^{n-k} (x-a)^k
+\end{equation*}
+To vstavimo v prvotno vrsto in dobimo
+\begin{multline*}
+f(x) = \sumalln{0} c_n x^n = \sumalln{n} \sum_{k=0}^n c_n \binom{n}{k} a^{n-k} (x-a)^k = \\
+= \sum_{k=}^\infty \left( \underbrace{\sum_{n = k}^\infty c_n \binom{n}{k} a^{n-k}}_{d_k} \right) (x - a)^k = \sum_{k=0}^\infty d_k (x - a)^k
+\end{multline*}
+Na enak na"cin kot v prvem delu dokaza dobimo
+\begin{equation*}
+d_k = \dfrac{f^{(k)}(a)}{k!}
+\end{equation*}
+\hfill $\square$
+
+\deff Naj bo $I$ odprt interval. Pravimo, da je funkcija $f: I \to \RR$ \emph{realno analiti"cna} na intervalu $I$, "ce
+\begin{equation*}
+\forall a \in I \exists r_a > 0: (a - r_a, a + r_a) \subset I
+\end{equation*}
+in je $f$ na $(a - r_a, a + r_a)$ vsota konvergentne poten"cne vrste s sredi"s"cem v $a$
+\begin{equation*}
+f(x) = \sumalln{0} c_n (x - a)^n
+\end{equation*}
+za vse $x \in (a - r_a, a + r_a)$
+
+\textbf{Oznaka:} $C^\omega (I)$ \dots razred vseh realno analiti"cnih funkcij na $I$.
+
+\textbf{Opombe:}
+\begin{enumerate}
+    \item Od prej vemo, da je $c_n = \frac{f^{(n)} (a)}{n!}$, torej je $f$ vsota prirejene Taylorjeve vrste na neki okolici to"cke $a$.
+    \item $C^\omega (I) \subsetneq C^\infty (I)$
+\end{enumerate}
+%
+\textsc{Taylorjev izrek} (splo"sna oblika ostanka): Naj bo $I$ odprt interval in $f \in C^{n+1}(I)$ Za vsak $x \in I, a \in I$ in $p \in \{ 0, \ldots, n + 1 \}$ obstaja $c$ med $a$ in $x$, da velja
+\begin{equation*}
+f(x) = T_{n, a}(x) + R_{n, a}(x)
+\end{equation*}
+kjer je
+\begin{equation*}
+R_{n, a}(x) = \dfrac{f^{(n+1)} (c)}{p n!} (x-a)^p (x-c)^{n+1 - p}
+\end{equation*}
+\textbf{Opomba:} Pri $p = n+1$
+\begin{equation*}
+R_{n, a}(x) = \dfrac{f^{(n+1)} (c)}{(n+1)!} (x - a)^{n+1}
+\end{equation*}
+\textsc{Dokaz:} Naj bodo $a, x, b \in I, p \in \{ 0, \ldots, n+1 \}$. Definiramo funkcijo
+\begin{align*}
+F(x) &= T_{n, x} (b) + \left( \dfrac{b - x}{b - a} \right)^p R_{n, a}(b) = \\
+&= f(x) + f'(x) (b-x) + \cdots + \dfrac{f^{(n)}(x)}{n!} (b - x)^n + \left( \dfrac{b-x}{b-a} \right)^p R_{n, a}(b)
+\end{align*}
+Velja
+\begin{align*}
+F(a) &= T_{n, a}(b) + R_{n, a}(b) = f(b) \\
+F(b) &= f(b)
+\end{align*}
+Po Rollovem izreku obstaja $c$ med $a$ in $b$, da je $F'(c) = 0$. Velja
+\begin{multline*}
+F'(x) = f'(x) + f'(x)(-1) + f''(x)(b-x) + f''(x)(-1) + f'''(x)\dfrac{(b-x)^2}{2} + \cdots + \\
++\dfrac{f^{(n)}(x)}{(n-1)!} (b-x)^{n-1} (-1) + \dfrac{f^{(n+1)}(x)}{n!} (b-x)^n + p \dfrac{(b-x)^{p-1}}{(b-a)^p} R_{n, a}(b) (-1)
+\end{multline*}
+Ve"cino "clenov se pokraj"sa in dobimo
+\begin{equation*}
+F'(c) = 0 = \dfrac{f^{(n+1)}(c)}{n!} (b-c)^n - p \dfrac{(b-c)^{p-1}}{(b-a)^p} R_{n, a}(b)
+\end{equation*}
+Torej velja
+\begin{equation*}
+R_{n, a}(b) = \dfrac{f^{(n+1)}(c)}{pn!} (b-c)^{n - p + 1} (b-a)^p
+\end{equation*}
+\hfill $\square$
+
+\subsubsection{Taylorjeve vrste osnovnih funkcij}
+\begin{enumerate}
+    \item \textbf{Eksponentna funkcija} $f(x) = e^x$ okrog 0.
+    
+    Prirejena Taylorjeva vrsta
+    \begin{equation*}
+    \sumalln{0} \dfrac{f^{(n)}(0)}{n!} x^n = \sumalln{0} \dfrac{x^n}{n!}
+    \end{equation*}
+    Dokazati je treba $e^x = \sumalln{0} \dfrac{x^n}{n!}$.
+    \begin{equation*}
+    e^x = T_{n, 0}(x) + R_{n, 0} (x)
+    \end{equation*}
+    $T_{n, 0}(x)$ konvergira proti $\sumalln{0} \frac{x^n}{n!}$, zato je treba dokazati, da za fiksen $x$ velja
+    \begin{equation*}
+    \lim_{n \to \infty} R_{n, 0}(x) = 0
+    \end{equation*}
+    Fiksiramo $x$:
+    \begin{multline*}
+      |R_{n, 0}(x)| = \left| \dfrac{f^{(n+1)}(c)}{(n+1)!} x^{n+1} \right| = \left| \dfrac{e^c}{(n+1)!} x^{n+1} \right| \leq \\
+      \leq \dfrac{e^{|x|}}{(n+1)!} |x|^{n+1} = e^{|x|} \dfrac{\overbrace{|x| \cdot |x| \cdots |x|}^{n+1}}{1 \cdot 2 \cdots (n+1)} \stackrel{n \to \infty}{\longrightarrow} 0
+    \end{multline*}
+    
+    Torej velja
+    \begin{equation*}
+    e^x = 1 + x + \dfrac{x^2}{2} + \dfrac{x^3}{3!} + \cdots + \dfrac{x^n}{n!} + \cdots \quad \forall x \in \RR
+    \end{equation*}
+    
+    \item \textbf{Sinus, kosinus} okoli 0
+    
+    Prirejena Taylorjeva vrsta:
+    \begin{equation*}
+    \sin x = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \dfrac{x^7}{7!} + \cdots
+    \end{equation*}
+    Za fiksen $x$ velja
+    \begin{equation*}
+    |R_{n, 0}(x)| = \left| \dfrac{f^{(n+1)} (c)}{(n+1)!} x^{n+1} \right| \leq \dfrac{|x|^{n+1}}{(n+1)!} \stackrel{n \to \infty}{\longrightarrow} 0
+    \end{equation*}
+    
+    Podobno doka"zemo za kosinus in velja
+    \begin{align*}
+    \sin x &= \sumalln{0} (-1)^n \dfrac{x^{2n + 1}}{(2n + 1)!} \quad \forall x \in \RR \\
+    \cos x &= \sumalln{0} (-1)^n \dfrac{x^{2n}}{(2n)!} \quad \forall x \in \RR
+    \end{align*}
+    
+    \item \textbf{Logaritemska funkcija}
+    \begin{equation*}
+    f(x) = \ln (x + 1)
+    \end{equation*}
+    razvijemo v Taylorjevo vrsto s sredi"s"cem v 0. Velja $D_f = (-1, \infty)$. Velja
+    \begin{equation*}
+    f'(x) = \dfrac{1}{x+1} = \dfrac{1}{1 - (-x)} = \sumalln{0} (-x)^n = \sumalln{0} (-1)^n x^n
+    \end{equation*}
+   za $x \in (-1, 1)$ ($R = 1$). Z integracijo po "clenih dobimo
+   \begin{equation*}
+   f(x) = \sumalln{0} \dfrac{(-1)^n}{n + 1} x^{n+1} + C
+   \end{equation*}
+    Za izra"cun konstante vstavimo $x = 0$ in dobimo
+    \begin{equation*}
+    f(0) = 0 = C \Rightarrow C = 0
+    \end{equation*}
+    Torej velja
+    \begin{equation*}
+    \ln(x+1) = \sumalln{0} \dfrac{(-1)^n}{n+1} x^{n+1} \quad \forall x \in (-1, 1)
+    \end{equation*}
+    
+    \textsc{Primer:} Razvoj funkcije $\ln x$ okrog to"cke $a > 0$.
+    \begin{equation*}
+     \ln x = \ln(a + (x - a)) = \ln \left( a \left( 1 + \dfrac{x-a}{a} \right) \right)
+    \end{equation*}
+    "Ce je $\left| \frac{x - a}{a}  < 1 \right|$ velja
+    \begin{multline*}
+     \ln \left( a \left( 1 + \dfrac{x-a}{a} \right) \right) = \\
+     =\ln a + \ln \left( 1 + \dfrac{x - a}{a} \right) = \ln a + \dfrac{x - a}{a} - \dfrac{1}{2} \left( \dfrac{x - a}{a}\right)^2 + \cdots + \dfrac{(-1)^{n+1}}{n} \left( \dfrac{x - a}{a} \right)^n + \cdots = \\
+     = \ln a + \dfrac{1}{a} (x-a) - \dfrac{1}{2a^2} (x - a)^2 + \cdots + \dfrac{(-1)^{n+1}}{na^n} (x - a)^n + \cdots
+    \end{multline*}
+    velja za $|x - a| < |a|$.
+    
+    \item \textbf{Binomska vrsta} 
+    \begin{equation*}
+    f(x) = (1 + x)^\alpha, \quad \alpha \in \RR
+    \end{equation*}
+    Razvoj v Taylorjevo vrsto okrog 0. Za funkcijo velja $D_f = (-1, \infty)$. Vemo
+    \begin{align*}
+    f^{(k)}(x) &= \alpha (\alpha - 1) \cdots (\alpha - k + 1) (1 + x)^{\alpha - k} \\
+    f^{(k)}(0) &= \alpha (\alpha - 1) \cdots (\alpha - k + 1)
+    \end{align*}
+    Prirejena Taylorjeva vrsta je torej
+    \begin{equation*}
+    \sumalln{0} \dfrac{f^{(n)}(0)}{n!} x^n = \sumalln{0} \dfrac{\alpha (\alpha -  1) \cdots (\alpha - n + 1)}{n!} x^n = \sumalln{0} \binom{\alpha}{n} x^n
+    \end{equation*}
+    Defnirajmo \emph{posplo"sen binomski simbol}
+    \begin{equation*}
+    \binom{\alpha}{k} = \dfrac{\alpha (\alpha - 1) \cdots (\alpha - k + 1)}{k!}, \quad \alpha \in \RR, k \in \NN_0
+    \end{equation*}
+    Doka"zimo, da velja
+    \begin{equation*}
+    (1 + x)^\alpha = \sumalln{0} \binom{\alpha}{n} x^n
+    \end{equation*}
+    za $x \in (-1, 1)$.
+    \begin{itemize}
+        \item[$x \in (0, 1)$:] Za $c \in (0, x)$ velja
+        \begin{multline*}
+        |R_n(x)| = \left| \dfrac{f^{(n+1)}(c)}{(n+1)!} x^{n+1} \right| = \left| \dfrac{\alpha (\alpha - 1) \cdots (\alpha - n)}{(n+1)!} (1+c)^{\alpha - n -1} x^{n+1}\right| \leq \\
+        \leq \underbrace{\left| \binom{\alpha}{n + 1} \right| |x|^{n+1} 2^\alpha}_{a_n}
+        \end{multline*}
+        Za zgornjo oceno smo uporabili slede"co oceno
+        \begin{equation*}
+        (1+c)^{\alpha - n - 1} =\underbrace{ |(1+c)^\alpha |}_{\leq 2^\alpha} \underbrace{|(1 + c)^{-n -1}|}_{\leq 1} \leq 2^\alpha
+        \end{equation*}
+        Pri fiksnem $x$ dokazujemo $\lim_{n \to \infty} a_n = 0$. Dovolj je dokazati, da "stevilska vrsta $\sumalln{0} a_n$ konvergira. Uporabimo kvocientni kriterij
+        \begin{multline*}
+         \dfrac{a_{n+1}}{a_n} = \dfrac{|\alpha (\alpha - 1) \cdots (\alpha - n) (\alpha - n - 1)| |x|^{n+2} 2^\alpha (n+1)!}{(n+2)! |\alpha (\alpha - 1) \cdots (\alpha - n)| |x|^{n+1} 2^\alpha} = \\
+         = \dfrac{|\alpha -n - 1|}{n+2} |x| \stackrel{n \to \infty}{\longrightarrow} |x|
+        \end{multline*}
+        "Ce je $|x| < 1$, potem $\sumalln{0} a_n$ konvergira (za na"s $x$ to velja).
+        
+        \item[$x \in (-1, 0)$:] Za $c \in (x, 0$ uporabimo oceno za ostanek pri $p = 1$:
+        \begin{multline*}
+         |R_n(x)| = \left| \dfrac{f^{(n+1)} (c)}{1 \cdot n!} x (x-c)^n \right| = \\
+         = \left| \alpha (\alpha - 1) \cdots (\alpha -n) (1+c)^{\alpha -n -1} \right| \dfrac{1}{n!} |x| |x-c|^n \leq \\
+         \leq \left| \dfrac{\alpha (\alpha - 1) \cdots (\alpha - n)}{n!} \right| M \left| \dfrac{x}{1+c} \right| \left| \dfrac{x-c}{1+c} \right|^n
+        \end{multline*}
+        Za dolo"citi $M$ smo uporabili
+        \begin{align*}
+        \alpha \geq 0&: 0 < 1 + c < 1 \Rightarrow (1 + c)^\alpha < 1\\
+        \alpha < 0 &: 0 < 1 + x < 1 + c < 1 \Rightarrow (1+c)^\alpha \leq (1 + x)^\alpha
+        \end{align*}
+        Sledi, da je $M = \max \{ 1, (1+x)^\alpha \}$.
+        
+        $\left| \frac{x}{1+c} \right|$ ocenimo z
+        \begin{equation*}
+        \left| \dfrac{x}{1+c} \right| \leq \left| \dfrac{x}{1+x} \right|
+        \end{equation*}
+        Za oceno $\left| \frac{x - c}{1+c} \right|$ definiramo $g(c) = \frac{x - c}{1 + c}$ in i"s"cemo maksimum te funkcije. Velja
+        \begin{equation*}
+        g'(c) = \dfrac{-(1+c) - (x - c)}{(1+c)^2} = \dfrac{-1 - x}{(1 + c)^2} < 0
+        \end{equation*}
+       Za $g(c)$ vemo, da je $g(c) < 0$ in je strogo padajo"ca. Torej je najve"cja vrednost $|g(c)| \leq |g(0)| = |x|$. Tako smo dobili oceno
+       \begin{equation*}
+       |R_n(x)| \leq \left| \dfrac{\alpha (\alpha - 1) \cdots (\alpha - n)}{n!} \right| M \left| \dfrac{x}{1+x} \right| |x|^n
+       \end{equation*}
+       Na enak na"cin kot prej doka"zemo, da gre $|R_n(x)| \stackrel{n \to \infty}{\longrightarrow} 0$ pri fiksnem $x$.
+    \end{itemize}
+\end{enumerate}

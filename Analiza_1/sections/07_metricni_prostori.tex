@@ -69,3 +69,404 @@ Z \subset M \text{ je zaprta} \iff \partial Z \subset Z
 \textsc{Dokaz:} Recimo, da je $O \subset M$ odprta. Torej $O = \Int O$. Zato le"zijo robne to"cke mno"zice $O$ v $O^c$. torej vse robne to"cke $O^c$ le"zijo v $O^c$. Zato je $O^c$ zaprta mno"zica.
 
 Reicmo, da je $Z \subset M$ zaprta. Potem $Z$ vsebuje svoje robne to"cke. Ker so robne to"cke $Z$ in $Z^c$ enake, $Z^c$ vsebuje samo notranje to"cke, torej je $Z^c$ opdrt.
+
+\textsc{Izrek:} Naj bo $\OO$ dru"zina vseh odprtih mno"zic metri"cnega prostora $(M, d)$. Potem velja
+\begin{enumerate}[(1)]
+    \item $M \in \OO, \quad \varnothing \in \OO$
+    
+    \item Unija poljubne dru"zine odprtih mno"zic je odprta, t.j.\,za poljubno mno"zico $\Lambda$ in za poljubno dru"zino $A_\lambda \in \OO$ velja
+    \begin{equation*}
+    \forall \lambda \in \Lambda: \bigcup_{\lambda \in \Lambda} A_\lambda \in \OO
+    \end{equation*}
+    
+    \item Presek kon"cnega "stevila odprtih mno"zic je odprta mno"zica.
+    \begin{equation*}
+    \forall n \in \NN, A_1, \ldots, A_n \in \OO \Rightarrow \bigcap_{j = 1}^n A_j \in \OO
+    \end{equation*}
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}[(1)]
+    \item Vemo od prej.
+    \item Izberemo $\Lambda, A_\lambda \in \OO$ za vsakn $\lambda \in \Lambda$. Dokazujemo, da je $\bigcup_{\lambda \in \Lambda} A_\lambda$ odprta. Izberemo poljubno to"cko $a \in \bigcup_{\lambda \in \Lambda} A_\lambda$ in dokazujemo, da je notranja to"cka od $\bigcup_{\lambda \in \Lambda} A_\lambda$. Vemo
+    \begin{equation*}
+    \exists \lambda \in \Lambda: a \in A_\lambda
+    \end{equation*}
+    Ker je $A_\lambda$ odprta, je $a$ notranja to"cka od $A_\lambda$, zato 
+    \begin{equation*}
+    \exists r > 0: K(a, r) \subset A_\lambda \subset \bigcup_{\lambda \in \Lambda} A_\lambda
+    \end{equation*}
+    Torej je $a \in \Int (\bigcup_{\lambda \in \Lambda} A_\lambda)$.
+    
+    \item Dovolj je dokazati za $n=2$, naprej nadaljujemo induktivno po istem postopku.
+    
+    Naj bosta $A_1, A_2 \in \OO$. Dokazujemo, da je $A_1 \cap A_2 \in \OO$.
+    \begin{itemize}
+        \item "Ce je $A_1 \cap A_2 = \varnothing$, je presek odrpt.
+        \item "Ce $A_1 \cap A_2 \neq \varnothing$, izberemo poljuben $a \in A_1 \cap A_2$. Velja $a \in A_1 \land a \in A_2$. Ker sta $A_1$ in $A_2$ odprti, je $a$ notranja to"cka obeh.
+        \begin{equation*}
+       (\exists r_1 > 0: K(a, r_1) \subset A_1) \land (\exists r_2 > 0: K(a, r_2) \subset A_2)
+        \end{equation*}
+        Izberemo $r = \min \{ r_1, r_2 \}$ in velja
+        \begin{equation*}
+        K(a, r) \subset A_1 \cap A_2 \Rightarrow a \in \Int (A_1 \cap A_2)
+        \end{equation*}
+        Zato je $A_1 \cap A_2 \in \OO$.
+    \end{itemize}
+\end{enumerate}
+\textbf{Opomba:} Za "stevno (neskon"cne) preseke ni nujno res, da bi bil presek odprtih mno"zic odprt. Protiprimer $\RR^2$ z obi"cajno metriko in dru"zina mno"zic $A_n = K \left( 0, \frac{1}{n} \right)$. $A_n$ je odrpta za vsak $n \in \NN$, vendar
+\begin{equation*}
+\bigcap_{n \in \NN} A_n = \{ (0, 0) \}
+\end{equation*}
+ni odprta mno"zica.
+
+\textsc{Posledica:} Naj bo $\Z$ dru"zina vseh zaprtih mno"zic metri"cnega prostora $(M, d)$. Velja
+\begin{enumerate}[(1)]
+    \item $M \in \Z, \quad \varnothing \in \Z$
+    
+    \item Unija kon"cnega "stevila zaprtih mno"zic je zaprta mno"zica.
+    \begin{equation*}
+    \forall n \in \NN, Z_1, \ldots Z_n \in \Z: \bigcup_{i = 1}^n Z_i \in \Z
+    \end{equation*}
+    
+    \item Presek poljubne dru"zine zaprtih mno"zic je zaprt.
+    \begin{equation*}
+    \forall \Lambda \forall Z_\lambda \in \Z: \bigcap_{\lambda \in \Lambda} Z_\lambda \in \Z
+    \end{equation*}
+\end{enumerate}
+\textsc{Dokaz:} (1) vemo, (2) in (3) se doka"ze podobno. Doka"zimo (3):
+\begin{equation*}
+\left( \bigcap_{\lambda \in \lambda} Z_\lambda \right)^c = \underbrace{\bigcup_{\lambda \in \Lambda} \underbrace{(Z_\lambda)^c}_\text{odprt}}_\text{odprt}
+\end{equation*}
+%
+\textsc{Posledica:} Vsaka kon"cna podmno"zica v metri"cnem prostoru je zaprta.
+
+\textsc{Dokaz:} Vemo, da je $\{ x \}$ zaprta.
+
+\textsc{Trditev:} naj bo $(M, d)$ metri"cni prostor. Vsaka odrpta krogla je odprta mno"zica in vsaka zaprta krogla je zparta mno"zica.
+
+\textsc{Dokaz:} naj bo $a \in M$ in $r > 0$. Potem je
+\begin{equation*}
+K(a, r) = \{ x \in M, d(a, x) < r \}
+\end{equation*}
+Dokazujemo, da je $K(a, r)$ odprta mno"zica, t.j.:\,$\forall x \in K(a, r)$ je $x$ notranja to"cka $K(a, r)$. I"s"cemo $r' > 0: K(x, r') \subset K(a, r)$. Naj bo
+\begin{equation*}
+r' := (r - d(a, x))
+\end{equation*}
+Izberemo $y \in K(x, r'): d(x, y) < r'$ in dokazujemo $y \in K(a, r)$, t.j.\,$d(a, y) < r$.
+\begin{equation*}
+d(a, y) \leq d(a, x) + d(x, y) < d(a, x) + r - d(a, x) = r
+\end{equation*}
+Za zaprte krogle doka"zemo, da je komplement zaprte krogle odprt, na podoben na"cin kot zgoraj.
+
+\deff Naj bo $A$ podmno"zica v metri'cnem prostoru $(M, d)$. Z $\overline{A}$ ozna"cimo mno"zico $A \cup \partial A$ in jo imenujemo \emph{zaprtje} mno"zice $A$.
+
+\textbf{Velja:}
+\begin{enumerate}
+    \item $\overline{A}$ je zaprta mno"zica (ker je $\overline{A}^c$ odprt).
+    \item $\overline{\left( \overline{A} \right)} = \overline{A}$
+\end{enumerate}
+\textbf{Opomba:} V splo"snem ne velja
+\begin{equation*}
+\overline{K(a, r)} = \overline{K}(a, r)
+\end{equation*}
+%
+\deff Naj bo $(M, d)$ metri"cni prostor. Podmno"zica $A \subset M$ je \emph{omejena}, "ce le"zi v neki krogli, t.j.
+\begin{equation*}
+\exists a \in M \exists r > 0: A \subset K(a, r)
+\end{equation*}
+Metri"cni prostor $(M, d)$ je \emph{omejen}, "ce je $M$ omejena podmno"zica.
+
+\deff Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Pravimo, da je to"cka $a \in M$ \emph{stekali"s"ce mno"zice} $A$, "ce vsaka okolica to"cke $a$ vsebuje neskon"cno to"ck mno"zice $A$.
+
+\textbf{Pozor:} To ni analogna definicija stekali"s"ca zaporedja.
+
+\textbf{Opomba:} Stekali"s"ca mno"zice imajo lahko samo neskon"cne mno"zice.
+
+\textsc{Izrek:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. To"cka $a \in M$ je stekali"s"ce mno"zice $A$ natanko tedaj, kadar vsaka okolica to"cke $a$ vsebuje vsaj eno od $a$ razli"cno to"cko mno"zice $A$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+    \item[$(\Rightarrow)$] O"citno, direktno iz definicije.
+    \item[$(\Leftarrow)$] Naj bo $U$ poljubna okolica to"cke $a$. Dokazujemo, da v $U$ le"zi neskon"cno to"ck iz $A$. Po predpostavki obstaja $a_1 \in U, a_1 \in A, a_1 \neq a$. Naj bo
+    \begin{equation*}
+    U_2 = K(a, d(a, a_1))
+    \end{equation*}
+    $U_2$ je okolica to"cke $a$ in $a_1 \notin U_2$. Po predpostavki $\exists a_2 \in U_2, a_2 \in A, a_2 \neq a$. Postopek nadaljujemo in dobimo $a_1, a_2, \ldots$, ki so med seboj razli"cne in vse le'zijo v $U$ (in v $A$).
+\end{itemize}
+\hfill $\square$
+
+\textsc{Posledica:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Mno"zica $A$ je zaprta natanko tedaj, kadar vsebuje vsa svoje stekali"s"ca.
+
+\textsc{Dokaz:} Stekali"s"ce mno"zice $A$ ni zunanja to"cka $A$. Zato je bodisi notranja, bodisi robna to"cka mno"zice $A$.
+\begin{itemize}
+    \item[$(\Rightarrow)$] "Ce je $A$ zaprta, potem $A$ vsebuje vse svoje robne to"cke, zato vsebuje vsa svoja stekali"s"ca.
+    \item[$(\Leftarrow)$] Denimo, da $A$ ni zaprta. Potem obstaja neka robna to"cka $b$ mno"zice $A$, ki ne le"zi v $A$. Po definiciji robne to"cke vsaka njena okolica seka $A$ in $A^c$. Ker $b \notin A$ je torej v vsaki okolici $b$ vsaj ena to"cka $a \in A, a \neq b$. Torej je po izreku to"cka $b$ stekali"s"ce mno"zice $A$, zato $A$ ne vsebuje vseh svojih stekali"s"c.  $\rightarrow\leftarrow$
+\end{itemize}
+\hfill $\square$
+
+\textsc{Posledica:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Potem je mno"zica vseh stekali"s"c mno"zice $A$ zaprta.
+
+\textsc{Dokaz:} $S$ naj bo mno"zica vseh stekali"s"c mno"zice $A$. Dokazujemo, da je $M \setminus S$ odprta mno"zica. Izberemo poljuben $x \in M \setminus S$ in dokazujemo, da je notranja to"cka $M \setminus S$. Obstaja $r > 0: K(x, r) \cap A \subset \{ x \}$.
+\begin{equation*}
+x' \in K(x, r): K(x', \min \{ r - d(x, x'), d(x, x') \} ) \cap A = \varnothing
+\end{equation*}
+Zato $x' \neq S$.
+
+\hfill $\square$
+
+\subsection{Zaporedja v metri"cnih prostorih}
+\deff Zaporedje v metri"cnem prostoru $(M, d)$ je preslikava $\varphi: \NN \to M$. To"cko $\varphi(n)$ imenujemo $n$-ti "clen zaporedja in pi"semo $a_n = \varphi(n)$.
+
+\deff Pravimo, da je to"cka $a \in M$ \emph{stekali"s"ce} zaporedja $\{ a_n \}$, "ce vsaka njena okolica vsebuje neskon"cno mnogo "clenov zaporedja, t.j.
+\begin{equation*}
+\forall \varepsilon > 0 \exists \text{ neskon"cno indeksov $n$}: d(a, a_n) < \varepsilon
+\end{equation*}
+
+\deff Pravimo, da zaporedje $\{ a_n \}$ v $M$ \emph{konvergira} proti $a \in M$, "ce vsaka okolica to"cke $a$ vsebuje vse "clene zaporedja od nekega indeksa naprej, t.j.
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0: d(a, a_n) < \varepsilon
+\end{equation*}
+V tem primeru $a$ imenujemo \emph{limita zaporedja} $\{ a_n \}$ in pi"semo $a = \lim_{n \to \infty} a_n$.
+
+\textbf{Opombe:}
+\begin{itemize}
+    \item "Ce je zaporedje $\{ a_n \}$ v $M$ konvergentno z limito $a \in M$, potem je $a$ stekali"s"ce zaporedja. 
+    \item Ni vsako stekali"s"ce limita. 
+    \item Limita je edino stekali"s"ce konvergentnega zaporedja.
+    
+    \textsc{Dokaz:} Denimo, da je $\{ a_n \}$ v $M$ konvergentno z limito $a \in M$. Recimo, da je $b \in M, b \neq a$. Dokazujemo, da $b$ ni stekali"s"ce. Naj bo $\varepsilon = \frac{1}{2} d(a, b) > 0$. Velja
+    \begin{equation*}
+    \exists n_0 \in \NN \forall n \geq n_0: d(a, a_n) < \varepsilon
+    \end{equation*}
+    Poglejmo si razdaljo
+    \begin{equation*}
+    d(b, a_n) \geq \underbrace{d(b,a)}_{2 \varepsilon} - \underbrace{d(a, a_n)}_{< \varepsilon} \geq \varepsilon
+    \end{equation*}
+    za vse $n \geq n_0$. Torej $b$ ni stekali"s"ce, ker v $K(b, \varepsilon)$ le"zi kve"cjemo prvih $n_0$ "clenov zaporedja
+\end{itemize}
+
+\deff Pravimo, da zaporedje $\{ a_n \}$ v metri"cnem prostoru $(M, d)$ zado"s"ca \emph{Cauchyjevem pogoju} "ce
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0 : d(a_n, a_m) < \varepsilon
+\end{equation*}
+%
+\textsc{Izrek:} Vsako konvergentno zaporedje v $(M, d)$ je Cauchyjevo.
+
+\textsc{Dokaz:} Recimo, da $\{ a_n \}$ v $M$ konvergira z limito $a \in M$. Torej velja
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0: d(a, a_n) < \varepsilon
+\end{equation*}
+Za $n, m \geq n_0$ velja
+\begin{equation*}
+d(a_n, a_m) \leq \underbrace{d(a_n, a)}_{< \varepsilon} + \underbrace{d(a, a_m)}_{< \varepsilon} < 2 \varepsilon
+\end{equation*}
+Zato je zaporedje $\{ a_n \}$ Cauchyjevo.
+
+\textsc{Primer:} Naj bo $M = \{ 1, \frac{1}{2}, \ldots \} = \{ \frac{1}{n}, n \in \NN \}$ z inducirano razdaljo v $\RR$. Obstaja zaporedje v $M$, ki je Cauchyjevo, ni pa konvergentno. Primer takega zaporedja je $a_n = \frac{1}{n}$. Zaporedje $\{ a_n \}$ je konvergenton zaporedje v $\RR$ z limito 0. Vemo, da je v vsakem metri"cnem prostoru konvergentno zaporedje Cauchyjejvo. Na"se zaporedje je torej Cauchyjevo v $\RR$ in zato tudi v $M$, ni pa konvergentno, ker to"cke 0 ni v $M$.
+
+\deff Naj bo $(M, d)$ metri"cni prostor. Pravimo, da je $M$ \emph{poln}, "ce je vsako Cauchyjevo zaporedje v $M$ konvergentno v $M$.
+
+\textsc{Izrek:} Naj bo $C[a, b]$ metri"cni prostor zveznih funkcij s standardno metriko (max. metrika). Zaporedje $\{ f_n \}$ v $C[a, b]$ konvergira proti $f \in C[a, b]$ natanko tedaj, kadar funkcijsko zaporedje proti $f$ konvergira enakomerno na $[a, b]$.
+
+\textsc{Dokaz:}
+\begin{multline*}
+f = \lim_{n \to \infty} f_n \in C[a, b] \iff \forall \varepsilon> 0 \exists n_0 \in \NN \forall n \geq n_0: d(f, f_n) < \varepsilon \iff \\
+\iff \forall \varepsilon > 0 \exists n_0 \in \NN \forall n \geq n_0: \sup_{x \in [a, b]} |f(x) - f_n(x)| < \varepsilon \iff \\
+\forall x \in [a, b]: \iff |f(x) - f_n(x)| < \varepsilon \iff f_n \stackrel{n \to \infty}{\longrightarrow} f \text{ enakomerno na $[a, b]$}
+\end{multline*}
+\textbf{Opomba:} Zvene funkcije z obi"cajno metriko: konvergentna v $C[a, b]$ je natanko enakomerna konvergenca na $[a, b]$.
+
+\textsc{Izrek:} Metri"cni prostor $C[a, b]$ z obi"cajno metriko je poln.
+
+\textsc{Dokaz:} Naj bo $\{ f_n \}$ Cauchyjevo zaporedje v $C[a, b]$. Dokazujemo, da je konvergentno. Vemo
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0: \underbrace{d(f_n, f_m)}_{\max_{x \in [a, b]} |f_n(x) - f_m(x)|} < \varepsilon
+\end{equation*}
+Naj bo $x \in [a, b]: |f_n(x) - f_m(x)| < \varepsilon$ za vse $m, n \geq n_0$. $\{ f_n(x) \}$ je Cauchyjevo (v $\RR$) zato je konvergentno in njegovo limito ozna"cimo z $f(x)$. S tem smo dobili limitno funkcijo $f$ po to"ckah. Dokazujemo, da $f_n$ proti $f$ konvergira v $C[a, b]$. Vemo
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0 \forall x \in [a, b]: |f_n(x) - f_m(x)| < \varepsilon
+\end{equation*}
+Ko po"sljemo $m$ proti neskon"cno za dani $\varepsilon$ dobimo, da za dani $\varepsilon$ in vsak $n \geq n_0$ velja
+\begin{equation*}
+|f_n(x) - f(x)| < \varepsilon \quad \forall x \in [a, b]
+\end{equation*}
+Torej $f_n$ konvergira proti $f$ enakomerno na $[a, b]$. Po izreku torej $f_n$ konvergira proti $f$ v $C[a, b]$.
+
+\subsection{Kompaktnost}
+\deff Naj bo $(M, d)$ metri"cni prostor in naj bo $K \subset M$. Pravimo, da je dru"zina mno"zic $(A_\gamma)_{\gamma \in \Gamma}$ \emph{pokritje} mno"zice $K$, "ce velja
+\begin{equation*}
+A_\gamma \subset M \forall \gamma \in \Gamma \quad \text{in} \quad K \subset \bigcup_{\gamma \in \Gamma} A_\gamma
+\end{equation*}
+"Ce so vse mno"zice $A_\gamma$ odprte, pravimo da je $(A_\gamma)_{\gamma \in \Gamma}$ \emph{odprto pokritje} $K$.
+
+"Ce so vse $A_\gamma$ zaprte, potem je $(A_\gamma)_{\gamma \in \Gamma}$ \emph{zaprto pokritje}.
+
+"Ce je v dru"zini le kon"cno mno"zic, je to \emph{kon"cno pokritje}.
+
+\emph{Podpokritje} pokritja $(A_\gamma)_{\gamma \in \Gamma}$ je vsaka poddru"zina $(A_\gamma)_{\gamma \in \Gamma}$, ki je pokritje od $K$.
+
+\deff Naj bo $(M, d)$ metri"cni prostor. Pravimo, da je podmno"zica $K \subset M$ \emph{kompaktna}, "ce vsako odprto pokritje $(O_\gamma)_{\gamma \in \Gamma}$ vsebuje kon"cno podpokritje.
+
+Pravimo, da je $M$ \emph{kompakten} metri"cni prostor, "ce je mno"zica $M$ kompaktna mno"zica.
+
+\textsc{Izrek:} Vsaka kompaktna podmno"zica $K$ v metri"cnem prostoru $(M, d)$ je zaprta in omejena.
+
+\textsc{Dokaz:} \dashuline{$K$ je omejena}
+
+$K$ je kompaktna $\iff$ za vsako odprto pokritje $K$ obstaja kon"cno podpokritje
+
+$K$ je omejena $\iff \exists a \in M, \exists r > 0: K \subset K(a, r)$
+
+Izberemo $a \in M$. $\{ K(a, n), n \in \NN \}$ je odprto pokritje $K$. Ker je $K$ kompaktno, obstaja kon"cno podpokritje
+\begin{equation*}
+K \subset K(a, n_1) \cup K(a, n_2), \cup \cdots \cup K(a, n_m)
+\end{equation*}
+Naj bo $N := \max \{ n_1, \ldots, n_m \}$. Potem je $K \subset K(a, N)$, zato je omejena.
+
+\dashuline{$K$ je zaprta $\iff K^c$ je odprt}
+
+Izberemo poljuben $c \in M \setminus K$ in dokazujemo, da je notranja to"cka $K^c$.
+\begin{equation*}
+O_r = \{ x \in M: d(x, c) > r \} = \left( \overline{K}(c, r) \right)^c
+\end{equation*}
+Velja
+\begin{equation*}
+K \subset \bigcup_{r > 0} O_r = M \setminus \{ c \}
+\end{equation*}
+Zaradi kompaktnosti $K$ obstaja kon"cno podpokritje:
+\begin{equation*}
+K \subset O_{r_1} \cup O_{r_2} \cup \cdots \cup O_{r_k} = O_r
+\end{equation*}
+kjer je $r := \min \{ r_1, \ldots, r_k \}$. Torej je $K \subset \left( \overline{K}(c, r) \right)^c$. Od tod sledi $\overline{K}(c, r) \subset K^c$. Zato je $c$ notranja to"cka v $K^c$.
+
+\hfill $\square$
+
+\textsc{Izrek:} Vsaka zaprta podmno"zica $Z$ kompaktne mno"zice $K$ v metri"cnem prostoru $(M, d)$ je kompaktna.
+
+\textsc{Dokaz:} Naj bo $Z$ zaprta podmno"zica kompaktne mno"zice $K$, t.j. $Z \subset K$. Vemo, da je $Z^c$ odprt v $M$. Naj bo $\{ O_\gamma \}_{\gamma \in \Gamma}$ odprto pokritje mno"zice $Z$.
+\begin{equation*}
+\{ O_\gamma: \gamma \in \Gamma \} \cup Z^c
+\end{equation*}
+je odprto pokritje $M$ in zato tudi $K$. Ker je $K$ kompaktna, obstaja kon"cno podpokritje
+\begin{equation*}
+Z \subset K \subset O_{\gamma_1} \cup O_{\gamma_2} \cup \cdots \cup O_{\gamma_k} \cup Z^c
+\end{equation*}
+Torej je
+\begin{equation*}
+Z \subset O_{\gamma_1} \cup O_{\gamma_2} \cup \cdots \cup O_{\gamma_k}
+\end{equation*}
+zato je $Z$ kompaktna.
+
+\hfill $\square$
+
+\textsc{Izrek} (Heine -- Borel): Naj bo $A \subset \RR$ z obi"cajno metriko. $A$ je kompaktna natanko takrat, kadar je zaprta in omejena.
+
+\textbf{Opomba:} Izrek velja tudi za podmno"ice v $\RR^n$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+    \item[($\Rightarrow$)] Vemo po izreku.
+    \item[$(\Leftarrow)$] Naj bo $A$ zaprta in omejena. Ker je $A$ omejena, obstajata $a < b: A \subset [a, b]$. Ker je $A$ zaprta podmno"zica kompaktne mno"zice, je kompaktna.
+\end{itemize}
+\hfill $\square$
+
+\textsc{Lema 1:} Naj bo $\{ I_n \}$ zaporedje vlo"zenih zaprtih intervalov v $\RR$, t.j. $I_{n+1} \subset I_n$ za vsak $n \in \NN$. Potem velja
+\begin{equation*}
+\bigcap_{n \in \NN} \neq \varnothing
+\end{equation*}
+\textsc{Dokaz:} $I_n = [a_n, b_n]$. $\{ a_n \}$ je nara"s"cajo"ce in navzgor omejeno (z $b_1$), zato je konvergentno in ozna"cimo $a = \lim_{n \to \infty} a_n$. Velja
+\begin{equation*}
+a_n \leq a \leq b_n \quad \forall n \in \NN
+\end{equation*}
+Od tod sledi $a \subset \bigcap_{n \in \NN} I_n$.
+
+\textsc{Lema 2:} naj bo $\{ P_n \}$ padajo"ce zaporejde kvadrov v $\RR^k$, t.j.
+\begin{equation*}
+P_n = [a_1^n, b_1^n] \times [a_2^n, b_2^n] \times \cdots \times [a_k^n, b_k^n]
+\end{equation*}
+Potem je $\bigcap_{n \in \NN} P_n \neq \varnothing$.
+
+\textsc{Dokaz:} Dokaz analogen dokazu Leme 1.
+
+\textsc{Lema 3:} Kvader $P = [a_1, b_1] \times \cdots \times [a_k, b_k]$ je kompakten v $\RR^k$ z evklidsko metriko.
+
+\textsc{Dokaz:} Dol"zina diagonale v $P$ je
+\begin{equation*}
+\delta := \sqrt{\sum_{i = 1}^k (b_i - a_i)^2}
+\end{equation*}
+in velja $\forall x, y \in P: d(x, y) \leq \delta$.
+
+Denimo, da $P$ ni kompakten. Potem obstaja odprto pokritje $\{ O_\gamma \}_{\gamma \in \Gamma}$ kvadra $P$, ki nima kon"cnega podpokritja. Naj bo
+\begin{equation*}
+c_j := \dfrac{a_j + b_j}{2}
+\end{equation*}
+Intervali $[a_j, c_j], [c_j, b_j]$ dolo"cajo $2^k$ kvadrov $Q_j$, katerih unija je $P$. Vsaj enega od kvadrov $Q_j$ ne moremo pokriti s kon"cno mnogo "clanicami pokritja $\{ O_\gamma \}_{\gamma \in \Gamma}$. Postopek nadaljujemo in na ta na"cin dobimo zaporedje kvadrov
+\begin{equation*}
+P_j: P \supset P_1 \supset P_2 \supset \cdots
+\end{equation*}
+za katerega velja $P_{j+1} \subset P_j$ in nobenega kvadra ne moremo pokriti s kon"cno mnogo $O_\gamma$. Po lemi 2 obstaja $x \in \bigcap_{n \in \NN} P_n$ in obstaja $\gamma \in \Gamma: x \in O_\gamma$, kjer je $O_\gamma$ odprta mno"zica. Vemo, da je dol"zina diagonale $P_j = 2^{-j} \delta$, zato obstaja $P_j$, da velja $P_j \subset O_\gamma$. Torej smo na"sli kvader, ki ga lahko pokrijemo s kon"cno mnogo $O_\gamma$. $\rightarrow \leftarrow$
+
+Torej je $P$ kompaktna.
+
+\hfill $\square$
+
+Zato velja:
+
+\textsc{Izrek} (Heine -- Borel: Naj bo $E \subset \RR^k$ z evklidsko metriko. Mno"zica $E$ je kompaktna natanko takrat, kadar je $E$ zaprta in omejena.
+
+\textsc{Izrek:} Vsaka neskon"cna mno"zica to"ck $A$, ki le"zi v kompaktni podmno"zici $K$ metri"cnega prostora $(M, d)$ ima stekali"s"ce v $K$.
+
+\textsc{Dokaz:} Denimo, da $A$ nima stekali"s"ca v $K$. Torej za poljuben $x \in K$ velja, da obstaja $r_x > 0: K(x, r_x) \cap A$ je kve"cjemu kon"cna.
+\begin{equation*}
+\{ K(x, r_x): x \in K \}
+\end{equation*}
+je odprto pokritje $K$. Obstaja kon"cno podpokritje
+\begin{equation*}
+K \subset K(x_1, r_{x_1}) \cup \cdots \cup K(x_k, r_{x_k})
+\end{equation*}
+Od tod sledi
+\begin{multline*}
+A \cap K \subset A \cap (K(x_1, r_{x_1}) \cup K(x_2, r_{x_2}) \cup \cdots \cup K(x_k, r_{x_k})) = \\
+= \underbrace{(A \cap K(x_1, r_{x_1})) \cup \cdots \cup (A \cap K(x_k, r_{x_k}))}_\text{kve"cjemu kon"cna}
+\end{multline*}
+$A \cap K$ je neskon"cna $\rightarrow \leftarrow$
+
+\textsc{Izrek:} Naj bo $K$ kompaktna podmno"zica v metri"cnem prostoru $(M, d)$. Tedaj ima poljubno zaporedje $\{ a_n \}$ v $K$ vsaj eno stekali"s"ce.
+
+\textsc{Dokaz:} Denimo, da nobena to"cka iz $K$ ni stekali"s'ce $\{ a_n \}$. Potem za vsak $x \in K$ obstaja $r_x > 0$, da v $K(x, r_x)$ le"zi kve"cjem kon"cno "clenov zaporedja.
+\begin{equation*}
+\{ K(x, r_x): x \in K \}
+\end{equation*}
+je odprto pokritje kompaktne mno"zice $K$. Obstaja kon"cno podpokritje
+\begin{equation*}
+K \subset \underline{K(x_1, r_{x_1}) \cup \cdots \cup K(x_k, r_{x_k})}_\text{v tej uniji le"zi kve"cjemu kon"cno "clenov zaporedja}
+\end{equation*}
+V $K$ le"zi neskon"cno mnogo "clenov zaporedja. $\rightarrow \leftarrow$.
+
+\textsc{Posledica:} Naj bo $\{ a_n \}$ zaporedje v kompaktni mno"zici $K$ v metri"cnem prostoru $(M, d)$. Tedaj ima $\{ a_n \}$ konvergentno podzaporedje (z limito v $K$).
+
+\textsc{Dokaz:} Kot pri realnih zaporedjih doka"zemo: za vsako stekali"s"ce $s$ zaporedja $\{ a_n \}$ obstaja konvergentno podzaporedje z limito $s$.
+
+\textsc{Izrek:} Vsak kmopakten metri"cni prostor je poln.
+
+\textsc{Lema:} "Ce je $a$ stekali"s"ce Cauchyjevega zaporedja $\{ a_n \}$ v metri"cnem prostoru $(M, d)$, potem je $\{ a_n \}$ konvergentno zaporedje z limito $a$.
+
+\textsc{Dokaz} (izrek): $M$ je kompakten. Izberemo poljubno Cauchyjevo zaporedje $\{ a_n \}$ v $M$. Po izreku ima $\{ a_n \}$ stekali"s"ce $a$ v $M$, ki je po lemi limita zaporedja $\{ a_n \}$.
+
+\hfill $\square$
+
+\textsc{Dokaz} (Leme): $a$ je stekali"s"ce $\{ a_n \} \iff \forall \varepsilon > 0$ obstaja neskon"cno mnogo indeksov $n \in \NN$, za katere velja
+\begin{equation*}
+a_n \in K(a, \varepsilon) \iff d(a, a_n) < \varepsilon
+\end{equation*}
+$\{a_n\}$ je Cauchyjevo:
+\begin{equation*}
+\forall \varepsilon > 0 \exists n_0 \in \NN \forall n, m \geq n_0: d(a_n, a_m) < \varepsilon
+\end{equation*}
+Ker je $a$ stekali"s"ce, obstaja $n_1 \geq n_0: d(a, a_{n_1}) < \varepsilon$ in velja
+\begin{equation*}
+\forall m \geq n_0: d(a, a_m) \leq \underbrace{d(a, a_{n_1})}_{< \varepsilon} + \underbrace{d(a_{n_1}, a_m)}_{< \varepsilon} < 2 \varepsilon
+\end{equation*}
+Od tod sledi, da je $a = \lim_{n \to \infty} a_n$.
+
+\deff Metri"cni prostor $(M, d)$ je \emph{lokalno kompakten}, "ce ima vsaka to"cka $x \in M$ kompaktno okolico.

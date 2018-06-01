@@ -439,7 +439,7 @@ $A \cap K$ je neskon"cna $\rightarrow \leftarrow$
 \end{equation*}
 je odprto pokritje kompaktne mno"zice $K$. Obstaja kon"cno podpokritje
 \begin{equation*}
-K \subset \underline{K(x_1, r_{x_1}) \cup \cdots \cup K(x_k, r_{x_k})}_\text{v tej uniji le"zi kve"cjemu kon"cno "clenov zaporedja}
+K \subset \underbrace{K(x_1, r_{x_1}) \cup \cdots \cup K(x_k, r_{x_k})}_\text{v tej uniji le"zi kve"cjemu kon"cno "clenov zaporedja}
 \end{equation*}
 V $K$ le"zi neskon"cno mnogo "clenov zaporedja. $\rightarrow \leftarrow$.
 
@@ -470,3 +470,319 @@ Ker je $a$ stekali"s"ce, obstaja $n_1 \geq n_0: d(a, a_{n_1}) < \varepsilon$ in 
 Od tod sledi, da je $a = \lim_{n \to \infty} a_n$.
 
 \deff Metri"cni prostor $(M, d)$ je \emph{lokalno kompakten}, "ce ima vsaka to"cka $x \in M$ kompaktno okolico.
+
+\textsc{Izrek:} Naj bodo $K_j$ zaprte podmno"zice v kompaktnem metri"cnem prostoru $(M, d)$, za katere velja
+\begin{equation*}
+K_1 \supset K_2 \supset K_3 \supset \cdots \quad K_j \neq \varnothing
+\end{equation*}
+Potem je $\bigcap_{j=1}^\infty k_j \neq \varnothing$.
+
+\textbf{Opombi:}
+\begin{itemize}
+    \item "Ze vemo za primer zaprtih vlo"zenih intervalov.
+    \item $\bigcap_{j=1}^\infty K_j$ je kompakten (ker je zaprt v kompaktnem metri"cnem prostoru).
+\end{itemize}
+\textsc{Dokaz:} $V_j = M \setminus K_j$ je odprta mno"zica za vsak $j$. "Ce bi veljalo
+\begin{equation*}
+\bigcap_{j=1}^\infty K_j  = \varnothing
+\end{equation*}
+lahko naredimo komplement nad to ena"cbo in dobimo
+\begin{equation*}
+\left( \bigcap_{j=1}^\infty K_j \right)^c = \bigcup_{j=1}^\infty V_j = M
+\end{equation*}
+Velja, da je $M \subset \bigcup_{j=1}^\infty V_j = M$ in ker je $M$ kompaktna, obstaja kon"cno podpokritje, t.j.
+\begin{equation*}
+\exists k \in \NN: M \subset V_{j_1} \cup V_{j_1} \cup \cdots \cup V_{j_k} = V_{j_k}
+\end{equation*}
+kjer smo brez "skode za splo"snost predpostavili $j_1 < j_2 < \cdots < j_k$. Torej velja
+\begin{equation*}
+V_{j_k} = M \setminus K_{j_k}
+\end{equation*}
+Vemo, da $K_{j_k} \neq \varnothing$, torej smo pri"sli v protislovje z $M \subset V_{j_k}$. Od tod sledi 
+\begin{equation*}
+\bigcap_{j=1}^\infty K_j \neq \varnothing
+\end{equation*}
+\hfill $\square$
+
+\subsection{Podprostori v metri"cnem prostoru}
+Vemo: "Ce je $(M, d)$ metri"cni prostor in je $A \subset M$, potem je $(A, d_{|A \times A})$ metri"cni prostor z inducirano razdaljo. Vemo tudi
+\begin{equation*}
+\forall a \in A: K_A(a, r) = K_M(a, r) \cap A
+\end{equation*}
+
+\textsc{Izrek:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Mno"zica $O_A \subset A$ je odprta v $(A, d_{|A \times A})$ natanko tedaj, kadar je $O_A = O \cap A$ za neko odprto mno"zico $O \subset M$.
+
+\textsc{Dokaz:} "Ce je $O$ odprta mno"zica v $M$, potem
+\begin{equation*}
+\forall x \in O \exists r_x > 0: K(x, r_x) \subset O
+\end{equation*}
+Zato velja
+\begin{equation*}
+O = \bigcup_{x \in O} K(x, r_x)
+\end{equation*}
+\begin{itemize}
+    \item[($\Rightarrow$)] Naj bo $O_A$ odprta podmno"zica v $(A, d_{|A \times A})$. Velja
+    \begin{equation*}
+    O_A = \bigcup_{x \in O_A} K_A(x, r_x) = \bigcup_{x \in O_A} \left( K_M(x, r_x) \cap A \right) = \underbrace{\left( \bigcup_{x \in O_A} K_M(x, r_x) \right)}_\text{unija odprtih je odprta} \cap A = O \cap A
+    \end{equation*}
+    
+    \item[($\Leftarrow$)] Denimo, da velja $O_A = O \cap A$, kjer je $O$ odprta v $M$. Dokazujemo, da je $O_A$ odprta v $A$. Vemo
+    \begin{equation*}
+    O = \bigcup_{x \in O} K_M(x, r_x)
+    \end{equation*}
+    Torej velja
+    \begin{equation*}
+    O_A = \left( \bigcup_{x \in O} K_M(x, r_x) \right) \cap A = \bigcup_{x \in O} \left( K_M(x, r_x) \cap A \right) = \bigcup_{x \in O \cap A} K_A(x, r_x)
+    \end{equation*}
+    Unija odprtih v $A$ je odrpta, torej je $O_A$ odprta.
+\end{itemize}
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Za mno"zico $Z_A \subset A$ velja, da je $Z_A$ zaprta natnko tedaj, kadar je $Z_A = Z \cap A$ za neko zaprto mno"zico $Z$ v $M$.
+
+\textsc{Dokaz:} S prehodom na komplemente in uporabo prej"snjega izreka.
+
+\textsc{Izrek:} Naj bo $(M, d)$ metri"cni prostor in $A \subset M$. Mno"zica $K \subset A$ je kompaktna v $(A, d_{|A \times A})$ natanko tedja, kadar je $K$ kompaktna v $M$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+    \item[($\Rightarrow$)] Denimo, da je $K$ kompaktna v $A$. Dokazujemo, da je $K$ kompatkna v $M$. Izberemo poljubno odprto pokritje $(O_\gamma)_{\gamma \in \Gamma}$ za $K$ v $M$. Potem je
+    \begin{equation*}
+    \{ O_\gamma \cap A \}_{\gamma \in \Gamma}
+    \end{equation*}
+    odprto pokritje $K$ v $A$, ker
+    \begin{equation*}
+    K \subset \bigcup_{\gamma \in \Gamma} O_\gamma \Rightarrow K \cap A = K \subset \bigcup_{\gamma \in \Gamma} \underbrace{\left( O_\gamma \cap A \right)}_\text{odprte v $A$}
+    \end{equation*}
+    Ker je $K$ v $A$ kompaktna, obstaja kon"cno podpokritje
+    \begin{equation*}
+    K \subset (O_{\gamma_1} \cap A) \cup \cdots \cup (O_{\gamma_k} \cap A)
+    \end{equation*}
+    Sledi
+    \begin{equation*}
+    K \subset O_{\gamma_1} \cup \cdots \cup O_{\gamma_k}
+    \end{equation*}
+    Torej je $K$ kompaktna v $M$.
+    
+    \item[($\Leftarrow$)] Denimo, da je $K$ kompaktna v $M$. Dokazujemo, da je $K$ kompaktna v $A$. Izberemo poljubno odprto pokritje $(O_\gamma^A)_{\gamma \in \Gamma}$ v $A$ od $K$. Po izreku vemo, da za vsak $\gamma \in \Gamma$ obstaja $O_\gamma$, ki je odprta v $M$, da velja
+    \begin{equation*}
+    O_\gamma^A = O_\gamma \cap A
+    \end{equation*}
+    Torej je $K \subset \bigcup_{\gamma \in \Gamma} O_\gamma$. Ker je $K$ kompaktna v $M$, obstaja kon"cno podpokritje
+    \begin{equation*}
+    K \subset O_{\gamma_1} \cup \cdots \cup O_{\gamma_k}
+    \end{equation*}
+    Sledi
+    \begin{equation*}
+    K \cap A = K \subset (O_{\gamma_1} \cap A) \cup \cdots \cup (O_{\gamma_k} \cap A) = \bigcup_{i=1}^k O_{\gamma_i}^A
+    \end{equation*}
+    Torej je $K$ kompaktna v $M$.
+\end{itemize}
+\hfill $\square$
+
+\subsection{Preslikave med metri"cnimi prostori}
+Naj bosta $(M, d)$ in $(M', d')$ metri"cna prostora in naj bo $D \subset M$ neprazna podmno"zica. Ukvarjali se bomo s preslikavami $f: D \to M'$.
+
+\deff Oznake kot zgoraj. Naj bo $x_0 \in D$. Pravimo, da je preslikava $f$ \emph{zvezna v to"cki} $x_0$, "ce velja
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x \in D: d(x, x_0) < \delta \Rightarrow d'(f(x), f(x_0)) < \varepsilon
+\end{equation*}
+\textbf{Opombe:}
+\begin{itemize}
+    \item $f: D \to M'$ je zvezna v to"cki $x_0 \in D \iff$ za vsako okolico $V$ to"cke $f(x_0)$ obstaja okolica $U$ to"cke $x_0$ v $M$, da je $f(U \cap D) \subset V$.
+    \begin{itemize}
+        \item[($\Leftarrow$)] Naj bo $V = K'(f(x_0), \varepsilon)$. Po predpostavki obstaja okolica $U$ to"cke $x_0: f(U \cap D) \subset V$. Po definiciji okolice $\exists \delta > 0: K(x_0, \delta) \subset U$. Torej "ce je $x \in D$ in $x \in K(x_0, \delta)$, potem je $f(x) \in K'(f(x_0), \varepsilon)$.
+        
+        \item[($\Rightarrow$)] Izberemo poljubno okolico $V$ to"cke $f(x_0)$. Po definiciji okolice
+        \begin{equation*}
+        \exists \varepsilon > 0: K'(f(x_0), \varepsilon) \subset V
+        \end{equation*}
+        Po definiciji zveznosti v to"cki $x_0$
+        \begin{equation*}
+        \exists \delta > 0: f(\underbrace{K(x_0, \delta)}_U \cap D) \subset K'(f(x_0), \varepsilon)
+        \end{equation*}
+    \end{itemize}
+    \hfill $\square$
+    
+    \item $f: D \to M'$ je zvezna v to"cki $x_0 \in D \iff$ za vsako okolico $V$ to"cke $f(x_0)$ v $M'$ obstaja okolica $U$ od $x_0$ v $D$ , da velja $f(U) \subset V$.
+\end{itemize}
+%
+\textsc{Izrek:} Preslikava $f: D \to M'$ je zvezna v to"cki $x_0 \in D$ natanko takrat, kadar za vsako zaporedje $\{ x_n \}$ v $D$, ki konvergira proti $x_0$, zaporedje $\{ f(x_n) \}$ konvergira proti $f(x_0)$.
+
+\textsc{Dokaz:} Kot pri realnih funkcijah.
+
+\deff Naj bo $A \subset D$. Pravimo, da je preslikava $f: D \to M'$ \emph{zvezna na $A$}, "ce je $f$ zvezna v vsaki to"cki iz $A$. Pravimo, da je $f$ \emph{zvezna preslikava}, "ce je zvezna na $D$.
+
+\textsc{Izrek:} Preslikava $f: D \to M'$ je zvezna natanko tedaj, kadar je za vsako odprto mno"zico $O'$ v $M'$ praslika $f^{-1} (O')$ odprta.
+
+\textsc{Dokaz:}
+\begin{itemize}
+    \item[($\Rightarrow$)] Denimo, da je $f: D \to M'$ zvezna. Izberemo poljubno odprto mno"zico $O' \in M'$. Ozna"cimo $O = f^{-1}(O')$. Dokazujemo, da je $O$ odprta.
+    \begin{itemize}
+        \item $O = \varnothing$ je odprta.
+        \item $O \neq \varnothing$. Izberemo poljubno to"cko $x_0 \in O$ in dokazujemo, da je notranja to"cka od $O$. Vemo, da je $f(x_0) \in O'$ in ker je $O'$ odprta, je $o'$ okolica $f(x_0)$. Ker je $f$ zvezna v to"cki $x_0$, velja
+        \begin{equation*}
+        \exists \delta > 0: f(\underbrace{K(x_0, \delta) \cap D}_{\subset O}) \subset O'
+        \end{equation*}
+        Torej je $x_0$ notranja to"cka od $O$.
+    \end{itemize}
+
+    \item[($\Leftarrow$)] Izberemo poljuben $x_0 \in D$ in dokazujemo, da je \dashuline{$f$ zvezna v $x_0$}. 
+    
+    Izberemo poljubno okolico $V$ to"cke $f(x_0)$ v $M'$. Obstaja $K'(f(x_0), \varepsilon) \subset V$. Po predpostavki je 
+    \begin{equation*}
+    f^{-1}(\underbrace{K'(f(x_0), \varepsilon)}_{\ni x_0})
+    \end{equation*}
+    odprta. Ker je $x_0$ element odprte mno"zice, je notranjost te mno"zice, velja
+    \begin{equation*}
+    \exists \delta > 0: K(x_0, \delta) \subset f^{-1}(K'(f(x_0), \varepsilon))
+    \end{equation*}
+    Torej velja
+    \begin{equation*}
+    f(K(x_0, \delta)) \subset K'(f(x_0), \varepsilon)
+    \end{equation*}
+    \hfill $\square$
+\end{itemize}
+%
+\textsc{Izrek:} Naj bosta $(M, d)$ in $(M', d')$ metri"cna prostora in naj bo $D \subset M$. Preslikava $f: D \to M'$ je zvezna natanko tedaj, kadar je za vsako zaprto mno"zico $Z' \subset M'$ njena praslika $f^{-1}(Z')$ zaprta v $M$.
+
+\textsc{Dokaz:} S prehodom na komplemente in uporabo prej"snjega izreka.
+
+\textbf{Opomba:} "Ce je $f: D \to M'$ zvezna ni nujno res, da bi bila slika odprte mno"zice odprta. Primer: $f: \RR \to \RR$ z obi"cajno metriko definiramo s predpisom $f(x) = 0$ za vsak $x \in \RR$.
+
+\textsc{Izrek:} Naj bodo $(M, d), (M', d'), (M'', d'')$ metri"cni prostori in $D \subset M$ ter preslikavi $f: D \to M'$, $g: M' \to M''$. "Ce sta $f$ in $g$ zvezni, potem je $g \circ f: D \to M''$ zvezna.
+
+\textsc{Dokaz:} "Ce je $Z'' \subset M''$ zaprta, potem je zaradi zveznosti $g$, $g^{-1}(Z'')$ zaprta v $M'$. Zaradi zveznosti $f$, je $f^{-1}(g^{-1}(Z''))$ v $M$ zaprta. Po prej"snjem izreku je $g \circ f$ zvezna.
+
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $K \subset M$ kompaktna podmno"zica v metri"cnem prostoru $(M, d)$ in $f: K \to M'$ zvezna preslikava. Potem je $f(K)$ kompaktna.
+
+\textsc{Dokaz:} Denimo, da je $K$ kompaktna in $f: K \to M'$ zvezna. Dokazujemo \dashuline{$f(K)$ je kompaktna}.
+
+Izberemo poljubno odprto pokritje 
+\begin{equation*}
+\{ O'_\gamma \}_{\gamma \in \Gamma}: f(K) \subset \bigcup_{\gamma \in \Gamma} O'_\gamma
+\end{equation*}
+$f^{-1}(O'_\gamma)$ je odprta v $M$, ker je $f$ zvezna. Velja
+\begin{equation*}
+K \subset \bigcup_{\gamma \in \Gamma} \underbrace{f^{-1}(O'_\gamma)}_\text{odprta}
+\end{equation*}
+Ker je $K$ kompaktna, obstaja kon"cno podpokritje
+\begin{align*}
+K &\subset f^{-1}(O'_{\gamma_1}) \cup \cdots \cup f^{-1}(O'_{\gamma_k}) \\
+f(K) &\subset O'_{\gamma_1} \cup \cdots \cup O'_{\gamma_k}
+\end{align*}
+Torej je $f(K)$ kompaktna.
+
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $K \subset M$ kompaktna podmno"zica v metri"cnem prostoru $(M, d)$ in $f: K \to \RR$ zvezna funkcija\footnote{Pod besedo funkcija se razume obi"cajna metrika na $\RR$.}. Tedaj je $f$ omejena in dose"ze minimum in maksimum.
+
+\textsc{Skica dokaza:} $f(K) \subset \RR$ je kopaktna (prej"snji izrek), zato je zaprta in omejena. Sledi, da je $f$  omejena. ker je $f$ omejena, potem $\inf f$ in $\sup f$ obstajata in sta robni to"cki. Ker je $f(K)$ zaprta, sta $\inf f$ in $\sup f$ dose"zena.
+
+\deff Naj bosta $(M, d)$ in $(M', d')$ metri"cna prostora in $D \subset M$ ter $C \subset D$. Pravimo, da je preslikava $f: D \to M'$ \emph{enakomerno zvezna na $C$}, "ce velja
+\begin{equation*}
+\forall \varepsilon > 0 \exists \delta > 0 \forall x, x' \in C: d(x, x') < \delta \Rightarrow d'(f(x), f(x')) < \varepsilon
+\end{equation*}
+\textbf{Opomba:} "Ce je $f$ enakomerno zvezna na $C$, je $f$ zvezna na $C$, obratno v splo"snem ni res.
+
+\textsc{Izrek:} Naj bo $K$ kompaktna podmno"zica v metri"cnem prostoru $(M, d)$ in $f: K \to M'$ zvezna preslikava. Potem je $f$ enakomerno zvezna na $K$.
+
+\textsc{Dokaz:} Izberemo poljuben $\varepsilon > 0$. Za vsak $x \in K$ obstaja $\delta_x > 0$, da za vsak $x' \in K, d(x, x') < \delta_x$ velja $d'(f(x), f(x')) < \frac{\varepsilon}{2}$.
+
+Dru"zina $\{ K(x, \frac{1}{2} \delta_x) \}_{x \in K}$ je odprto pokritje kompaktne mno"zice $K$, zato obstaja kon"cno podpokritje
+\begin{equation*}
+K \subset K(x_1, \delta_{x_1} / 2) \cup \cdots \cup K(x_k, \delta_{x_k} / 2)
+\end{equation*}
+Naj bo
+\begin{equation*}
+\delta := \min \left\{ \dfrac{\delta_{x_1}}{2}, \ldots, \dfrac{\delta_{x_k}}{2} \right\}
+\end{equation*}
+Izberemo poljubena $x, x': d(x, x') < \delta$. Obstaja $j: x' \in K(x_j, \delta_{x_j} / 2)$.
+\begin{equation*}
+d(x, x_j) \leq \underbrace{d(x, x')}_{< \delta \leq \delta_{x_j} / 2} + \underbrace{d(x', x_j)}_{< \delta_{x_j} / 2} < \delta_{x_j}
+\end{equation*}
+Ker $d(x', x_j) < \frac{\delta_{x_j}}{2}$ zaradi zveznosti velja
+\begin{equation*}
+d'(f(x'), f(x_j)) < \dfrac{\varepsilon}{2}
+\end{equation*}
+Ker $d(x, x_j) < \frac{\delta_{x_j}}{2}$ zaradi zveznosti velja
+\begin{equation*}
+d'(f(x), f(x_j) < \dfrac{\varepsilon}{2}
+\end{equation*}
+Torej velja
+\begin{equation*}
+d'(f(x), f(x')) \leq d'(f(x), f(x_j)) + d'(f(x_j), f(x') < \varepsilon
+\end{equation*}
+\hfill $\square$
+
+\subsection{Banachovo skr"citveno na"celo}
+\deff Naj bo $(M, d)$ metri"cni prostor. Preslikava $f: M \to M$ je \emph{skr"citev}, "ce obstaja $q \in \RR, q < 1$, da velja
+\begin{equation*}
+d(f(x), f(y)) \leq q d(x, y) \quad \forall x, y \in M
+\end{equation*}
+\textbf{Opombe:}
+\begin{itemize}
+    \item $q \geq 0$
+    \item Vsaka skr"citev je enakomerno zvezna na $M$.
+\end{itemize}
+
+\textsc{Izrek} (Banachovo skr"citveno na"celo): Naj bo $(M, d)$ poln metri"cni prostor in $f: M \to M$ skr"citev. Potem obstaja natanko ena \emph{negibna to"cka} preslikave $f$, t.j.
+\begin{equation*}
+a \in M: f(a) = a
+\end{equation*}
+Za poljubno to"cko $x \in M$ zaporedje $x, f(x), f(f(x)), \ldots$ konvergira proti $a$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+    \item \textbf{enoli"cnost stacionarne to"cke}
+    
+    Recimo, da sta $a, b \in M$ in da je $f(a) = a$, ter $f(b) = b$. Ker je $f$ skr"citev, obstaja $q \in [0, 1)$, da je
+    \begin{equation*}
+    d(f(x), f(y)) \leq q d(x, y) \quad \forall x,y \in M
+    \end{equation*}
+    Torej 
+    \begin{gather*}
+    d(f(a), f(b)) \leq q d(a, b) \\
+    d(a, b) \leq q d(a, b) \\
+    \Rightarrow d(a, b) = 0 \Rightarrow a = b
+    \end{gather*}
+    
+    \item \textbf{obstoj}
+    
+    Naj bo $x \in M$:
+    \begin{equation*}
+    \underbrace{f(x)}_{x_1}, \underbrace{f(f(x))}_{x_2}, \ldots
+    \end{equation*}
+    Definiramo
+    \begin{equation*}
+    x_m = \underbrace{f(f( \cdots f}_{m \times f}(x) \cdots ))
+    \end{equation*}
+    Dokazujemo, da je $\{ x_m \}$ Cauchyjevo. Brez "skode za splo"snost lahko predpostavimo $n > m$: in velja
+    \begin{multline*}
+    d(x_n, x_m) \leq d(x_n, x_{n-1}) + d(x_{n-1}, x_{n-2}) + \cdots + d(x_{m+2}, x_{m+1}) + d(x_{m+1}, x_m) \leq \\
+    \leq d(x_m, x_{m+1}) (1 + q + q^2 + \cdots) = \dfrac{1}{1-q} d(x_m, x_{m+1})
+    \end{multline*}
+    Za vse $m$ velja
+    \begin{equation*}
+    d(x_m, x_{m+1}) \leq q d(x_{m-1}, x_m) \leq q^2 d(x_{m-2}, x_{m-1}) \leq \cdots \leq q^m d(x_1, x_0)
+    \end{equation*}
+    Torej za $n > m$ velja
+    \begin{equation*}
+    d(x_n, x_m) \leq \dfrac{q^m}{1 - q} d(x_1, x_0)
+    \end{equation*}
+    Ker $q^m \stackrel{m \to \infty}{\longrightarrow} 0$, je $\{ x_n \}$ Cauchyjevo. Ker je $M$ poln, je zaporedje $\{ x_m \}$ konvergentno in njegovo limito ozna"cimo z $a$.
+    
+    Doka"zimo, da je $a$ negibna, torej $f(a) = a$.
+    \begin{equation*}
+    f(a) = f(\lim_{n \to \infty} x_n) = \lim_{n \to \infty} f(x_n) = \lim_{n \to \infty} x_{n+1} = a
+    \end{equation*}
+\end{itemize}
+\hfill $\square$
+
+\textbf{Opomba:} $d(x_n, x_m) \leq \frac{q^m}{1-q} d(x_1, x_0)$. "Ce po"sljemo $n \to \infty$ dobimo
+\begin{equation*}
+d(a, x_m) \leq \dfrac{q^m}{1-q} d(x_1, x_0)
+\end{equation*}
+Tu smo uporabili, da je funkcija $x \mapsto d(x, x_0)$ zvezna. Dokaz je bil za DN.

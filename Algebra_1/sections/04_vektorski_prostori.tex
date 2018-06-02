@@ -188,11 +188,11 @@ Analogno naredimo za ve"c sumandov:
 	V_i \leq V \forall i \\
 	V_1 + \ldots + V_k = \{x_1 + \ldots + x_k: x_i \in V_i \forall i\}
 \end{gather*}
-\textsc{Definicija:} $V_1 + \ldots + V_k$ je \emph{prema} ali \emph{direktna}, kadar za vsak $x \in V_1 + \ldots + V_k$ obstajajo in so z $x$ enoi"cno dolo"ceni taki vektorji $x_i \in V_i (i = 1, \ldots, k)$, da je $x = x_1 + \ldots + x_k$. Ozani"cimo:
+\textsc{Definicija:} $V_1 + \ldots + V_k$ je \emph{prema} ali \emph{direktna}, kadar za vsak $x \in V_1 + \ldots + V_k$ obstajajo in so z $x$ enoli"cno dolo"ceni taki vektorji $x_i \in V_i (i = 1, \ldots, k)$, da je $x = x_1 + \ldots + x_k$. Ozani"cimo:
 \begin{equation*}
 V_1 \oplus \ldots \oplus V_k
 \end{equation*}
-\textsc{Trditev:} Vsota $V_1 + V_2$ vektorskih podprostorov $V_1$ in $V_2$ je direktna natanko takrat, kadar je $V_1 \cup V_2 = \{0\}$.
+\textsc{Trditev:} Vsota $V_1 + V_2$ vektorskih podprostorov $V_1$ in $V_2$ je direktna natanko takrat, kadar je $V_1 \cap V_2 = \{0\}$.
 
 \textsc{Dokaz:}
 \begin{itemize}
@@ -2769,3 +2769,658 @@ Definicijo je smiselno raz"siriti na vse funkcije in velja
 \begin{equation*}
 f(A) := Pf(J(A)) P^{-1}
 \end{equation*}
+
+\textsc{Izrek o preslikavi spektra:} Naj bo $A \in \CC^{n \times n}$ in $\spec A = \{ \lambda_1, \ldots, \lambda_k \}$. Potem velja
+\begin{equation*}
+\spec f(A) = \{ f(\lambda_1), \ldots, f(\lambda_k) \} = f(\spec A)
+\end{equation*}
+
+Naj bo
+\begin{equation*}
+\mathcal{F}(A) = \{ f: D_f \to \CC, \text{ $D_f$ odprta okolica $\spec A$, $f$ analiti"cna} \}
+\end{equation*}
+Torej $f \in \mathcal{F}(A) \Rightarrow \exists f(A)$. Velja, da  je $(\mathcal{F}(A), +, \cdot)$ za $+, \cdot$ po to"ckah in mno"zenje s skalarji po to"ckah algebra. Definirajmo preslikavo
+\begin{align*}
+F: & \mathcal{F}(A) \to \CC^{n \times n} \\
+& f \mapsto f(A)
+\end{align*}
+Velja, da je $F$ homomorfizem med algebrama $\mathcal{F}(A)$ in $\CC^{n \times n}$.
+\begin{enumerate}
+    \item $(f + g)(A) = f(A) + g(A)$
+    \item $(f \cdot g)(A) = f(A) \cdot g(A)$
+    \item $(\alpha f)(A) = \alpha f(A), \quad \alpha \in \CC$
+    \item $1_\CC (A) = I$
+    \item $id_\CC(A) = A$
+\end{enumerate}
+\textsc{Primer:} Na $\sin^2 \lambda + \cos^2 \lambda = 1$ uporabimo $F$ in dobimo
+\begin{equation*}
+\sin^2 A + \cos^2 A = I
+\end{equation*}
+
+Naj bo $f(\lambda) = \frac{1}{\lambda}$ analiti"cna na $\CC \setminus \{ 0 \}$ (punktirana ravnina) in naj bo $A \in \CC^{n \times n}$, ter $0 \notin \spec A (\iff \exists A^{-1})$. Potem velja
+\begin{equation*}
+\exists f(A) = A^{-1}
+\end{equation*}
+Vemo da velja
+\begin{equation*}
+f(\lambda) \cdot id_\CC (\lambda) = \dfrac{1}{\lambda} \lambda = 1 \quad \forall \lambda \in \CC \setminus \{ 0 \}
+\end{equation*}
+Uporabimo $F$ in dobimo
+\begin{equation*}
+f(A) \cdot A = I \Rightarrow f(A) = A^{-1}
+\end{equation*}
+
+\subsection{Vektorski prostori s skalarnih produktom}
+V realnem ali kompleksnem prostoru. Ozna"cimo $\FF$ obseg kompleksnih ali realnih "stevil.
+
+\textsc{Definicija:} \emph{Skalarni produkt} na $V$ je preslikava
+\begin{align*}
+V \times V &\to \FF \\
+(x, y) &\mapsto \langle x, y \rangle
+\end{align*}
+ki ustreza pogojem
+\begin{enumerate}[(i)]
+    \item $\langle x + y, z \rangle = \langle x, z \rangle + \langle y, z \rangle$ \hfill $\forall x, y, z \in V$
+    \item $\langle \alpha x, y \rangle = \alpha \langle x, y \rangle$ \hfill $\forall \alpha \in \FF, \quad \forall x, y \in V$
+    \item $\langle x, y \rangle = \overline{\langle y, x \rangle}$ \hfill $\forall x, y \in V$
+    \item $\langle x, x \rangle > 0$ \hfill $\forall x \in V \setminus \{ 0 \}$
+\end{enumerate}
+\textsc{Primeri}
+\begin{enumerate}
+    \item Obi"cajni skalarni produkt v $\RR^n$.
+    \item Standardni skalarni produkt v $\FF^n$:
+    \begin{gather*}
+    \begin{aligned}
+    x = \begin{bmatrix}
+    x_1 \\ \vdots \\ x_n
+    \end{bmatrix} \in \FF^n
+    &&
+    y = \begin{bmatrix}
+    y_1 \\ \vdots \\ y_n
+    \end{bmatrix} \in \FF^n
+    \end{aligned} \\
+    \langle x, y \rangle = \sum_{j = 1}^n x_j \overline{y_j}
+    \end{gather*}
+    
+    \item $V = C[a, b] \quad a, b \in \RR, a < b$
+    \begin{equation*}
+    f \in V: f: [a, b] \to \RR \text{ je zvezna}
+    \end{equation*}
+    $V$ realen vektorski prostor. $f, g \in V$
+    \begin{equation*}
+    \langle f, g \rangle = \int_a^b f(t), g(t) dt
+    \end{equation*}
+    je standardni skalarni produkt na $V$.
+\end{enumerate}
+%
+V v.p.\,s s.p.\, veljata lastnosti
+\begin{enumerate}[(i*)]
+    \item $\langle x, y + z \rangle = \langle x, y \rangle + \langle x, z \rangle$ \hfill $\forall x, y, z \in V$
+    \item $\langle x, \alpha y \rangle = \overline{\alpha} \langle x, y \rangle$ \hfill $\forall \alpha \in \FF \quad \forall x, y \in V$
+\end{enumerate}
+Dokaz (i*):
+\begin{equation*}
+\langle x, y + z \rangle = \overline{\langle y + z, x \rangle} = \overline{\langle y, x \rangle} + \overline{\langle z, x \rangle} = \langle x, y \rangle + \langle x, z \rangle
+\end{equation*}
+Dokaz (ii*):
+\begin{equation*}
+\langle x, \alpha y \rangle = \overline{\langle \alpha y, x \rangle} = \overline{\alpha \langle y, x \rangle} = \overline{\alpha} \langle x, y \rangle
+\end{equation*}
+\textsc{Primer:}
+\begin{multline*}
+\langle \alpha x + \beta y, \gamma u + \delta v \rangle = \\
+= \langle\alpha x, \gamma u \rangle + \langle \alpha x, \delta v \rangle + \langle \beta y, \gamma u \rangle + \langle \beta y, \delta v \rangle = \\
+= \alpha \overline{\gamma} \langle x, u \rangle + \alpha \overline{\delta} \langle x, v \rangle + \beta \overline{\gamma} \langle y, u \rangle + \beta \overline{\delta} \langle y, v \rangle
+\end{multline*}
+
+\textsc{Definicija:} Naj bo $V$ vektorski prostor s skalarnim produktom in $x \in V$. \emph{Norma} dolo"cena s skalarnim produktom je
+\begin{equation*}
+\| x \| := \sqrt{\langle x, x \rangle}
+\end{equation*}
+in velja 
+\begin{equation*}
+d(x, y) = \| x - y \|
+\end{equation*}
+kjer je $d$ metrika na $V$.
+
+\textsc{Lastnosti:}
+\begin{enumerate}[(1)]
+    \item $\| x \| > 0$ \hfill $\forall x \in V \setminus \{ 0 \}$
+    \item $\| \alpha x \| = |\alpha| \| x \|$ \hfill $\forall \alpha \in \FF$
+    \item $\| x + y \| \leq \|x \| + \| y \|$ \hfill $\forall x, y \in V$
+\end{enumerate}
+Dokaz (2):
+\begin{equation*}
+\| \alpha x \|^2 = \langle \alpha x , \alpha x \rangle  = \alpha \overline{\alpha} \langle x, x \rangle = |\alpha|^2 \| x \|^2
+\end{equation*}
+
+\subsubsection{Koti:}
+Naj bosta $x, y \in V \setminus \{ 0 \}$. "Zeleli bi si, da bi veljalo podobno kot v $\RR^3$, torej
+\begin{equation*}
+\cos \varphi = \dfrac{\langle x, y \rangle}{\| x \| \| y \|}
+\end{equation*}
+Denimo, da je $\FF = \RR$. Ali velja
+\begin{align*}
+\left| \dfrac{\langle x, y \rangle}{\| x \| \| y \|} \right| &\leq 1 \\
+|\langle x, y \rangle| &\leq \| x \| \| y \|
+\end{align*}
+
+\textsc{Izrek} (Caucy, Bunjakovski, Schwarz): V vektorskem prostoru s skalarnim produktom velja neenakost
+\begin{equation*}
+|\langle x, y \rangle| \leq \| x \| \| y \|
+\end{equation*}
+pri "cemer velja ena"caj natanko tedaj, kadar sta $x$ in $y$ linearno odvisna.
+
+\textsc{Dokaz:} Vemo, da velja
+\begin{multline*}
+0 \leq \langle \alpha x + \beta y, \alpha x + \beta y \rangle = \\
+= \alpha \overline{\alpha} \langle x, x \rangle + \alpha \overline{\beta} \langle x, y \rangle + \beta \overline{\alpha} \langle y, x \rangle + \beta \overline{\beta} \langle y, y \rangle
+\end{multline*}
+Za
+\begin{align*}
+\alpha &= \langle y, y \rangle \geq 0 \\
+\beta &= - \langle x, y \rangle
+\end{align*}
+v zgornji ena"cba enaka
+\begin{multline*}
+\langle y, y \rangle \langle y, y \rangle \langle x, x \rangle - \langle x, y \rangle \langle y, y \rangle \langle y, x \rangle = \\
+= \underbrace{ \langle y, y \rangle}_{\| y \| \geq 0} ( \| x \|^2 \| y \|^2 - |\langle x, y \rangle|^2) \geq 0
+\end{multline*}
+Torej mora biti $y =0$ ali pa
+\begin{equation*}
+| \langle x, y \rangle| \leq \| x \| \| y \|
+\end{equation*}
+"Ce je $y = 0$, potem $\langle x, y \rangle = \langle x, 0 \rangle = 0$ in $\|x \| \|y \| = \| x \| 0 = 0$.
+
+Ena"caj velja $\iff$ ($y = 0$ ali $\alpha x + \beta y = 0$ za $\alpha = \langle y, y \rangle$ in $\beta = -\langle x, y \rangle$) $\iff$ ($y = 0$ ali $x = \frac{\langle x, y \rangle}{\langle y, y \rangle} y$) $\iff$ $x, y$ sta linearno odvisna.
+
+Naj bo $x = \alpha y$. Potem velja
+\begin{equation*}
+|\langle x, y \rangle| = |\langle \alpha y, y \rangle| = |\alpha \langle y, y \rangle| = |\alpha| \| y \|^2
+\end{equation*}
+in
+\begin{equation*}
+\| x \| \| y \| = \| \alpha y \| \| y \| = |\alpha| \| y \| \| y \| = | \alpha | \| y \|^2
+\end{equation*}
+
+\textsc{Dokaz} trikotni"ske neenakosti \dashuline{$\| x + y \| \leq \| x \| \| y \|$}
+\begin{multline*}
+\| x + y \|^2 = \langle x + y, x + y \rangle = \\
+= \langle x, x \rangle + \langle x, y \rangle + \langle y, x \rangle + \langle y, y \rangle = \\
+= \| x \| ^2 + \langle x, y \rangle + \overline{\langle x, y \rangle} + \| y \| ^2  = \\
+= \| x \|^2 + 2 \Re \langle x, y \rangle + \| y \|^2 \leq \\
+\leq \| x \|^2 + 2|\langle x, y \rangle| + \| y \|^2 \leq \\
+\leq \| x \|^2 + 2 \|x\| \|y\| + \| y \|^2 = (\| x \| + \| y \|)^2
+\end{multline*}
+\hfill $\square$
+
+\textsc{Definicija:} Naj bo $V$ vektorski prostor s skalarnim produktom in $x, y \in V$.Pravimo, da sta $x$ in $y$ \emph{pravokotna} oziroma \emph{ortogonalna} natanko takrat, kadar velja
+\begin{equation*}
+\langle x, y \rangle = 0
+\end{equation*}
+in ozna"cimo $x \perp y$.
+
+\textsc{Lastnosti:}
+\begin{itemize}
+    \item $x \perp 0$ \hfill $\forall x \in V$
+    \item $x \perp y \iff y \perp x$
+    \item $x \perp x \iff x = 0$
+\end{itemize}
+
+\textsc{Trditev:} "Ce so vektorji $x_1, \ldots, x_k$ paroma parvokotni in razli"cni od 0, potem so linearno neodvisni.
+
+\textsc{Dokaz:}
+\begin{equation*}
+\alpha_1 x_1 + \cdots + \alpha_k x_k = 0
+\end{equation*}
+Skalarno pomno"zimo z $x_j$, $j \in \{ 1, \ldots, k\}$.
+\begin{gather*}
+\langle \alpha_1 x_1 + \cdots + \alpha_k x_k, x_j \rangle = \langle 0, x_j \rangle = 0 \\
+\alpha_1 \langle x_1, x_j \rangle + \cdots = \alpha_k \langle x_k, x_j \rangle = \alpha_j \langle x_j x_j \rangle
+\end{gather*}
+Velja
+\begin{align*}
+\langle x_1, x_j \rangle &= 0 \\
+\langle x_2, x_j \rangle &= 0 \\
+\vdots & \\
+\langle x_j, x_j \rangle &> 0 \\
+\vdots & \\
+\langle x_k, x_j \rangle &= 0
+\end{align*}
+Sledi
+\begin{equation*}
+\alpha_j \underbrace{\langle x_j, x_j \rangle}_{\neq 0} = 0 \Rightarrow \alpha_j = 0
+\end{equation*}
+Torej so $x_1, \ldots, x_k$ linearno neodvisni.
+
+\textsc{Definicija:} Naj bo $V$ vektorski prostor s skalarnim produktom in $M \subseteq V$. Pravimo, da je $M$ \emph{ortogonalna}, kadar velja sklep
+\begin{equation*}
+\forall x, y \in M: x \neq y \Rightarrow x \perp y
+\end{equation*}
+
+"Ce je $M$ ortogonalan in $0 \notin M$, potem je $M$ linearno neodvisna.
+
+\textsc{Definicija:} Pravimo, da je $M$ \emph{ortonormirana}, kadar je ortogonalna in za vsak $x \in M$ velja
+\begin{equation*}
+\| x \| = 1
+\end{equation*}
+
+Naj bo $\{ v_1, \ldots, v_n \}$ ONB v.p.\,$V$ s s.p. Za $x \in V$ velja
+\begin{equation*}
+x = \alpha_1 v_1 + \cdots + \alpha_n v_n
+\end{equation*}
+Koeficient $\alpha_j$ izra"cnamo na slede"c na"cin
+\begin{multline*}
+\langle x, v_j \rangle = \langle \alpha_1 v_1 + \cdots + \alpha_n v_n, v_j \rangle = \\
+= \alpha_1 \langle v_1, v_j \rangle + \cdots + \alpha_n \langle v_n, v_j \rangle = \alpha_j
+\end{multline*}
+Ker je $ \{ v_1, \ldots, v_n \}$ ortonormirana baza, velja
+\begin{equation*}
+\langle v_i, v_j \rangle = \delta_{ij}
+\end{equation*}
+Torej velja
+\begin{equation*}
+x = \sum_{j = 1}^n \langle x, v_j \rangle v_j
+\end{equation*}
+
+\textsc{Ortogonalizacija} (Gramm-Schmidt): Naj bodo $x_1, \ldots, x_m$ linearno neodvisni. "Zelimo najti $y_1, \ldots, y_m$, ki so paroma pravokotni in velja
+\begin{equation*}
+\Lin \{ x_1, \ldots, x_k \} = \Lin \{ y_1, \ldots, y_k \}
+\end{equation*}
+kjer je $k = 1, \ldots, m$.
+
+Poglejmo si indukcijsko bazo $m = 2$. Naj bosta $x_1, x_2 \in V$ in i"s"cemo $y_1, y_2$, da velja $\langle y_1, y_2 \rangle = 0$. Vemo, da bo $y_2$ oblike
+\begin{equation*}
+y_2 = x_2 + \alpha y_1
+\end{equation*}
+Ena"cbo skalarno pomno"zimo z $y_1$ in dobimo
+\begin{equation*}
+\underbrace{\langle y_2, y_1 \rangle}_{0} = \langle x_2, y_1 \rangle + \alpha \langle y_1, y_1 \rangle
+\end{equation*}
+Od tod sledi
+\begin{equation*}
+\alpha = - \dfrac{\langle x_2, y_1 \rangle}{\langle y_1, y_1 \rangle}
+\end{equation*}
+%
+Za splo"sen indukcijski korak naredimo podoben postopek:
+
+Recimo, da poznamo $y_1, \ldots, y_{k-1}$ in i"s"cemo $y_k$. Vemo, da bo $y_k$ oblike
+\begin{equation*}
+y_k = x_k + \alpha_1 y_1 + \cdots + \alpha_{k-1} x_{k-1}
+\end{equation*}
+in i"s"cemo $\alpha_1, \ldots, \alpha_{k-1}$. "Zelimo si da velja
+\begin{equation*}
+\langle y_k, y_i \rangle = 0 \qquad i = 1, \ldots, k-1
+\end{equation*}
+Zgornjo ena"cbo skalarno pomno"zimo z $y_j$ in dobimo
+\begin{equation*}
+\underbrace{\langle y_k, y_j \rangle}_{0} = \langle x_k, y_j \rangle + \alpha_j \langle y_j, y_j \rangle
+\end{equation*}
+Od tod sledi
+\begin{equation*}
+\alpha_j = - \dfrac{\langle x_k, y_j \rangle}{\langle y_j, y_j \rangle}
+\end{equation*}
+Torej velja
+\begin{equation}
+\label{eq:gm-ortogonalizacija}
+y_k = x_k - \sum_{j = 1}^{k-1} \dfrac{\langle x_k, y_j \rangle}{\langle y_j, y_j \rangle} y_j
+\end{equation}
+
+Z indukcijo doka"zemo, da zaporedje $y_1, \ldots, y_m$ ustreza pogojem za GS-ortogonalizacijo. Za $m=2$ "ze vemo, dokazaujemo "se indukcijski korak $k-1 \rightsquigarrow k$. Po indukcijski predpostavki $y_1, \ldots, y_{k-1}$ ustrezajo pogojem in trdimo, da $y_1, \ldots, y_{k-1}, y_k$ ustrezajo pogojem:
+\begin{enumerate}
+    \item $\langle y_i, y_j \rangle = 0 \quad \forall i \neq j$
+    
+    Velja zaradi indukcijske predpostavke in izbire koeficientov $\alpha_1, \ldots, \alpha_{k-1}$.
+    
+    \item $\Lin \{ x_1, \ldots, x_j \} = \Lin \{y_1, \ldots, y_j \}$ za $j = 1, \ldots, k$
+    
+    Za $j = 1, \ldots, k-1$ vemo po indukcijski predpostavki. Dokazati moramo
+    \begin{equation*}
+    \Lin \{ x_1, \ldots, x_k \} = \Lin \{ y_1, \ldots, y_k \}
+    \end{equation*}
+    Ker vemo, da so $y_1, \ldots, y_{k-1}$ linearna kombinacija $x_1, \ldots, x_{k-1}$ in obratno, je dovolj dokazati, da je $x_k$ linearna kombinacija vektorjev $y_1, \ldots, y_k$ in da je $y_k$ linearna kombinacija vektorjev $x_1, \ldots, x_k$.
+    \begin{itemize}
+        \item \dashuline{$x_k$ linearna kombinacija $y_1, \ldots, y_k$}
+        
+        Neposredno iz formule \refeq{eq:gm-ortogonalizacija}.
+        
+        \item \dashuline{$y_k$ linearna kombinacija $x_1, \ldots, x_k$}
+        
+        Ker je $\Lin \{ y_1, \ldots, y_{k-1} = \Lin \{ x_1, \ldots, x_{k-1} \}$, so $y_1, \ldots, y_{k-1}$ linearna kombinacija vektorjev $x_1, \ldots, x_{k-1}$. Nato uporabimo formulo \refeq{eq:gm-ortogonalizacija}.
+    \end{itemize}
+\end{enumerate}
+
+\textbf{Dodatek:}
+\begin{equation*}
+z_j = \dfrac{y_j}{\| y_j \|} \hfill j = 1, \ldots, m
+\end{equation*}
+Vektorji $z_1, \ldots, z_m$ ustrezajo pogoejm GS-ortogonalizacije, poleg tega pa velja $\| z_j \| = 1$ za vsak $j$. Torej velja
+\begin{equation*}
+\langle z_i, z_j \rangle = \delta_{ij}
+\end{equation*}
+in
+\begin{equation*}
+\Lin \{ x_1, \ldots, x_j \} = \Lin \{ z_1, \ldots, z_j \} \hfill j = 1, \ldots, m
+\end{equation*}
+Za $i \neq j$ velja
+\begin{equation*}
+\langle z_i, z_j \rangle = \left\langle \dfrac{y_i}{\| y_i \|}, \dfrac{y_j}{\| y_j \|} \right\rangle = \dfrac{1}{\| y_i \|} \dfrac{1}{\| y_j \|} \overbrace{\langle y_i, y_j \rangle}^0 = 0
+\end{equation*}
+Za $i = j$ velja
+\begin{equation*}
+\langle z_i, z_i \rangle = \left\langle \dfrac{y_i}{\| y_i \|}, \dfrac{y_i}{\| y_i \|} \right\rangle = \dfrac{1}{\| y_i \|^2} \langle y_i, y_i \rangle = \dfrac{1}{\| y_i \|^2} \| y_i \|^2 = 1
+\end{equation*}
+
+\textsc{Posledica:} Vsak netrivialen kon"cno razse"zen vektorski prostor s skalarnim produktom ima ortonormirano bazo.
+
+\textsc{Dokaz:} Naj bodo $\{ x_1, \ldots, x_n \}$ baza $V$. Z GS-ortogonalizacijo in normiranje dobimo $\{ z_1, \ldots, z_n \}$, za katere vemo, da so ortonormirana baza prostora $V$.
+
+Naj bodo $\{ v_1, \ldots, v_n \}$ ONB $V$ in $x, y \in V$. Zapi"semo lahko
+\begin{align*}
+x &= \sum_{i = 1}^n \alpha_i v_i \\
+y &= \sum_{j = 1}^n \beta_j v_j
+\end{align*}
+kjer je $\alpha_i = \langle x, v_i \rangle$ in $\beta_j = \langle y, v_j \rangle$. Potem velja
+\begin{multline*}
+\langle x, y \rangle = \left\langle \sum_{i = 1}^n \alpha_i v_i, \sum_{j =1}^n \beta_j v_j \right\rangle = \sum_{i, j = 1}^n \langle \alpha_i v_i, \beta_j v_j \rangle = \\
+= \sum_{i, j = 1}^n \alpha_i \overline{\beta_j} \langle v_i, v_j \rangle = \sum_{i=1}^n \alpha_i \overline{\beta_i}
+\end{multline*}
+Pravimo, da je
+\begin{equation*}
+\langle x, y \rangle = \sum_{i=1}^n \alpha_i \overline{\beta_i}
+\end{equation*}
+\emph{standardni} skalarni produkt vektorskega prostora $\FF^n$.
+
+Naj bo $\Phi: V \to \FF^n$ preslikava s predpisom:
+\begin{equation*}
+\Phi(x) = \Phi \left( \sum_{i=1}^n \langle x, v_i \rangle v_i \right) = \begin{bmatrix}
+\langle x, v_1 \rangle \\
+\langle x, v_2 \rangle \\
+\vdots \\
+\langle x, v_n \rangle
+\end{bmatrix} = \alpha
+\end{equation*}
+$\Phi$ je izomorfizem vektorskih prostorov in velja
+\begin{equation*}
+\langle x, y \rangle = \underbrace{\langle \Phi(x), \Phi(y) \rangle}_\text{standrardni s.p.\, v $\FF^n$}
+\end{equation*}
+
+\textsc{Definicija:} Naj bo $V$ vektorski prostor s skalarnim produktom in $M, N \subseteq V$ podmno"zici. Velja
+\begin{equation*}
+M \perp N \iff x \perp y \qquad \forall x \in M \quad \forall y \in N
+\end{equation*}
+Pravimo, da je
+\begin{equation*}
+M^\perp = \{ x \in V: x \perp y \quad \forall y \in M \}
+\end{equation*}
+\emph{ortogonalni komplement} mno"zice $M$ v $V$.
+
+\textsc{Definicija:} Naj bosta $V_1, V_2$ podprostora v vektorskem prostoru $V$. Pravimo, da je vsota $V_1 + V_2$ \emph{ortogonalna}, kadar je $V_1 \perp V_2$.
+
+\textsc{Trditev:} Ortogonalna vsota je direktna. Ozna"cimo z $V_1 \boxplus V_2$.
+
+\textsc{Dokaz:} Vaja za DN.
+
+\textsc{Trditev:} "Ce je $V = V_1 \boxplus V_2$, potem je $V_2 = V_1^\perp$ in $V_1 = V_2^\perp$.
+
+\textsc{Dokaz:} Prav tako vaja za DN.
+
+\textsc{Izrek:} Naj bo $U$ vektorski podprostor vektroskega prostora $V$. Potem je
+\begin{equation*}
+V = U \boxplus U^\perp
+\end{equation*}
+\textsc{Dokaz:} "Ce je $U = \{ 0 \}$ velja $U^\perp = V$. Naj bo $U \neq \{ 0 \}$ in $\{ v_1, \ldots, v_k \}$ \ONB $U$. Za $x \in V$ lahko definiramo
+\begin{equation*}
+\sum_{j=1}^k \langle x, v_j \rangle v_j \quad \in U
+\end{equation*}
+Velja 
+\begin{equation*}
+x = y + z \qquad z = x - y
+\end{equation*}
+Trdimo \dashuline{$z \in U^\perp$}
+\begin{multline*}
+\langle z, v_i \rangle = \langle x - y, v_i \rangle = \langle x, v_i \rangle - \left\langle \sum_{j=1}^k \langle x, v_j \rangle v_j, v_i \right\rangle = \\
+= \langle x, v_i \rangle - \sum_{j=1}^k \langle x, v_j \rangle \underbrace{\langle v_j, v_i \rangle}_{\delta_{ij}} = \langle x, v_i \rangle - \langle x, v_i \rangle = 0
+\end{multline*}
+Torej je $\langle z, v_i \rangle = 0$ za $i = 1, \ldots, k$.
+
+Za $u \in U$ velja
+\begin{equation*}
+u = \sum_{j=1}^k \alpha_j v_j
+\end{equation*}
+Torej je
+\begin{equation*}
+\langle z, u \rangle = \langle z, \sum_{j=1}^k \alpha_j, v_j \rangle = \sum_{j=1}^k \overline{\alpha_j} \underbrace{\langle z, v_j \rangle}_0 = 0
+\end{equation*}
+Po definiciji sledi, da je $z \in U^\perp$.
+
+\textbf{Opomba:} $y$ je pravokotna projekcija $x$ na $U$.
+
+Naj bo $\{ v_1, \ldots, v_k \}$ \ONB vektorskega podprostora $U$, v v.p.\,s s.p.\,$V$. Naj bo endomorfizem $P \in \LL(V), P: V \to V$ definiran s predpisom
+\begin{gather*}
+x \mapsto y \\
+P x = \sum_{i=1}^k \langle x, v_i \rangle v_i
+\end{gather*}
+Pravimo, da je $P$ \emph{pravokotni projektor} na $U$ in velja
+\begin{align*}
+\im P &= U \\
+\ker P &= U^\perp \\
+P^2 &= P
+\end{align*}
+Za $x \in  V$ velja
+\begin{equation*}
+x = \underbrace{y}_{Px} + z
+\end{equation*}
+Od tod sledi 
+\begin{equation*}
+z = x - Px = \underbrace{(\I - P)}_Q x
+\end{equation*}
+$Q = \I - P$ je pravokotna projekcija na $U^\perp$.
+
+\subsubsection{Linearne preslikave na vektorskih prostorih s skalarnim produktom}
+\textsc{Definicija:} Naj bo $\varphi: V \to \FF$ linearna. Pravimo, da je $\varphi$ \emph{linearen funkcional}.
+
+Naj bo $y \in V$. $\varphi_y: V \to \FF$ definiramo s predpisom
+\begin{equation*}
+f_y(x) = \langle x, y \rangle
+\end{equation*}
+$\varphi_y$ je linearen funkcional, ker je skalaren produkt linearen v prvem faktorju.
+
+\textsc{Trditev:} Naj bosta $y, z \in V$ in $y \neq z$. Potem velja, da je $\varphi_y \neq \varphi_z$.
+
+\textsc{Dokaz:} Dokazujemo v obratno smer, t.j.: $\varphi_y = \varphi_z \Rightarrow y = z$. "Ce je $\varphi_y = \varphi_z$, potem sta preslikavi enaki za vsak $x \in V$ in velja
+\begin{align*}
+\varphi_y (x) &= \varphi_z(x) \\
+\langle x, y \rangle &= \langle x, z \rangle
+\end{align*}
+Torej velja
+\begin{equation*}
+\langle x, y - z \rangle = 0 \qquad \forall x \in V
+\end{equation*}
+Ker velja za vsak $x$, si lhako izberemo $x = y - z$. Potem velja
+\begin{equation*}
+\langle y - z, y - z \rangle = 0
+\end{equation*}
+torej je $y = z$.
+
+\hfill $\square$
+
+Ozna"cimo:
+\begin{equation*}
+\LL (V, \FF) \equiv V^*
+\end{equation*}
+in pravimo, da je $V^*$ \emph{dualni prostor} vektorskega prostora $V$.
+
+\textsc{Izrek} (Reisz-ov izrek o reprezentaciji linearnih funkcionalov): Za vsak $\varphi \in V^*$ obstaja natanko en $y \in V$, tako da je $\varphi = \varphi_y$, t.j.:
+\begin{equation*}
+\varphi(x) = \langle x, y \rangle \qquad \forall x \in V
+\end{equation*}
+\textsc{Dokaz:} Naj bo $\{ v_1, \ldots, v_n \}$ \ONB $V$ in $\varphi \in V^*$. I"s"cemo $y$, da bo $\varphi = \varphi_y$. Za $x \in V$ velja
+\begin{equation*}
+x = \sum_{j=1}^n \langle x, v_j \rangle v_j
+\end{equation*}
+Od tod sledi:
+\begin{multline*}
+\varphi(x) = \varphi \left( \sum_{j=1}^n \langle x, v_j \rangle v_j \right) = \sum_{j=1}^n \langle x, v_j \rangle \varphi(v_j) = \sum_{j=1}^n \langle x, \overline{\varphi(v_j)}v_j \rangle = \\
+= \left\langle x, \underbrace{\sum_{j=1}^n \overline{\varphi(v_j)} v_j}_y \right\rangle
+\end{multline*}
+$\Rightarrow \varphi = \varphi_y$. Enoli"cnost smo "ze dokazali v zgornjem dokazu.
+
+\hfill $\square$
+
+Definirajmo preslikavo
+\begin{align*}
+F: V &\to V^* \\
+y &\mapsto \varphi_y
+\end{align*}
+$F$ je aditivna in \emph{antihomogena}\footnote{Nekateri pravijo tudi \emph{po"sevno linearna}.} $(F(\alpha y) = \overline{\alpha}F(y))$ in je bijekcija po Reisz-ovem izreku o reprezentaciji.
+
+\subsubsection{Hermitsko adjungirani endomorfizmi}
+Naj bo $\A \in \L(V)$ in $y \in V$. Preslikava $\varphi$ naj bo definirana s predpisom
+\begin{align*}
+\varphi: V &\to \FF \\
+x &\mapsto \langle \A x, y \rangle
+\end{align*}
+$\varphi \in V^*$, ker je $A$ linearna. Po Reiszovem izreku obstaja $z \in V$, da velja $\varphi = \varphi_z$, t.j.:
+\begin{equation*}
+\langle \A x, y \rangle = \langle x, z \rangle \qquad \forall x \in V
+\end{equation*}
+kjer je $z$ odvisen od $y$. Torej lahko zapi"semo
+\begin{align*}
+z = f(y) && f: V \to V
+\end{align*}
+Torej velja
+\begin{equation*}
+\langle \A x, y \rangle = \langle x, f(y) \rangle \qquad \forall x \in V
+\end{equation*}
+
+\textsc{Trditev:} $f$ je linearna preslikava, t.j.: $f \in \LL(V)$.
+
+\textsc{Dokaz:}
+\begin{itemize}
+    \item \textbf{aditivnost}
+    \begin{multline*}
+    \langle x, f(\overbrace{y_1 + y_2}^u) \rangle = \langle \A x, y_1 + y_2 \rangle = \langle \A x, y_1 \rangle + \langle \A x, y_2 \rangle = \\
+    = \langle x, f(y_1) \rangle + \langle x, f(y_2) \rangle = \langle x,\underbrace{ f(y_1) + f(y_2)}_v \rangle
+    \end{multline*}
+    Torej velja
+    \begin{gather*}
+    \langle x, u \rangle = \langle x, v \rangle \qquad \forall x \in V \\
+    \langle x, u - v \rangle = 0 \qquad \forall x \in V
+    \end{gather*}
+    Ker velja za vsak $x$ si lahko izberemo $x = u - v$. Od tod sledi
+    \begin{equation*}
+    \langle u - v, u - v \rangle = 0 \Rightarrow u = v
+    \end{equation*}
+    Torej velja
+    \begin{equation*}
+    f(y_1 + y_2) = f(y_1) + f(y_2)
+    \end{equation*}
+    
+    \item \textbf{homogenost}
+    \begin{equation*}
+    \langle x, \underbrace{f(\alpha y)}_u \rangle = \langle \A x, \alpha y \rangle = \overline{\alpha} \langle \A x, y \rangle = \overline{\alpha} \langle x, f(y) \rangle = \langle x,\underbrace{ \alpha f(y)}_v \rangle
+    \end{equation*}
+    Po enakem premisleku kot prej velja $u = v$, torej
+    \begin{equation*}
+    f(\alpha y) = \alpha f(y)
+    \end{equation*}
+\end{itemize}
+\hfill $\square$
+
+Ozna"cimo
+\begin{equation*}
+f \equiv \A^*
+\end{equation*}
+in pravimo, da je $\A^*$ \emph{hermitsko adjungirani endomorfizem}. Torej velja
+\begin{equation*}
+\langle \A x, y \rangle = \langle x, \A^* y \rangle \qquad \forall x, y \in V
+\end{equation*}
+
+\textsc{Trditev:}
+Naj bo $\A \in \LL(V)$ in $\A^* \in \LL(V)$ in naj velja:
+\begin{equation*}
+\langle \A x, y \rangle = \langle x, \A^* y \rangle \qquad \forall x,y \in V
+\end{equation*}
+Potem velja
+\begin{equation*}
+\langle x, \A y \rangle = \langle \A^* x, y \rangle
+\end{equation*}
+\textsc{Dokaz:}
+\begin{equation*}
+\langle x, \A y \rangle = \overline{\langle \A y, x \rangle} = \overline{\langle y, \A^* x \rangle} = \langle \A^* x, y \rangle
+\end{equation*}
+\hfill $\square$
+
+\textsc{Trditev:} Za preslikavo, ki slika $\LL(V) \to \LL(V)$ s predpisom $\A \mapsto \A^*$ velja
+\begin{enumerate}
+    \item $\A^{**} = \A$ \emph{involucija}
+    \item $(\A + \B)^* = \A^* + \B^*$
+    \item $(\alpha \A)^* = \overline{\alpha} \A^*$
+    \item $(\A \B)^* = \B^* \A^*$ \emph{antimultiplikativnost}
+    \item $0^* = 0, \quad \I^* = \I$
+\end{enumerate}
+\textsc{Lema:} Naj bosta $\C_1, \C_2 \in \LL(V)$ "Ce je
+\begin{equation*}
+\langle \C_1 x, y \rangle = \langle \C_2 x, y \rangle \qquad \forall x, y \in V
+\end{equation*}
+potem je $\C_1 = \C_2$. Analogno velja za $\C_1, \C_2$ pri drugem faktorju.
+
+\textsc{Dokaz:} $x$ fiksiramo in ozna"cimo
+\begin{align*}
+\C_1 x = u && \C_2 x = v
+\end{align*}
+Po predpostavki velja
+\begin{equation*}
+\langle u, y \rangle = \langle v, y \rangle \qquad \forall y \in V
+\end{equation*}
+Po istem premisleku ko smo ga "ze naredili velja $u = v$. Torej velja
+\begin{equation*}
+\C_1 x = \C_2 x \qquad \forall x \in V
+\end{equation*}
+Zato je $\C_1 = \C_2$.
+
+\textsc{Dokaz lastnosti (4):}
+\begin{multline*}
+\langle (\A \B)^* x, y \rangle = \langle x, (\A \B) y \rangle = \langle x, \A (\B y) \rangle = \\
+= \langle \A^* x, y \rangle = \langle \B^* \A^* x, y \rangle \qquad \forall x, y \in V
+\end{multline*}
+Po lemi torej velja
+\begin{equation*}
+(\A \B)^* = \B^* \A^*
+\end{equation*}
+\hfill $\square$
+
+\subsubsection{Prehod na matrike}
+Naj bo $\A \in \LL(V)$ in $\V = \{ v_1, \ldots, v_n \}$ \ONB $V$. Preslikavi $\A$ priredimo matriko $A = [a_{ij}]_{i, j = 1, \ldots, n}$ v bazi $\V$. Velja
+\begin{equation*}
+\A v_j = a_{1j} v_1 + a_{2j} v_2 + \cdots a_{nj} v_n
+\end{equation*}
+Ena"cbo skalarno pomno"zimo z $v_i$ in dobimo
+\begin{equation*}
+\langle \A v_j, v_i \rangle = a_{1j} \underbrace{\langle v_1, v_i \rangle}_{\delta_{1i}} + a_{2j} \underbrace{\langle v_2, v_i \rangle}_{\delta_{2i}} + \cdots + a_{nj} \underbrace{\langle v_n, v_i \rangle}_{\delta_{nj}} = a_{ij}
+\end{equation*}
+Torej velja
+\begin{equation*}
+a_{ij} = \langle A v_j, v_i \rangle \qquad \forall i, j
+\end{equation*}
+Zanima nas kak"sno matriko $B = [b_{ij}]_{i, j = 1, \ldots, n}$ v bazi $\V$ ima preslikava $\A^*$.
+\begin{equation*}
+b_{ij} = \langle \A^* v_j, v_i \rangle = \langle v_j, \A v_i \rangle = \overline{\langle \A v_i, v_j \rangle} = \overline{a_{ji}}
+\end{equation*}
+Torej velja
+\begin{equation*}
+b_{ij} = \overline{a_{ji}}
+\end{equation*}
+Matrika $B$ je torej oblike
+\begin{equation*}
+B = \overline{A}^T = A^H
+\end{equation*}
+in pravimo, da je $A^H$ \emph{hermitsko transponirana}.
+
+S tem smo dokazali naslednjo trditev
+
+\textsc{Trditev:} "Ce endomorfizmu $\A\in \L(V)$ v \ONB $\V$ pripada matrika $A$, potem endomorfizmu $\A^*$ v tej bazi pripada $A^H$.
+
+
+

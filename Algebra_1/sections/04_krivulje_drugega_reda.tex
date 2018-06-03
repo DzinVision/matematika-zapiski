@@ -1,0 +1,61 @@
+Splo"sna ena"cba krivulje
+\begin{equation*}
+\overbrace{ax^2 + 2bxy + cy^2}^\text{kvadratni del} + \overbrace{dx + ey}^\text{linearni del} + f = 0
+\end{equation*}
+kjer so $a, b, c, d, e, f \in \RR$ in velja $|a| + |b| + |c| > 0$
+\begin{equation*}
+K = \{ (x, y) \in \RR^2: \text{$x, y$ ustrezata zgornjem pogoju} \}
+\end{equation*}
+Naredimo substitocijo za kvadratni del in zamenjamo $(x, y)$ z $(x_1, x_2)$, t.j.:
+\begin{equation*}
+ax^2 + 2bxy + cy^2 = ax_1^2 + 2bx_1x_2 + cx_2^2 = K(x_1, x_2) = K(x, y)
+\end{equation*}
+Za $K_A(x, y)$ je
+\begin{equation*}
+A = \begin{bmatrix}
+a & b \\
+b & c
+\end{bmatrix}
+\end{equation*}
+$A$ je simetri"cna, zato obstaja $Q$ ortogonalna, da velja
+\begin{equation*}
+Q^T AQ = \begin{bmatrix}
+\lambda_1 & 0 \\
+0 & \lambda_2
+\end{bmatrix}
+\end{equation*}
+in $\{Q^{(1)}, Q^{(2)} \}$ sta ONB za $\RR^2$ sestavljena iz lastnih vektorjev matrike $A$.
+
+Lastne vrednosti so ni"cle karakteristi"cnega polinoma, ki je
+\begin{equation*}
+\Delta_A(\lambda) = \begin{vmatrix}
+a - \lambda & b \\
+b & c - \lambda
+\end{vmatrix} = (a-\lambda)(c-\lambda) - b^2
+\end{equation*}
+Naredimo substitucijo
+\begin{equation*}
+(x_1, x_2) = Q(y_1, y_2)
+\end{equation*}
+in velja
+\begin{equation*}
+K_A(x_1, x_2) = K_{Q^TAQ}(y_1, y_2) = \lambda_1 y_1^2 + \lambda_2 y_2^2
+\end{equation*}
+"Ce $(y_1, y_2)$ zamenjamo z $(u, v)$ dobimo
+\begin{equation*}
+(x, y) = Q(u, v) \qquad (u, v) = Q^T (x, y)
+\end{equation*}
+Od tod sledi
+\begin{align*}
+x &= *u + *v \\
+y &= *u + *v
+\end{align*}
+
+Kvadratni del ena"cbe smo torej spremenili v
+\begin{equation*}
+ax^2 + 2bxy + cy^2 = \lambda_1 u^2 + \lambda_2 v^2
+\end{equation*}
+Torej lahko celotno ena"cbo spremenimo v
+\begin{equation*}
+ax^2 + 2bxy + cy^2 + dx + ey + f = 0 \to \lambda_1 u^2 + \lambda_2 v^2 + pu + qv + r = 0
+\end{equation*}

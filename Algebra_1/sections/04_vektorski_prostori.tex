@@ -3422,5 +3422,674 @@ S tem smo dokazali naslednjo trditev
 
 \textsc{Trditev:} "Ce endomorfizmu $\A\in \L(V)$ v \ONB $\V$ pripada matrika $A$, potem endomorfizmu $\A^*$ v tej bazi pripada $A^H$.
 
+\subsubsection{Normalni endomorfizmi}
+\textsc{Definicija:} Naj bo $\A \in \LL(V)$. Pravimo, da je $\A$ \emph{normalen}, kadar velja
+\begin{equation*}
+\A \A^* = \A^* \A
+\end{equation*}
+
+\textsc{Lastnosti:}
+\begin{enumerate}
+    \item $\A$ je normalen $\iff \langle \A x, \A y \rangle = \langle \A^* x, \A^* y, \rangle$ \hfill $\forall x, y \in V$
+    \item $\| \A x \| = \| \A^* x \|$ \hfill $\forall x \in V$
+    \item $\ker \A = \ker \A^*$
+    \item $\A - \lambda \I$ je normalen \hfill $\forall \lambda \in \FF$
+    \item $\A x = \lambda x \iff \A^* x = \overline{\lambda}x$
+    \item $(\A x = \lambda x \land \A y = \mu y \land \lambda \neq \mu ) \Rightarrow \langle x, y \rangle = 0$
+\end{enumerate}
+\textsc{Dokaz:}
+\begin{enumerate}
+    \item
+    \begin{itemize}
+        \item[($\Rightarrow$)]
+        \begin{equation*}
+        \langle \A x, \A y \rangle = \langle \A^* \A x, y \rangle = \langle \A \A^* x, y \rangle = \langle \A^* x, \A^* y \rangle
+        \end{equation*}
+        
+        \item[($\Leftarrow$)]
+        \begin{equation*}
+        \langle \A \A^* x, y \rangle = \langle \A^* x, \A^* y \rangle = \langle \A x, \A y \rangle = \langle \A^* \A x, y \rangle \qquad \forall x, y \in V
+        \end{equation*}
+        Po Lemi velja $\A \A^* = \A^* \A$.
+    \end{itemize}
+
+    \item 
+    \begin{equation*}
+    \| \A x \|^2 = \langle \A x, \A x \rangle = \langle \A^* x, \A^* x \rangle = \| \A^* x \|^2
+    \end{equation*}
+    
+    \item
+    \begin{multline*}
+    x \in \ker \A \iff \A x = 0 \iff \| \A x \| = 0 \iff \| \A^* x \| = 0 \iff \\
+    \iff \A^* x = 0 \iff x \in \ker \A^*
+    \end{multline*}
+    
+    \item
+    \begin{multline*}
+    (\A - \lambda \I) (\A - \lambda \I)^* = (\A - \lambda \I) (\A^* - \overline{\lambda} \I ) = \\
+    = \A \A^* - \overline{\lambda} \A - \lambda \A^* + \lambda \overline{\lambda} \I = \A^* \A - \lambda \A^* - \overline{\lambda} \A - \overline{\lambda}\lambda \I = \\
+    = (\A^* - \overline{\lambda} \I) (\A - \lambda \I) = (\A - \lambda \I)^* (\A - \lambda \I)
+    \end{multline*}
+    
+    \item
+    \begin{multline*}
+    \A x = \lambda x \iff (\A - \lambda \I ) = 0 \iff x \in \ker (\A - \lambda \I) \stackrel{(3), (4)}{\iff} \\
+    \iff x \in \ker(A - \lambda \I)^* \iff x \in \ker (\A* - \overline{\lambda} \I)  \iff \\
+    \iff (\A^* - \overline{\lambda} \I)x = 0 \iff \A^* x = \overline{\lambda} x
+    \end{multline*}
+    
+    \item
+    \begin{gather*}
+    \lambda \langle x, y \rangle = \langle \lambda x, y \rangle = \langle \A x, y \rangle = \langle x, \A^* y \rangle \stackrel{(5)}{=} \langle x, \overline{\mu} y \rangle = \mu \langle x, y \rangle \\
+    \Rightarrow \underbrace{(\lambda - \mu)}_{\neq 0} \langle x, y \rangle = 0 \Rightarrow \langle x, y \rangle = 0
+    \end{gather*}
+\end{enumerate}
+\hfill $\square$
+
+\textbf{Opombe:}
+\begin{itemize}
+    \item Lastnost (5) nam pove $\spec \A^* = \overline{\spec \A}$
+    \item Iz (6) sledi
+    \begin{equation*}
+    \ker (\A - \lambda \I) \perp \ker(\A - \mu I) \qquad \forall \lambda \neq \mu
+    \end{equation*}
+\end{itemize}
+
+\textsc{Trditev:} Naj bo $\dim V = n$, normalen endomorfizem $\A\in \LL(V)$ pa naj ima $n$ razli"cnih lastnih vrednosti. Potem se da $\A$ diagonalizirati v ONB.
+
+\textsc{Dokaz:} Naj bodo $\lambda_1, \ldots, \lambda_n \in \FF$ razli"cne lastne vrednosti. Velja
+\begin{equation*}
+\A x_j = \lambda_j x_j \qquad j = 1, \ldots, n
+\end{equation*}
+za $x_j \neq 0$. Iz lastnosti normalnih endomorfizmov (6) sledi $x_i \perp x_j \forall i \neq j$. Torej lahko definiramo vektorje
+\begin{equation*}
+y_j = \dfrac{x_j}{\| x_j \|} \qquad \forall j \Rightarrow \A y_j = \lambda_j y_j
+\end{equation*}
+ki tvorijo ONB $\{ y_1, \ldots, y_n \}$.
+
+\hfill $\square$
+
+\textsc{Trditev:} Naj bo $\A \in \LL(V)$ in $U$ v.\,podprostor v.p.\,$V$. Potem velja
+\begin{equation*}
+\A U \subseteq U  \Rightarrow \A^* (U^\perp) \subseteq U^\perp
+\end{equation*}
+\textsc{Dokaz:} Naj bo $x \in U$ in $y \in U^\perp$. Velja
+\begin{equation*}
+\langle \A^* x, y \rangle = \langle \underbrace{x}_{\in U^\perp}, \underbrace{\A y}_{\in U} \rangle = 0
+\end{equation*}
+Od tod sledi
+\begin{gather*}
+\Rightarrow \A^* x \in U^\perp \qquad \forall x \in U^\perp \\
+\Rightarrow \A^* (U^\perp) \subseteq U^\perp
+\end{gather*}
+\hfill $\square$
+
+\textsc{Izrek:} Naj bo $\A$ normalen endomorfizem na $V$. "Ce je $V$ kompleksen ($\FF = \CC$) ali "ce je $V$ realen in ima karakteristi"cni polinom vse ni"cle realne, se da $\A$ diagonalizirati v ONB.
+
+\textsc{Dokaz:} Z uporabo indukcije glede na $\dim V = n$. Za $n = 1$ je o"citno. Dokazujemo indukcijski korak $n -1 \rightsquigarrow n > 1$.
+
+Poi"s"cemo lastni vektor (obstaja zaradi predpostavk) z normo 1.
+\begin{equation*}
+\A v_1 = \lambda v_1 , \quad \| v_1 \| = 1
+\end{equation*}
+$\FF v_1$ je invarianten za $\A$.
+
+Ker je $\A^* v_1 = \overline{\lambda} v_1$ je $\FF v_1$ invarianten za $\A^*$.
+
+Po prej"snji trditvi je $(\FF v_1)^\perp$ invarianten za $\A^*$ in za $\A^{**} = \A$.
+\begin{equation*}
+W = (\FF v_1)^\perp = \{ v_1 \}^\perp \equiv v_1^\perp
+\end{equation*}
+$W$ je invarianten za $\A$ in $\A^*$. Torej sta zo"zitvi $\A$ in $\A^*$ na $W$ endomorfizma $W$ in $\A_W \in \LL(W)$ je normalen endomorfizem na $W$, t.j.:
+\begin{equation*}
+(\A^*)_W = (\A_W)^*
+\end{equation*}
+Velja
+\begin{equation*}
+\underbrace{(\FF v_1)}_{\dim = 1} \oplus \underbrace{(\FF v_1)^\perp}_{\dim = n-1} = \underbrace{V}_{\dim = n}
+\end{equation*}
+Po indukcijski predpostavki se da $\A_W$ diagonalizirati v ONB vektorskega prostora $W$, t.j.:
+\begin{equation*}
+\{ v_2, \ldots, v_n \}
+\end{equation*}
+tvorijo ONB $W$ in
+\begin{equation*}
+\A_W v_j = \lambda_j v_j \qquad j = 2, \ldots, n
+\end{equation*}
+Od tod sledi
+\begin{equation*}
+\A v_j = \A_W v_j = \lambda_j v_j \qquad j = 2, \ldots, n
+\end{equation*}
+Od prej vemo $\A v_1 = \lambda_1 v_1$. Ker je $W = (\FF v_1)^\perp$ velja
+\begin{equation*}
+v_j \in W = (\FF v_1)^\perp \Rightarrow \langle v_j, v_1 \rangle = 0 \qquad \forall j \geq 2
+\end{equation*}
+Torej je
+\begin{equation*}
+\{ v_1, \ldots, v_n \}
+\end{equation*}
+ONB iz lastnih vektorjev endomorfizma $\A$.
+
+\subsubsection{Matri"cna verzija}
+\textsc{Definicija:} Naj bo $A \in \FF^{n \times n} = \LL(\FF^n)$ in $\FF^n$ s standardnim skalarnim produktom. Pravimo, da je $A$ \emph{normalna}, kadar je kot endomorfizem $A$ normalen, t.j.: $A$ je normalna natanko takrat, kadar velja
+\begin{equation*}
+A A^H = A^H A
+\end{equation*}
+\textbf{Opomba:} Vsi izreki za normalne endomorfizme dr"zijo za normalne matrike.
+
+"Ce je $A$ normalen in $A \in \CC^{n \times n}$, se da $A$ diagonalizirati v ONB $\CC^n$. "Ce je $A \in \RR^{n\times n}$ in ima $\Delta_A(\lambda)$ vse ni"cle realne, se da $A$ diagonalizirati v ONB $\RR^n$.
+
+Naj bo $A \in \CC^{n \times n}$. Potem obstaja obrnljiva matrika $P \in \CC^{n \times n}$, da velja
+\begin{equation*}
+P^{-1}AP = \diag(\lambda_1, \ldots, \lambda_n)
+\end{equation*}
+kjer so $\lambda_1, \ldots, \lambda_n$ lastne vrednosti $A$. Vemo da so stolpci matrike $P$ lastni vektorji $A$ in ker je $A$ normalna, je
+\begin{equation*}
+\left\{ P^{(1)}, \ldots, P^{(n)} \right\}
+\end{equation*}
+ortonormirana baza $\CC^n$, t.j.:
+\begin{equation*}
+\left\langle P^{(i)}, P^{(j)} \right\rangle = \delta_{ij}
+\end{equation*}
+kjer je $\langle \cdot, \cdot \rangle$ standardni skalarni produkt.
+
+Naj bosta $x, y \in \CC^n$. Potem velja
+\begin{equation*}
+\langle x, y \rangle = \sum_{j=1}^n x_j \overline{y_j} = y^H x
+\end{equation*}
+kjer sta
+\begin{align*}
+y^H = \begin{bmatrix}\overline{y_1}, & \ldots & \overline{y_n}\end{bmatrix} && x = \begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
+\end{align*}
+Torej velja
+\begin{equation*}
+\left( P^{(j)} \right)^H P^{(i)} = \delta_{ij}
+\end{equation*}
+od koder sledi
+\begin{equation*}
+P^H P = I
+\end{equation*}
+Potem velja
+\begin{equation*}
+P^H P = I \iff \left\{ P^{(1)}, \ldots, P^{(n)} \right\} \text{ je ONB $\CC^n$}
+\end{equation*}
+
+\textsc{Definicija:} Pravimo, da je $P$ \emph{unitarna matrika}, kadar velja sklep:
+\begin{equation*}
+P^H P = I \iff \left\{ P^{(1)}, \ldots, P^{(n)} \right\} \text{ je ONB $\CC^n$}
+\end{equation*}
+
+"Ce je $P$ unitarna matrika, potem velja
+\begin{equation*}
+P^H = P^{-1}
+\end{equation*}
+Torej velja
+\begin{equation*}
+P P^H = P^H P = I
+\end{equation*}
+in
+\begin{equation*}
+P^H AP = \diag (\lambda_1, \ldots, \lambda_n)
+\end{equation*}
+Pravimo, da je $P^H AP$ \emph{unitarno podobna} $A$. Druga"ce povedano: normalna kompleksna matrika je unitarno podobna diagonalni matriki.
+
+Naj bo $A \in \RR^{n \times n}$ normalna s standardnim skalarnim produktom v $\RR^n$ in naj bodo vse ni"cle $\Delta_A(\lambda)$ relane. Potem obstaja obrnljiva matrika $P \in \RR^{n \times n}$ da velja
+\begin{equation*}
+P^{-1} AP = \diag(\lambda_1, \ldots, \lambda_n)
+\end{equation*}
+kjer so $\lambda_1, \ldots, \lambda_n \in \RR$ lastne vrednosti matrike $A$. Vemo, da so stolpci matrike $P$ lastni vektorji $A$ in ker je $A$ normalna, vektorji
+\begin{equation*}
+\left\{ P^{(1)}, \ldots, P^{(n)} \right\}
+\end{equation*}
+tvorijo ONB v $\RR^n$. Po podobnem premisleku kot prej velja
+\begin{equation*}
+P^T P = I \iff \left\{ P^{(1)}, \ldots, P^{(n)} \right\} \text{ tvorijo ONB v $\RR^n$}
+\end{equation*}
+Pravimo, da je $P$ \emph{ortogonalna} matrika in velja
+\begin{equation*}
+P P^T = P^T P = I
+\end{equation*}
+in
+\begin{equation*}
+P^T = P^{-1}
+\end{equation*}
+Velja tudi
+\begin{equation*}
+P^T AP = \diag (\lambda)_1, \ldots, \lambda_n) \in \RR^{n \times n}
+\end{equation*}
+in pravimo, da je $P^TAP$ \emph{ortogonalno podobna} $A$. Druga"ce povedano: Normalna realna matrika, katere karakteristi"cni polinom ima vse ni"cle realne, je ortogonalno podobna diagonalni matriki.
+
+\subsubsection{Unitarni endomorfizmi}
+\textsc{Definicija:} Naj bo $\A \in \LL(V)$. Pravimo, da je $\A$ \emph{unitaren}, kadar velja
+\begin{equation*}
+\A \A^* = \A^* \A= \I
+\end{equation*}
+kjer je $\I = id_V$.
+
+Unitarna matrika $P \in \CC^{n \times n}$ je unitaren endomorfizem na $\CC^n$, ortogonalna matrika $Q \in \RR^{n \times n}$ je unitaren endomorfizam na $\RR^n$.
+
+\textsc{Lastnosti:}
+\begin{enumerate}
+    \item $\A$ je unitaren $\iff \langle \A x, \A y \rangle = \langle x, y \rangle$ \hfill $\forall x, y \in V$
+    
+    $\A$ ohranja skalarni produkt in pravimo, da je $\A$ \emph{avtomorfizem} v.p.\,$V$ s s.p.
+    
+    \textsc{Dokaz:}
+    \begin{itemize}
+        \item[($\Rightarrow$)]
+        \begin{equation*}
+        \langle \A x, \A y \rangle = \langle \A^* \A x, y \rangle = \langle x, y \rangle
+        \end{equation*}
+        
+        \item[($\Leftarrow$)]
+        \begin{equation*}
+        \langle \A^* \A x, y \rangle = \langle \A x, \A y \rangle = \langle x, y \rangle = \langle \I x, y \rangle \qquad \forall x, y \in V
+        \end{equation*}
+        Po Lemi velja
+        \begin{equation*}
+        \A^* \A = \I \Rightarrow \A^* = \A^{-1} \Rightarrow \A^* \A = \A \A^* = \I
+        \end{equation*}
+    \end{itemize}
+
+    \item $\A$ ohranja dol"zine, je \emph{izometrija}, t.j.:
+    \begin{equation*}
+    \| \A x \| = \| x \|
+    \end{equation*}
+    \textsc{Dokaz:}
+    \begin{equation*}
+    \| \A x \|^2 = \langle \A x, \A x \rangle = \langle x, x \rangle = \| x \|^2
+    \end{equation*}
+    
+    Velja tudi v obratno smer: $\A$ izometrija $\Rightarrow \A$ je unitarna.
+    
+    \textsc{Dokaz:}
+    \begin{equation*}
+    \| \A x \|^2 = \| x \|^2 \iff \langle \A x, \A x \rangle = \langle x, x \rangle
+    \end{equation*}
+    Po lastnosti (1), je $\A$ unitaren.
+    
+    \item $\A$ unitaren natanko takrat, kadar $\A$ ONB presika v ONB.
+    
+    \textsc{Dokaz:}
+    \begin{itemize}
+        \item[($\Rightarrow$)] Naj bo $\A$ unitaren in $\{v_1, \ldots, v_n \}$ ONB. Potem velja
+        \begin{equation*}
+        \langle \A v_i, \A v_j \rangle = \langle v_i, v_j \rangle = \delta_{ij}
+        \end{equation*}
+        Torej so vektorji v mno"zici $\{ \A v_1, \ldots, \A v_n \}$ ortonormirani (in linearno neodvisni), zato tvorijo ortonormirano bazo.
+        
+        \item[($\Leftarrow$)] Naj bo $\{ v_1, \ldots, v_n \}$ ONB in $\{ \A v_1, \ldots, \A v_n \}$ ONB. Dokazujemo, da je $\A$ unitarna.
+        
+        Naj bosta $x, y \in V$ in 
+        \begin{align*}
+        x &= \alpha_1 v_1 + \cdots + \alpha_n v_n \\
+        y &= \beta_1 v_1 + \cdots + \beta_n v_n
+        \end{align*}
+        Potem velja
+        \begin{equation*}
+        \langle x, y \rangle = \left\langle \sum_{i=1}^n \alpha_i v_i, \sum_{j=1}^n \beta_n v_n \right\rangle = \sum_{i, j = 1}^n \alpha_i \overline{\beta_j} \underbrace{\langle v_i, v_j \rangle}_{\delta_{ij}} = \sum_{i = 1}^n \alpha_i \overline{\beta_i} 
+        \end{equation*}
+        in
+        \begin{multline*}
+        \langle \A x, \A y \rangle = \left\langle \A \left( \sum_{i=1}^n \alpha_i v_i \right), \A \left( \sum_{j=1}^n \beta_j v_j \right) \right\rangle = \\
+        \left\langle \sum_{i=1}^n \alpha_i \A v_i, \sum_{j=1}^n \beta_j \A v_j \right\rangle = \sum_{i, j = 1}^n \alpha_i \overline{\beta_j} \underbrace{\langle \A v_i, \A v_j \rangle}_{\delta_{ij}} = \sum_{i=1}^n \alpha_i \overline{\beta_i}
+        \end{multline*}
+        Torej je
+        \begin{equation*}
+        \langle \A x, \A y \rangle = \langle x, y \rangle \qquad \forall x, y \in V
+        \end{equation*}
+        in po lastnosti (1) je $\A$ unitaren.
+    \end{itemize}
+    \hfill $\square$
+
+    \item $A$ unitaren in $\A x = \lambda x \Rightarrow | \lambda | = 1$, t.j.: lastne vrednosti le"zijo na enotski kro"znici v $\CC$.
+    
+    \textsc{Dokaz:} Uporabimo, da je $\A$ izometrija in dobimo
+    \begin{equation*}
+    \| x \| = \| \A x \| = \| \lambda x \| = |\lambda| \| x \|
+    \end{equation*}
+    Torej je $|\lambda| = 1$.
+\end{enumerate}
+\textsc{Primeri:} zasuki, zrcaljenja v $\RR^2, \RR^3$.
+
+Naj bo $\A \in \FF^{n \times n}$. Potem velja
+\begin{itemize}
+    \item $\FF = \CC$: $A$ unitarna natanko takrat, kadar $A$ unitaren endomorfizem $\CC^n \to \CC^n$.
+    \item $\FF= \RR$: $A$ ortogonalna natanko takrat, kadar $A$ unitaren endomorfizem $\RR^n \to \RR^n$.
+\end{itemize}
+\textsc{Opomba:} Unitarni endomorfizmi so normalni.
+
+\subsubsection{Sebi adjungirani endomorfizmi}
+\textsc{Definicija:} Naj bo $\A \in \LL(V)$. Pravimo, da je $\A$ \emph{sebi adjungiran}, kadar velja
+\begin{equation*}
+\A = \A^*
+\end{equation*}
+Za matrike:
+\begin{itemize}
+    \item $A \in \CC^{n \times n}$ in velja $A^H = A$, pravimo, da je $A$ \emph{hermitska}.
+    \item $A \in \RR^{n \times n}$ in velja $A^T = A$, pravimo, da je $A$ \emph{simetri"cna}.
+\end{itemize}
+\textbf{Opomba:} $\A \in \CC^{n \times n}, A = A^T$, potem je $A$ kompleksna simetri"cna (ni pa nunno sebi adjungirana).
+
+\textsc{Lastnosti:}
+\begin{enumerate}
+    \item $\A = \A^* \iff \langle \A x, y \rangle = \langle x, \A y \rangle$ \hfill $\forall x, y \in V$.
+    
+    \textsc{Dokaz:}
+    \begin{itemize}
+        \item[($\Rightarrow$)]
+        \begin{equation*}
+        \langle \A x, y \rangle = \langle x, \A^* y \rangle = \langle x, \A y \rangle
+        \end{equation*}
+        
+        \item[($\Leftarrow$)]
+        \begin{equation*}
+        \langle \A x, y \rangle = \langle x, \A y \rangle = \langle \A^* x, y \rangle \qquad \forall x, y \in V
+        \end{equation*}
+        Po Lemi velja $\A = \A^*$.
+    \end{itemize}
+
+    \item $(\A = \A^* \land \A x = \lambda x \land x \neq 0) \Rightarrow \lambda \in \RR$.
+    
+    \textsc{Dokaz:}
+    \begin{gather*}
+    \langle \A x, x \rangle = \langle \lambda x, x \rangle  = \lambda \langle x, x \rangle \\
+    \langle \A x, x \rangle = \langle x, \A x \rangle = \langle x, \lambda x \rangle = \overline{\lambda} \langle x, x \rangle \\
+    \Rightarrow \overline{\lambda} = \lambda \Rightarrow \lambda \in \RR
+    \end{gather*}
+    
+    \item $\A = \A^* \Rightarrow \Delta_A(\lambda)$ ima vse ni"cle realne.
+    
+    \textsc{Dokaz:}
+    \begin{itemize}
+        \item $\FF = \CC$: ni"cle $\Delta_\A$ so lastne vrednosti $\A$, zato (3) sledi iz (2).
+        \item $\FF = \RR$: Preslikavi $\A$ priredimo matriko $A$ v ONB, $A \in \RR^{n \times n}$ in velja
+        \begin{equation*}
+        A = A^T = A^H
+        \end{equation*}
+        Gledamo $\RR^{n \times n}$ kot podmno"zico $\CC^{n \times n}$, torej
+        \begin{equation*}
+        A \in \CC^{n \times n}, A \in \LL(\CC^n), A = A^H
+        \end{equation*}
+        $\Rightarrow A$ je sebi adjungiran endomorfizem $\CC^n \to \CC^n$, zato ima $\Delta_A(\lambda)$ vse ni"cle realne. Za endomorfizme vemo
+        \begin{equation*}
+        \Delta_A(\lambda) = \Delta_\A(\lambda)
+        \end{equation*}
+    \end{itemize}
+\end{enumerate}
+
+\textsc{Izrek:} Sebi adjungiran endomorfizem se da diagonalizirati v ONB. Hermitska matrika je unitarno podobna realni diagonalni matriki. Realna simetri"cna matrika je ortogonalno podobna diagonalni matriki.
+
+\textsc{Dokaz:}
+Uporabimo izrek normalnih endomorfizmov in lastnost (3). Za drugi del izreka uporabimo matri"cno verzijo izreka o diagonalizaciji normalnih endomorfizmov.
+
+\subsubsection{Pozitivno semidefinitni endomorfizmi}
+\textsc{Definicija:} Naj bo $\A \in \LL(V)$. Pravimo, da je $\A$ \emph{pozitivno semidefiniten}, kadar je $\A = \A^*$ in velja
+\begin{equation*}
+\langle \A x, x \rangle \geq 0 \qquad \forall x \in V
+\end{equation*}
+$\A$ je \emph{pozitivno definiten}, kadar je $\A = \A^*$ in velja
+\begin{equation*}
+\langle \A x, x \rangle > 0 \qquad \forall x \in V \setminus \{ 0 \}
+\end{equation*}
+
+\textsc{Lastnosti:}
+\begin{enumerate}
+    \item Naj bo $\A$ sebi adjungiran. $\A$ je pozitivno semidefiniten natanko takrat, kadar $\spec \A \subset [0, \infty)$ in pozitivno definiten natanko takrat, kadar $\spec \A \subset (0, \infty)$
+    
+    \textsc{Dokaz:}
+    \begin{itemize}
+        \item[($\Rightarrow$)] Naj bo $\lambda \in \spec \A$. Potem obstaja $x \neq 0: \A x = \lambda x$. Velja
+        \begin{equation*}
+        \underbrace{\langle \A x, x \rangle}_{\geq 0} = \langle \lambda x,x  \rangle = \lambda \underbrace{\langle x, x \rangle}_{> 0}
+        \end{equation*}
+        Sledi $\lambda \geq 0$ za pozitivno semidifiniten $\A$ in $\lambda > 0$ za pozitivno definiten $\A$.
+        
+        \item[($\Leftarrow$)] Naj bo $\A$ sebi adjungiran in $\spec \A \subset (0, \infty)$ ali $[0, \infty)$. Ker je $\A$ sebi adjungiran, se ga da diagonalizirati v ONB $\{ v_1, \ldots, v_n \}$, kjer so $v_1, \ldots, v_n$ lastni vektorji. Torej velja
+        \begin{equation*}
+        \A v_j = \lambda_j v_j \qquad \forall j
+        \end{equation*}
+        in $\lambda_j \in \spec \A$, zato je $\lambda_j > 0$ za vsak $j$ (ali $\lambda_j \geq 0)$.
+        
+        Naj bo $x \in V \setminus \{ 0 \}$. Potem lahko $x$ razvijemo po bazi
+        \begin{equation*}
+        x = \sum_{i = 1}^n \alpha_i v_i
+        \end{equation*}
+        in velja
+        \begin{multline*}
+        \langle \A x, x \rangle = \left\langle \sum_{i=1}^n \alpha_i \A v_i, \sum_{j = 1}^n \alpha_j v_j \right\rangle = \left\langle \sum_{i=1}^n \alpha_i \lambda_i v_i, \sum_{j=1}^n \alpha_j v_j \right\rangle = \\
+        = \sum_{i,j = 1}^n \alpha_i \lambda_i \overline{\alpha_j} \underbrace{\langle v_i, v_j, \rangle}_{\delta_{ij}} = \sum_{i=1}^n \alpha_i \lambda_i \overline{\alpha_i} = \sum_{i=1}^n \lambda_i |\alpha_i|^2
+        \end{multline*}
+        Velja
+        \begin{equation*}
+        \langle \A x, x \rangle = \sum_{i=1}^n \lambda_i |\alpha_i|^2 > 0 \qquad \forall x \in V
+        \end{equation*}
+        "ce $\spec \A \subset (0, \infty)$ in 
+        \begin{equation*}
+        \langle \A x, x \rangle = \sum_{i=1}^n \lambda_i |\alpha_i|^2 \geq 0 \qquad \forall x \in V
+        \end{equation*}
+        "ce $\spec \A \subset [0, \infty)$.
+    \end{itemize}
+    \hfill $\square$
+\end{enumerate}
+
+Naj bo $A \in \RR^{n \times n}$. Kdaj je $A$ pozitivno definitna?
+\begin{itemize}
+    \item $A = A^T$ je potreben pogoj ($A$ kot preslikava sebi adjungiran endomorfizem)
+    \item $\langle A x, x \rangle > 0$ \hfill $\forall x \in \RR^n \setminus \{ 0 \}$
+    
+    Naj bo $x = e_j$ (iz standardne baze). Velja
+    \begin{equation*}
+    \langle A e_j, e_j \rangle = \langle A^{(j)}, e_j \rangle = a_{jj} > 0
+    \end{equation*}
+    Potreben pogoj je torej $a_{jj} > 0$ za vsak $j$.
+    
+    \item Poglejmo si karakteristi"cni polinom
+    \begin{align*}
+    \Delta_A(\lambda) &= a_0 + a_1 \lambda + \cdots + (-1)^n \lambda^n = \\
+    &= (-1)^n (\lambda - \lambda_1) (\lambda - \lambda_2) \cdots (\lambda - \lambda_n)
+    \end{align*}
+    $A = A^T$ je pozitivno definiten natanko takrat, kadar $\lambda_j > 0$ za $j = 1, \ldots, n$ (vemo za sebi adjungirane endomorfizme).
+    \begin{multline*}
+    (\lambda - \lambda_1) (\lambda - \lambda_2) \cdots (\lambda - \lambda_n) = \\
+    \lambda^n - (\lambda_1 + \cdots + \lambda_n)\lambda^{n-1} + \left( \sum_{i < j} \lambda_i \lambda_j \right)\lambda^{n-2} - \cdots + (-1)^n \lambda_1\cdots \lambda_n
+    \end{multline*}
+    Ta polinom pomno"zimo z $(-1)^n$ in dobimo $a_0, \ldots, a_n$ izra"zene z $\lambda_1, \ldots, \lambda_n$. Ker $\lambda_1, \ldots, \lambda_n > 0$, "cleni $a_0, a_1, \ldots, a_n$ alternirajo po predznaku, t.j.:
+    \begin{equation*}
+    a_0 > 0, a_1 < 0, a_2 > 0, a_3 < 0, \ldots
+    \end{equation*}
+    To lahko zapi"semo kot
+    \begin{equation*}
+    (-1)^j a_j > 0 \qquad \forall j
+    \end{equation*}
+    Pogoj je tudi zadosten ($A = A^T$ in karakteristi"cni polinom alternira).
+    
+    \textsc{Dokaz:} Naj bo $\Delta_A(\lambda) = a_0 + a_1 \lambda + \cdots + a_n\lambda^n$ in $(-1)^j a_j > 0$. za $j = 0, \ldots, n$ in $A = A^T \in \RR^{n \times n}$.
+    
+    Vemo, da so vse ni"cle $\Delta_A(\lambda)$ realne (ker je $A$ sebi ajdungiran endomorfizem). Naj bo $\alpha \in \RR$, $\alpha \leq 0$. Potem velja
+    \begin{equation*}
+    \Delta_A(\alpha) = \underbrace{a_0}_{>0} + \underbrace{\overbrace{a_1}^{< 0} \overbrace{\alpha}^{\leq 0}}_{\leq 0} + \underbrace{\overbrace{a_2}^{>0} \overbrace{\alpha^2}^{\geq 0}}_{\leq 0} + \cdots +\underbrace{ a_n \alpha^n}_{\geq 0}
+    \end{equation*}
+    Torej je $\Delta_A(\alpha) \geq a_0 > 0$, zato $\Delta_A(\lambda)$ nime ni"cel $\alpha \leq 0$. Torej so vse ni"cle $\Delta_A(\lambda)$ ve"cje od 0, zato je $A$ pozitivno definitna.
+    
+    \item Naj bo $A \in \RR^{n \times n}$ oblike $A = [a_{ij}]_{i,j=1, \ldots, n}$. Definiramo
+    \begin{equation*}
+    A_k = [a_{ij}]_{i,j = 1, \ldots, k} \in \RR^{k \times k}, \quad k = 1, \ldots, n
+    \end{equation*}
+    in velja
+    \begin{equation*}
+    A_n = A
+    \end{equation*}
+    \dashuline{$A$ pozitivno definitna $\Rightarrow A_k$ pozitivno definitna za vsak $k$}
+    
+    Naj bo $x \in \RR^k \setminus \{ 0 \}$. Velja
+    \begin{equation*}
+    \langle A_k x, x \rangle = \langle A \hat{x}, \hat{x} \rangle > 0
+    \end{equation*}
+    kjer je
+    \begin{equation*}
+    \hat{x} = \begin{bmatrix}
+    x \\
+    0 \\
+    \vdots \\
+    0
+    \end{bmatrix}
+    \end{equation*}
+    (ni"cel je $n - k$ in $\hat{x} \neq 0$, ker $x \neq 0$).
+    
+    "Ce je $A$ pozitivno definitna, je $\det A = a_0 > 0$, torej je 
+    \begin{equation*}
+    \det A_k > 0 \qquad k = 1, \ldots, n
+    \end{equation*}
+    
+    \textsc{Izrek:} Realna simetri"cna $n \times n$ matrika $A$ je pozitivno definitna natanko takrat, kadar je $\det A_k > 0$ za $k = 1, \ldots, n$.
+\end{itemize}
+
+\subsubsection{Bilinearni in kvadratni funkcionali}
+Naj bo $B: \RR^n \times \RR^n \to \RR$ \emph{bilinearen} funkcional, ki slika s predpisom
+\begin{equation*}
+(x, y) \mapsto B(x, y)
+\end{equation*}
+Za $x = \sum_{i=1}^n x_i e_i$ in $y = \sum_{j=1}^n y_j e_j$, kjer je $\{ e_1, \ldots, e_n \}$ standardna baza $\RR^n$ velja
+\begin{multline*}
+B(x, y) = B\left( \sum_{i=1}^n x_i e_i, \sum_{j=1}^n y_j e_j \right) = \sum_{i, j = 1}^n B(x_i e_i, y_j e_j) = \\
+= \sum_{i,j=1}^n x_i y_i \underbrace{B(e_i, e_j)}_{a_{ij}} = \sum_{i, j = 1}^n a_{ij} x_i y_j
+\end{multline*}
+Za $A = [a_{ij}]_{i,j=1, \ldots, n} \in \RR^{n \times n}$ velja
+\begin{multline*}
+\langle x, A y \rangle = \left\langle \sum_i x_i e_i, A\left(\sum_j y_j e_j \right) \right\rangle = \left\langle \sum_i x_i e_i, \sum_j y_j A e_j \right\rangle = \\
+= \sum_{i,j} x_i y_j \langle e_i, A e_j \rangle = \sum_{i, j} x_i y_j \underbrace{\left\langle e_i, A^{(j)} \right\rangle}_{a_{ij}} = \sum_{i, j} x_i y_j a_{ij}
+\end{multline*}
+Sklep:
+\begin{equation*}
+B(x, y) = \langle x, Ay \rangle = \langle A^T x, y \rangle
+\end{equation*}
+
+\textsc{Definicija:} Preslikavi $K: \RR^n \to \RR$ s predpisom $K(x) = B(x, x)$, kjer je $B$ bilinearen funkcional, pravimo \emph{kvadratni funkcional}.
+
+$K$ lahko izrazimo z matriko
+\begin{equation*}
+K(x) = \langle A x, x \rangle = \sum_{i, j = 1}^n a_{ji} x_i x_j = \sum_{i = 1}^n a_{ii} x_i^2 + \sum_{i < j} (a_{ij} + a_{ji}) x_i x_j
+\end{equation*}
+V matriki $A$ lahko spreminjamo "clene $a_{ij}$ in $a_{ji}$, kjer $j \neq i$, "ce je vsota $a_{ij} + a_{ji}$ nespremenjena, ne da bi se $K(x)$ spremenil. Torej lahko brez "skode za splo"snost predpostavimo, da je $A$ simetri"cna in velja $A = A^T \Rightarrow a_{ij} = a_{ji}$. Tako lahko prej"snjo en"acbo nadaljujemo in dobimo
+\begin{equation*}
+K(x) = \sum_{i=1}^n a_{ii} x_i^2 + 2 \sum_{i < j} a_{ij} x_i x_j
+\end{equation*}
+\textbf{Opomba:} Ker je $A$ simetri"cna, je vseeno ali pi"semo $K(x) = \langle A x, x \rangle$ ali $K(x) = \langle x, A x \rangle$.
+
+\subsubsection*{Diagonalizacija}
+Naj bo $A = A^T \in \RR^{n \times n}$. Ker je $A$ sebi adjungirana, obstaja ortogonalna matrika $Q \in \RR^{n \times n}$, da velja
+\begin{equation*}
+Q^T A Q = \diag (\lambda_1, \ldots, \lambda_n)
+\end{equation*}
+Naj bo $x \in \RR^n$ in naredimo substitucijo
+\begin{equation*}
+x = Qy \Rightarrow y = Q^T x
+\end{equation*}
+Tedaj velja
+\begin{equation*}
+K_A(x) = \langle A x, x \rangle = \langle A Q y, Qy \rangle = \langle Q^T A T y, y \rangle = \langle D y, y \rangle = K_D(y) = \sum_{i=1}^n \lambda_i y_i^2
+\end{equation*}
+
+Recimo, da je $x = Py$ in $P$ obrnljiva, torej $y = P^{-1} x$. Po istem ra"cunu kot prej, dobimo
+\begin{equation*}
+K_A(x) = K_{P^T AP}(y)
+\end{equation*}
+Ker je $A$ sebi adjungirana, vemo da obstaja ortogonalna matrika $Q \in \RR^{n \times n}$, da velja
+\begin{equation*}
+D = Q^T A Q
+\end{equation*}
+kjer je $D$ diagonalna matrika. Naj bo $R$ simetri"cna metrika. Potem velja
+\begin{equation*}
+R^T D R = \underbrace{R^T Q^T}_{P^T} A \underbrace{QR}_P = P^T AP
+\end{equation*}
+Naj bo $R$ diagonalna. Potem sta $D$ in $R$ oblik
+\begin{align*}
+D = \begin{bmatrix}
+\lambda_1 && \\
+& \ddots & \\
+&& \lambda_n
+\end{bmatrix} &&
+R = \begin{bmatrix}
+r_1 && \\
+& \ddots & \\
+&& r_n
+\end{bmatrix}
+\end{align*}
+in velja
+\begin{equation*}
+R^T DR = DR^2 = \diag \left( \lambda_1 r_1^2, \ldots, \lambda_n r_n^2 \right)
+\end{equation*}
+Brez "skode za splo"snost lahko predpostavimo slede"ce
+\begin{align*}
+\lambda_1, \ldots, \lambda_p &> 0 \\
+\lambda_{p+1},  \ldots, \lambda_{p+q} &< 0 \\
+\lambda_j &= 0 \qquad j > p + q
+\end{align*}
+Tedaj si lahko izberemo take $r_i$, da velja
+\begin{gather*}
+\lambda_i r_i^2 = 1 \qquad i = 1, \ldots, p \Rightarrow r_i = \dfrac{1}{\sqrt{\lambda_i}} \\
+\lambda_i r_i^2 = -1 \qquad i = p+1, \ldots, p+1 \Rightarrow r_i = \dfrac{1}{\sqrt{-\lambda_i}} \\
+i > p + q \qquad r_i = 1
+\end{gather*}
+Torej je
+\begin{equation*}
+R =\diag \left( \underbrace{\dfrac{1}{\sqrt{\lambda_1}}, \ldots, \dfrac{1}{\sqrt{\lambda_p}}}_p, \underbrace{\dfrac{1}{\sqrt{-\lambda_{p+1}}}, \ldots, \dfrac{1}{\sqrt{-\lambda_{p+q}}}}_q, 1, \ldots, 1 \right)
+\end{equation*}
+Ker je $R$ obrnljiva, je $P = QR$ obrnljiva. Torej velja
+\begin{equation*}
+P^T AP = R^T DR = \diag (\underbrace{1, \ldots, 1}_p, \underbrace{-1, \ldots, -1}_q, 0, \ldots, 0)
+\end{equation*}
+kjer je $P = QR$.
+
+\textsc{Definicija:} $B \in \RR^{n \times n}$ je \emph{kongluentna} matriki $A \in \RR^{n \times n}$, kadar obstaja taka obrnljiva matrika $P \in \RR^{n \times n}$, da je 
+\begin{equation*}
+B = P^T AP
+\end{equation*}
+
+\textsc{Izrek} (Sylvester): Vsaka realan simetri"cna matrika je kongluentna matridki oblike
+\begin{equation*}
+\diag (\underbrace{1, \ldots, 1}_p, \underbrace{-1, \ldots, -1}_q, 0, \ldots, 0)
+\end{equation*}
+kjer je $p$ "stevilo pozitivnih lastnih vrednosti, $q$ pa "stevilo negativnih lastnih vrednosti.
+
+\textsc{Posledica:}
+\begin{equation*}
+K(x_1, \ldots, x_n) = \sum_{i, j =1}^n a_{ij} x_i x_j = y_1^2 + \cdots + y_p^2 - y_{p+1}^2 - \cdots - y_{p+q}^2
+\end{equation*}
+
+Do enakega rezultata lahko pridemo na Lagrangeev na"cin:
+\begin{equation*}
+K(x_1, \ldots, x_n) = a_{11} x^2 + 2 a_{12} x_1 x_2 + \cdots + 2 a_{1n} x_1 x_n + K_1(x_2, \ldots, x_n)
+\end{equation*}
+\begin{enumerate}
+    \item $a_{11} \neq 0$:
+    \begin{equation*}
+    = \dfrac{1}{a_{11}} (a_{11} x_1 + a_{12} x_2 + \cdots + a_{1n} x_n)^2 + K_2(x_2, \ldots, x_n)
+    \end{equation*}
+    in ta postopek nadaljujemo.
+    
+    \item $a_{ii} = 0 \forall i$: npr. $n = 2$ in
+    \begin{equation*}
+    A = \begin{bmatrix}
+    0 & \frac{1}{2} \\
+    \frac{1}{2} & 0
+    \end{bmatrix}
+    \end{equation*}
+    Potem dobimo
+    \begin{equation*}
+    K(x_1, x_2) = x_1 x_2 = \dfrac{1}{4} (x_1 + x_2)^2 - \dfrac{1}{4} (x_1 - x_2)^2 = y_1^2 - y_2^2
+    \end{equation*}
+    kjer je
+    \begin{align*}
+    y_1 = \dfrac{x_1 + x_2}{2} && y_2 = \dfrac{x_1 - x_2}{2}
+    \end{align*}
+    
+    V splo"snem obstaja $a_{ij} \neq 0$ za $i \neq j$ in na podoben na"cin kot zgoraj preoblikujemo $a_{ij} (x_i x_j)$ v $a_{ij} (y_1^2 - y_2^2)$, nato lahko nadaljujemo z metodo (1).
+\end{enumerate}
 
 
